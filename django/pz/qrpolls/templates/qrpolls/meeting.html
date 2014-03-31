@@ -1,0 +1,13 @@
+{% load qr_tags %}
+{% qr_from_text url "l" %}
+<br>
+{{poll.hash_id}}
+<br>
+Subject: {{poll.subject}}
+<br>
+Room: {{poll.room}}
+<br>
+Start date: {{poll.start_date}}
+<br>
+Url: {{url}}
+

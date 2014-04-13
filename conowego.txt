@@ -17,5 +17,9 @@ Pytania i mozliwe odpowiedzi sa osobno poniewaz uzywam gotowej biblioteki do par
 
 qrpolls/meeting/<hash_id>/api/vote/<id_odpowiedzi> - oddaje glos na odpowiedz o zadanym id. Nie trzeba mu dawac id pytania czy id ankiety. Wystarczy id odpowiedzi. Id odpowiedzi mozecie uzyskac z danych zwracanych za pomoca poprzednich zapytan. 
 
+13-04-2013
+Dodano spis stworzonych spotkan na stronie glownej.
+
+
 
 

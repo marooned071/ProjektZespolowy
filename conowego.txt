@@ -1,0 +1,21 @@
+13-04-2013
+Dodalem przykladowa ankiete oraz zwiekszylem mozliwosci api.
+
+Ankieta:
+http://127.0.0.1:8000/qrpolls/meeting/62c694079277679c1e7859de489a5e3c/ - powinna pojawic sie tabelka
+Pytanie "Jak sie podoba?" jest dodawane do bazy za kazdym razem gdy zostanie stworzona strona spotkania.
+Mozliwe odpowiedzi: fajnie, srednio, nudy 
+
+API daje juz wiele wiecej mozliwosci mamy do wyboru:
+
+qrpolls/meeting/<hash_id>/api/info/ - zwraca informacje na temat spotkania
+qrpolls/meeting/<hash_id>/api/version/ - zwraca wersje spotkania, na razie zawsze zwraca 1
+qrpolls/meeting/<hash_id>/api/questions/ - zwraca pytania ktore sa przypisane do spotkania
+qrpolls/meeting/<hash_id>/api/choices/ - zwraca mozliwe odpowiedzi do tych pytan ktore sa przypisane do spotkania.
+
+Pytania i mozliwe odpowiedzi sa osobno poniewaz uzywam gotowej biblioteki do parsowania danych z bazy do json. Nie wdaje mi sie aby moglo sprawaiac to jakies wieksze klopoty. Zawsze mozna troche popracowac, zmienic i bedzie wszystko razem. 
+
+qrpolls/meeting/<hash_id>/api/vote/<id_odpowiedzi> - oddaje glos na odpowiedz o zadanym id. Nie trzeba mu dawac id pytania czy id ankiety. Wystarczy id odpowiedzi. Id odpowiedzi mozecie uzyskac z danych zwracanych za pomoca poprzednich zapytan. 
+
+
+

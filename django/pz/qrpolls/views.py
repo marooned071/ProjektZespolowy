@@ -14,7 +14,8 @@ from qrpolls.forms import NewMeetingForm
 
 def index(request):
     n = NewMeetingForm
-    return render(request, 'qrpolls/index.html',{'form': n})
+    poll_list = QRPoll.objects.all()
+    return render(request, 'qrpolls/index.html',{'form': n, 'poll_list': poll_list})
 
 def meeting(request, hash_id):
 

@@ -3,4 +3,14 @@
 <input type="submit" value="Submit" />
 </form>
 
+{% if poll_list %}
+    <ul>
+    {% for poll in poll_list %}
+        <li><a href="/qrpolls/meeting/{{ poll.hash_id }}/">{{ poll.hash_id }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
 

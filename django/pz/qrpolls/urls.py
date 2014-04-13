@@ -9,5 +9,6 @@ urlpatterns = patterns('',
     url(r'^create', views.create ,name='create'),
     url(r'^meeting/(?P<hash_id>\w+)/$', views.meeting, name='meeting'),
     url(r'^meeting/(?P<hash_id>\w+)/api/(?P<question>\w+)/$$', views.api, name='api'),
+    url(r'^meeting/(?P<hash_id>\w+)/api/vote/(?P<choice_id>\w+)/$$', views.api_vote, name='api_vote'),
 
 )

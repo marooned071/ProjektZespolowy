@@ -1,3 +1,4 @@
+{% csrf_token %}
 {% load qr_tags %}
 {% qr_from_text url "l" %}
 <br>
@@ -10,4 +11,28 @@ Room: {{poll.room}}
 Start date: {{poll.start_date}}
 <br>
 Url: {{url}}
+<br>
+
+
+
+<table border = "1">
+{% for question in question_list %}
+<tr>
+    <td>{{ question.question_text }}</td>
+</tr>   
+<tr>
+    {% for choice in question.choice_set.all %}
+        <tr><td>{{ choice.choice_text }}</td><td>{{ choice.votes}}</td></tr>
+    {% endfor %}
+</tr>
+
+{% endfor %}
+</table>
+
+sas
+
+
+
+
+
 

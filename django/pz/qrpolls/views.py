@@ -2,12 +2,13 @@ from django.template import RequestContext, loader
 from django.shortcuts import get_object_or_404, render, Http404
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
+from django.core import serializers
 import time
 
 import hashlib
 import json
 
-from qrpolls.models import QRPoll
+from qrpolls.models import QRPoll, Question, Choice
 from qrpolls.forms import NewMeetingForm
 
 
@@ -22,8 +23,9 @@ def meeting(request, hash_id):
     except QRPoll.DoesNotExist:
         raise Http404
 
+    question_list = Question.objects.filter(poll=poll)
     path = request.META['REMOTE_ADDR']+request.path
-    return render(request, 'qrpolls/meeting.html', {'poll': poll, 'url' : path})
+    return render(request, 'qrpolls/meeting.html', {'poll': poll, 'url' : path, 'question_list' : question_list })
 
 def create(request):
     m = hashlib.md5()
@@ -37,9 +39,19 @@ def create(request):
     s = str(subject)+str(room)+str(start_date)+str(millis)
     hash_id = hashlib.md5(s.encode()).hexdigest()
 
-    poll = QRPoll(hash_id=hash_id, start_date = start_date, room = room, subject = subject);
-
+    poll = QRPoll(hash_id=hash_id, start_date = start_date, room = room, subject = subject, version = 1);
     poll.save()
+
+
+    question = Question(poll=poll, question_text = "Jak sie podoba?") # przykladowa ankieta
+    question.save()
+
+    choice = Choice(question=question, choice_text = "Fajnie")
+    choice.save()
+    choice = Choice(question=question, choice_text = "Srednio")
+    choice.save()
+    choice = Choice(question=question, choice_text = "Nudy")
+    choice.save()
 
     return HttpResponseRedirect(reverse('qrpolls:meeting', args=(hash_id,)))
 
@@ -50,7 +62,7 @@ def api(request, hash_id, question):
     except QRPoll.DoesNotExist: 
         return HttpResponse("Poll doesn't exist.")
 
-    if question == "info":
+    if question == "info":  #informacja o spotkaniu
         data = [ {'info': {
                 'hash_id' : poll.hash_id,
                 'start_date' : poll.start_date,
@@ -61,9 +73,39 @@ def api(request, hash_id, question):
         return HttpResponse(repr(data_string))
 
 
+    elif question == "version": #wersja spotkania, po dodaniu ankiety version++
+        data = [ {'version': poll.version}]
+        data_string = json.dumps(data)
+        return HttpResponse(repr(data_string))
+
+   
+    elif question == "questions": #pytania w tym spotkaniu
+        data = serializers.serialize("json", Question.objects.filter(poll=poll))
+        return HttpResponse(repr(data))
+
+    elif question == "choices": #odpowiedzi na pytania z tego spotkania
+        question_list = Question.objects.filter(poll=poll)
+        all_objects = []
+        for question in question_list:
+            all_objects.extend(list(Choice.objects.filter(question=question)))
+
+        data = serializers.serialize('json', all_objects)
+
+        return HttpResponse(repr(data))
+
 
     return HttpResponse('nic')
-    
+
+
+def api_vote(request, hash_id, choice_id):
+
+    choice = Choice.objects.get(pk=choice_id)
+    choice.votes+=1
+    choice.save()
+
+
+    return HttpResponseRedirect(reverse('qrpolls:meeting', args=(hash_id,)))
+
 
  # {"menu": {
  #   "id": "file",

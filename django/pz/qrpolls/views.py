@@ -61,7 +61,7 @@ def api(request, hash_id, question):
     try:
         poll = QRPoll.objects.get(hash_id=hash_id) # pobieramy hash z bazy, jesli go nie ma w bazie bedzie 404
     except QRPoll.DoesNotExist: 
-        return HttpResponse("Poll doesn't exist.")
+        raise Http404
 
     if question == "info":  #informacja o spotkaniu
         data = [ {'info': {

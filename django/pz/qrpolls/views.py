@@ -71,18 +71,22 @@ def api(request, hash_id, question):
                 'subject' : poll.subject,
         }}]
         data_string = json.dumps(data)
-        return HttpResponse(repr(data_string))
+        return HttpResponse(data_string)
+
+        # [{"info": {"room": "11", "subject": "777", "hash_id": "62c694079277679c1e7859de489a5e3c", "start_date": "44"}}]
+        #'[{"info": {"start_date": "44", "subject": "777", "room": "11", "hash_id": "62c694079277679c1e7859de489a5e3c"}}]'
+
 
 
     elif question == "version": #wersja spotkania, po dodaniu ankiety version++
         data = [ {'version': poll.version}]
         data_string = json.dumps(data)
-        return HttpResponse(repr(data_string))
+        return HttpResponse(data_string)
 
    
     elif question == "questions": #pytania w tym spotkaniu
         data = serializers.serialize("json", Question.objects.filter(poll=poll))
-        return HttpResponse(repr(data))
+        return HttpResponse(data)
 
     elif question == "choices": #odpowiedzi na pytania z tego spotkania
         question_list = Question.objects.filter(poll=poll)
@@ -92,10 +96,10 @@ def api(request, hash_id, question):
 
         data = serializers.serialize('json', all_objects)
 
-        return HttpResponse(repr(data))
+        return HttpResponse(data)
 
 
-    return HttpResponse('nic')
+    raise Http404
 
 
 def api_vote(request, hash_id, choice_id):

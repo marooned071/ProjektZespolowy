@@ -57,6 +57,38 @@ def create(request):
     return HttpResponseRedirect(reverse('qrpolls:meeting', args=(hash_id,)))
 
 
+def newQuestion(request,hash_id):
+    questionText = request.POST['question']
+
+
+    l = len(request.POST.keys()) # l - wielkosc slownika z post, powinny znajdowac się tam: dict_keys(['question', 'csrfmiddlewaretoken', 'choice0'])
+
+    choices = []
+    for currId in range(l-2):
+        s = 'choice'+str(currId)
+        print("SASA")
+        print(str(currId))
+        print(str(request.POST[s]))
+        choices.append(request.POST[s])
+
+    try:
+        poll = QRPoll.objects.get(hash_id=hash_id) # pobieramy hash z bazy, jesli go nie ma w bazie bedzie 404
+    except QRPoll.DoesNotExist: 
+        raise Http404
+
+
+    question = Question(poll=poll, question_text = questionText)
+    question.save()
+
+    for c in choices:
+        choice = Choice(question=question, choice_text = c)
+        choice.save()
+
+
+    return HttpResponseRedirect(reverse('qrpolls:meeting', args=(hash_id,)))
+
+
+
 def api(request, hash_id, question):
     try:
         poll = QRPoll.objects.get(hash_id=hash_id) # pobieramy hash z bazy, jesli go nie ma w bazie bedzie 404

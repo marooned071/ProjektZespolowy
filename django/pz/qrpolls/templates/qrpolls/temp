@@ -1,0 +1,8 @@
+
+<form id = "newForm1" action="newQuestion" method="post">{% csrf_token %}
+	<input type="text" name="nazwa" />
+	<!-- <ul id="choiceList"></ul> -->
+
+	<input type="submit" value="Dodaj Pytanie" />
+	
+</form>

@@ -1,4 +1,4 @@
-13-04-2013
+13-04-2014
 Dodalem przykladowa ankiete oraz zwiekszylem mozliwosci api.
 
 Ankieta:
@@ -17,8 +17,12 @@ Pytania i mozliwe odpowiedzi sa osobno poniewaz uzywam gotowej biblioteki do par
 
 qrpolls/meeting/<hash_id>/api/vote/<id_odpowiedzi> - oddaje glos na odpowiedz o zadanym id. Nie trzeba mu dawac id pytania czy id ankiety. Wystarczy id odpowiedzi. Id odpowiedzi mozecie uzyskac z danych zwracanych za pomoca poprzednich zapytan. 
 
-13-04-2013
+13-04-2014
 Dodano spis stworzonych spotkan na stronie glownej.
+
+19-04-2014
+Dodalem generator pytan. Jest na stronie spotkania. Jest brzydki, ma nielogiczny uklad, ale dziala. Potem poprawimy, tak by to jakos wyglądało. 
+
 
 
 

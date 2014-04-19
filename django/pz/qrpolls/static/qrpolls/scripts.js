@@ -26,6 +26,8 @@ function addForm1() {
 	
 }
 
+var choiceCounter = 0;
+
 
 function createNewForm(){
 	var form = document.createElement("form");
@@ -63,18 +65,15 @@ function createNewForm(){
 	buttonAdd.appendChild(t); 
 	document.getElementById("buttons").appendChild(buttonAdd);
 
-
-
-
-
+	choiceCounter = 0;
 
 }
 
 
 function addChoice(){
-	var choices=document.getElementsByName("choice");
-	var newId = "id".concat(choices.length); //id0, id1 itp
-	var newName = "choice".concat(choices.length); 
+	
+	var newId = "id".concat(choiceCounter); //id0, id1 itp
+	var newName = "choice".concat(choiceCounter); 
 
 	var choice = document.createElement("input");
 	choice.setAttribute("id", newId); 
@@ -82,7 +81,7 @@ function addChoice(){
 	choice.setAttribute("name", newName); 
 
 	document.getElementById("newForm").appendChild(choice);
-
+	choiceCounter = choiceCounter +1;
 }
 
 

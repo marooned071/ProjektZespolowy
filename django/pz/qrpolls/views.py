@@ -63,6 +63,8 @@ def newQuestion(request,hash_id):
 
     l = len(request.POST.keys()) # l - wielkosc slownika z post, powinny znajdowac się tam: dict_keys(['question', 'csrfmiddlewaretoken', 'choice0'])
 
+    print(request.POST.keys())
+
     choices = []
     for currId in range(l-2):
         s = 'choice'+str(currId)

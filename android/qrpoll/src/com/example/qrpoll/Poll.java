@@ -1,4 +1,4 @@
-package qrpolls;
+package com.example.qrpoll;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,10 +6,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 /**
  * Klasa odpowiedzialna za obsluge ankiety.
@@ -19,20 +19,11 @@ import org.json.simple.parser.ParseException;
  */
 public class Poll {
 
-	public static void main(String[] args) {
-		Poll p = null;
-		try {
-			p =new Poll("http://loony-waters-2513.herokuapp.com/qrpolls/meeting/b9ffd9db1af0b14ed74e92e8d3273f3e/");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(p.toString());
-	}
-	
-	
 
+		
 	private String address; // pelen adres strony
+
+
 	private String hash_id;
 	private String subject;
 	private String room;
@@ -42,7 +33,7 @@ public class Poll {
 	
 	
 
-	Poll(String address) throws ParseException {
+	public Poll(String address) throws JSONException{
 		this.address = address;
 	
 		//INFORMACJE O ANKIECIE
@@ -69,17 +60,21 @@ public class Poll {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		JSONParser parser = new JSONParser();
-		Object obj = parser.parse(s);
-		JSONArray array = (JSONArray) obj;
-		JSONObject jo = (JSONObject) array.get(0);
-		JSONObject jo_inside = (JSONObject) jo.get("info"); //inside bo ten obiekt jest zagniezdzony 
+		JSONArray array;
+		JSONObject jo;
+		JSONObject jo_inside;
 		
-		this.hash_id = jo_inside.get("hash_id").toString();
-		this.subject = jo_inside.get("subject").toString();
-		this.room = jo_inside.get("room").toString();
-		this.start_date =  jo_inside.get("start_date").toString();
+		try{
+			array = new JSONArray(s);
+			jo = array.getJSONObject(0);
+			jo_inside = jo.getJSONObject("info"); //inside bo ten obiekt jest zagniezdzony 
+			this.hash_id = jo_inside.get("hash_id").toString();
+			this.subject = jo_inside.get("subject").toString();
+			this.room = jo_inside.get("room").toString();
+			this.start_date =  jo_inside.get("start_date").toString();
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
 		
 		// WERSJA ANKIETY
 		
@@ -90,7 +85,8 @@ public class Poll {
 		 *	   }
 		 *	]
 		 */
-
+		
+		
 		full_address = address + "api/version";
 		
 		try {
@@ -100,14 +96,13 @@ public class Poll {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		obj = parser.parse(s);
-		array = (JSONArray) obj;
-		jo = (JSONObject) array.get(0);
-		
+			
+
+		array = new JSONArray(s);
+		jo = array.getJSONObject(0);
 		version = Integer.parseInt(jo.get("version").toString());
 		
-			
+		
 		//PYTANIA:
 		/*
 		[
@@ -139,26 +134,24 @@ public class Poll {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+					
+		array = new JSONArray(s);
 		
-		obj = parser.parse(s);
-		array = (JSONArray) obj;
-		
-		question_map = new HashMap<String,Question>(); //mapa z pytaniami <PK,Questuion>
 		String pk, question_text;
-		Iterator it;	
-		it = array.iterator();
 		
 		/*
 		 * Iteruje po wszystkich pytaniach oraz dodaje je na mape z tymi pytaniami
 		 */
-		while(it.hasNext()){
-			jo = (JSONObject) it.next();
+		question_map = new HashMap<String,Question>(); //mapa z pytaniami <PK,Questuion>
+		
+		for(int i =0;i<array.length();i++){
+			jo = array.getJSONObject(i);
 			pk = jo.get("pk").toString(); //pk - public key
-			jo_inside = (JSONObject) jo.get("fields");
+			jo_inside = jo.getJSONObject("fields");
 			question_text = jo_inside.get("question_text").toString();
 			question_map.put(pk,new Question(pk, question_text));
-			
 		}
+		
 		
 		//ODPOWIEDZI
 		
@@ -195,70 +188,105 @@ public class Poll {
 			e.printStackTrace();
 		}
 		
-		obj = parser.parse(s);
-		array = (JSONArray) obj;
+		array = new JSONArray(s);
 		
-		it = array.iterator();
 		String question_pk, choice_text;
 		int votes;
 		
 		/*
 		 * Iteruje po wszystkich odpowiedzaich przypisanych do danego spotkania oraz przypisuje je do odpowiednich pytan
 		 */
-		while(it.hasNext()){
-			jo = (JSONObject) it.next();
+		for(int i =0;i<array.length();i++){
+			jo = array.getJSONObject(i);
 			pk = jo.get("pk").toString();
-			jo_inside = (JSONObject) jo.get("fields");
+			jo_inside = jo.getJSONObject("fields");
 			question_pk = jo_inside.get("question").toString();
 			choice_text = jo_inside.get("choice_text").toString();
 			votes = Integer.parseInt(jo_inside.get("votes").toString());
 			question_map.get(question_pk).addChoice(pk, choice_text, votes);
 		}
+					
+		
+	}
 		
 
-			
-		
+	
+	
+	
+	
+	
+	
+	
+//	/**
+//	 * Porownuje najnowsza wersje na serwerze z obecna.
+//	 * @return
+//	 */
+//	public boolean isCurrentVersion(){
+//		JSONParser parser = new JSONParser();
+//		String s ="";
+//		
+//		try {
+//			s = MyHttpURLConnection.get(address+"api/version");
+//		} catch (Exception404 e) {
+//			e.printStackTrace();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		
+//		Object obj = null;
+//		try {
+//			obj = parser.parse(s);
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		JSONArray array = (JSONArray) obj;
+//		JSONObject jo = (JSONObject) array.get(0);
+//		
+//		int newVersion = Integer.parseInt(jo.get("version").toString());
+//		
+//		if(this.version==newVersion)
+//			return true;
+//		else
+//			return false;
+//	}
+//
+//	@Override
+//	public String toString() {
+//		return "Poll [hash_id=" + hash_id + ", subject=" + subject + ", room="
+//				+ room + ", start_date=" + start_date + ", version=" + version
+//				+ "]";
+//	}
+//
+//	public int getVersion() {
+//		return version;
+//	}
+//
+//	public Map<String, Question> getQuestion_map() {
+//		return question_map;
+//	}
+//	
+//	
+	
+
+	public String getAddress() {
+		return address;
 	}
 	
-	/**
-	 * Porownuje najnowsza wersje na serwerze z obecna.
-	 * @return
-	 */
-	public boolean isCurrentVersion(){
-		JSONParser parser = new JSONParser();
-		String s ="";
-		
-		try {
-			s = MyHttpURLConnection.get(address+"api/version");
-		} catch (Exception404 e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		Object obj = null;
-		try {
-			obj = parser.parse(s);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		JSONArray array = (JSONArray) obj;
-		JSONObject jo = (JSONObject) array.get(0);
-		
-		int newVersion = Integer.parseInt(jo.get("version").toString());
-		
-		if(this.version==newVersion)
-			return true;
-		else
-			return false;
+	public String getHash_id() {
+		return hash_id;
 	}
 
-	@Override
-	public String toString() {
-		return "Poll [hash_id=" + hash_id + ", subject=" + subject + ", room="
-				+ room + ", start_date=" + start_date + ", version=" + version
-				+ "]";
+	public String getSubject() {
+		return subject;
+	}
+
+	public String getRoom() {
+		return room;
+	}
+
+	public String getStart_date() {
+		return start_date;
 	}
 
 	public int getVersion() {
@@ -268,11 +296,6 @@ public class Poll {
 	public Map<String, Question> getQuestion_map() {
 		return question_map;
 	}
-	
-	
-	
-
-	
 	
 
 }

@@ -63,14 +63,9 @@ def newQuestion(request,hash_id):
 
     l = len(request.POST.keys()) # l - wielkosc slownika z post, powinny znajdowac się tam: dict_keys(['question', 'csrfmiddlewaretoken', 'choice0'])
 
-    print(request.POST.keys())
-
     choices = []
-    for currId in range(l-2):
+    for currId in range(l-2): #poza polami wyboru w slowniku znajduja sie dwa inne pola, dlatego -2
         s = 'choice'+str(currId)
-        print("SASA")
-        print(str(currId))
-        print(str(request.POST[s]))
         choices.append(request.POST[s])
 
     try:
@@ -78,6 +73,8 @@ def newQuestion(request,hash_id):
     except QRPoll.DoesNotExist: 
         raise Http404
 
+    poll.version+=1;
+    poll.save()
 
     question = Question(poll=poll, question_text = questionText)
     question.save()
@@ -85,7 +82,6 @@ def newQuestion(request,hash_id):
     for c in choices:
         choice = Choice(question=question, choice_text = c)
         choice.save()
-
 
     return HttpResponseRedirect(reverse('qrpolls:meeting', args=(hash_id,)))
 

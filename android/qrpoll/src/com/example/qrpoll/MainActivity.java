@@ -37,7 +37,38 @@ public class MainActivity extends Activity implements OnClickListener {
         
     }
 
-
+	@Override
+	public void onClick(View v) {
+		if(v.getId()==R.id.scan_button){
+			//scan
+			IntentIntegrator scanIntegrator = new IntentIntegrator(this);
+			scanIntegrator.initiateScan();
+		}
+		
+	}
+	
+	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		if(requestCode == IntentIntegrator.REQUEST_CODE){
+			//retrieve scan result
+			IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+			if (scanningResult != null) {
+				//we have a result
+				String scanContent = scanningResult.getContents();
+				String scanFormat = scanningResult.getFormatName();
+				formatTxt.setText("FORMAT: " + scanFormat);
+				contentTxt.setText("CONTENT: " + scanContent);
+			}
+			else{
+			    Toast toast = Toast.makeText(getApplicationContext(),
+			        "No scan data received!", Toast.LENGTH_SHORT);
+			    toast.show();
+			}
+			
+			
+		}
+	}
+	
+	
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         
@@ -73,33 +104,5 @@ public class MainActivity extends Activity implements OnClickListener {
             return rootView;
         }
     }
-
-	@Override
-	public void onClick(View v) {
-		if(v.getId()==R.id.scan_button){
-			//scan
-			
-			IntentIntegrator scanIntegrator = new IntentIntegrator(this);
-			scanIntegrator.initiateScan();
-			}
-		
-	}
-	
-	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-		//retrieve scan result
-		IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-		if (scanningResult != null) {
-			//we have a result
-			String scanContent = scanningResult.getContents();
-			String scanFormat = scanningResult.getFormatName();
-			formatTxt.setText("FORMAT: " + scanFormat);
-			contentTxt.setText("CONTENT: " + scanContent);
-		}
-		else{
-		    Toast toast = Toast.makeText(getApplicationContext(),
-		        "No scan data received!", Toast.LENGTH_SHORT);
-		    toast.show();
-		}
-	}
 
 }

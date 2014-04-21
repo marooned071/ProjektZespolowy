@@ -10,6 +10,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.os.StrictMode;
+import android.util.Log;
+
 
 /**
  * Klasa odpowiedzialna za obsluge ankiety.
@@ -20,10 +23,7 @@ import org.json.JSONObject;
 public class Poll {
 
 
-		
 	private String address; // pelen adres strony
-
-
 	private String hash_id;
 	private String subject;
 	private String room;
@@ -34,6 +34,12 @@ public class Poll {
 	
 
 	public Poll(String address) throws JSONException{
+		
+		Log.d("moje", "POLL KONSTRUKTOR");
+		
+		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); //dwie magiczne linie kotre ratuja przed android.os.NetworkOnMainThreadException
+		StrictMode.setThreadPolicy(policy); //TO:DO przerobic na AsyncTask http://stackoverflow.com/questions/6343166/android-os-networkonmainthreadexception
+		
 		this.address = address;
 	
 		//INFORMACJE O ANKIECIE
@@ -96,6 +102,8 @@ public class Poll {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		Log.d("moje", s);
 			
 
 		array = new JSONArray(s);
@@ -206,6 +214,20 @@ public class Poll {
 			question_map.get(question_pk).addChoice(pk, choice_text, votes);
 		}
 					
+		
+	}
+	
+	
+	public void vote(Choice c){
+		String full_address = address+"api/vote/"+c.getPk()+"/";		
+		Log.d("moje",full_address);
+		try {
+			MyHttpURLConnection.get(full_address);
+		} catch (Exception404 e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 		

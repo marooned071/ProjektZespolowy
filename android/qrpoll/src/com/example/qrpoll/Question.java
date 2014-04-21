@@ -33,8 +33,7 @@ public class Question {
 	public Map<String, Choice> getChoice_map() {
 		return choice_map;
 	}
-
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

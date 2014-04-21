@@ -57,6 +57,10 @@ public class MainActivity extends Activity implements OnClickListener {
 				String scanFormat = scanningResult.getFormatName();
 				formatTxt.setText("FORMAT: " + scanFormat);
 				contentTxt.setText("CONTENT: " + scanContent);
+				
+				toPollActivity(scanContent);
+				
+				
 			}
 			else{
 			    Toast toast = Toast.makeText(getApplicationContext(),
@@ -65,7 +69,16 @@ public class MainActivity extends Activity implements OnClickListener {
 			}
 			
 			
+						
 		}
+		
+	}
+	
+	
+	public void toPollActivity(String scanResult){
+		Intent intent = new Intent(this, PollActivity.class);
+		intent.putExtra("scanResult", scanResult);
+		startActivity(intent);
 	}
 	
 	

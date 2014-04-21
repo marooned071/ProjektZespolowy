@@ -15,7 +15,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 
 public class MyHttpURLConnection {
-	private static final String USER_AGENT = "Mozilla/5.0";
 	
 //	static public String get(String url) throws Exception, Exception404 {	 
 //		URL obj = new URL(url);

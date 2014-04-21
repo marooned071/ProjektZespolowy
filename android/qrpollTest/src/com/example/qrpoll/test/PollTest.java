@@ -2,6 +2,8 @@ package com.example.qrpoll.test;
 
 import java.util.Map;
 
+import android.util.Log;
+
 import com.example.qrpoll.Poll;
 import com.example.qrpoll.Question;
 
@@ -62,10 +64,13 @@ public class PollTest extends TestCase {
 		q.getChoice_map().size();
 		assertEquals(q.getChoice_map().size(), 3); 
 		
-		
+		Log.d("moje", "przed");
+		p.vote(q.getChoice_map().get("6"));
 		
 		
 	}
+	
+
 	
 	
 	

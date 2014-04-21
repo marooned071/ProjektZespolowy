@@ -14,7 +14,7 @@ public class MyHttpURLConnectionTest extends TestCase {
 
 		try {
 			s = MyHttpURLConnection.get("http://loony-waters-2513.herokuapp.com/qrpolls/meeting/b9ffd9db1af0b14ed74e92e8d3273f3e/api/version/");
-		} catch (IOException | Exception404 e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

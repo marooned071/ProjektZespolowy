@@ -230,6 +230,18 @@ public class Poll {
 		}
 		
 	}
+	
+	public void vote(String pk){
+		String full_address = address+"api/vote/"+pk+"/";		
+		Log.d("moje",full_address);
+		try {
+			MyHttpURLConnection.get(full_address);
+		} catch (Exception404 e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 		
 
 	

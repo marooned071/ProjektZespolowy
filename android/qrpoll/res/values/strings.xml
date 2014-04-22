@@ -7,5 +7,6 @@
     <string name="scan">Scan</string>
     <string name="title_activity_poll">PollActivity</string>
     <string name="textView_versionLabel">Version</string>
+    <string name="poll_textViewVersionLabelStirng">Version</string>
 
 </resources>

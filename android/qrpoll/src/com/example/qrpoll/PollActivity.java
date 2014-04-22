@@ -1,19 +1,16 @@
 package com.example.qrpoll;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.json.JSONException;
-
-import com.google.zxing.integration.android.IntentIntegrator;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,23 +18,19 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.os.Build;
 
-public class PollActivity extends ActionBarActivity implements OnClickListener{
-	
-	
-	private Poll p;
-	private Button sendAnswerButton;
-	private RadioButton r1;
-	private RadioButton r2;
-	private RadioButton r3;
-	private Choice c1;
-	private Choice c2;
-	private Choice c3;
+public class PollActivity extends ActionBarActivity {
 
+
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,68 +41,133 @@ public class PollActivity extends ActionBarActivity implements OnClickListener{
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
 		
+		
+		
+		//String url = "http://loony-waters-2513.herokuapp.com/qrpolls/meeting/b9ffd9db1af0b14ed74e92e8d3273f3e/";
+		voteButtonsListener = new VoteButtonsListener();
+	
 	    Intent intent = getIntent();
 	    String url = intent.getStringExtra("scanResult");
-	    
-	    makeTestpoll(url);
-	    
-	    sendAnswerButton = (Button)findViewById(R.id.button_sendAnswer);
-	    sendAnswerButton.setOnClickListener(this);
-
+	    url = "http://"+url;
+		
+		createPollView(url);
+		
 	}
 	
+	private VoteButtonsListener voteButtonsListener; //listener przyciskow do glosowania
+	private Map<Integer,RadioGroup> rgMap; // mapa grup z radiobuttonami, czyli grup odpowiedzi, <ID, grupa>
+	private Poll poll = null;
+	
 	/**
-	 * Tworzy ankiete z przyciskow ktore sa zapisane na sztywno
-	 * @param url
+	 * Tworzy dynamiczny widok ankiet z mozliwoscia glosowania.
+	 * @param url - adres do ankiety np: http://loony-waters-2513.herokuapp.com/qrpolls/meeting/b9ffd9db1af0b14ed74e92e8d3273f3e/
 	 */
-	public void makeTestpoll(String url){
-		Log.d("moje", "MAKE POLL");
-		
-		Log.d("moje", url);
-		url = "http://"+url;
-		Log.d("moje", url);
-		
-
-		
-	    try {
-			p = new Poll(url);
+	public void createPollView(String url){
+		try {
+			poll = new Poll(url);
 		} catch (JSONException e) {
-			Log.d("moje", "JSON SIE ZJEBAL");
+			showToast("Blad ankiety.");
 			e.printStackTrace();
 			return;
 		}
-	    
-	    TextView textView_version = (TextView) findViewById(R.id.textView_version);
-	    TextView textView_question =(TextView) findViewById(R.id.textView_question);
-	    
-	    Map<String,Question> questionMap = p.getQuestion_map();
-	    
-	    Question q2 = questionMap.get("2"); //pobieram pytanie o id 2 ("Jak sie podoba?", ma trzy odpowiedzi: Nudy, Srednio, Fajnie)
-	    
-	    textView_question.setText(q2.getQuestion_text()); // ustawiam textView question na tekst pytania
-	    
-	    Map<String,Choice> q2Choices = q2.getChoice_map();
-	    
-	    r1 = (RadioButton) findViewById(R.id.radioButton_choice1);
-	    r2 = (RadioButton) findViewById(R.id.radioButton_choice2);
-	    r3 = (RadioButton) findViewById(R.id.radioButton_choice3);
-	    
-	    c1 = q2Choices.get("4");
-	    c2 = q2Choices.get("5");
-	    c3 = q2Choices.get("6");
-	    
-	    r1.setText(c1.getChoice_text());
-	    r2.setText(c2.getChoice_text());
-	    r3.setText(c3.getChoice_text());
-	    
-	    
-	    
-
+		
+		
+        final LinearLayout questionLinear = (LinearLayout) findViewById(R.id.poll_questionsLinear); //panel w ktorym beda pytania (jest zdefiniowany w pliku xml layoutu)
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		
+		Map<String,Question> questionMap = poll.getQuestion_map();
+			
+		Question q;
+		
+		rgMap = new HashMap<Integer,RadioGroup>();
+		
+		for(String key: questionMap.keySet()){
+			q = questionMap.get(key);
+			
+			LinearLayout ll = new LinearLayout(this); //panel na pytanie o kluczu key
+            ll.setOrientation(LinearLayout.VERTICAL);
+            
+            
+            TextView questionTextView = new TextView(this); //textView z pytaniem
+            questionTextView.setTextSize(20.0f);
+            questionTextView.setText(q.getQuestion_text()); 
+            ll.addView(questionTextView);
+            
+            int buttonId = Integer.parseInt(q.getPk()); // id przycisku odpowiada id z bazy danych
+            RadioGroup rg = new RadioGroup(this);
+           // rg.setId(buttonId);
+            
+            rgMap.put(buttonId, rg);
+            
+            Map<String, Choice> choiceMap= q.getChoice_map();
+            
+            for(String choice: choiceMap.keySet()){
+            	Choice c = choiceMap.get(choice);
+            	RadioButton rb = new RadioButton(this);
+            	int rbID = Integer.parseInt(c.getPk());
+            	rb.setId(rbID);							//ID radiobutton odpowiada id odpowiedzi z bazy danych
+            	rb.setText(c.getChoice_text());
+            	rg.addView(rb);
+            }
+            
+            ll.addView(rg);
+            
+            Button btn = new Button(this);
+            //int buttonId = Integer.parseInt(q.getPk()); // id przycisku odpowiada id z bazy danych
+            btn.setId(buttonId);
+            btn.setText("VOTE");
+            btn.setLayoutParams(params);
+            btn.setOnClickListener(voteButtonsListener);
+            
+            ll.addView(btn);
+  
+            questionLinear.addView(ll);  
+            
+		}
+		
+		
+		
+		
+		
 	}
 	
-
 	
+	
+	
+	public void showToast(String msg){
+	    Toast toast = Toast.makeText(getApplicationContext(),
+		        msg, Toast.LENGTH_SHORT);
+		    toast.show();
+	}
+	
+	
+	private class VoteButtonsListener implements OnClickListener{
 
+		@Override
+		public void onClick(View arg0) {
+			int buttonID = arg0.getId();
+			RadioGroup rg= rgMap.get(buttonID);
+			int checkedChoiceID = rg.getCheckedRadioButtonId();
+			if(checkedChoiceID!=-1){
+				poll.vote(checkedChoiceID+"");
+				showToast("Zaglosowano!");
+			}
+			else{
+				showToast("Nic nie zaznaczono");
+			}
+			
+			
+			
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -148,29 +206,4 @@ public class PollActivity extends ActionBarActivity implements OnClickListener{
 		}
 	}
 
-	@Override
-	public void onClick(View v) {
-		if(v.getId()==R.id.button_sendAnswer){
-			if(r1.isChecked()){
-				p.vote(c1);
-			}
-			else if(r2.isChecked()){
-				p.vote(c2);
-			}
-			else if(r3.isChecked()){
-				p.vote(c3);
-			}
-			
-			//scan
-
-		}
-		
-	}
-	
-
-
 }
-
-
-
-

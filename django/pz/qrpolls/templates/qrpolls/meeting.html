@@ -16,6 +16,8 @@ Start date: {{poll.start_date}}
 <br>
 Url: {{url}}
 <br>
+Version {{poll.version}}
+<br>
 
 {% load staticfiles %}
 <script type="text/javascript" src="{% static 'qrpolls/scripts.js' %}" >
@@ -25,7 +27,7 @@ Url: {{url}}
 <table border = "1">
 {% for question in question_list %}
 <tr>
-    <td>{{ question.question_text }}</td>
+    <td><b>{{ question.question_text }}</b></td>
 </tr>   
 <tr>
     {% for choice in question.choice_set.all %}

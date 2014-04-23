@@ -25,7 +25,7 @@ def meeting(request, hash_id):
         raise Http404
 
     question_list = Question.objects.filter(poll=poll)
-    path = request.META['REMOTE_ADDR']+request.path
+    path = request.META['SERVER_NAME']+request.path
     return render(request, 'qrpolls/meeting.html', {'poll': poll, 'url' : path, 'question_list' : question_list })
 
 def create(request):

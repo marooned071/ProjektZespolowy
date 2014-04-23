@@ -37,7 +37,7 @@ Url: {{url}}
 </table>
 
 
-<input id="csrf_token" type = "hidden" value="{{ csrf_token }}"/>
+<input id="csrf_token" type = "hidden" value="{{ csrf_token }}"/> <!-- token potrzebny aby przeslac POST do django - musi byc, nie ma rady -->
 
 
 
@@ -46,10 +46,10 @@ Url: {{url}}
 
 <ul id="myList"><li>Coffee</li><li>Tea</li></ul>
 
-<button onclick="createNewForm()">Stworz pytanie</button> 
+<button id = "buttonCreateForm" onclick="createForm()">Stworz pytanie</button> 
 <div id = "buttons">
 
 </div>
 
-<button onclick="submitNewForm()">Dodaj pytanie</button> 
+<!-- <button onclick="submitNewForm()">Dodaj pytanie</button>  -->
 

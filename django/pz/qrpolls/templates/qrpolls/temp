@@ -8,6 +8,113 @@
 </form>
 
 
+function sayHello() {
+    // alert("Hello World!");
+    //document.writeln("<h1>Hello World!</h1><p>Have a nice day!</p>");
+
+    var node=document.createElement("LI");
+    var textnode=document.createTextNode("Water");
+    node.appendChild(textnode);
+    document.getElementById("myList").appendChild(node);
+}
+
+function addForm1() {
+
+    var button = document.createElement("button")
+    button.setAttribute("onClick","addAnswer1()");
+    var t=document.createTextNode("+ odpowiedz");
+    button.appendChild(t); 
+
+
+    var input = document.createElement("input");
+    input.setAttribute("id", "question"); 
+    input.setAttribute("type", "text"); 
+    input.setAttribute("name", "question"); 
+
+    document.getElementById("newForm1").appendChild(input);
+    document.getElementById("buttons").appendChild(button);
+    
+}
+
+var choiceCounter = 0;
+
+
+function createNewForm(){
+    var form = document.createElement("form");
+    form.setAttribute("method", "POST"); 
+    form.setAttribute("action", "newQuestion");
+    form.setAttribute("id", "newForm");
+
+    //var CSRF_TOKEN = document.getElementById('hidden-csrf');
+
+    var CSRF_TOKEN = document.getElementById('csrf_token').value;
+
+    //var CSRF_TOKEN = "{{ csrf_token }}";
+
+
+    var token = document.createElement("input");
+    token.setAttribute("type", "hidden"); 
+    token.setAttribute("name", "csrfmiddlewaretoken");
+    token.setAttribute("value", CSRF_TOKEN);
+    form.appendChild(token);
+
+
+    var questionText = document.createElement("input"); 
+    questionText.setAttribute("id", "question"); 
+    questionText.setAttribute("type", "text"); 
+    questionText.setAttribute("name", "question"); 
+
+    form.appendChild(questionText);
+
+    document.body.appendChild(form);
+
+
+    var buttonAdd = document.createElement("button");
+    buttonAdd.setAttribute("onClick","addChoice()");
+    var t=document.createTextNode("+ odpowiedz");
+    buttonAdd.appendChild(t); 
+    document.getElementById("buttons").appendChild(buttonAdd);
+
+    choiceCounter = 0;
+
+}
+
+
+function addChoice(){
+    
+    var newId = "id".concat(choiceCounter); //id0, id1 itp
+    var newName = "choice".concat(choiceCounter); 
+
+    var choice = document.createElement("input");
+    choice.setAttribute("id", newId); 
+    choice.setAttribute("type", "text"); 
+    choice.setAttribute("name", newName); 
+
+    document.getElementById("newForm").appendChild(choice);
+    choiceCounter = choiceCounter +1;
+}
+
+
+function submitNewForm(){
+    var form = document.getElementById("newForm");
+    form.submit();
+}
+
+function addAnswer1(){
+
+    var x=document.getElementsByName("choice");
+
+    var idConcated = "id".concat(x.length);
+    alert(idConcated);
+    var choice = document.createElement("input");
+    choice.setAttribute("id", idConcated); 
+    choice.setAttribute("type", "text"); 
+    choice.setAttribute("name", "choice"); 
+    document.getElementById("newForm1").appendChild(choice);
+}
+
+
+
 
 package com.example.qrpoll;
 
@@ -154,5 +261,111 @@ public class MyHttpURLConnection {
 //
 //    }
 	
+}
+
+
+
+
+
+var choiceCounter = 0;
+var formCounter = 0;
+
+function createForm(){
+    var formId = "form".concat(formCounter);
+    var form = document.createElement("form");
+    form.setAttribute("method", "POST"); 
+    form.setAttribute("action", "newQuestion");
+    form.setAttribute("id", formId);
+
+    //var CSRF_TOKEN = document.getElementById('hidden-csrf');
+
+    var CSRF_TOKEN = document.getElementById('csrf_token').value;
+
+    //var CSRF_TOKEN = "{{ csrf_token }}";
+
+
+    var token = document.createElement("input");
+    token.setAttribute("type", "hidden"); 
+    token.setAttribute("name", "csrfmiddlewaretoken");
+    token.setAttribute("value", CSRF_TOKEN);
+    form.appendChild(token);
+
+
+    var questionText = document.createElement("input"); 
+    questionText.setAttribute("id", "question"); 
+    questionText.setAttribute("type", "text"); 
+    questionText.setAttribute("name", "question"); 
+
+    form.appendChild(questionText);
+
+
+    var buttonAddChoice = document.createElement("button");
+    buttonAddChoice.setAttribute("onClick","addChoice()");
+    var t=document.createTextNode("+ odpowiedz");
+    buttonAddChoice.appendChild(t); 
+    //form.appendChild(buttonAddChoice);
+
+    document.getElementById("buttons").appendChild(buttonAddChoice);
+
+
+    var buttonAddQuestionId = "buttonAddQuestion".concat(formCounter);
+    var buttonAddQuestion = document.createElement("button");
+    buttonAddQuestion.setAttribute("onClick","submitForm()");
+    buttonAddQuestion.setAttribute("id", buttonAddQuestionId);
+    var t2=document.createTextNode("Dodaj Pytanie");
+    buttonAddQuestion.appendChild(t2); 
+    form.appendChild(buttonAddQuestion);
+
+
+    var tableId = "choiceTable".concat(formCounter);
+    var table = document.createElement("table");
+    table.setAttribute("id", tableId);
+
+    form.appendChild(table);
+
+
+    document.body.appendChild(form);
+    choiceCounter = 0;
+
+    formCounter = formCounter+1;
+
+}
+
+
+function addChoice(){
+    
+    var newId = "id".concat(choiceCounter); //id0, id1 itp
+    var newName = "choice".concat(choiceCounter); 
+
+    var choice = document.createElement("input");
+
+
+    var tr = document.createElement("tr");
+    var tdLabel = document.createElement("td");
+    var tdInput = document.createElement("td");
+
+    tr.appendChild(tdLabel);
+    tr.appendChild(tdInput);
+    
+    tdInput.appendChild(choice);
+    tdLabel.appendChild(document.createTextNode("odp ".concat(choiceCounter)));
+
+
+
+    choice.setAttribute("id", newId); 
+    choice.setAttribute("type", "text"); 
+    choice.setAttribute("name", newName); 
+
+    //document.getElementById("form").appendChild(choice);
+    document.getElementById("choiceTable").appendChild(tr);
+
+
+    choiceCounter = choiceCounter +1;
+}
+
+
+function submitForm(){
+    var form = document.getElementById("form");
+    form.submit();
 }
 

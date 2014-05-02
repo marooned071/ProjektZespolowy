@@ -13,14 +13,7 @@ class QRPoll(models.Model):
 class Question(models.Model):
     poll = models.ForeignKey(QRPoll)
     question_text = models.CharField(max_length=200)
-    QUESTION_TYPES = (
-        ('s','single'),
-        ('m','multiply'),
-        ('o','open'),
-    )
-    question_type = models.CharField(max_length=1,choices=QUESTION_TYPES,default='s')
-    
-
+    question_choices_max = models.IntegerField(default=1) # maksymalna ilosc odpowiedzi do zaznaczenia na dane pytanie - 1 - odpowiedz jednokrotnego wyboru, 2 - max - wielokrotnego wyboru, 0 - pytanie otwarte
 
     def __str__(self):  # Python 3: def __str__(self):
         return self.question_text

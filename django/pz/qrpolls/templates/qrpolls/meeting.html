@@ -27,7 +27,7 @@ Version {{poll.version}}
 <table border = "1">
 {% for question in question_list %}
 <tr>
-    <td><b>{{ question.question_text }}</b></td> <td><b>Votes</b></td> <td colspan = "10" ><b>Voters</b></td>
+    <td><b>{{ question.question_text }}</b> ( {{ question.question_choices_max }} )</td> <td><b>Votes</b></td> <td colspan = "10" ><b>Voters</b></td>
 </tr>   
 <tr>
     {% for choice in question.choice_set.all %}

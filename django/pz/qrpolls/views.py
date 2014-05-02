@@ -63,12 +63,13 @@ def create(request):
 # Dane dotyczace nowego pytania zawarte sa w POST
 def newQuestion(request,hash_id):
     questionText = request.POST['question']
+    question_choices_max = request.POST['choicesMax']
 
 
     l = len(request.POST.keys()) # l - wielkosc slownika z post, powinny znajdowac się tam: dict_keys(['question', 'csrfmiddlewaretoken', 'choice0'])
 
     choices = []
-    for currId in range(l-2): #poza polami wyboru w slowniku znajduja sie dwa inne pola, dlatego -2
+    for currId in range(l-3): #poza polami wyboru w slowniku znajduja sie trzy inne pola (question, choicesMax, oraz csrfmiddlewaretoken), dlatego -3
         s = 'choice'+str(currId)
         choices.append(request.POST[s])
 
@@ -80,7 +81,7 @@ def newQuestion(request,hash_id):
     poll.version+=1;
     poll.save()
 
-    question = Question(poll=poll, question_text = questionText)
+    question = Question(poll=poll, question_text = questionText, question_choices_max= question_choices_max)
     question.save()
 
     for c in choices:
@@ -155,30 +156,67 @@ def api_vote(request, hash_id, choice_id):
 # Metoda obslugujaca glosowanie z rozroznieniem glosujacych
 # Tak po prawdzie do glosowanie nie jest potrzebny hash_id, ale przydaje aby po zaglosowaniu wyswietlic strone spotkania 
 # w celach debug - w przyszlosci nie bedzie takiej potrzeby
-def api_vote_voter(request, hash_id, voter_id, choice_id):
+def api_vote_voter(request, hash_id, voter_id, choice_ids):
+    # choice_ids - kolejne id odzielane sa przecinkami
+
+    id_list = choice_ids.split(',') # lista id odpowiedzi na ktore zaglosowano
+
+    first_choice = Choice.objects.get(pk=id_list[0]) # pierwsza wybor z listy 
+    question = first_choice.question
+    question_choices_max = question.question_choices_max # na ile odpowiedzi mozna maksymalnie zaglosowac ?
+
+    # usuwanie poprzednich odpowiedzi glosujacego o id voter_id do danego pytania
+    Vote.objects.filter(voter_id=voter_id,choice__question=question).delete() # __ w choice__question oznacza podazanie za foregin key
 
 
 
-    choice = Choice.objects.get(pk=choice_id) # pytanie o id choice_id
-    questionType = choice.question.question_type #typ pytania: s - pytanie jednokrotnego wyboru, m - pytanie wielokrotnego wyboru, o - pytanie otwarte
-    
-    if questionType=='s': #s - single
-        try:
-            vote = Vote.objects.get(choice=choice,voter_id=voter_id)
-        except Vote.DoesNotExist:
-            vote = Vote(choice=choice, voter_id = voter_id)
-
-    
-
-    # elif question_type=='m': # m - multiply
+    if question_choices_max == 0: # pytanie otwarte
+        return HttpResponse("qcm == 0 jeszcze nie zaimplementowano")
 
 
-    # elif question_type=='o': # o - open
+    elif question_choices_max == 1:
+        if len(id_list) != 1:
+            data = [ {'voteInfo': {
+                    'error' : "true",
+                    'description' : "Pytanie jednkrotnego wyboru, a liczba odpowiedzi >1",
+            }}]
+            data_string = json.dumps(data)
+            return HttpResponse(data_string)
 
 
-    vote.save()
+        vote = Vote(choice=first_choice,voter_id=voter_id)
+        vote.save()   
 
-    return HttpResponseRedirect(reverse('qrpolls:meeting', args=(hash_id,)))
+
+    elif question_choices_max >= 2:
+        if len(id_list) > question_choices_max:
+            data = [ {'voteInfo': {
+                    'error' : "true",
+                    'description' : "Pytanie wielonrotnego wyboru, lista odpowiedzi > mozliwe odpowiedzi",
+            }}]
+            data_string = json.dumps(data)
+            return HttpResponse(data_string)
+
+        for id in id_list: 
+            choice =  Choice.objects.get(pk=id) 
+            vote = Vote(choice=choice,voter_id=voter_id)
+            vote.save()
+
+
+
+
+
+    #data = question_choices_max
+   # data = id_list
+
+    data = [ {'voteInfo': {
+                    'error' : "false",
+         }}]
+    data_string = json.dumps(data)
+    return HttpResponse(data_string)
+
+    #return HttpResponseRedirect(reverse('qrpolls:meeting', args=(hash_id,)))
+   # return HttpResponseRedirect(reverse('qrpolls:meeting', args=(hash_id,)))
 
 
 

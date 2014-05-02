@@ -13,6 +13,14 @@ class QRPoll(models.Model):
 class Question(models.Model):
     poll = models.ForeignKey(QRPoll)
     question_text = models.CharField(max_length=200)
+    QUESTION_TYPES = (
+        ('s','single'),
+        ('m','multiply'),
+        ('o','open'),
+    )
+    question_type = models.CharField(max_length=1,choices=QUESTION_TYPES,default='s')
+    
+
 
     def __str__(self):  # Python 3: def __str__(self):
         return self.question_text
@@ -24,5 +32,15 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
     def __str__(self):  # Python 3: def __str__(self):
         return self.choice_text
+
+class Vote(models.Model):
+    choice = models.ForeignKey(Choice)
+    voter_id = models.CharField(max_length=200);
+    extra = models.CharField(max_length=200);
+    def __str__(self):  # Python 3: def __str__(self):
+        return self.voter_id
+
+
+
 
 

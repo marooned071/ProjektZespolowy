@@ -1,5 +1,5 @@
 from django.contrib import admin
-from qrpolls.models import QRPoll, Question, Choice
+from qrpolls.models import QRPoll, Question, Choice, Vote
 
 
 class QRPollAdmin(admin.ModelAdmin):
@@ -19,3 +19,4 @@ class QRPollAdmin(admin.ModelAdmin):
 admin.site.register(QRPoll, QRPollAdmin)
 admin.site.register(Question)
 admin.site.register(Choice)
+admin.site.register(Vote)

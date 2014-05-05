@@ -8,5 +8,6 @@
     <string name="title_activity_poll">PollActivity</string>
     <string name="textView_versionLabel">Version</string>
     <string name="poll_textViewVersionLabelStirng">Version</string>
-
+    <string name="title_activity_history_layout">HistoryLayout</string>
+	<string name="history">History</string>
 </resources>

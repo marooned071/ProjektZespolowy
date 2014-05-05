@@ -1,5 +1,8 @@
 package com.example.qrpoll;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -69,7 +72,7 @@ public class SqlHandler {
 		
 		private static final String Create_table_spotkania="CREATE TABLE IF NOT EXISTS "+DB_TABLE_1+"("
 				+KEY_ID+ " "+ID_OPTION+","+KEY_HASH+ " "+HASH_OPTION+","+KEY_SUBJECT+ " "+SUBJECT_OPTION+","
-				+KEY_ROOM+ " "+ROOM_OPTION+","+KEY_DATE+ " "+DATE_OPTION+",";
+				+KEY_ROOM+ " "+ROOM_OPTION+","+KEY_DATE+ " "+DATE_OPTION+")";
 		/**
 		 * 
 		 */
@@ -101,6 +104,16 @@ public class SqlHandler {
 			String[]columns={KEY_ID,KEY_HASH,KEY_SUBJECT,KEY_ROOM,KEY_DATE};
 			String where=KEY_ID + "=" + id;
 			return db.query(DB_TABLE_1, columns, where, null, null, null, null);
+		}
+		public ArrayList<Item> getAll(){
+			ArrayList<Item>list=new ArrayList<Item>();
+			String[]columns={KEY_ID,KEY_HASH,KEY_SUBJECT,KEY_ROOM,KEY_DATE};
+			Cursor csr=db.query(DB_TABLE_1, columns, null, null, null, null, null);
+			while(csr.moveToNext()){
+				Item item=new Item(csr.getString(SUBJECT_COLUMN),csr.getString(HASH_COLUMN),csr.getString(DATE_COLUMN),csr.getString(ROOM_COLUMN));
+				list.add(item);
+			}
+			return list;
 		}
 		/**
 		 * pomocnicza klasa do tworzenia bazy danych

@@ -22,6 +22,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	
 	
 	private Button scanBtn;
+	private Button button1;
 	private TextView formatTxt, contentTxt;
 
     @Override
@@ -30,11 +31,27 @@ public class MainActivity extends Activity implements OnClickListener {
         setContentView(R.layout.activity_main);
         
         scanBtn = (Button)findViewById(R.id.scan_button);
+        button1=(Button)findViewById(R.id.button1);
         formatTxt = (TextView)findViewById(R.id.scan_format);
         contentTxt = (TextView)findViewById(R.id.scan_content);
         
         scanBtn.setOnClickListener(this);
-        
+        SqlHandler sql=new SqlHandler(getApplication());
+        sql.open();
+        sql.insertSpotkania("Hash1", "Temat1", "210", "30-04-2014");
+        sql.insertSpotkania("Hash2", "Temat2", "110a", "28-04-2014");
+        sql.insertSpotkania("Hash3", "Temat3", "14", "1-04-2014");
+        sql.insertSpotkania("Hash4", "Temat4", "1A", "10-04-2014");
+        sql.close();
+        button1.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+				Intent it=new Intent(getApplication(),HistoryLayout.class);
+				startActivity(it);
+			}
+        	
+        });
     }
 
 	@Override

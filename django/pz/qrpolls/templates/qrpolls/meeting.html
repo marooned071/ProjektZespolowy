@@ -27,11 +27,15 @@ Version {{poll.version}}
 <table border = "1">
 {% for question in question_list %}
 <tr>
-    <td><b>{{ question.question_text }}</b></td>
+    <td><b>{{ question.question_text }}</b> ( {{ question.question_choices_max }} )</td> <td><b>Votes</b></td> <td colspan = "10" ><b>Voters</b></td>
 </tr>   
 <tr>
     {% for choice in question.choice_set.all %}
-        <tr><td>{{ choice.choice_text }}</td><td>{{ choice.votes}}</td></tr>
+        <tr><td>{{ choice.choice_text }}</td><td>{{ choice.vote_set.count}}</td>
+        	{% for vote in choice.vote_set.all %}
+        		<td>{{vote.voter_id}}</td>
+        	{% endfor %}
+        </tr>
     {% endfor %}
 </tr>
 
@@ -43,15 +47,10 @@ Version {{poll.version}}
 
 
 
-
-<button onclick="sayHello()">Click me</button> 
-
-<ul id="myList"><li>Coffee</li><li>Tea</li></ul>
-
 <button id = "buttonCreateForm" onclick="createForm()">Stworz pytanie</button> 
 <div id = "buttons">
 
 </div>
 
-<!-- <button onclick="submitNewForm()">Dodaj pytanie</button>  -->
+
 

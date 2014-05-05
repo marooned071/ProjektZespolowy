@@ -13,6 +13,7 @@ class QRPoll(models.Model):
 class Question(models.Model):
     poll = models.ForeignKey(QRPoll)
     question_text = models.CharField(max_length=200)
+    question_choices_max = models.IntegerField(default=1) # maksymalna ilosc odpowiedzi do zaznaczenia na dane pytanie - 1 - odpowiedz jednokrotnego wyboru, 2 - max - wielokrotnego wyboru, 0 - pytanie otwarte
 
     def __str__(self):  # Python 3: def __str__(self):
         return self.question_text
@@ -24,5 +25,15 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
     def __str__(self):  # Python 3: def __str__(self):
         return self.choice_text
+
+class Vote(models.Model):
+    choice = models.ForeignKey(Choice)
+    voter_id = models.CharField(max_length=200);
+    extra = models.CharField(max_length=200);
+    def __str__(self):  # Python 3: def __str__(self):
+        return self.voter_id
+
+
+
 
 

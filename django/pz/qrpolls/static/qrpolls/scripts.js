@@ -12,6 +12,10 @@ function createForm(){
 	form.setAttribute("action", "newQuestion");
 	form.setAttribute("id", "form");
 
+	form.onsubmit = function() {
+    	return false;
+	}
+
 
 	//token ktory jest potrzebny aby Django przyjal dane POST
 	var CSRF_TOKEN = document.getElementById('csrf_token').value;
@@ -40,6 +44,25 @@ function createForm(){
 	tdLabel.appendChild(document.createTextNode("Tresc pytania: "));
 
 	form.appendChild(tr);
+
+	var tr2 = document.createElement("tr");
+	var tdLabel2 = document.createElement("td");
+	var tdInput2 = document.createElement("td");
+
+	tr2.appendChild(tdLabel2);
+	tr2.appendChild(tdInput2);
+
+	// pole na liczbe odpowiedzi:
+	var choicesMax = document.createElement("input"); 
+	choicesMax.setAttribute("id", "choicesMax"); 
+	choicesMax.setAttribute("type", "text"); 
+	choicesMax.setAttribute("name", "choicesMax"); 
+
+	tdInput2.appendChild(choicesMax);
+	tdLabel2.appendChild(document.createTextNode("Maks odp: "));
+
+	form.appendChild(tr2);
+
 
 	//przycisk dodajacy miejsce na odpowiedz
 	var buttonAddChoice = document.createElement("button");
@@ -97,8 +120,6 @@ function addChoice(){
 	tdInput.appendChild(choice);
 	tdLabel.appendChild(document.createTextNode("odp ".concat(choiceCounter)));
 
-
-
 	choice.setAttribute("id", newId); 
 	choice.setAttribute("type", "text"); 
 	choice.setAttribute("name", newName); 
@@ -107,14 +128,44 @@ function addChoice(){
 	document.getElementById("choiceTable").appendChild(tr);
 
 
-
-
 	choiceCounter = choiceCounter +1;
+}
+
+function isValidate(){
+	var questionValue = document.getElementById("question").value;
+	if (questionValue == ""){
+		alert("brak pytania");
+		return false;
+	}
+	var choicesMaxValue = document.getElementById("choicesMax").value;
+	if (isNaN(choicesMaxValue)){
+		alert("max liczba odpowiedzi nie jest liczba");
+		return false;
+	}
+
+	var choicesMaxValueInt = parseInt(choicesMaxValue);
+
+	if(choicesMaxValueInt==0){
+		alert("liczba odpowiedzi do zaznaczenia musi byc >0");
+		return false;
+	}
+
+	if(choicesMaxValueInt>choiceCounter){
+		alert("liczba odpowiedzi do zaznaczenia jest wieksza od liczby odpowiedzi");
+		return false;
+	}
+
+
+	return true;
 }
 
 
 function submitForm(){
-	var form = document.getElementById("form");
-	form.submit();
+	if(isValidate()){
+		var form = document.getElementById("form");
+		form.submit();
+	}
+	return false;
+
 }
 

@@ -105,7 +105,7 @@ public class LayoutActivity extends Activity {
 	
 	public void createPollView(String url){
 		try {
-			poll = new Poll(url);
+			poll = new Poll(url,getApplicationContext());
 		} catch (JSONException e) {
 			showToast("Blad ankiety.");
 			e.printStackTrace();

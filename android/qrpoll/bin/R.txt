@@ -239,7 +239,7 @@ int id action_context_bar 0x7f05001d
 int id action_menu_divider 0x7f050016
 int id action_menu_presenter 0x7f050017
 int id action_mode_close_button 0x7f050024
-int id action_settings 0x7f050060
+int id action_settings 0x7f050061
 int id activity_chooser_view_content 0x7f050025
 int id always 0x7f05000b
 int id beginning 0x7f050011
@@ -248,7 +248,7 @@ int id button_sendAnswer 0x7f050059
 int id checkbox 0x7f05002d
 int id collapseActionView 0x7f05000d
 int id container 0x7f050049
-int id date 0x7f05005e
+int id date 0x7f05005f
 int id default_activity_button 0x7f050028
 int id dialog 0x7f05000e
 int id disableHome 0x7f050008
@@ -259,12 +259,13 @@ int id expand_activities_button 0x7f050026
 int id expandableListView1 0x7f050044
 int id expanded_menu 0x7f05002c
 int id explinear 0x7f05005b
+int id historia 0x7f05005c
 int id home 0x7f050014
 int id homeAsUp 0x7f050005
 int id icon 0x7f05002a
 int id ifRoom 0x7f05000a
 int id image 0x7f050027
-int id label 0x7f05005c
+int id label 0x7f05005d
 int id lblListHeader 0x7f05005a
 int id linear_question 0x7f050053
 int id listMode 0x7f050001
@@ -290,7 +291,7 @@ int id radioButton_choice2 0x7f050056
 int id radioButton_choice3 0x7f050057
 int id radioButton_question 0x7f050058
 int id ratingBar1 0x7f050043
-int id room 0x7f05005f
+int id room 0x7f050060
 int id scan_button 0x7f050045
 int id scan_content 0x7f050047
 int id scan_format 0x7f050046
@@ -322,7 +323,7 @@ int id title 0x7f05002b
 int id top_action_bar 0x7f050020
 int id up 0x7f050021
 int id useLogo 0x7f050003
-int id value 0x7f05005d
+int id value 0x7f05005e
 int id withText 0x7f05000c
 int integer abc_max_action_buttons 0x7f090000
 int layout abc_action_bar_decor 0x7f030000
@@ -360,9 +361,10 @@ int layout fragment_poll 0x7f03001f
 int layout fragment_poll_test 0x7f030020
 int layout list_group 0x7f030021
 int layout list_item 0x7f030022
-int layout row 0x7f030023
-int layout support_simple_spinner_dropdown_item 0x7f030024
-int layout window_title 0x7f030025
+int layout menu 0x7f030023
+int layout row 0x7f030024
+int layout support_simple_spinner_dropdown_item 0x7f030025
+int layout window_title 0x7f030026
 int menu history_layout 0x7f0c0000
 int menu layout 0x7f0c0001
 int menu main 0x7f0c0002

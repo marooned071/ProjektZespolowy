@@ -1,5 +1,6 @@
 package com.example.qrpoll;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,10 +12,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -33,47 +37,39 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.os.Build;
 
-public class PollActivity extends ActionBarActivity {
+public class PollActivity extends Activity {
 	ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
     
+    private List<String> questions;
     private TextView tv1;
     private TextView tv2;
     private TextView tv3;
     private TextView tv4;
-    
+    private TextView version;
+    private int backButtonCount=0;
     private RatingBar rb;
     
     private void prepareListData() {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
- 
-        // Adding child data
-        listDataHeader.add("Top 250");
-        listDataHeader.add("Now Showing");
-        listDataHeader.add("Coming Soon..");
- 
-        // Adding child data
-        List<String> top250 = new ArrayList<String>();
-        top250.add("The Shawshank Redemption");
-    
-        List<String> nowShowing = new ArrayList<String>();
-        nowShowing.add("xD");
-        List<String> comingSoon = new ArrayList<String>();
-       
-        listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), nowShowing);
-        //listDataChild.put(listDataHeader.get(2), comingSoon);
+        listDataHeader=questions;
+
+        for(int i =0;i<listDataHeader.size();i++){
+        	List<String> list = new ArrayList<String>();
+        	list.add("");
+        	listDataChild.put(listDataHeader.get(i),list);
+        }
+
     }
     
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+    	MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.layout.menu, menu);
         return true;
     }
 
@@ -84,7 +80,7 @@ public class PollActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         //start historii
-        if (id == R.id.action_settings) {
+        if (id == R.id.historia) {
         	Intent it=new Intent(getApplication(),HistoryLayout.class);
 			startActivity(it);
         	
@@ -94,18 +90,19 @@ public class PollActivity extends ActionBarActivity {
     }
 
     
-    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_poll);
+		
 		expListView = (ExpandableListView) findViewById(R.id.lvExp);
 		tv1=(TextView)findViewById(R.id.textView1);
 		tv2=(TextView)findViewById(R.id.textView2);
 		tv3=(TextView)findViewById(R.id.textView3);
 		tv4=(TextView)findViewById(R.id.textView4);
+		version=(TextView)findViewById(R.id.poll_textViewVersionLabel);
 		
 		rb=(RatingBar)findViewById(R.id.ratingBar1);
 		rb.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
@@ -118,30 +115,26 @@ public class PollActivity extends ActionBarActivity {
 				}
 		});
 		
-		prepareListData();
 		Intent intent = getIntent();
 	    String url = intent.getStringExtra("scanResult");
 	    url = "http://"+url;
 		
 		createPollView(url);
-		
-		 listAdapter=new ExpandableListAdapter(this,listDataHeader,listDataChild,poll);
-        // setting list adapter
+		prepareListData();
+		listAdapter=new ExpandableListAdapter(this,listDataHeader,listDataChild,poll);
         expListView.setAdapter(listAdapter);
-		if (savedInstanceState == null) {
+		
+        /*if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
 		
-		
-		//String url = "http://loony-waters-2513.herokuapp.com/qrpolls/meeting/b9ffd9db1af0b14ed74e92e8d3273f3e/";
-		voteButtonsListener = new VoteButtonsListener();
+		*/
 	
 	    
 		
 	}
 	
-	private VoteButtonsListener voteButtonsListener; //listener przyciskow do glosowania
 	private Map<Integer,RadioGroup> rgMap; // mapa grup z radiobuttonami, czyli grup odpowiedzi, <ID, grupa>
 	private Poll poll = null;
 	
@@ -151,142 +144,46 @@ public class PollActivity extends ActionBarActivity {
 	 */
 	public void createPollView(String url){
 		try {
-			poll = new Poll(url);
+			poll = new Poll(url,getApplicationContext());
 		} catch (JSONException e) {
-			showToast("Blad ankiety.");
+			Toast.makeText(getApplicationContext(),
+			        "Blad ankiety", Toast.LENGTH_SHORT).show();
 			e.printStackTrace();
 			return;
 		}
-		
-		
-        final LinearLayout questionLinear = (LinearLayout) findViewById(R.id.poll_questionsLinear); //panel w ktorym beda pytania (jest zdefiniowany w pliku xml layoutu)
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-		
-		
+		questions=new ArrayList<String>();
+		Map<String,Question> questionMap=this.poll.getQuestion_map();
+		for(String key:questionMap.keySet()){
+			Question q=questionMap.get(key);
+    		questions.add(q.getQuestion_text());
+    	}
 		tv1.setText(poll.getSubject());
 		tv2.setText(poll.getHash_id());
 		tv3.setText(poll.getStart_date());
 		tv4.setText(poll.getRoom());
-		
-		Map<String,Question> questionMap = poll.getQuestion_map();
-		Question q;
-		
-	/*	for(String key:questionMap.keySet()){
-			q=questionMap.get(key);
-			Map<String, Choice> choiceMap= q.getChoice_map();
-			for(String choice: choiceMap.keySet()){
-            	Choice c = choiceMap.get(choice);
-			}
-			
-		}*/
-		rgMap = new HashMap<Integer,RadioGroup>();
-		
-		for(String key: questionMap.keySet()){
-			q = questionMap.get(key);
-			
-			LinearLayout ll = new LinearLayout(this); //panel na pytanie o kluczu key
-            ll.setOrientation(LinearLayout.VERTICAL);
-            
-            
-            TextView questionTextView = new TextView(this); //textView z pytaniem
-            questionTextView.setTextSize(20.0f);
-            questionTextView.setText(q.getQuestion_text()); 
-            ll.addView(questionTextView);
-            
-            int buttonId = Integer.parseInt(q.getPk()); // id przycisku odpowiada id z bazy danych
-            RadioGroup rg = new RadioGroup(this);
-           // rg.setId(buttonId);
-            
-            rgMap.put(buttonId, rg);
-            
-            Map<String, Choice> choiceMap= q.getChoice_map();
-            
-            for(String choice: choiceMap.keySet()){
-            	Choice c = choiceMap.get(choice);
-            	RadioButton rb = new RadioButton(this);
-            	int rbID = Integer.parseInt(c.getPk());
-            	rb.setId(rbID);							//ID radiobutton odpowiada id odpowiedzi z bazy danych
-            	rb.setText(c.getChoice_text());
-            	rg.addView(rb);
-            }
-            
-            ll.addView(rg);
-            
-            Button btn = new Button(this);
-            //int buttonId = Integer.parseInt(q.getPk()); // id przycisku odpowiada id z bazy danych
-            btn.setId(buttonId);
-            btn.setText("VOTE");
-            btn.setLayoutParams(params);
-            btn.setOnClickListener(voteButtonsListener);
-            
-            ll.addView(btn);
-  
-            //questionLinear.addView(ll);  
-            
+		version.setText("Version: "+poll.getVersion());
+		SqlHandler sql=new SqlHandler(getApplication());
+        sql.open();
+        sql.insertSpotkania(poll.getHash_id(), poll.getSubject(), poll.getRoom(), poll.getStart_date());
+        sql.close();
 		}
-		
-		
-		
-		
-		
-	}
 	
-	
-	
-	
-	public void showToast(String msg){
-	    Toast toast = Toast.makeText(getApplicationContext(),
-		        msg, Toast.LENGTH_SHORT);
-		    toast.show();
-	}
-	
-	
-	private class VoteButtonsListener implements OnClickListener{
-
-		@Override
-		public void onClick(View arg0) {
-			int buttonID = arg0.getId();
-			RadioGroup rg= rgMap.get(buttonID);
-			int checkedChoiceID = rg.getCheckedRadioButtonId();
-			if(checkedChoiceID!=-1){
-				poll.vote(checkedChoiceID+"");
-				showToast("Zaglosowano!");
-			}
-			else{
-				showToast("Nic nie zaznaczono");
-			}
-			
-			
-			
-		}
-		
-	}
-	
-	
-	
-	
-	
-	
-	public void onBackPressed() {
-		//do nothing
-	}
-
-
 	/**
-	 * A placeholder fragment containing a simple view.
+	 * metoda wywolywana przy nacisnieciu przycisku back
 	 */
-	public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
+	public void onBackPressed() {
+		
+		if(backButtonCount>=1){
+			finish();
+		}else{
+			Toast.makeText(getApplicationContext(),
+			        "Nacisnij jeszcze raz back aby wyjsc z aplikacji", Toast.LENGTH_SHORT).show();
+			backButtonCount++;
 		}
+		//android.os.Process.killProcess(android.os.Process.myPid());
+        //System.exit(1);
 
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_poll, container,
-					false);
-			return rootView;
-		}
+	        
 	}
-
+	
 }

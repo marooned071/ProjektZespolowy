@@ -10,8 +10,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Context;
 import android.os.StrictMode;
 import android.util.Log;
+import android.widget.Toast;
 
 
 /**
@@ -30,10 +32,10 @@ public class Poll {
 	private String start_date;
 	private int version;
 	private Map<String,Question> question_map;
-	
+	private Context context;
 	
 
-	public Poll(String address) throws JSONException{
+	public Poll(String address,Context context) throws JSONException{
 		
 		Log.d("moje", "POLL KONSTRUKTOR");
 		
@@ -41,7 +43,7 @@ public class Poll {
 		StrictMode.setThreadPolicy(policy); //TO:DO przerobic na AsyncTask http://stackoverflow.com/questions/6343166/android-os-networkonmainthreadexception
 		
 		this.address = address;
-	
+		this.context = context;
 		//INFORMACJE O ANKIECIE
 		/*
 		[
@@ -235,7 +237,12 @@ public class Poll {
 		String full_address = address+"api/vote/"+pk+"/";		
 		Log.d("moje",full_address);
 		try {
-			MyHttpURLConnection.get(full_address);
+			String response=MyHttpURLConnection.get(full_address);
+			if(response.contains("error\": \"false\"")){
+				Toast.makeText(context.getApplicationContext(),"Zaglosowano", Toast.LENGTH_SHORT).show();
+			}else{
+				Toast.makeText(context.getApplicationContext(),"Blad Glosowania", Toast.LENGTH_SHORT).show();
+			}
 		} catch (Exception404 e) {
 			e.printStackTrace();
 		} catch (Exception e) {

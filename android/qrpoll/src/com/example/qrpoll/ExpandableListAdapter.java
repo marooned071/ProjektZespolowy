@@ -84,12 +84,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                     .findViewById(R.id.explinear);
             LinearLayout l=new LinearLayout(this._context);
             l.setOrientation(LinearLayout.VERTICAL);
+            
             final ArrayList<String> list = new ArrayList<String>();
             for(String choice: choiceMap.keySet()){
             	Choice c = choiceMap.get(choice);
             	CheckBox rb = new CheckBox(this._context);
             	final int rbID = Integer.parseInt(c.getPk());
-            	rb.setId(rbID);							//ID radiobutton odpowiada id odpowiedzi z bazy danych
             	rb.setText(c.getChoice_text());
             	rb.setOnCheckedChangeListener(new OnCheckedChangeListener()
             	{
@@ -97,7 +97,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 					@Override
 					public void onCheckedChanged(CompoundButton arg0,
 							boolean arg1) {
-						Toast.makeText(_context,groupPosition+"", Toast.LENGTH_SHORT).show();
+						//Toast.makeText(_context,groupPosition+"", Toast.LENGTH_SHORT).show();
 						if(list.contains("id:"+rbID)){
 							
 							list.remove("id:"+rbID);
@@ -178,7 +178,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     	
     	@Override
     	public void onClick(View arg0) {
-    		//Toast.makeText(_context,arg0.getId()+"", Toast.LENGTH_SHORT).show();
     		List<String>list=mapaButton.get(arg0.getId());
     		if(list.size()!=0){
     			String vote=null;
@@ -187,12 +186,13 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     				vote+=id+","; 			
     			}
     			vote=vote.substring(4,vote.length()-1);
-    			Toast.makeText(_context,vote, Toast.LENGTH_SHORT).show();
+    			//Toast.makeText(_context,vote, Toast.LENGTH_SHORT).show();
     		SurveyResponse rs=new SurveyResponse(_context);
     		sr.createIdToSend();
     		poll.vote(sr.createIdToSend()+"/"+vote);
+    		}else{
+    			Toast.makeText(_context.getApplicationContext(),"Nic nie wybrano", Toast.LENGTH_SHORT).show();
     		}
-    		//poll.vote("");
     	}
     }
 }

@@ -65,7 +65,7 @@ public class PollActivityTest extends ActionBarActivity implements OnClickListen
 		
 		
 	    try {
-			p = new Poll(url);
+			p = new Poll(url,getApplicationContext());
 		} catch (JSONException e) {
 			Log.d("moje", "JSON SIE ZJEBAL");
 			e.printStackTrace();
@@ -112,7 +112,7 @@ public class PollActivityTest extends ActionBarActivity implements OnClickListen
 
 		
 	    try {
-			p = new Poll(url);
+			p = new Poll(url,getApplicationContext());
 		} catch (JSONException e) {
 			Log.d("moje", "JSON SIE ZJEBAL");
 			e.printStackTrace();

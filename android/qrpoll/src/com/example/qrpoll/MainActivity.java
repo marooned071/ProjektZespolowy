@@ -39,22 +39,10 @@ public class MainActivity extends Activity implements OnClickListener {
         scanBtn.setOnClickListener(this);
         SqlHandler sql=new SqlHandler(getApplication());
         sql.open();
-        sql.insertSpotkania("Hash1", "Temat1", "210", "30-04-2014");
-        sql.insertSpotkania("Hash2", "Temat2", "110a", "28-04-2014");
-        sql.insertSpotkania("Hash3", "Temat3", "14", "1-04-2014");
-        sql.insertSpotkania("Hash4", "Temat4", "1A", "10-04-2014");
         sql.close();
         sr=new SurveyResponse(this);
         formatTxt.setText(sr.createIdToSend());
-        button1.setOnClickListener(new OnClickListener(){
-
-			@Override
-			public void onClick(View arg0) {
-				Intent it=new Intent(getApplication(),HistoryLayout.class);
-				startActivity(it);
-			}
-        	
-        });
+    
     }
 
 	@Override
@@ -99,6 +87,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		Intent intent = new Intent(this, PollActivity.class);
 		intent.putExtra("scanResult", scanResult);
 		startActivity(intent);
+		finish();
 	}
 	
 	

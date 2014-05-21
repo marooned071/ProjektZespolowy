@@ -24,6 +24,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	private Button scanBtn;
 	private Button button1;
 	private TextView formatTxt, contentTxt;
+	private SurveyResponse sr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,8 @@ public class MainActivity extends Activity implements OnClickListener {
         sql.insertSpotkania("Hash3", "Temat3", "14", "1-04-2014");
         sql.insertSpotkania("Hash4", "Temat4", "1A", "10-04-2014");
         sql.close();
+        sr=new SurveyResponse(this);
+        formatTxt.setText(sr.createIdToSend());
         button1.setOnClickListener(new OnClickListener(){
 
 			@Override
@@ -113,8 +116,12 @@ public class MainActivity extends Activity implements OnClickListener {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        //start historii
         if (id == R.id.action_settings) {
-            return true;
+        	Intent it=new Intent(getApplication(),HistoryLayout.class);
+			startActivity(it);
+        	
+        	return true;
         }
         return super.onOptionsItemSelected(item);
     }

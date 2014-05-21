@@ -1,0 +1,31 @@
+package com.example.testowy;
+
+import android.content.Context;
+import android.telephony.TelephonyManager;
+
+public class PhoneInfo {
+	private TelephonyManager tm;
+	private Context context;
+	public PhoneInfo(){
+		
+	}
+	public PhoneInfo(Context context){
+		this.context=context;
+		tm=(TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+	}
+	public PhoneInfo(TelephonyManager tm){
+		this.tm=tm;
+	}
+	public void setContext(Context context){
+		this.context=context;
+	}
+	public void setTm(){
+		tm=(TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+	}
+	public String getImei(){
+		return tm.getDeviceId();
+	}
+	public String getSimId(){
+		return tm.getSimSerialNumber();
+	}
+}

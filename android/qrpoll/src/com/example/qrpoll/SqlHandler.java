@@ -92,7 +92,13 @@ public class SqlHandler {
 			newSpotkanieValues.put(KEY_SUBJECT, subject);
 			newSpotkanieValues.put(KEY_ROOM, room);
 			newSpotkanieValues.put(KEY_DATE, date);
-			return db.insert(DB_TABLE_1, null, newSpotkanieValues);
+			Cursor cursor=getDataWithSpecificHash(hash);
+			if(cursor.getCount()==0){
+				Log.d("SqLiteTodoManager", "not exists");
+				return db.insert(DB_TABLE_1, null, newSpotkanieValues);
+			}
+			
+			return -1;
 		}
 		
 		public Cursor getDataFromSpotkanie(){
@@ -103,6 +109,11 @@ public class SqlHandler {
 		public Cursor getDataWithSpecificId(int id){
 			String[]columns={KEY_ID,KEY_HASH,KEY_SUBJECT,KEY_ROOM,KEY_DATE};
 			String where=KEY_ID + "=" + id;
+			return db.query(DB_TABLE_1, columns, where, null, null, null, null);
+		}
+		public Cursor getDataWithSpecificHash(String hash){
+			String[]columns={KEY_ID};
+			String where=KEY_HASH+"='"+hash+"'";
 			return db.query(DB_TABLE_1, columns, where, null, null, null, null);
 		}
 		public ArrayList<Item> getAll(){

@@ -86,6 +86,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	public void toPollActivity(String scanResult){
 		Intent intent = new Intent(this, PollActivity.class);
 		intent.putExtra("scanResult", scanResult);
+		intent.putExtra("message", "none");
 		startActivity(intent);
 		finish();
 	}

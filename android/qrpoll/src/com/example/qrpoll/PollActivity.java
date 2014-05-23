@@ -1,6 +1,5 @@
 package com.example.qrpoll;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -52,6 +51,11 @@ public class PollActivity extends Activity {
     private int backButtonCount=0;
     private RatingBar rb;
     
+
+	private Poll poll = null;
+	/**
+	 * 
+	 */
     private void prepareListData() {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
@@ -85,12 +89,17 @@ public class PollActivity extends Activity {
 			startActivity(it);
         	
         	return true;
+        }else if(id==R.id.odswiez){
+        	
+        	refresh();
         }
         return super.onOptionsItemSelected(item);
     }
 
-    
 	@Override
+	/**
+	 * 
+	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -119,11 +128,16 @@ public class PollActivity extends Activity {
 	    String url = intent.getStringExtra("scanResult");
 	    url = "http://"+url;
 		
-		createPollView(url);
+		getPoll(url);
 		prepareListData();
 		listAdapter=new ExpandableListAdapter(this,listDataHeader,listDataChild,poll);
         expListView.setAdapter(listAdapter);
-		
+		Refresh refresh=(Refresh) new Refresh(poll,this).execute();
+		String message =intent.getStringExtra("message");
+		if(!message.equals("none")){
+			Toast.makeText(getApplicationContext(),
+			        "Zaktualizowano pytania. Aktualna wersja: "+poll.getVersion(), Toast.LENGTH_LONG).show();
+		}
         /*if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
@@ -134,15 +148,13 @@ public class PollActivity extends Activity {
 	    
 		
 	}
-	
-	private Map<Integer,RadioGroup> rgMap; // mapa grup z radiobuttonami, czyli grup odpowiedzi, <ID, grupa>
-	private Poll poll = null;
+
 	
 	/**
-	 * Tworzy dynamiczny widok ankiet z mozliwoscia glosowania.
+	 * tworzy nowa ankiete wg podanego url, ustawia odpowiednie informacje na komponentach
 	 * @param url - adres do ankiety np: http://loony-waters-2513.herokuapp.com/qrpolls/meeting/b9ffd9db1af0b14ed74e92e8d3273f3e/
 	 */
-	public void createPollView(String url){
+	public void getPoll(String url){
 		try {
 			poll = new Poll(url,getApplicationContext());
 		} catch (JSONException e) {
@@ -185,5 +197,25 @@ public class PollActivity extends Activity {
 
 	        
 	}
-	
+	/**
+	 * metoda wywolywana przez klikniecie "odswiez", sprawdzajaca czy ankieta nie zostala zupdatowana
+	 */
+	public void refresh(){
+		try {
+			Poll p=new Poll(poll.getAddress(),getApplicationContext());
+			if(poll.getVersion()!=p.getVersion()){
+				Intent it=new Intent(getApplication(),PollActivity.class);
+				it.putExtra("scanResult", poll.getAddress().substring(7));
+				it.putExtra("message", "nowa wersja");
+				startActivity(it);
+				finish();
+			}else{
+				Toast.makeText(getApplicationContext(),
+				       "Nie ma nowszej wersji", Toast.LENGTH_SHORT).show();
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

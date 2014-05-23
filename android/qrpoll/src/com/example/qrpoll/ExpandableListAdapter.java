@@ -72,7 +72,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(final int groupPosition, final int childPosition,
             boolean isLastChild, View convertView, ViewGroup parent) {
+    	String headerTitle = (String) getGroup(groupPosition);
         if (convertView == null) {
+        	
+        	Toast.makeText(_context,parent.getId(), Toast.LENGTH_SHORT).show();
         	String key=questionList.get(groupPosition);
         	Question q=questionMap.get(key);
         	Map<String, Choice> choiceMap= q.getChoice_map();
@@ -159,7 +162,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                 .findViewById(R.id.lblListHeader);
         lblListHeader.setTypeface(null, Typeface.BOLD);
         lblListHeader.setText(headerTitle);
- 
+        
         return convertView;
     }
  

@@ -1,0 +1,56 @@
+package com.example.qrpoll;
+
+import org.json.JSONException;
+
+import android.app.Activity;
+import android.os.AsyncTask;
+import android.widget.Toast;
+
+/**
+ * 
+ * @author wodzu
+ *klasa obslugujaca sprawdzanie wersji ankiety
+ */
+public class Refresh extends AsyncTask<Void,Void,Void>{
+	private Poll poll;
+	private Activity activity;
+	
+	/**
+	 * glowny konstruktor
+	 * @param poll Aktualna ankieta
+	 * @param activity activity ktore wywoluje asynctaska
+	 */
+	public Refresh(Poll poll,Activity activity){
+		this.activity=activity;
+		this.poll=poll;
+	}
+	/**
+	 * 
+	 */
+	@Override
+	protected Void doInBackground(Void... arg0) {
+		while (true){
+			try {
+				Thread.sleep(30000);
+				Toast.makeText(activity.getApplicationContext()," watek dziala", Toast.LENGTH_SHORT).show();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			String adress=poll.getAddress();
+			int version=poll.getVersion();
+			Poll p=null;
+			try {
+				p=new Poll(adress,activity.getApplicationContext());
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if(version!=p.getVersion()){
+			
+			}
+			return null;
+		}
+	}
+
+}

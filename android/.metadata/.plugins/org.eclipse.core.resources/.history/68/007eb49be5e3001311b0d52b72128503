@@ -103,7 +103,7 @@
             android:background="#437799"
             android:duplicateParentState="false"
             android:gravity="center_horizontal"
-            android:numStars="5"
+            android:numStars="4"
             android:scaleX="0.7"
             android:scaleY="0.7" />
 

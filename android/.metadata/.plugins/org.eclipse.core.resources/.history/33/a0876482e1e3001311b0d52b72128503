@@ -45,7 +45,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public void setPoll(Poll poll){
     	this.poll=poll;
     	questionMap=this.poll.getQuestion_map();
-    	
     }
     
     public ExpandableListAdapter(Context context, List<String> listDataHeader,
@@ -192,6 +191,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     			vote=vote.substring(4,vote.length()-1);
     			//Toast.makeText(_context,vote, Toast.LENGTH_SHORT).show();
     		SurveyResponse rs=new SurveyResponse(_context);
+    		sr.createIdToSend();
     		poll.vote(sr.createIdToSend()+"/"+vote);
     		}else{
     			Toast.makeText(_context.getApplicationContext(),"Nic nie wybrano", Toast.LENGTH_SHORT).show();

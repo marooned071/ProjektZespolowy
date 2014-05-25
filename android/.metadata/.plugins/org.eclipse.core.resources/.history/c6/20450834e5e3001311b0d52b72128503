@@ -218,7 +218,7 @@ public class Poll {
 			question_pk = jo_inside.get("question").toString();
 			choice_text = jo_inside.get("choice_text").toString();
 			votes = Integer.parseInt(jo_inside.get("votes").toString());
-			
+			String rating=jo_inside.get("isRating").toString();
 			if(!question_pk.equals("2")){			//ustawione na sztywno, w wypadku pozniejszych problemow zmienic
 			question_map.get(question_pk).addChoice(pk, choice_text, votes);
 			}

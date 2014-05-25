@@ -26,9 +26,28 @@ def meeting(request, hash_id):
     except QRPoll.DoesNotExist:
         raise Http404
 
+
     question_list = Question.objects.filter(poll=poll)
+    #rating_list_anwers=Question.objects.filter(poll=poll,isRating=True)
+    ratingQuestion = Question.objects.get(poll=poll, isRating=True) #pytanie o ocene spotkania (jest tylko jedno dlatego mozemy zrobic get)
+    rating_list_choices = Choice.objects.filter(question=ratingQuestion) #lista odpowiedzi na pytanie ratingowe
+    rating=0 #rating spotkania
+    allVotersCount=0 #liczba wszystkich glosujacych
+    for rate_choice in rating_list_choices: #dla kazdej odpowiedzi 0.0 ,0.5 ,1.5 ..
+        voters = Vote.objects.filter(choice=rate_choice) #glosujacy na ta ocene
+        votersCount=int(voters.count()) #liczba glosujacych na ta ocene
+        allVotersCount+=votersCount
+        rating+=float(rate_choice.choice_text)*votersCount
+
+    if allVotersCount!=0: # gdyby nikt nie ocenil spotkania 
+        rating/=allVotersCount
+
+    rating = round(rating,2)
+
+
+
     path = request.META['SERVER_NAME']+request.path
-    return render(request, 'qrpolls/meeting.html', {'poll': poll, 'url' : path, 'question_list' : question_list })
+    return render(request, 'qrpolls/meeting.html', {'poll': poll, 'url' : path, 'question_list' : question_list, 'rating':rating, 'allVotersCount':allVotersCount })
 
 # Metoda tworzaca nowe spotkanie
 def create(request):
@@ -56,6 +75,34 @@ def create(request):
     choice.save()
     choice = Choice(question=question, choice_text = "Nudy")
     choice.save()
+
+
+    question = Question(poll=poll, question_text = "Raiting", question_choices_max=1, isRating=True) # przykladowa ankieta
+    question.save()
+
+    choice = Choice(question=question, choice_text = "0")
+    choice.save()
+    choice = Choice(question=question, choice_text = "0.5")
+    choice.save()
+    choice = Choice(question=question, choice_text = "1.0")
+    choice.save()
+    choice = Choice(question=question, choice_text = "1.5")
+    choice.save()
+    choice = Choice(question=question, choice_text = "2.0")
+    choice.save()
+    choice = Choice(question=question, choice_text = "2.5")
+    choice.save()
+    choice = Choice(question=question, choice_text = "3.0")
+    choice.save()
+    choice = Choice(question=question, choice_text = "3.5")
+    choice.save()
+    choice = Choice(question=question, choice_text = "4.0")
+    choice.save()
+    choice = Choice(question=question, choice_text = "4.5")
+    choice.save()
+    choice = Choice(question=question, choice_text = "5.0")
+    choice.save()
+
 
     return HttpResponseRedirect(reverse('qrpolls:meeting', args=(hash_id,)))
 

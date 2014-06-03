@@ -159,7 +159,12 @@ public class Poll {
 			pk = jo.get("pk").toString(); //pk - public key
 			jo_inside = jo.getJSONObject("fields");
 			question_text = jo_inside.get("question_text").toString();
-			question_map.put(pk,new Question(pk, question_text));
+			String rating=jo_inside.get("isRating").toString();
+			if(!pk.equals("2")){
+				question_map.put(pk,new Question(pk, question_text,rating));
+			}
+			
+			
 		}
 		
 		
@@ -213,7 +218,10 @@ public class Poll {
 			question_pk = jo_inside.get("question").toString();
 			choice_text = jo_inside.get("choice_text").toString();
 			votes = Integer.parseInt(jo_inside.get("votes").toString());
+			
+			if(!question_pk.equals("2")){			//ustawione na sztywno, w wypadku pozniejszych problemow zmienic
 			question_map.get(question_pk).addChoice(pk, choice_text, votes);
+			}
 		}
 					
 		

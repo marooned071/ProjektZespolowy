@@ -27,6 +27,9 @@ def meeting(request, hash_id):
         raise Http404
 
 
+
+
+
     question_list = Question.objects.filter(poll=poll)
     #rating_list_anwers=Question.objects.filter(poll=poll,isRating=True)
     ratingQuestion = Question.objects.get(poll=poll, isRating=True) #pytanie o ocene spotkania (jest tylko jedno dlatego mozemy zrobic get)
@@ -48,6 +51,39 @@ def meeting(request, hash_id):
 
     path = request.META['SERVER_NAME']+request.path
     return render(request, 'qrpolls/meeting.html', {'poll': poll, 'url' : path, 'question_list' : question_list, 'rating':rating, 'allVotersCount':allVotersCount })
+
+def meetingTest(request, hash_id):
+    try:
+        poll = QRPoll.objects.get(hash_id=hash_id) # pobieramy hash z bazy, jesli go nie ma w bazie bedzie 404
+    except QRPoll.DoesNotExist:
+        raise Http404
+
+    poll.version+=1;
+    poll.save()
+
+    question_list = Question.objects.filter(poll=poll)
+    #rating_list_anwers=Question.objects.filter(poll=poll,isRating=True)
+    ratingQuestion = Question.objects.get(poll=poll, isRating=True) #pytanie o ocene spotkania (jest tylko jedno dlatego mozemy zrobic get)
+    rating_list_choices = Choice.objects.filter(question=ratingQuestion) #lista odpowiedzi na pytanie ratingowe
+    rating=0 #rating spotkania
+    allVotersCount=0 #liczba wszystkich glosujacych
+    for rate_choice in rating_list_choices: #dla kazdej odpowiedzi 0.0 ,0.5 ,1.5 ..
+        voters = Vote.objects.filter(choice=rate_choice) #glosujacy na ta ocene
+        votersCount=int(voters.count()) #liczba glosujacych na ta ocene
+        allVotersCount+=votersCount
+        rating+=float(rate_choice.choice_text)*votersCount
+
+    if allVotersCount!=0: # gdyby nikt nie ocenil spotkania 
+        rating/=allVotersCount
+
+    rating = round(rating,2)
+
+    path = request.META['SERVER_NAME']+request.path
+    data = {'poll': poll, 'url' : path, 'question_list' : question_list, 'rating':rating, 'allVotersCount':allVotersCount };
+    # return render(request, 'qrpolls/meeting.html', {'poll': poll, 'url' : path, 'question_list' : question_list, 'rating':rating, 'allVotersCount':allVotersCount })
+    # return render_to_response('qrpolls/meeting.html', data, context_instance = RequestContext(request))
+    return render(request, 'qrpolls/meeting_questions.html', data)
+
 
 # Metoda tworzaca nowe spotkanie
 def create(request):

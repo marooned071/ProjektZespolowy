@@ -21,28 +21,38 @@ Version {{poll.version}}
 <h2>Rating: {{rating}}</h2>
 VotersCount: {{allVotersCount}}
 
-{% load staticfiles %}
-<script type="text/javascript" src="{% static 'qrpolls/scripts.js' %}" >
 
+
+
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'qrpolls/scripts.js' %}" ></script>
+<script type="text/javascript" src="{% static 'qrpolls/jquery-1.11.1.min.js' %}" ></script>
+
+<script type="text/javascript">
+function refresh() {
+		var u = document.URL;
+		var u2 = u.replace("meeting", "meetingTest"); 
+$.ajax({
+
+ 	url: u2,
+
+  success: function(data) {
+  	 $('#questionList').html(data);
+  
+        }
+  });
+  setTimeout("refresh()", 5000);
+}
+
+$(function(){
+    refresh();
+});
 </script>
 
-<table border = "1">
-{% for question in question_list %}
-<tr>
-    <td><b>{{ question.question_text }}</b> ( {{ question.question_choices_max }} )</td> <td><b>Votes</b></td> <td colspan = "10" ><b>Voters</b></td>
-</tr>   
-<tr>
-    {% for choice in question.choice_set.all %}
-        <tr><td>{{ choice.choice_text }}</td><td>{{ choice.vote_set.count}}</td>
-        	{% for vote in choice.vote_set.all %}
-        		<td>{{vote.voter_id}}</td>
-        	{% endfor %}
-        </tr>
-    {% endfor %}
-</tr>
 
-{% endfor %}
-</table>
+<div id = "questionList">
+	{% include 'meeting_questions.html' %}
+</div>
 
 
 <input id="csrf_token" type = "hidden" value="{{ csrf_token }}"/> <!-- token potrzebny aby przeslac POST do django - musi byc, nie ma rady -->

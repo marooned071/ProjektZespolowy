@@ -8,11 +8,13 @@ public class Question {
 	
 	private String pk;
 	private String question_text;
+	private String isRating;
 	private Map<String,Choice> choice_map;
 	
-	Question(String pk, String question_text){
+	Question(String pk, String question_text,String isRating){
 		this.pk = pk;
 		this.question_text = question_text;
+		this.isRating=isRating;
 		this.choice_map = new HashMap<String,Choice>(); //Map<PK,Choice>
 	}
 	
@@ -32,6 +34,10 @@ public class Question {
 
 	public Map<String, Choice> getChoice_map() {
 		return choice_map;
+	}
+	
+	public String isRating(){
+		return isRating;
 	}
 	
 	@Override

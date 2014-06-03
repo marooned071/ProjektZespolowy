@@ -15,6 +15,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -60,7 +61,7 @@ public class PollActivity extends Activity {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
         listDataHeader=questions;
-
+        Log.d("ilosc nazw", "ilosc :"+listDataHeader.size());
         for(int i =0;i<listDataHeader.size();i++){
         	List<String> list = new ArrayList<String>();
         	list.add("");
@@ -117,11 +118,45 @@ public class PollActivity extends Activity {
 		rb.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
 			public void onRatingChanged(RatingBar ratingBar, float rating,
 					boolean fromUser) {
-		 
-				Toast.makeText(getApplicationContext(),
-				        rating+"", Toast.LENGTH_SHORT).show();
-		 
+				int rate=(int)(2*rating);
+				SurveyResponse sr=new SurveyResponse(getApplicationContext());
+	    		
+				switch(rate){
+				case 0:
+					poll.vote(sr.createIdToSend()+"/4");
+					break;
+				case 1:
+					poll.vote(sr.createIdToSend()+"/5");
+					break;
+				case 2:
+					poll.vote(sr.createIdToSend()+"/6");
+					break;
+				case 3:
+					poll.vote(sr.createIdToSend()+"/7");
+					break;
+				case 4:
+					poll.vote(sr.createIdToSend()+"/8");
+					break;
+				case 5:
+					poll.vote(sr.createIdToSend()+"/9");
+					break;
+				case 6:
+					poll.vote(sr.createIdToSend()+"/10");
+					break;
+				case 7:
+					poll.vote(sr.createIdToSend()+"/11");
+					break;
+				case 8:
+					poll.vote(sr.createIdToSend()+"/12");
+					break;
+				case 9:
+					poll.vote(sr.createIdToSend()+"/13");
+					break;
+				case 10:
+					poll.vote(sr.createIdToSend()+"/14");
+					break;
 				}
+			}
 		});
 		
 		Intent intent = getIntent();
@@ -168,6 +203,7 @@ public class PollActivity extends Activity {
 		for(String key:questionMap.keySet()){
 			Question q=questionMap.get(key);
     		questions.add(q.getQuestion_text());
+			
     	}
 		tv1.setText(poll.getSubject());
 		tv2.setText(poll.getHash_id());

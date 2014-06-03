@@ -1,5 +1,8 @@
 
 
+
+
+
 var choiceCounter = 0; //licznik odpowiedzi, zwieksza sie o jeden za kazdym razem gdy zostaje dodana odpowiedz do formularza 
 // sluzy do inkrementowania id (id kazdej odpowiedzi musi byc inne aby bezproblemowa przeslac je POSTem)
 

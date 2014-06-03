@@ -74,9 +74,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public View getChildView(final int groupPosition, final int childPosition,
             boolean isLastChild, View convertView, ViewGroup parent) {
     	String headerTitle = (String) getGroup(groupPosition);
-        if (convertView == null) {
-        	
-        	Toast.makeText(_context,parent.getId(), Toast.LENGTH_SHORT).show();
+        //if (convertView == null) {
+        	Toast.makeText(_context,headerTitle, Toast.LENGTH_SHORT).show();
         	String key=questionList.get(groupPosition);
         	Question q=questionMap.get(key);
         	Map<String, Choice> choiceMap= q.getChoice_map();
@@ -123,7 +122,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             
             linear.addView(l);
 
-        }
+        //}
  
         return convertView;
     }
@@ -163,6 +162,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                 .findViewById(R.id.lblListHeader);
         lblListHeader.setTypeface(null, Typeface.BOLD);
         lblListHeader.setText(headerTitle);
+        
+        //Toast.makeText(_context,headerTitle +""+ groupPosition, Toast.LENGTH_SHORT).show();
+        
         
         return convertView;
     }

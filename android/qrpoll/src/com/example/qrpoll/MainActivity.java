@@ -1,6 +1,9 @@
 package com.example.qrpoll;
 
 import android.support.v4.app.Fragment;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -8,12 +11,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -24,8 +30,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	private Button scanBtn;
 	private Button button1;
 	private TextView formatTxt, contentTxt;
-	private SurveyResponse sr;
-
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +45,22 @@ public class MainActivity extends Activity implements OnClickListener {
         SqlHandler sql=new SqlHandler(getApplication());
         sql.open();
         sql.close();
-        sr=new SurveyResponse(this);
-        formatTxt.setText(sr.createIdToSend());
-    
+        if(!checkNetwork()){
+        	if(!checkWifi()){
+        		AlertDialog.Builder adb=new AlertDialog.Builder(this);
+        		adb.setTitle("Brak polaczenia");
+        		adb.setMessage("Nacisnij ok aby wlaczyc WIFI").setCancelable(false).setNeutralButton("OK", new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						WifiManager wifi=(WifiManager)getSystemService(Context.WIFI_SERVICE);
+						wifi.setWifiEnabled(true);
+					}
+				});
+        		AlertDialog ad=adb.create();
+        		ad.show();
+        	}
+        }
     }
 
 	@Override
@@ -56,15 +74,17 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 	
 	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		try{
 		if(requestCode == IntentIntegrator.REQUEST_CODE){
 			//retrieve scan result
 			IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+			
 			if (scanningResult != null) {
 				//we have a result
 				String scanContent = scanningResult.getContents();
-				String scanFormat = scanningResult.getFormatName();
-				formatTxt.setText("FORMAT: " + scanFormat);
-				contentTxt.setText("CONTENT: " + scanContent);
+				//String scanFormat = scanningResult.getFormatName();
+				//formatTxt.setText("FORMAT: " + scanFormat);
+				//contentTxt.setText("CONTENT: " + scanContent);
 				
 				toPollActivity(scanContent);
 				
@@ -79,18 +99,44 @@ public class MainActivity extends Activity implements OnClickListener {
 			
 						
 		}
-		
+		}catch(NullPointerException e){
+		    Toast toast = Toast.makeText(getApplicationContext(),
+			        "Przerwano skanowanie", Toast.LENGTH_SHORT);
+			    toast.show();
+		}
 	}
 	
 	
 	public void toPollActivity(String scanResult){
+		if(!scanResult.isEmpty()){
 		Intent intent = new Intent(this, PollActivity.class);
 		intent.putExtra("scanResult", scanResult);
 		intent.putExtra("message", "none");
 		startActivity(intent);
 		finish();
+		}else{
+			Toast toast = Toast.makeText(getApplicationContext(),
+			        "No scan data received!", Toast.LENGTH_SHORT);
+			    toast.show();
+		}
 	}
-	
+	/**
+	 * sprawdzenie stanu wifi
+	 * @return
+	 */
+	public boolean checkWifi(){
+		WifiManager wifi=(WifiManager)getSystemService(Context.WIFI_SERVICE);
+		return wifi.isWifiEnabled();
+	}
+	/**
+	 * sprawdzenie danych pakietowych
+	 * @return
+	 */
+	public boolean checkNetwork(){
+		ConnectivityManager cm=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo ni=cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+		return ni.isConnected();
+	}
 	
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

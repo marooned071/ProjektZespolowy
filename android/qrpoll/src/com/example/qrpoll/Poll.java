@@ -34,6 +34,8 @@ public class Poll {
 	private Map<String,Question> question_map;
 	private Context context;
 	
+	public int ratingID=0;
+	public List<String> ratingquestions=new ArrayList<String>();
 
 	public Poll(String address,Context context) throws JSONException{
 		
@@ -160,8 +162,10 @@ public class Poll {
 			jo_inside = jo.getJSONObject("fields");
 			question_text = jo_inside.get("question_text").toString();
 			String rating=jo_inside.get("isRating").toString();
-			if(!pk.equals("2")){
+			if(rating.equals("false")){
 				question_map.put(pk,new Question(pk, question_text,rating));
+			}else{
+				ratingID=Integer.parseInt(pk);
 			}
 			
 			
@@ -219,8 +223,10 @@ public class Poll {
 			choice_text = jo_inside.get("choice_text").toString();
 			votes = Integer.parseInt(jo_inside.get("votes").toString());
 			
-			if(!question_pk.equals("2")){			//ustawione na sztywno, w wypadku pozniejszych problemow zmienic
+			if(!question_pk.equals(ratingID+"")){			//ustawione na sztywno, w wypadku pozniejszych problemow zmienic
 			question_map.get(question_pk).addChoice(pk, choice_text, votes);
+			}else{
+				ratingquestions.add(pk);
 			}
 		}
 					

@@ -13,34 +13,20 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 
-
+/**
+ * klasa odpowiadajaca za polaczenie sie z serwerem i pobranie zawartosci strony
+ * @author Piotrek
+ *
+ */
 public class MyHttpURLConnection {
-	
-//	static public String get(String url) throws Exception, Exception404 {	 
-//		URL obj = new URL(url);
-//		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-//		// optional default is GET
-//		con.setRequestMethod("GET");
-//		//add request header
-//		con.setRequestProperty("User-Agent", USER_AGENT);
-//		int responseCode = con.getResponseCode();
-//		if(responseCode==404) throw new Exception404();
-//		
-//	//	System.out.println("\nSending 'GET' request to URL : " + url);
-//	//	System.out.println("Response Code : " + responseCode);
-//		BufferedReader in = new BufferedReader(
-//		        new InputStreamReader(con.getInputStream()));
-//		String inputLine;
-//		StringBuffer response = new StringBuffer();
-// 
-//		while ((inputLine = in.readLine()) != null) {
-//			response.append(inputLine);
-//		}
-//		in.close();
-//  
-//		return response.toString();
-//	}
-	
+	/**
+	 * pobieranie zawartosci strony
+	 * @param url adres url strony z ktora chcemy sie polaczyc
+	 * @return zawartosc strony
+	 * @throws ClientProtocolException
+	 * @throws IOException
+	 * @throws Exception404
+	 */
 	static public String get(String url) throws ClientProtocolException, IOException, Exception404{
 		HttpClient httpclient = new DefaultHttpClient(); // Create HTTP Client
 		HttpGet httpget = new HttpGet(url); // Set the action you want to do

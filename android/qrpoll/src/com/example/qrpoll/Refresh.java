@@ -3,7 +3,11 @@ package com.example.qrpoll;
 import org.json.JSONException;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.provider.SyncStateContract.Constants;
 import android.util.Log;
@@ -47,6 +51,7 @@ public class Refresh extends AsyncTask<Void,Void,Void>{
 			String adress=poll.getAddress();
 			int version=poll.getVersion();
 			Poll p=null;
+			if(checkWifi()||checkNetwork()){
 			try {
 				p=new Poll(adress,activity.getApplicationContext());
 			} catch (JSONException e) {
@@ -58,9 +63,30 @@ public class Refresh extends AsyncTask<Void,Void,Void>{
 				pollAct.refresh();
 				this.cancel(true);
 			}
-			
+			}else{
+				//Toast.makeText(activity.getApplicationContext(),
+				  //      "Blad Polaczenia", Toast.LENGTH_SHORT).show();
+				
+				    
+			}
 		}
 		return null;
 	}
-
+	/**
+	 * sprawdzenie stanu wifi
+	 * @return
+	 */
+	public boolean checkWifi(){
+		WifiManager wifi=(WifiManager)activity.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+		return wifi.isWifiEnabled();
+	}
+	/**
+	 * sprawdzenie danych pakietowych
+	 * @return
+	 */
+	public boolean checkNetwork(){
+		ConnectivityManager cm=(ConnectivityManager)activity.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo ni=cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+		return ni.isConnected();
+	}
 }

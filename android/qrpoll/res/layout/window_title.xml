@@ -5,14 +5,14 @@
     android:orientation="horizontal" 
     android:gravity="center_vertical"
     android:paddingLeft="5dip"
-    android:background="#6666ff">
+    android:background="#437799">
     <TextView 
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dip"
         android:paddingRight="50dip"
-        android:background="#6666ff"
+        android:background="#437799"
         />
 
     

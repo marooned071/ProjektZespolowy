@@ -30,7 +30,9 @@
         <activity
             android:name="com.example.qrpoll.PollActivity"
              android:theme="@style/Theme.AppCompat"
-            android:label="@string/title_activity_poll" >
+            android:label="@string/title_activity_poll"
+            android:screenOrientation="portrait"
+             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,16 +40,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.qrpoll.PollActivityTest"
-            android:label="@string/title_activity_poll" >
-        </activity>
-        <activity
             android:name="com.example.qrpoll.HistoryLayout"
             android:label="@string/title_activity_history_layout" >
-        </activity>
-        <activity
-            android:name="com.example.qrpoll.LayoutActivity"
-            android:label="@string/title_activity_layout" >
         </activity>
     </application>
 

@@ -7,36 +7,25 @@ import java.util.Map;
 
 import org.json.JSONException;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ExpandableListView;
-import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.RatingBar.OnRatingBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.os.Build;
-
+/**
+ * Glowne activity aplikacji, odpowiada za wyswietlanie informacji, pytan wraz z odpowiedziami i mozliwosci glosowania
+ * @author Piotrek, Sliwka
+ *
+ */
 public class PollActivity extends Activity {
 	ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
@@ -55,13 +44,13 @@ public class PollActivity extends Activity {
 
 	private Poll poll = null;
 	/**
-	 * 
+	 * Przygotowanie naglowkow do wyswietlenia
 	 */
     private void prepareListData() {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
         listDataHeader=questions;
-        Log.d("ilosc nazw", "ilosc :"+listDataHeader.size());
+        
         for(int i =0;i<listDataHeader.size();i++){
         	List<String> list = new ArrayList<String>();
         	list.add("");
@@ -72,6 +61,9 @@ public class PollActivity extends Activity {
     
     
     @Override
+    /**
+     * tworzenie menu
+     */
     public boolean onCreateOptionsMenu(Menu menu) {
     	MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.layout.menu, menu);
@@ -79,6 +71,9 @@ public class PollActivity extends Activity {
     }
 
     @Override
+    /**
+     * reagowanie na klikniecie na przyciski w menu
+     */
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -99,7 +94,7 @@ public class PollActivity extends Activity {
 
 	@Override
 	/**
-	 * 
+	 * ustawienie layoutu
 	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -173,12 +168,7 @@ public class PollActivity extends Activity {
 			Toast.makeText(getApplicationContext(),
 			        "Zaktualizowano pytania. Aktualna wersja: "+poll.getVersion(), Toast.LENGTH_LONG).show();
 		}
-        /*if (savedInstanceState == null) {
-			getSupportFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
-		}
-		
-		*/
+        
 	
 	    
 		
@@ -202,7 +192,8 @@ public class PollActivity extends Activity {
 		Map<String,Question> questionMap=this.poll.getQuestion_map();
 		for(String key:questionMap.keySet()){
 			Question q=questionMap.get(key);
-    		questions.add(q.getQuestion_text());
+			
+    		questions.add(q.getQuestion_text() +"   Max: "+ q.getMax());
 			
     	}
 		tv1.setText(poll.getSubject());
@@ -228,9 +219,7 @@ public class PollActivity extends Activity {
 			        "Nacisnij jeszcze raz back aby wyjsc z aplikacji", Toast.LENGTH_SHORT).show();
 			backButtonCount++;
 		}
-		//android.os.Process.killProcess(android.os.Process.myPid());
-        //System.exit(1);
-
+		
 	        
 	}
 	/**
@@ -252,6 +241,9 @@ public class PollActivity extends Activity {
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}catch(NullPointerException e){
+			Toast.makeText(getApplicationContext(),
+				       "Brak polaczenia", Toast.LENGTH_SHORT).show();
 		}
 	}
 }

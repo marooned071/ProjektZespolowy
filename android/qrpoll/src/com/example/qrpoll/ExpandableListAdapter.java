@@ -74,8 +74,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public View getChildView(final int groupPosition, final int childPosition,
             boolean isLastChild, View convertView, ViewGroup parent) {
     	String headerTitle = (String) getGroup(groupPosition);
-        //if (convertView == null) {
-        	Toast.makeText(_context,headerTitle, Toast.LENGTH_SHORT).show();
+     
         	String key=questionList.get(groupPosition);
         	Question q=questionMap.get(key);
         	Map<String, Choice> choiceMap= q.getChoice_map();
@@ -93,7 +92,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             	Choice c = choiceMap.get(choice);
             	CheckBox rb = new CheckBox(this._context);
             	final int rbID = Integer.parseInt(c.getPk());
-            	rb.setText(c.getChoice_text());
+            	rb.setText(c.getChoice_text()+ " 	Glosow: "+c.getVotes());
             	rb.setOnCheckedChangeListener(new OnCheckedChangeListener()
             	{
 
@@ -122,7 +121,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             
             linear.addView(l);
 
-        //}
  
         return convertView;
     }
@@ -163,9 +161,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         lblListHeader.setTypeface(null, Typeface.BOLD);
         lblListHeader.setText(headerTitle);
         
-        //Toast.makeText(_context,headerTitle +""+ groupPosition, Toast.LENGTH_SHORT).show();
-        
-        
         return convertView;
     }
  
@@ -192,7 +187,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     				vote+=id+","; 			
     			}
     			vote=vote.substring(4,vote.length()-1);
-    			//Toast.makeText(_context,vote, Toast.LENGTH_SHORT).show();
     		SurveyResponse rs=new SurveyResponse(_context);
     		poll.vote(sr.createIdToSend()+"/"+vote);
     		}else{

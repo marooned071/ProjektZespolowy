@@ -9,12 +9,14 @@ public class Question {
 	private String pk;
 	private String question_text;
 	private String isRating;
+	private String max;
 	private Map<String,Choice> choice_map;
 	
-	Question(String pk, String question_text,String isRating){
+	Question(String pk, String question_text,String isRating,String max){
 		this.pk = pk;
 		this.question_text = question_text;
 		this.isRating=isRating;
+		this.max=max;
 		this.choice_map = new HashMap<String,Choice>(); //Map<PK,Choice>
 	}
 	
@@ -26,7 +28,13 @@ public class Question {
 	public String getPk() {
 		return pk;
 	}
-
+	/**
+	 * 
+	 * @return maksymalna ilosc odpowiedzi
+	 */
+	public String getMax(){
+		return max;
+	}
 	public String getQuestion_text() {
 		return question_text;
 	}

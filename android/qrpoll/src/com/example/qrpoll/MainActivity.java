@@ -23,7 +23,11 @@ import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
-
+/**
+ * Activity, ktore laduje sie przy starcie aplikacji, umozliwia przejscie do skanowania oraz wyswietlenie historii
+ * @author Sliwka,Piotrek
+ *
+ */
 public class MainActivity extends Activity implements OnClickListener {
 	
 	
@@ -32,6 +36,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	private TextView formatTxt, contentTxt;
 	
     @Override
+    /**
+     * 
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -64,6 +71,9 @@ public class MainActivity extends Activity implements OnClickListener {
     }
 
 	@Override
+	/**
+	 * przypisanie akcji do przycisku skanowania
+	 */
 	public void onClick(View v) {
 		if(v.getId()==R.id.scan_button){
 			//scan
@@ -72,7 +82,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		}
 		
 	}
-	
+	/**
+	 * metoda przetwarzajaca wynik skanowania
+	 */
 	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 		try{
 		if(requestCode == IntentIntegrator.REQUEST_CODE){
@@ -82,10 +94,6 @@ public class MainActivity extends Activity implements OnClickListener {
 			if (scanningResult != null) {
 				//we have a result
 				String scanContent = scanningResult.getContents();
-				//String scanFormat = scanningResult.getFormatName();
-				//formatTxt.setText("FORMAT: " + scanFormat);
-				//contentTxt.setText("CONTENT: " + scanContent);
-				
 				toPollActivity(scanContent);
 				
 				
@@ -106,14 +114,24 @@ public class MainActivity extends Activity implements OnClickListener {
 		}
 	}
 	
-	
+	/**
+	 * startuje nowe activity
+	 * @param scanResult zeskanowany adres url
+	 */
 	public void toPollActivity(String scanResult){
 		if(!scanResult.isEmpty()){
-		Intent intent = new Intent(this, PollActivity.class);
-		intent.putExtra("scanResult", scanResult);
-		intent.putExtra("message", "none");
-		startActivity(intent);
-		finish();
+			Intent intent = new Intent(this, PollActivity.class);
+			intent.putExtra("scanResult", scanResult);
+			intent.putExtra("message", "none");
+			if(checkWifi()||checkNetwork()){
+				startActivity(intent);
+				finish();
+			}else{
+				Toast toast = Toast.makeText(getApplicationContext(),
+				        "Brak polaczenia,nie mozna kontynuowac!", Toast.LENGTH_SHORT);
+				    toast.show();
+			}
+		
 		}else{
 			Toast toast = Toast.makeText(getApplicationContext(),
 			        "No scan data received!", Toast.LENGTH_SHORT);
@@ -139,6 +157,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 	
     @Override
+    /**
+     * tworzenie menu
+     */
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -147,6 +168,9 @@ public class MainActivity extends Activity implements OnClickListener {
     }
 
     @Override
+    /**
+     * przypisanie akcji do przyciskow menu
+     */
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long

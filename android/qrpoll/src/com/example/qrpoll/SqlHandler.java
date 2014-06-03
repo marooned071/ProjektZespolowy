@@ -12,8 +12,8 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 /**
- * szkic klasy do obslugi lokalnej bazy danych, zawiera na ten moment jedna tabele
- * @author wodzu
+ * klasa do obslugi lokalnej bazy danych, zawiera  jedna tabele :Spotkanie
+ * @author sliwka
  *
  */
 public class SqlHandler {
@@ -28,7 +28,7 @@ public class SqlHandler {
 			this.context=context;
 		}
 		/**
-		 * 
+		 * Nawiazywanie polaczenia z baza danych sqlite
 		 * @return
 		 */
 		public SqlHandler open(){
@@ -41,7 +41,7 @@ public class SqlHandler {
 			return this;
 		}
 		/**
-		 * 
+		 * zamykanie polaczenia z baza 
 		 */
 		public void close(){
 			dbHelper.close();
@@ -79,7 +79,7 @@ public class SqlHandler {
 		private static final String Drop_table_spotkania="DROP TABLE IF EXISTS "+DB_TABLE_1;
 		
 		/**
-		 * 
+		 * Wstawianie danych do bazy
 		 * @param hash
 		 * @param subject
 		 * @param room
@@ -100,22 +100,38 @@ public class SqlHandler {
 			
 			return -1;
 		}
-		
+		/**
+		 * Metoda wyciagajaca rekordy z bazy danych
+		 * @return Kursor zawierajacy wszystkie rekordy z bazy
+		 */
 		public Cursor getDataFromSpotkanie(){
 			String[]columns={KEY_ID,KEY_HASH,KEY_SUBJECT,KEY_ROOM,KEY_DATE};
 			return db.query(DB_TABLE_1, columns, null, null, null, null, null);
 		}
-		
+		/**
+		 * Metoda wyciagajaca z bazy rekordy o podanym id
+		 * @param id  
+		 * @return Kursor zawierajacy rekordy
+		 */
 		public Cursor getDataWithSpecificId(int id){
 			String[]columns={KEY_ID,KEY_HASH,KEY_SUBJECT,KEY_ROOM,KEY_DATE};
 			String where=KEY_ID + "=" + id;
 			return db.query(DB_TABLE_1, columns, where, null, null, null, null);
 		}
+		/**
+		 * Metoda wyciagajaca z bazy rekordy o podanym hashu
+		 * @param hash
+		 * @return
+		 */
 		public Cursor getDataWithSpecificHash(String hash){
 			String[]columns={KEY_ID};
 			String where=KEY_HASH+"='"+hash+"'";
 			return db.query(DB_TABLE_1, columns, where, null, null, null, null);
 		}
+		/**
+		 * Metoda zwracajaca liste wszystkich krotek
+		 * @return 
+		 */
 		public ArrayList<Item> getAll(){
 			ArrayList<Item>list=new ArrayList<Item>();
 			String[]columns={KEY_ID,KEY_HASH,KEY_SUBJECT,KEY_ROOM,KEY_DATE};
@@ -143,7 +159,7 @@ public class SqlHandler {
 				super(context,name,factory,version);
 			}
 			/**
-			 * 
+			 * tworzenie bazy danych
 			 */
 			@Override
 			public void onCreate(SQLiteDatabase db) {
@@ -151,7 +167,7 @@ public class SqlHandler {
 				Log.d("SqLiteTodoManager", "Database creating...");
 			}
 			/**
-			 * 
+			 * update krotek (nie zaimplementowano)
 			 */
 			@Override
 			public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {

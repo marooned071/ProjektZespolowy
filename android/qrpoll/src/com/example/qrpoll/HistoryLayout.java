@@ -36,11 +36,8 @@ public class HistoryLayout extends Activity {
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.window_title);
 		title=(TextView)findViewById(R.id.title);
 		title.setText("Meetings History");
-		/*View title=getWindow().findViewById(R.id.title);
-		View titleBar=(View)title.getParent();
-		titleBar.setBackgroundColor(Color.BLUE);*/
 		lv=(ListView)findViewById(R.id.listView1);
-		lv.setBackgroundColor(Color.rgb(170,170,170));
+		lv.setBackgroundColor(Color.parseColor("#334455"));
 		SqlHandler sql=new SqlHandler(getApplication());
 		sql.open();
 		ArrayList<Item>list=sql.getAll();

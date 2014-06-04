@@ -28,6 +28,9 @@ public class HistoryAdapter extends ArrayAdapter<Item>{
 		this.context=context;
 		this.items=items;
 	}
+	/**
+	 * wyswietlanie kolejnych rekordow z bazy danych
+	 */
 	public View getView(int position,View convertView,ViewGroup parent){
 		LayoutInflater inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View rowView = inflater.inflate(R.layout.row,parent,false);
@@ -43,20 +46,7 @@ public class HistoryAdapter extends ArrayAdapter<Item>{
 		valueview.setTextColor(Color.BLACK);
 		dateview.setTextColor(Color.BLACK);
 		roomView.setTextColor(Color.BLACK);
-		/*ShapeDrawable.ShaderFactory sf=new ShapeDrawable.ShaderFactory() {
-			
-			@Override
-			public Shader resize(int width, int height) {
-				LinearGradient lg=new LinearGradient(0,0,width,height,new int[]{
-						Color.rgb(125, 151, 146),Color.rgb(125,172,146),Color.rgb(151,151,146),Color.rgb(151,151,146)},new float[]{
-						0,0.5f,.55f,1
-				},Shader.TileMode.REPEAT);
-				return lg;
-			}
-		};
-		PaintDrawable p=new PaintDrawable();
-		p.setShape(new RectShape());
-		p.setShaderFactory(sf);*/
+
 		labelview.setBackgroundColor(Color.rgb(170,170,170));
 		valueview.setBackgroundColor(Color.rgb(175,175,175));
 		dateview.setBackgroundColor(Color.rgb(180,180,180));

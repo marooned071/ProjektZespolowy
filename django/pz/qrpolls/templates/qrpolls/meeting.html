@@ -27,11 +27,15 @@ VotersCount: {{allVotersCount}}
 {% load staticfiles %}
 <script type="text/javascript" src="{% static 'qrpolls/scripts.js' %}" ></script>
 <script type="text/javascript" src="{% static 'qrpolls/jquery-1.11.1.min.js' %}" ></script>
+<script type="text/javascript" src="{% static 'qrpolls/raty-2.5.2/jquery.raty.min.js' %}" ></script>
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 <script type="text/javascript" src="{% static 'qrpolls/charts-scripts.js' %}" ></script>
 
+<script type="text/javascript">
+    $.fn.raty.defaults.path = '{{ STATIC_URL }}qrpolls/raty-2.5.2/img';
+</script>
 
 
 <script type="text/javascript">
@@ -47,7 +51,7 @@ $.ajax({
   
         }
   });
-  setTimeout("refresh()", 5000);
+  setTimeout("refresh()", 10000);
 }
 
 $(function(){

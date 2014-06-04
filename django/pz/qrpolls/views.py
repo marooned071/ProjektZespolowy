@@ -314,7 +314,8 @@ def api_vote_voter(request, hash_id, voter_id, choice_ids):
             return HttpResponse(data_string)
 
         choice =  Choice.objects.get(pk=id_list[0]);
-        choice.votes+=1;
+        votesCount =Votes.objects.filter(choice=choice).count();
+        choice.votes=votesCount;
         choice.save() 
 
 
@@ -332,13 +333,11 @@ def api_vote_voter(request, hash_id, voter_id, choice_ids):
             return HttpResponse(data_string)
 
         for id in id_list: 
-            choice =  Choice.objects.get(pk=id) 
-            choice.votes+=1;
+            votesCount =Votes.objects.filter(choice=choice).count();
+            choice.votes=votesCount;
             choice.save()
             vote = Vote(choice=choice,voter_id=voter_id)
             vote.save()
-
-
 
 
 

@@ -20,5 +20,4 @@ $(function(){
 def cut(value, arg):
     return value[arg]
 
-
     <link rel="stylesheet" href="{% static 'qrpolls/jquery.ui.timepicker.css' %}" type="text/css" />

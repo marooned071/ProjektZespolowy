@@ -56,7 +56,7 @@ function createForm(){
 	tr2.appendChild(tdInput2);
 
 	// pole na liczbe odpowiedzi:
-	var choicesMax = document.createElement("input"); 
+	var choicesMax = document.createElement("select"); 
 	choicesMax.setAttribute("id", "choicesMax"); 
 	choicesMax.setAttribute("type", "text"); 
 	choicesMax.setAttribute("name", "choicesMax"); 
@@ -72,7 +72,7 @@ function createForm(){
 	buttonAddChoice.setAttribute("onClick","addChoice()");
 	var t=document.createTextNode("+ odpowiedz");
 	buttonAddChoice.appendChild(t); 
-	document.getElementById("buttons").appendChild(buttonAddChoice);
+	document.getElementById("newQuestionButtons").appendChild(buttonAddChoice);
 
 
 	//tabela zawierajaca miejsca na pisanie tresci odpowiedzi
@@ -87,19 +87,30 @@ function createForm(){
 	form.appendChild(buttonAddQuestionDiv);
 
 
+	//przycisk wywylajacy do abzy
 	var buttonAddQuestion = document.createElement("button");
 	buttonAddQuestion.setAttribute("onClick","submitForm()");
 	var t2=document.createTextNode("Dodaj Pytanie");
 	buttonAddQuestion.appendChild(t2); 
 	buttonAddQuestionDiv.appendChild(buttonAddQuestion);
 
+	//przycisk chowajacy formularz tworzenia pytan
+	var buttonHideForm = document.createElement("button");
+	buttonHideForm.setAttribute("onClick","hideForm()");
+	var t3=document.createTextNode("X");
+	buttonHideForm.appendChild(t3); 
+	buttonAddQuestionDiv.appendChild(buttonHideForm);
 
-	document.body.appendChild(form);
+
+
+	document.getElementById("newQuestionDiv").appendChild(form);
+	// document.body.appendChild(form);
 	choiceCounter = 0;
 
 	//usuwamy przycisk tworzenia formularza, jesli stworzymy nowe pytanie robi sie syf z odpowiedziami trzeba to jakos ogarnac
-	var buttonCreateForm = document.getElementById("buttonCreateForm");
-	document.body.removeChild(buttonCreateForm);
+	var buttonCreateForm = document.getElementById("buttonCreateForm").style.visibility="hidden";
+	//document.body.removeChild(buttonCreateForm);
+	//document.getElementById("newQuestionDiv").removeChild(buttonCreateForm);
 
 
 }
@@ -129,9 +140,13 @@ function addChoice(){
 
 	//document.getElementById("form").appendChild(choice);
 	document.getElementById("choiceTable").appendChild(tr);
-
-
 	choiceCounter = choiceCounter +1;
+
+	var option = document.createElement("option");
+	option.text = choiceCounter;
+	document.getElementById("choicesMax").add(option);
+
+
 }
 
 function isValidate(){
@@ -169,6 +184,18 @@ function submitForm(){
 		form.submit();
 	}
 	return false;
-
 }
 
+function hideForm(){
+	var newQuestionDiv = document.getElementById("newQuestionDiv");
+	while (newQuestionDiv.firstChild) {
+    	newQuestionDiv.removeChild(newQuestionDiv.firstChild);
+	}
+
+	var newQuestionButtons = document.getElementById("newQuestionButtons");
+	while (newQuestionButtons.firstChild) {
+    	newQuestionButtons.removeChild(newQuestionButtons.firstChild);
+	}
+
+	var buttonCreateForm = document.getElementById("buttonCreateForm").style.visibility="visible";
+}

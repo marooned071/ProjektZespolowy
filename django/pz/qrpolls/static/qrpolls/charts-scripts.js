@@ -12,9 +12,6 @@ function drawChart2(divID,question,choices) {
 		}[b];
 	})
 
-	
-
-
 	var c =$.parseJSON(choices);
 	
 	var data = google.visualization.arrayToDataTable(c);

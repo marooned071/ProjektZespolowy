@@ -27,9 +27,6 @@ def meeting(request, hash_id):
         raise Http404
 
 
-
-
-
     question_list = Question.objects.filter(poll=poll)
     #rating_list_anwers=Question.objects.filter(poll=poll,isRating=True)
     ratingQuestion = Question.objects.get(poll=poll, isRating=True) #pytanie o ocene spotkania (jest tylko jedno dlatego mozemy zrobic get)
@@ -51,7 +48,6 @@ def meeting(request, hash_id):
     questionChoiceVotesDic={}
 
 
-
     for question in question_list:
         if question.isRating == True:
             continue
@@ -61,14 +57,10 @@ def meeting(request, hash_id):
         votesCounter=0
         for choice in choices_list:
            # newDic[choice.choice_text] = choice.vote_set.count()
-            votesCounter+=choice.votes
+            votesCounter+=Vote.objects.filter(choice=choice).count()
             newDic.append([choice.choice_text, choice.vote_set.count()])
         if votesCounter == 0:
             newDic.append(["No Votes", 1]);
-
-
-
- 
 
 
     path = request.META['SERVER_NAME']+request.path
@@ -82,10 +74,7 @@ def meetingTest(request, hash_id):
     except QRPoll.DoesNotExist:
         raise Http404
 
-
-
     question_list = Question.objects.filter(poll=poll)
-    #rating_list_anwers=Question.objects.filter(poll=poll,isRating=True)
     ratingQuestion = Question.objects.get(poll=poll, isRating=True) #pytanie o ocene spotkania (jest tylko jedno dlatego mozemy zrobic get)
     rating_list_choices = Choice.objects.filter(question=ratingQuestion) #lista odpowiedzi na pytanie ratingowe
     rating=0 #rating spotkania
@@ -114,7 +103,7 @@ def meetingTest(request, hash_id):
         votesCounter=0
         for choice in choices_list:
            # newDic[choice.choice_text] = choice.vote_set.count()
-            votesCounter+=choice.votes
+            votesCounter+=Vote.objects.filter(choice=choice).count()
             newDic.append([choice.choice_text, choice.vote_set.count()])
         if votesCounter == 0:
             newDic.append(["No Votes", 1]);
@@ -125,12 +114,7 @@ def meetingTest(request, hash_id):
 
         questionChoiceVotesDic[question.question_text] =json.dumps(newDic)
 
-
-
-    path = request.META['SERVER_NAME']+request.path
-    data = {'poll': poll, 'url' : path, 'question_list' : question_list, 'rating':rating, 'allVotersCount':allVotersCount, 'questionChoiceVotesDic' : questionChoiceVotesDic};
-    # return render(request, 'qrpolls/meeting.html', {'poll': poll, 'url' : path, 'question_list' : question_list, 'rating':rating, 'allVotersCount':allVotersCount })
-    # return render_to_response('qrpolls/meeting.html', data, context_instance = RequestContext(request))
+    data = {'rating':rating, 'allVotersCount':allVotersCount, 'questionChoiceVotesDic' : questionChoiceVotesDic};
     return render(request, 'qrpolls/meeting_questions.html', data)
 
 
@@ -263,7 +247,9 @@ def api(request, hash_id, question):
         question_list = Question.objects.filter(poll=poll)
         all_objects = []
         for question in question_list:
+
             all_objects.extend(list(Choice.objects.filter(question=question)))
+
 
         data = serializers.serialize('json', all_objects)
 
@@ -272,15 +258,6 @@ def api(request, hash_id, question):
 
     raise Http404
 
-
-# Metoda obslugujaca glosowanie bez rozrozniania glosujacych - kazdy moze wiele razy glosowac na ta sama odpowedz
-# Tak po prawdzie do glosowanie nie jest potrzebny hash_id, ale przydaje aby po zaglosowaniu wyswietlic strone spotkania 
-# w celach debug - w przyszlosci nie bedzie takiej potrzeby
-def api_vote(request, hash_id, choice_id):
-
-    choice = Choice.objects.get(pk=choice_id)
-    choice.votes+=1
-    choice.save()
 
 
     return HttpResponseRedirect(reverse('qrpolls:meeting', args=(hash_id,)))
@@ -318,10 +295,6 @@ def api_vote_voter(request, hash_id, voter_id, choice_ids):
         vote = Vote(choice=first_choice,voter_id=voter_id)
         vote.save()   
 
-        choice =  Choice.objects.get(pk=id_list[0]);
-        votesCount =Vote.objects.filter(choice=choice).count()
-        choice.votes=votesCount;
-        choice.save() 
 
 
     elif question_choices_max >= 2:
@@ -339,23 +312,13 @@ def api_vote_voter(request, hash_id, voter_id, choice_ids):
             vote = Vote(choice=choice,voter_id=voter_id)
             vote.save()
 
-            votesCount =Vote.objects.filter(choice=choice).count();
-            choice.votes=votesCount;
-            choice.save()
-
-
-
-    #data = question_choices_max
-   # data = id_list
-
     data = [ {'voteInfo': {
                     'error' : "false",
          }}]
     data_string = json.dumps(data)
     return HttpResponse(data_string)
 
-    #return HttpResponseRedirect(reverse('qrpolls:meeting', args=(hash_id,)))
-   # return HttpResponseRedirect(reverse('qrpolls:meeting', args=(hash_id,)))
+
 
 
 

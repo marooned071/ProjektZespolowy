@@ -11,7 +11,5 @@ urlpatterns = patterns('',
     url(r'^meetingTest/(?P<hash_id>\w+)/$', views.meetingTest, name='meetingTest'),
     url(r'^meeting/(?P<hash_id>\w+)/newQuestion', views.newQuestion, name='newQuestion'),
     url(r'^meeting/(?P<hash_id>\w+)/api/(?P<question>\w+)/$$', views.api, name='api'),
-    url(r'^meeting/(?P<hash_id>\w+)/api/vote/(?P<choice_id>\w+)/$$', views.api_vote, name='api_vote'),
     url(r'^meeting/(?P<hash_id>\w+)/api/vote/(?P<voter_id>\w+)/(?P<choice_ids>[A-Za-z0-9_,]+)/$$', views.api_vote_voter, name='api_vote_voter'),
-
 )

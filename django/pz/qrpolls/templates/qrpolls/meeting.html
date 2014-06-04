@@ -29,7 +29,7 @@ VotersCount: {{allVotersCount}}
 
 
 {% load staticfiles %}
-<script type="text/javascript" src="{% static 'qrpolls/scripts.js' %}" ></script>
+<script type="text/javascript" src="{% static 'qrpolls/newQuestion-scripts.js' %}" ></script>
 <script type="text/javascript" src="{% static 'qrpolls/jquery-1.11.1.min.js' %}" ></script>
 <script type="text/javascript" src="{% static 'qrpolls/raty-2.5.2/jquery.raty.min.js' %}" ></script>
 
@@ -64,20 +64,25 @@ $(function(){
 </script>
 
 
-<div id = "questionList">
-	{% include 'meeting_questions.html' %}
-
-</div>
-
-
-<input id="csrf_token" type = "hidden" value="{{ csrf_token }}"/> <!-- token potrzebny aby przeslac POST do django - musi byc, nie ma rady -->
-
-
-
+<br>
 <button id = "buttonCreateForm" onclick="createForm()">Stworz pytanie</button> 
-<div id = "buttons">
+<input id="csrf_token" type = "hidden" value="{{ csrf_token }}"/> <!-- token potrzebny aby przeslac POST do django - musi byc, nie ma rady -->
+<div id = "newQuestionButtons"></div>
+<div id = "newQuestionDiv"> </div>
 
+
+
+
+<div id = "questionList">
+	{% include 'meeting_charts.html' %}
 </div>
+
+
+
+
+
+
+
 
 
 

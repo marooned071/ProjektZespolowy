@@ -9,6 +9,7 @@ import org.json.JSONException;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -110,6 +111,7 @@ public class PollActivity extends Activity {
 		version=(TextView)findViewById(R.id.poll_textViewVersionLabel);
 		
 		rb=(RatingBar)findViewById(R.id.ratingBar1);
+		
 		rb.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
 			public void onRatingChanged(RatingBar ratingBar, float rating,
 					boolean fromUser) {
@@ -159,7 +161,9 @@ public class PollActivity extends Activity {
 	    url = "http://"+url;
 		
 		getPoll(url);
+		try{
 		prepareListData();
+	
 		listAdapter=new ExpandableListAdapter(this,listDataHeader,listDataChild,poll);
         expListView.setAdapter(listAdapter);
 		Refresh refresh=(Refresh) new Refresh(poll,this).execute();
@@ -168,7 +172,11 @@ public class PollActivity extends Activity {
 			Toast.makeText(getApplicationContext(),
 			        "Zaktualizowano pytania. Aktualna wersja: "+poll.getVersion(), Toast.LENGTH_LONG).show();
 		}
-        
+		}catch(Exception e){
+			Intent it=new Intent(getApplication(),MainActivity.class);
+			startActivity(it);
+			finish();
+		}
 	
 	    
 		

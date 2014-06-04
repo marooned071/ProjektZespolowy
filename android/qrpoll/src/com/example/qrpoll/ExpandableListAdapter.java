@@ -92,7 +92,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             	Choice c = choiceMap.get(choice);
             	CheckBox rb = new CheckBox(this._context);
             	final int rbID = Integer.parseInt(c.getPk());
-            	rb.setText(c.getChoice_text()+ " 	Glosow: "+c.getVotes());
+            	rb.setText(c.getChoice_text());
             	rb.setOnCheckedChangeListener(new OnCheckedChangeListener()
             	{
 

@@ -124,8 +124,15 @@ public class MainActivity extends Activity implements OnClickListener {
 			intent.putExtra("scanResult", scanResult);
 			intent.putExtra("message", "none");
 			if(checkWifi()||checkNetwork()){
+				try{
 				startActivity(intent);
 				finish();
+				}catch(RuntimeException e){
+					Toast toast = Toast.makeText(getApplicationContext(),
+					        "Nie znaleziono strony o danym adresie!", Toast.LENGTH_SHORT);
+					    toast.show();
+				}
+				
 			}else{
 				Toast toast = Toast.makeText(getApplicationContext(),
 				        "Brak polaczenia,nie mozna kontynuowac!", Toast.LENGTH_SHORT);

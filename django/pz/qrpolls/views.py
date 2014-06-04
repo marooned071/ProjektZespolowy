@@ -315,14 +315,13 @@ def api_vote_voter(request, hash_id, voter_id, choice_ids):
             data_string = json.dumps(data)
             return HttpResponse(data_string)
 
-        choice =  Choice.objects.get(pk=id_list[0]);
-        votesCount =Vote.objects.filter(choice=choice).all().count();
-        choice.votes=votesCount;
-        choice.save() 
-
-
         vote = Vote(choice=first_choice,voter_id=voter_id)
         vote.save()   
+
+        choice =  Choice.objects.get(pk=id_list[0]);
+        votesCount =Vote.objects.filter(choice=choice).count()
+        choice.votes=votesCount;
+        choice.save() 
 
 
     elif question_choices_max >= 2:
@@ -335,11 +334,14 @@ def api_vote_voter(request, hash_id, voter_id, choice_ids):
             return HttpResponse(data_string)
 
         for id in id_list: 
-            votesCount =Vote.objects.filter(choice=choice).all().count();
-            choice.votes=votesCount;
-            choice.save()
+
+            choice = Choice.objects.get(pk=id)
             vote = Vote(choice=choice,voter_id=voter_id)
             vote.save()
+
+            votesCount =Vote.objects.filter(choice=choice).count();
+            choice.votes=votesCount;
+            choice.save()
 
 
 

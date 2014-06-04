@@ -1,8 +1,7 @@
-INDEX VERSION 1.126+C:\Users\Pawe³\Desktop\android\.metadata\.plugins\org.eclipse.jdt.core
-2676823087.index
-2641483722.index
-1401393598.index
+INDEX VERSION 1.126+C:\Users\Pawe³\Documents\GitHub\ProjektZespolowy\android\.metadata\.plugins\org.eclipse.jdt.core
 1284074322.index
-2811340039.index
-1014667713.index
 3871394155.index
+687689577.index
+3986530238.index
+2676823087.index
+3814261261.index

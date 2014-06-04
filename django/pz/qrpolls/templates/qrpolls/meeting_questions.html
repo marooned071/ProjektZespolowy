@@ -5,6 +5,24 @@
 
 
 
+<div id='rating'></div>
+
+<script type="text/javascript">
+$('#rating').raty(
+	{	score: {{rating}},
+		number : 5,
+		readOnly : true,
+		half: true,
+		size   : 100,
+		width: 150,
+		starHalf   : 'star-half-big.png',
+		starOff    : 'star-off-big.png',
+		starOn     : 'star-on-big.png' 
+	});
+
+</script>
+
+
 {% with i=1  %}
 
 
@@ -14,7 +32,6 @@
 <div id="chart_div{{forloop.counter}}" style="width: 700px; height: 400px;"> 
 	<script type="text/javascript"> drawChart2("chart_div{{forloop.counter}}" ,"{{ question }}", "{{ dict }}");</script> 
 </div>
-
 
 
 {{ i|add:1 }}

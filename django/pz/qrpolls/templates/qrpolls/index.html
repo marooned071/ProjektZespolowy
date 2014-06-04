@@ -1,7 +1,52 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="{% static 'qrpolls/include/ui-1.10.0/ui-lightness/jquery-ui-1.10.0.custom.min.css' %}" type="text/css" />
+
+<script type="text/javascript" src="{% static 'qrpolls/jquery-1.11.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'qrpolls/include/ui-1.10.0/jquery.ui.core.min.js' %}" ></script>
+<script type="text/javascript" src="{% static 'qrpolls/include/ui-1.10.0/jquery.ui.widget.min.js' %}" ></script>
+<script type="text/javascript" src="{% static 'qrpolls/include/ui-1.10.0/jquery.ui.tabs.min.js' %}" ></script>
+<script type="text/javascript" src="{% static 'qrpolls/include/ui-1.10.0/jquery.ui.position.min.js' %}" ></script>
+<script type="text/javascript" src="{% static 'qrpolls/jquery.ui.timepicker.js' %}" ></script>
+
+
+
+
 <form action="create" method="post">{% csrf_token %}
 {{ form.as_p }}
 <input type="submit" value="Submit" />
 </form>
+
+
+<style>
+div.ui-datepicker{
+ font-size:5px;
+}
+
+</style>
+
+
+<script type="text/javascript">
+     $('#id_start_date').timepicker({
+    minutes: {
+        interval: 5,
+        manual: [ 0, 1, 30, 59 ]
+    },
+    showNowButton: true,
+    showDeselectButton: true,
+    defaultTime: '',  // removes the highlighted time for when the input is empty.
+    showCloseButton: true
+
+});
+
+</script>
+
+
+
+
+
+
+
 
 {% if poll_list %}
     <ul>

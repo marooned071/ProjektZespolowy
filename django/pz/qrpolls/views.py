@@ -114,8 +114,12 @@ def meetingTest(request, hash_id):
 
         questionChoiceVotesDic[question.question_text] =json.dumps(newDic)
 
-    data = {'rating':rating, 'allVotersCount':allVotersCount, 'questionChoiceVotesDic' : questionChoiceVotesDic};
-    return render(request, 'qrpolls/meeting_questions.html', data)
+    
+    path = request.META['SERVER_NAME']+request.path
+
+    data = {'poll': poll, 'url' : path, 'question_list' : question_list, 'rating':rating, 'allVotersCount':allVotersCount, 'questionChoiceVotesDic':questionChoiceVotesDic};
+    # data = {'rating':rating, 'allVotersCount':allVotersCount, 'questionChoiceVotesDic' : questionChoiceVotesDic};
+    return render(request, 'qrpolls/meeting_charts.html', data)
 
 
 # Metoda tworzaca nowe spotkanie

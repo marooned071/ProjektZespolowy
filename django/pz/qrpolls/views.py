@@ -42,15 +42,40 @@ def meeting(request, hash_id):
         allVotersCount+=votersCount
         rating+=float(rate_choice.choice_text)*votersCount
 
-    if allVotersCount!=0: # gdyby nikt nie ocenil spotkania 
+    if allVotersCount!=0: # gdyby nikt nie ocenil spotkania  
         rating/=allVotersCount
 
     rating = round(rating,2)
 
+    # slownik {tekst_pytania : slownik {tekstOdpowiedzi : liczba glosow }}
+    questionChoiceVotesDic={}
+
+
+
+    for question in question_list:
+        if question.isRating == True:
+            continue
+        choices_list = Choice.objects.filter(question=question)
+        newDic = []
+        newDic.append(["Siema", "Nara"]);
+        votesCounter=0
+        for choice in choices_list:
+           # newDic[choice.choice_text] = choice.vote_set.count()
+            votesCounter+=choice.votes
+            newDic.append([choice.choice_text, choice.vote_set.count()])
+        if votesCounter == 0:
+            newDic.append(["No Votes", 1]);
+
+
+
+
+ 
 
 
     path = request.META['SERVER_NAME']+request.path
-    return render(request, 'qrpolls/meeting.html', {'poll': poll, 'url' : path, 'question_list' : question_list, 'rating':rating, 'allVotersCount':allVotersCount })
+
+    data = {'poll': poll, 'url' : path, 'question_list' : question_list, 'rating':rating, 'allVotersCount':allVotersCount, 'questionChoiceVotesDic':questionChoiceVotesDic};
+    return render(request, 'qrpolls/meeting.html', data)
 
 def meetingTest(request, hash_id):
     try:
@@ -58,8 +83,7 @@ def meetingTest(request, hash_id):
     except QRPoll.DoesNotExist:
         raise Http404
 
-    poll.version+=1;
-    poll.save()
+
 
     question_list = Question.objects.filter(poll=poll)
     #rating_list_anwers=Question.objects.filter(poll=poll,isRating=True)
@@ -78,8 +102,31 @@ def meetingTest(request, hash_id):
 
     rating = round(rating,2)
 
+    questionChoiceVotesDic={}
+
+    # slownik {tekst_pytania : slownik {tekstOdpowiedzi : liczba glosow }}
+
+    for question in question_list:
+        if question.isRating == True:
+            continue
+        choices_list = Choice.objects.filter(question=question)
+        newDic = []
+        newDic.append(["Siema", "Nara"]);
+        votesCounter=0
+        for choice in choices_list:
+           # newDic[choice.choice_text] = choice.vote_set.count()
+            votesCounter+=choice.votes
+            newDic.append([choice.choice_text, choice.vote_set.count()])
+        if votesCounter == 0:
+            newDic.append(["No Votes", 1]);
+
+
+        questionChoiceVotesDic[question.question_text] =json.dumps(newDic)
+
+
+
     path = request.META['SERVER_NAME']+request.path
-    data = {'poll': poll, 'url' : path, 'question_list' : question_list, 'rating':rating, 'allVotersCount':allVotersCount };
+    data = {'poll': poll, 'url' : path, 'question_list' : question_list, 'rating':rating, 'allVotersCount':allVotersCount, 'questionChoiceVotesDic' : questionChoiceVotesDic};
     # return render(request, 'qrpolls/meeting.html', {'poll': poll, 'url' : path, 'question_list' : question_list, 'rating':rating, 'allVotersCount':allVotersCount })
     # return render_to_response('qrpolls/meeting.html', data, context_instance = RequestContext(request))
     return render(request, 'qrpolls/meeting_questions.html', data)
@@ -266,6 +313,10 @@ def api_vote_voter(request, hash_id, voter_id, choice_ids):
             data_string = json.dumps(data)
             return HttpResponse(data_string)
 
+        choice =  Choice.objects.get(pk=id_list[0]);
+        choice.votes+=1;
+        choice.save() 
+
 
         vote = Vote(choice=first_choice,voter_id=voter_id)
         vote.save()   
@@ -282,6 +333,8 @@ def api_vote_voter(request, hash_id, voter_id, choice_ids):
 
         for id in id_list: 
             choice =  Choice.objects.get(pk=id) 
+            choice.votes+=1;
+            choice.save()
             vote = Vote(choice=choice,voter_id=voter_id)
             vote.save()
 

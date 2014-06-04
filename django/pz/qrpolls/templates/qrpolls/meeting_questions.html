@@ -1,18 +1,60 @@
 <!DOCTYPE html>
+
+
+<h1>Rating: {{rating}}</h1>
+
+
+
+{% with i=1  %}
+
+
+
+{% for question, dict in questionChoiceVotesDic.items %}
+
+<div id="chart_div{{forloop.counter}}" style="width: 700px; height: 400px;"> 
+	<script type="text/javascript"> drawChart2("chart_div{{forloop.counter}}" ,"{{ question }}", "{{ dict }}");</script> 
+</div>
+
+
+
+{{ i|add:1 }}
+
+{% endfor %}
+{% endwith %}  
+
+
 <table border = "1">
+
+
+
 	{% for question in question_list %}
+	</div>
 		<tr>
-		    <td><b>{{ question.question_text }}</b> ( {{ question.question_choices_max }} )</td> <td><b>Votes</b></td> <td colspan = "10" ><b>Voters</b></td>
+		   <td><b>{{ question.question_text }}</b> ( {{ question.question_choices_max }} )</td> <td><b>Votes</b></td> <td colspan = "10" ><b>Voters</b></td>
 		</tr>   
 		<tr>
+		</td>
 	    {% for choice in question.choice_set.all %}
-	        <tr><td>{{ choice.choice_text }}</td><td>{{ choice.vote_set.count}}</td>
+
+	        <tr><td>{{ choice.choice_text }}</td><td>{{ choice.vote_set.count}}</td> 
+
 	        	{% for vote in choice.vote_set.all %}
 	        		<td>{{vote.voter_id}}</td>
 	        	{% endfor %}
+
 	        </tr>
 	    {% endfor %}
+
 		</tr>
 
 	{% endfor %}
 </table>
+
+
+
+
+
+
+
+
+<h1> xD </h1>

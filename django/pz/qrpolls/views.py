@@ -68,7 +68,6 @@ def meeting(request, hash_id):
 
 
 
-
  
 
 
@@ -119,6 +118,9 @@ def meetingTest(request, hash_id):
             newDic.append([choice.choice_text, choice.vote_set.count()])
         if votesCounter == 0:
             newDic.append(["No Votes", 1]);
+
+        print(votesCounter)
+
 
 
         questionChoiceVotesDic[question.question_text] =json.dumps(newDic)
@@ -314,7 +316,7 @@ def api_vote_voter(request, hash_id, voter_id, choice_ids):
             return HttpResponse(data_string)
 
         choice =  Choice.objects.get(pk=id_list[0]);
-        votesCount =Vote.objects.filter(choice=choice).count();
+        votesCount =Vote.objects.filter(choice=choice).all().count();
         choice.votes=votesCount;
         choice.save() 
 
@@ -333,7 +335,7 @@ def api_vote_voter(request, hash_id, voter_id, choice_ids):
             return HttpResponse(data_string)
 
         for id in id_list: 
-            votesCount =Vote.objects.filter(choice=choice).count();
+            votesCount =Vote.objects.filter(choice=choice).all().count();
             choice.votes=votesCount;
             choice.save()
             vote = Vote(choice=choice,voter_id=voter_id)

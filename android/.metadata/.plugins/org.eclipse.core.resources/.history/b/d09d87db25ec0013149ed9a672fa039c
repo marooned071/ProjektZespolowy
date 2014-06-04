@@ -127,7 +127,7 @@ public class MainActivity extends Activity implements OnClickListener {
 				try{
 				startActivity(intent);
 				finish();
-				}catch(RuntimeException e){
+				}catch(Exception e){
 					Toast toast = Toast.makeText(getApplicationContext(),
 					        "Nie znaleziono strony o danym adresie!", Toast.LENGTH_SHORT);
 					    toast.show();

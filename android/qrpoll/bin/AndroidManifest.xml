@@ -9,7 +9,10 @@
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -27,7 +30,9 @@
         <activity
             android:name="com.example.qrpoll.PollActivity"
              android:theme="@style/Theme.AppCompat"
-            android:label="@string/title_activity_poll" >
+            android:label="@string/title_activity_poll"
+            android:screenOrientation="portrait"
+             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,16 +40,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.qrpoll.PollActivityTest"
-            android:label="@string/title_activity_poll" >
-        </activity>
-        <activity
             android:name="com.example.qrpoll.HistoryLayout"
             android:label="@string/title_activity_history_layout" >
-        </activity>
-        <activity
-            android:name="com.example.qrpoll.LayoutActivity"
-            android:label="@string/title_activity_layout" >
         </activity>
     </application>
 

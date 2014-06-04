@@ -18,7 +18,11 @@ Url: {{url}}
 <br>
 Version {{poll.version}}
 <br>
+<<<<<<< HEAD
 <h2>Rating: {{rating}}</h2>
+=======
+
+>>>>>>> 0b8d8c0d0a787048e9b60c306eddb184628d21f1
 VotersCount: {{allVotersCount}}
 
 
@@ -27,6 +31,12 @@ VotersCount: {{allVotersCount}}
 {% load staticfiles %}
 <script type="text/javascript" src="{% static 'qrpolls/scripts.js' %}" ></script>
 <script type="text/javascript" src="{% static 'qrpolls/jquery-1.11.1.min.js' %}" ></script>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<script type="text/javascript" src="{% static 'qrpolls/charts-scripts.js' %}" ></script>
+
+
 
 <script type="text/javascript">
 function refresh() {
@@ -52,6 +62,7 @@ $(function(){
 
 <div id = "questionList">
 	{% include 'meeting_questions.html' %}
+
 </div>
 
 

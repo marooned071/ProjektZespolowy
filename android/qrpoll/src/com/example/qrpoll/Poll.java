@@ -19,13 +19,13 @@ import android.widget.Toast;
 /**
  * Klasa odpowiedzialna za obsluge ankiety.
  * 
- * @author Piotrek
+ * @author Piotrek , poprawki Sliwka
  * 
  */
 public class Poll {
 
 
-	private String address; // pelen adres strony
+	private String address; 
 	private String hash_id;
 	private String subject;
 	private String room;
@@ -34,29 +34,22 @@ public class Poll {
 	private Map<String,Question> question_map;
 	private Context context;
 	
-
+	public int ratingID=0;
+	public List<String> ratingquestions=new ArrayList<String>();
+    /**
+     * Przetwarzanie danych zawartych w formacie JSON, laczenie pytan z odpowiedziami
+     * @param address adres strony z ktorej chcemy pobrac dane
+     * @param context
+     * @throws JSONException
+     */
 	public Poll(String address,Context context) throws JSONException{
 		
-		Log.d("moje", "POLL KONSTRUKTOR");
 		
-		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); //dwie magiczne linie kotre ratuja przed android.os.NetworkOnMainThreadException
-		StrictMode.setThreadPolicy(policy); //TO:DO przerobic na AsyncTask http://stackoverflow.com/questions/6343166/android-os-networkonmainthreadexception
+		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); 
+		StrictMode.setThreadPolicy(policy);
 		
 		this.address = address;
 		this.context = context;
-		//INFORMACJE O ANKIECIE
-		/*
-		[
-		   {
-		      "info":{
-		         "start_date":"01-10-2011",
-		         "subject":"Byc czy miec?",
-		         "room":"3B",
-		         "hash_id":"b9ffd9db1af0b14ed74e92e8d3273f3e"
-		      }
-		   }
-		]
-		 */
 		
 		String full_address = address + "api/info";
 		String s = "";
@@ -75,7 +68,7 @@ public class Poll {
 		try{
 			array = new JSONArray(s);
 			jo = array.getJSONObject(0);
-			jo_inside = jo.getJSONObject("info"); //inside bo ten obiekt jest zagniezdzony 
+			jo_inside = jo.getJSONObject("info"); 
 			this.hash_id = jo_inside.get("hash_id").toString();
 			this.subject = jo_inside.get("subject").toString();
 			this.room = jo_inside.get("room").toString();
@@ -83,16 +76,6 @@ public class Poll {
 		}catch(JSONException e){
 			e.printStackTrace();
 		}
-		
-		// WERSJA ANKIETY
-		
-		/*
-		 * 	[
-		 *	   {
-		 *	      "version":1
-		 *	   }
-		 *	]
-		 */
 		
 		
 		full_address = address + "api/version";
@@ -111,29 +94,6 @@ public class Poll {
 		array = new JSONArray(s);
 		jo = array.getJSONObject(0);
 		version = Integer.parseInt(jo.get("version").toString());
-		
-		
-		//PYTANIA:
-		/*
-		[
-		   {
-		      "pk":3,
-		      "model":"qrpolls.question",
-		      "fields":{
-		         "question_text":"Lubisz mnie?",
-		         "poll":2
-		      }
-		   },
-		   {
-		      "pk":2,
-		      "model":"qrpolls.question",
-		      "fields":{
-		         "question_text":"Jak sie podoba?",
-		         "poll":2
-		      }
-		   }
-		]
-		*/
 		
 		full_address = address + "api/questions";
 		
@@ -160,38 +120,16 @@ public class Poll {
 			jo_inside = jo.getJSONObject("fields");
 			question_text = jo_inside.get("question_text").toString();
 			String rating=jo_inside.get("isRating").toString();
-			if(!pk.equals("2")){
-				question_map.put(pk,new Question(pk, question_text,rating));
+			String max=jo_inside.get("question_choices_max").toString();
+			if(rating.equals("false")){
+				question_map.put(pk,new Question(pk, question_text,rating,max));
+			}else{
+				ratingID=Integer.parseInt(pk);
 			}
 			
 			
 		}
 		
-		
-		//ODPOWIEDZI
-		
-		/*
-		 * [
-			   {
-			      "fields":{
-			         "question":3,
-			         "votes":0,
-			         "choice_text":"Nie"
-			      },
-			      "pk":8,
-			      "model":"qrpolls.choice"
-			   },
-			   {
-			      "fields":{
-			         "question":3,
-			         "votes":0,
-			         "choice_text":"Tak"
-			      },
-			      "pk":7,
-			      "model":"qrpolls.choice"
-			   },
-			]
-		 */
 		
 		full_address = address + "api/choices";
 		
@@ -219,28 +157,20 @@ public class Poll {
 			choice_text = jo_inside.get("choice_text").toString();
 			votes = Integer.parseInt(jo_inside.get("votes").toString());
 			
-			if(!question_pk.equals("2")){			//ustawione na sztywno, w wypadku pozniejszych problemow zmienic
+			if(!question_pk.equals(ratingID+"")){			//ustawione na sztywno, w wypadku pozniejszych problemow zmienic
 			question_map.get(question_pk).addChoice(pk, choice_text, votes);
+			}else{
+				ratingquestions.add(pk);
 			}
 		}
 					
 		
 	}
 	
-	
-	public void vote(Choice c){
-		String full_address = address+"api/vote/"+c.getPk()+"/";		
-		Log.d("moje",full_address);
-		try {
-			MyHttpURLConnection.get(full_address);
-		} catch (Exception404 e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-	}
-	
+	/**
+	 * Metoda odpowiadajaca za glosowanie
+	 * @param pk numer odpowiedzi na ktora chcemy zaglosowac
+	 */
 	public void vote(String pk){
 		String full_address = address+"api/vote/"+pk+"/";		
 		Log.d("moje",full_address);
@@ -249,74 +179,16 @@ public class Poll {
 			if(response.contains("error\": \"false\"")){
 				Toast.makeText(context.getApplicationContext(),"Zaglosowano", Toast.LENGTH_SHORT).show();
 			}else{
-				Toast.makeText(context.getApplicationContext(),"Blad Glosowania", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context.getApplicationContext(),"Blad, wybrano zbyt wiele odpowiedzi", Toast.LENGTH_SHORT).show();
 			}
 		} catch (Exception404 e) {
-			e.printStackTrace();
+			Toast.makeText(context.getApplicationContext(),"Nie znaleziono strony", Toast.LENGTH_SHORT).show();
+
 		} catch (Exception e) {
 			e.printStackTrace();
+			Toast.makeText(context.getApplicationContext(),"Blad Polaczenia", Toast.LENGTH_SHORT).show();
 		}
 	}
-		
-
-	
-	
-	
-	
-	
-	
-	
-//	/**
-//	 * Porownuje najnowsza wersje na serwerze z obecna.
-//	 * @return
-//	 */
-//	public boolean isCurrentVersion(){
-//		JSONParser parser = new JSONParser();
-//		String s ="";
-//		
-//		try {
-//			s = MyHttpURLConnection.get(address+"api/version");
-//		} catch (Exception404 e) {
-//			e.printStackTrace();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		
-//		Object obj = null;
-//		try {
-//			obj = parser.parse(s);
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		JSONArray array = (JSONArray) obj;
-//		JSONObject jo = (JSONObject) array.get(0);
-//		
-//		int newVersion = Integer.parseInt(jo.get("version").toString());
-//		
-//		if(this.version==newVersion)
-//			return true;
-//		else
-//			return false;
-//	}
-//
-//	@Override
-//	public String toString() {
-//		return "Poll [hash_id=" + hash_id + ", subject=" + subject + ", room="
-//				+ room + ", start_date=" + start_date + ", version=" + version
-//				+ "]";
-//	}
-//
-//	public int getVersion() {
-//		return version;
-//	}
-//
-//	public Map<String, Question> getQuestion_map() {
-//		return question_map;
-//	}
-//	
-//	
-	
 
 	public String getAddress() {
 		return address;

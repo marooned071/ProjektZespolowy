@@ -1,5 +1,9 @@
 package com.example.qrpoll;
-
+/**
+ * klasa reprezentujaca odpowiedz
+ * @author Piotrek
+ *
+ */
 public class Choice {
 	
 	private String pk;
@@ -11,15 +15,24 @@ public class Choice {
 		this.choice_text = choice_text;
 		this.votes = votes;
 	}
-
+	/**
+	 * 
+	 * @return id odpowiedzi
+	 */
 	public String getPk() {
 		return pk;
 	}
-
+	/**
+	 * 
+	 * @return tresc odpowiedzi
+	 */
 	public String getChoice_text() {
 		return choice_text;
 	}
-
+	/**
+	 * 
+	 * @return ilosc glosow oddanych na ta odpowiedz
+	 */
 	public int getVotes() {
 		return votes;
 	}

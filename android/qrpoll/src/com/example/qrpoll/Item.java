@@ -15,15 +15,31 @@ public class Item{
 		this.date=date;
 		this.room=room;
 	}
+	/**
+	 * 
+	 * @return nazwa spotkania
+	 */
 	public String getName(){
 		return name;
 	}
+	/**
+	 * 
+	 * @return hash spotkania
+	 */
 	public String getValue(){
 		return value;
 	}
+	/**
+	 * 
+	 * @return adres gdzie odbywa sie spotkanie
+	 */
 	public String getRoom(){
 		return room;
 	}
+	/**
+	 * 
+	 * @return data spotkania
+	 */
 	public String getDate(){
 		return date;
 	}

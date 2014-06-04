@@ -4,7 +4,7 @@
     <string name="app_name">qrpoll</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Historia</string>
-    <string name="scan">Scan</string>
+    <string name="scan">Nacisnij aby rozpoczac skanowanie</string>
     <string name="title_activity_poll">PollActivity</string>
     <string name="textView_versionLabel">Version</string>
     <string name="poll_textViewVersionLabelStirng">Version</string>

@@ -155,8 +155,10 @@ public class Poll {
 			jo_inside = jo.getJSONObject("fields");
 			question_pk = jo_inside.get("question").toString();
 			choice_text = jo_inside.get("choice_text").toString();
+			votes = Integer.parseInt(jo_inside.get("votes").toString());
+			
 			if(!question_pk.equals(ratingID+"")){			//ustawione na sztywno, w wypadku pozniejszych problemow zmienic
-			question_map.get(question_pk).addChoice(pk, choice_text);
+			question_map.get(question_pk).addChoice(pk, choice_text, votes);
 			}else{
 				ratingquestions.add(pk);
 			}

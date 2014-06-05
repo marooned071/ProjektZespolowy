@@ -27,7 +27,13 @@ public class Choice {
 	public String getChoice_text() {
 		return choice_text;
 	}
-	
+	/**
+	 * 
+	 * @return ilosc glosow oddanych na ta odpowiedz
+	 */
+	public int getVotes() {
+		return votes;
+	}
 
 	@Override
 	public int hashCode() {
@@ -36,7 +42,7 @@ public class Choice {
 		result = prime * result
 				+ ((choice_text == null) ? 0 : choice_text.hashCode());
 		result = prime * result + ((pk == null) ? 0 : pk.hashCode());
-		result = prime * result ;
+		result = prime * result + votes;
 		return result;
 	}
 
@@ -59,7 +65,8 @@ public class Choice {
 				return false;
 		} else if (!pk.equals(other.pk))
 			return false;
-		
+		if (votes != other.votes)
+			return false;
 		return true;
 	}
 

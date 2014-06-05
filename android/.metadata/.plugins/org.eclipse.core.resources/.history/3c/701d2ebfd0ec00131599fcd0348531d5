@@ -21,8 +21,8 @@ public class Question {
 	}
 	
 	
-	public void addChoice(String pk, String choice_text){
-		choice_map.put(pk,(new Choice(pk, choice_text)));
+	public void addChoice(String pk, String choice_text, int votes){
+		choice_map.put(pk,(new Choice(pk, choice_text, votes)));
 	}
 
 	public String getPk() {

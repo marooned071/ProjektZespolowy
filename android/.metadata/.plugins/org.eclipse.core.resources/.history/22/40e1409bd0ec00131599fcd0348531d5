@@ -8,10 +8,12 @@ public class Choice {
 	
 	private String pk;
 	private String choice_text;
+	private int votes;
 	
-	Choice(String pk, String choice_text){
+	Choice(String pk, String choice_text, int votes){
 		this.pk=pk;
 		this.choice_text = choice_text;
+		this.votes = votes;
 	}
 	/**
 	 * 
@@ -27,7 +29,13 @@ public class Choice {
 	public String getChoice_text() {
 		return choice_text;
 	}
-	
+	/**
+	 * 
+	 * @return ilosc glosow oddanych na ta odpowiedz
+	 */
+	public int getVotes() {
+		return votes;
+	}
 
 	@Override
 	public int hashCode() {
@@ -36,7 +44,7 @@ public class Choice {
 		result = prime * result
 				+ ((choice_text == null) ? 0 : choice_text.hashCode());
 		result = prime * result + ((pk == null) ? 0 : pk.hashCode());
-		result = prime * result ;
+		result = prime * result + votes;
 		return result;
 	}
 
@@ -59,7 +67,8 @@ public class Choice {
 				return false;
 		} else if (!pk.equals(other.pk))
 			return false;
-		
+		if (votes != other.votes)
+			return false;
 		return true;
 	}
 

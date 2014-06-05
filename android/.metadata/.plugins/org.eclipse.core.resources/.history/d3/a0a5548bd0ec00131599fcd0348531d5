@@ -156,7 +156,7 @@ public class Poll {
 			question_pk = jo_inside.get("question").toString();
 			choice_text = jo_inside.get("choice_text").toString();
 			if(!question_pk.equals(ratingID+"")){			//ustawione na sztywno, w wypadku pozniejszych problemow zmienic
-			question_map.get(question_pk).addChoice(pk, choice_text);
+			question_map.get(question_pk).addChoice(pk, choice_text, votes);
 			}else{
 				ratingquestions.add(pk);
 			}

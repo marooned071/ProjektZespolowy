@@ -1,0 +1,480 @@
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter}{\section{Dokumentacja klasy com.\+example.\+qrpoll.\+Expandable\+List\+Adapter}
+\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter}\index{com.\+example.\+qrpoll.\+Expandable\+List\+Adapter@{com.\+example.\+qrpoll.\+Expandable\+List\+Adapter}}
+}
+
+
+Diagram dziedziczenia dla com.\+example.\+qrpoll.\+Expandable\+List\+Adapter
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla com.\+example.\+qrpoll.\+Expandable\+List\+Adapter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Komponenty}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_1_1_button_listener}{Button\+Listener}
+\end{DoxyCompactItemize}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a8124339d7fc7169df890068e07c76e41}{set\+Questions} ()
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a76c2b3720ad077a33ac32cb371aea902}{set\+Poll} (\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll}{Poll} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a35f2a91149fc7265646cd916c54a02ef}{poll})
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_af5cff710db9f2515f997f24bb1b2d816}{Expandable\+List\+Adapter} (Context context, List$<$ String $>$ list\+Data\+Header, Hash\+Map$<$ String, List$<$ String $>$$>$ list\+Child\+Data, \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll}{Poll} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a35f2a91149fc7265646cd916c54a02ef}{poll})
+\item 
+Object \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a85fb08a976c8961e0f3e9fed7eae064e}{get\+Child} (int group\+Position, int child\+Posititon)
+\item 
+long \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a34e4958bd1ff0cc578cb8c65b26d4d4b}{get\+Child\+Id} (int group\+Position, int child\+Position)
+\item 
+View \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a4d933f905a39d145b9e400693dc90193}{get\+Child\+View} (final int group\+Position, final int child\+Position, boolean is\+Last\+Child, View convert\+View, View\+Group parent)
+\item 
+int \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_abd5d4f934326b8ec5ea92580d81e5616}{get\+Children\+Count} (int group\+Position)
+\item 
+Object \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a3f311ecc161915f1d8a864677d36b752}{get\+Group} (int group\+Position)
+\item 
+int \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_ab9a9bd19ec9d4209100f8d08b56b2837}{get\+Group\+Count} ()
+\item 
+long \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a9e1426065947818273f73aca8a592239}{get\+Group\+Id} (int group\+Position)
+\item 
+View \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a6b8e4143490f8afe57b71a6c8ab2b0a4}{get\+Group\+View} (int group\+Position, boolean is\+Expanded, View convert\+View, View\+Group parent)
+\item 
+boolean \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a57e5cc39a98135f8082d543188b916ba}{has\+Stable\+Ids} ()
+\item 
+boolean \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_af45bff70a6085ba623e21e42116c5275}{is\+Child\+Selectable} (int group\+Position, int child\+Position)
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response}{Survey\+Response} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a38af3904440bf552715d92f8c6e1375d}{sr}
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+Context \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a7a712744eebf94bc189b44e5d04ff7da}{\+\_\+context}
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll}{Poll} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a35f2a91149fc7265646cd916c54a02ef}{poll}
+\item 
+Map$<$ String, \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question}{Question} $>$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a5ec37e3c4af51739b2c0cd282b9bf208}{question\+Map}
+\item 
+Map$<$ Integer, List$<$ String $>$ $>$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a8351d33fae079b02fb540090d49c6f2e}{mapa\+Button}
+\item 
+List$<$ String $>$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a21519cda6be88f0b729afc1ac0cc06a5}{question\+List}
+\item 
+List$<$ String $>$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a7290d1e184f1a8ef03ad8ea5bd4f273d}{\+\_\+list\+Data\+Header}
+\item 
+Hash\+Map$<$ String, List$<$ String $>$ $>$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a9e3d05b47021b43ad465a1f7fa3d0ca2}{\+\_\+list\+Data\+Child}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+klasa adaptera do listy z pytaniami 
+
+Definicja w linii 28 pliku Expandable\+List\+Adapter.\+java.
+
+
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_af5cff710db9f2515f997f24bb1b2d816}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!Expandable\+List\+Adapter@{Expandable\+List\+Adapter}}
+\index{Expandable\+List\+Adapter@{Expandable\+List\+Adapter}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{Expandable\+List\+Adapter}]{\setlength{\rightskip}{0pt plus 5cm}com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+Expandable\+List\+Adapter (
+\begin{DoxyParamCaption}
+\item[{Context}]{context, }
+\item[{List$<$ String $>$}]{list\+Data\+Header, }
+\item[{Hash\+Map$<$ String, List$<$ String $>$$>$}]{list\+Child\+Data, }
+\item[{{\bf Poll}}]{poll}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_af5cff710db9f2515f997f24bb1b2d816}
+
+
+Definicja w linii 58 pliku Expandable\+List\+Adapter.\+java.
+
+
+\begin{DoxyCode}
+59                                                                    \{
+60         this.\_context = context;
+61         this.\_listDataHeader = listDataHeader;
+62         this.\_listDataChild = listChildData;
+63         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a38af3904440bf552715d92f8c6e1375d}{sr}=\textcolor{keyword}{new} SurveyResponse(context);
+64         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a8351d33fae079b02fb540090d49c6f2e}{mapaButton}=\textcolor{keyword}{new} HashMap<Integer,List<String>>();
+65         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a76c2b3720ad077a33ac32cb371aea902}{setPoll}(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a35f2a91149fc7265646cd916c54a02ef}{poll});
+66         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a8124339d7fc7169df890068e07c76e41}{setQuestions}();
+67     \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a85fb08a976c8961e0f3e9fed7eae064e}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!get\+Child@{get\+Child}}
+\index{get\+Child@{get\+Child}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{get\+Child}]{\setlength{\rightskip}{0pt plus 5cm}Object com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+get\+Child (
+\begin{DoxyParamCaption}
+\item[{int}]{group\+Position, }
+\item[{int}]{child\+Posititon}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a85fb08a976c8961e0f3e9fed7eae064e}
+
+
+Definicja w linii 70 pliku Expandable\+List\+Adapter.\+java.
+
+
+\begin{DoxyCode}
+70                                                                   \{
+71         \textcolor{keywordflow}{return} this.\_listDataChild.get(this.\_listDataHeader.get(groupPosition))
+72                 .get(childPosititon);
+73     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a34e4958bd1ff0cc578cb8c65b26d4d4b}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!get\+Child\+Id@{get\+Child\+Id}}
+\index{get\+Child\+Id@{get\+Child\+Id}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{get\+Child\+Id}]{\setlength{\rightskip}{0pt plus 5cm}long com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+get\+Child\+Id (
+\begin{DoxyParamCaption}
+\item[{int}]{group\+Position, }
+\item[{int}]{child\+Position}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a34e4958bd1ff0cc578cb8c65b26d4d4b}
+
+
+Definicja w linii 76 pliku Expandable\+List\+Adapter.\+java.
+
+
+\begin{DoxyCode}
+76                                                                  \{
+77         \textcolor{keywordflow}{return} childPosition;
+78     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_abd5d4f934326b8ec5ea92580d81e5616}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!get\+Children\+Count@{get\+Children\+Count}}
+\index{get\+Children\+Count@{get\+Children\+Count}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{get\+Children\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+get\+Children\+Count (
+\begin{DoxyParamCaption}
+\item[{int}]{group\+Position}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_abd5d4f934326b8ec5ea92580d81e5616}
+
+
+Definicja w linii 144 pliku Expandable\+List\+Adapter.\+java.
+
+
+\begin{DoxyCode}
+144                                                    \{
+145         \textcolor{keywordflow}{return} this.\_listDataChild.get(this.\_listDataHeader.get(groupPosition))
+146                 .size();
+147     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a4d933f905a39d145b9e400693dc90193}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!get\+Child\+View@{get\+Child\+View}}
+\index{get\+Child\+View@{get\+Child\+View}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{get\+Child\+View}]{\setlength{\rightskip}{0pt plus 5cm}View com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+get\+Child\+View (
+\begin{DoxyParamCaption}
+\item[{final int}]{group\+Position, }
+\item[{final int}]{child\+Position, }
+\item[{boolean}]{is\+Last\+Child, }
+\item[{View}]{convert\+View, }
+\item[{View\+Group}]{parent}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a4d933f905a39d145b9e400693dc90193}
+ustawienie wyswietlania pytan 
+\begin{DoxyParams}{Parametry}
+{\em group\+Position} & \\
+\hline
+{\em child\+Position} & \\
+\hline
+{\em is\+Last\+Child} & \\
+\hline
+{\em convert\+View} & \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+
+\end{DoxyReturn}
+
+
+Definicja w linii 89 pliku Expandable\+List\+Adapter.\+java.
+
+
+\begin{DoxyCode}
+90                                                                      \{
+91         String headerTitle = (String) \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a3f311ecc161915f1d8a864677d36b752}{getGroup}(groupPosition);
+92      
+93             String key=questionList.get(groupPosition);
+94             Question q=questionMap.get(key);
+95             Map<String, Choice> choiceMap= q.getChoice\_map();
+96             
+97             LayoutInflater infalInflater = (LayoutInflater) this.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a7a712744eebf94bc189b44e5d04ff7da}{\_context}
+98                     .getSystemService(Context.LAYOUT\_INFLATER\_SERVICE);
+99             convertView = infalInflater.inflate(R.layout.list\_item, null);
+100             LinearLayout linear = (LinearLayout) convertView
+101                     .findViewById(R.id.explinear);
+102             LinearLayout l=\textcolor{keyword}{new} LinearLayout(this.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a7a712744eebf94bc189b44e5d04ff7da}{\_context});
+103             l.setOrientation(LinearLayout.VERTICAL);
+104             
+105             \textcolor{keyword}{final} ArrayList<String> list = \textcolor{keyword}{new} ArrayList<String>();
+106             \textcolor{keywordflow}{for}(String choice: choiceMap.keySet())\{
+107                 Choice c = choiceMap.get(choice);
+108                 CheckBox rb = \textcolor{keyword}{new} CheckBox(this.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a7a712744eebf94bc189b44e5d04ff7da}{\_context});
+109                 \textcolor{keyword}{final} \textcolor{keywordtype}{int} rbID = Integer.parseInt(c.getPk());
+110                 rb.setText(c.getChoice\_text());
+111                 rb.setOnCheckedChangeListener(\textcolor{keyword}{new} OnCheckedChangeListener()
+112                 \{
+113 
+114                     @Override
+115                     \textcolor{keyword}{public} \textcolor{keywordtype}{void} onCheckedChanged(CompoundButton arg0,
+116                             \textcolor{keywordtype}{boolean} arg1) \{
+117                         \textcolor{comment}{//Toast.makeText(\_context,groupPosition+"", Toast.LENGTH\_SHORT).show();}
+118                         \textcolor{keywordflow}{if}(list.contains(\textcolor{stringliteral}{"id:"}+rbID))\{
+119                             
+120                             list.remove(\textcolor{stringliteral}{"id:"}+rbID);
+121                         \}\textcolor{keywordflow}{else}\{
+122                             list.add(\textcolor{stringliteral}{"id:"}+rbID);
+123                         \}
+124                         
+125                     \}
+126 
+127                 \});
+128                 l.addView(rb);
+129             \}
+130             mapaButton.put(groupPosition, list);
+131             Button rb=\textcolor{keyword}{new} Button(this.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a7a712744eebf94bc189b44e5d04ff7da}{\_context});
+132             rb.setText(\textcolor{stringliteral}{"Zaglosuj"});
+133             rb.setId(groupPosition);
+134             rb.setOnClickListener(\textcolor{keyword}{new} ButtonListener());
+135             l.addView(rb);
+136             
+137             linear.addView(l);
+138 
+139  
+140         \textcolor{keywordflow}{return} convertView;
+141     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a3f311ecc161915f1d8a864677d36b752}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!get\+Group@{get\+Group}}
+\index{get\+Group@{get\+Group}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{get\+Group}]{\setlength{\rightskip}{0pt plus 5cm}Object com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+get\+Group (
+\begin{DoxyParamCaption}
+\item[{int}]{group\+Position}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a3f311ecc161915f1d8a864677d36b752}
+
+
+Definicja w linii 150 pliku Expandable\+List\+Adapter.\+java.
+
+
+\begin{DoxyCode}
+150                                               \{
+151         \textcolor{keywordflow}{return} this.\_listDataHeader.get(groupPosition);
+152     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_ab9a9bd19ec9d4209100f8d08b56b2837}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!get\+Group\+Count@{get\+Group\+Count}}
+\index{get\+Group\+Count@{get\+Group\+Count}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{get\+Group\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+get\+Group\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_ab9a9bd19ec9d4209100f8d08b56b2837}
+
+
+Definicja w linii 155 pliku Expandable\+List\+Adapter.\+java.
+
+
+\begin{DoxyCode}
+155                                \{
+156         \textcolor{keywordflow}{return} this.\_listDataHeader.size();
+157     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a9e1426065947818273f73aca8a592239}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!get\+Group\+Id@{get\+Group\+Id}}
+\index{get\+Group\+Id@{get\+Group\+Id}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{get\+Group\+Id}]{\setlength{\rightskip}{0pt plus 5cm}long com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+get\+Group\+Id (
+\begin{DoxyParamCaption}
+\item[{int}]{group\+Position}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a9e1426065947818273f73aca8a592239}
+
+
+Definicja w linii 160 pliku Expandable\+List\+Adapter.\+java.
+
+
+\begin{DoxyCode}
+160                                               \{
+161         \textcolor{keywordflow}{return} groupPosition;
+162     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a6b8e4143490f8afe57b71a6c8ab2b0a4}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!get\+Group\+View@{get\+Group\+View}}
+\index{get\+Group\+View@{get\+Group\+View}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{get\+Group\+View}]{\setlength{\rightskip}{0pt plus 5cm}View com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+get\+Group\+View (
+\begin{DoxyParamCaption}
+\item[{int}]{group\+Position, }
+\item[{boolean}]{is\+Expanded, }
+\item[{View}]{convert\+View, }
+\item[{View\+Group}]{parent}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a6b8e4143490f8afe57b71a6c8ab2b0a4}
+
+
+Definicja w linii 165 pliku Expandable\+List\+Adapter.\+java.
+
+
+\begin{DoxyCode}
+166                                                 \{
+167         String headerTitle = (String) \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a3f311ecc161915f1d8a864677d36b752}{getGroup}(groupPosition);
+168         \textcolor{keywordflow}{if} (convertView == null) \{
+169             LayoutInflater infalInflater = (LayoutInflater) this.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a7a712744eebf94bc189b44e5d04ff7da}{\_context}
+170                     .getSystemService(Context.LAYOUT\_INFLATER\_SERVICE);
+171             convertView = infalInflater.inflate(R.layout.list\_group, null);
+172         \}
+173  
+174         TextView lblListHeader = (TextView) convertView
+175                 .findViewById(R.id.lblListHeader);
+176         lblListHeader.setTypeface(null, Typeface.BOLD);
+177         lblListHeader.setText(headerTitle);
+178         
+179         \textcolor{keywordflow}{return} convertView;
+180     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a57e5cc39a98135f8082d543188b916ba}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!has\+Stable\+Ids@{has\+Stable\+Ids}}
+\index{has\+Stable\+Ids@{has\+Stable\+Ids}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{has\+Stable\+Ids}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+has\+Stable\+Ids (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a57e5cc39a98135f8082d543188b916ba}
+
+
+Definicja w linii 183 pliku Expandable\+List\+Adapter.\+java.
+
+
+\begin{DoxyCode}
+183                                   \{
+184         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+185     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_af45bff70a6085ba623e21e42116c5275}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!is\+Child\+Selectable@{is\+Child\+Selectable}}
+\index{is\+Child\+Selectable@{is\+Child\+Selectable}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{is\+Child\+Selectable}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+is\+Child\+Selectable (
+\begin{DoxyParamCaption}
+\item[{int}]{group\+Position, }
+\item[{int}]{child\+Position}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_af45bff70a6085ba623e21e42116c5275}
+
+
+Definicja w linii 188 pliku Expandable\+List\+Adapter.\+java.
+
+
+\begin{DoxyCode}
+188                                                                            \{
+189         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+190     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a76c2b3720ad077a33ac32cb371aea902}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!set\+Poll@{set\+Poll}}
+\index{set\+Poll@{set\+Poll}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{set\+Poll}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+set\+Poll (
+\begin{DoxyParamCaption}
+\item[{{\bf Poll}}]{poll}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a76c2b3720ad077a33ac32cb371aea902}
+ustawienie mapy pytan 
+
+Definicja w linii 52 pliku Expandable\+List\+Adapter.\+java.
+
+
+\begin{DoxyCode}
+52                                   \{
+53         this.poll=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a35f2a91149fc7265646cd916c54a02ef}{poll};
+54         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a5ec37e3c4af51739b2c0cd282b9bf208}{questionMap}=this.poll.getQuestion\_map();
+55         
+56     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a8124339d7fc7169df890068e07c76e41}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!set\+Questions@{set\+Questions}}
+\index{set\+Questions@{set\+Questions}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{set\+Questions}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+set\+Questions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a8124339d7fc7169df890068e07c76e41}
+metoda dodajaca pytania do listy 
+
+Definicja w linii 42 pliku Expandable\+List\+Adapter.\+java.
+
+
+\begin{DoxyCode}
+42                               \{
+43         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a21519cda6be88f0b729afc1ac0cc06a5}{questionList}=\textcolor{keyword}{new} ArrayList<String>();
+44         \textcolor{keywordflow}{for}(String key:\hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a5ec37e3c4af51739b2c0cd282b9bf208}{questionMap}.keySet())\{
+45             questionList.add(key);
+46         \}
+47     \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a7a712744eebf94bc189b44e5d04ff7da}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!\+\_\+context@{\+\_\+context}}
+\index{\+\_\+context@{\+\_\+context}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{\+\_\+context}]{\setlength{\rightskip}{0pt plus 5cm}Context com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+\_\+context\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a7a712744eebf94bc189b44e5d04ff7da}
+
+
+Definicja w linii 29 pliku Expandable\+List\+Adapter.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a9e3d05b47021b43ad465a1f7fa3d0ca2}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!\+\_\+list\+Data\+Child@{\+\_\+list\+Data\+Child}}
+\index{\+\_\+list\+Data\+Child@{\+\_\+list\+Data\+Child}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{\+\_\+list\+Data\+Child}]{\setlength{\rightskip}{0pt plus 5cm}Hash\+Map$<$String, List$<$String$>$ $>$ com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+\_\+list\+Data\+Child\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a9e3d05b47021b43ad465a1f7fa3d0ca2}
+
+
+Definicja w linii 37 pliku Expandable\+List\+Adapter.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a7290d1e184f1a8ef03ad8ea5bd4f273d}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!\+\_\+list\+Data\+Header@{\+\_\+list\+Data\+Header}}
+\index{\+\_\+list\+Data\+Header@{\+\_\+list\+Data\+Header}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{\+\_\+list\+Data\+Header}]{\setlength{\rightskip}{0pt plus 5cm}List$<$String$>$ com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+\_\+list\+Data\+Header\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a7290d1e184f1a8ef03ad8ea5bd4f273d}
+
+
+Definicja w linii 35 pliku Expandable\+List\+Adapter.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a8351d33fae079b02fb540090d49c6f2e}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!mapa\+Button@{mapa\+Button}}
+\index{mapa\+Button@{mapa\+Button}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{mapa\+Button}]{\setlength{\rightskip}{0pt plus 5cm}Map$<$Integer,List$<$String$>$ $>$ com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+mapa\+Button\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a8351d33fae079b02fb540090d49c6f2e}
+
+
+Definicja w linii 33 pliku Expandable\+List\+Adapter.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a35f2a91149fc7265646cd916c54a02ef}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!poll@{poll}}
+\index{poll@{poll}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{poll}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Poll} com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+poll\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a35f2a91149fc7265646cd916c54a02ef}
+
+
+Definicja w linii 30 pliku Expandable\+List\+Adapter.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a21519cda6be88f0b729afc1ac0cc06a5}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!question\+List@{question\+List}}
+\index{question\+List@{question\+List}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{question\+List}]{\setlength{\rightskip}{0pt plus 5cm}List$<$String$>$ com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+question\+List\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a21519cda6be88f0b729afc1ac0cc06a5}
+
+
+Definicja w linii 34 pliku Expandable\+List\+Adapter.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a5ec37e3c4af51739b2c0cd282b9bf208}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!question\+Map@{question\+Map}}
+\index{question\+Map@{question\+Map}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{question\+Map}]{\setlength{\rightskip}{0pt plus 5cm}Map$<$String,{\bf Question}$>$ com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+question\+Map\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a5ec37e3c4af51739b2c0cd282b9bf208}
+
+
+Definicja w linii 32 pliku Expandable\+List\+Adapter.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a38af3904440bf552715d92f8c6e1375d}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}!sr@{sr}}
+\index{sr@{sr}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter}}
+\subsubsection[{sr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Survey\+Response} com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+sr}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a38af3904440bf552715d92f8c6e1375d}
+
+
+Definicja w linii 31 pliku Expandable\+List\+Adapter.\+java.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_expandable_list_adapter_8java}{Expandable\+List\+Adapter.\+java}\end{DoxyCompactItemize}

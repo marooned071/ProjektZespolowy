@@ -1,0 +1,476 @@
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity}{\section{Dokumentacja klasy com.\+example.\+qrpoll.\+Poll\+Activity}
+\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity}\index{com.\+example.\+qrpoll.\+Poll\+Activity@{com.\+example.\+qrpoll.\+Poll\+Activity}}
+}
+
+
+Diagram dziedziczenia dla com.\+example.\+qrpoll.\+Poll\+Activity
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{classcom_1_1example_1_1qrpoll_1_1_poll_activity__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla com.\+example.\+qrpoll.\+Poll\+Activity\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_poll_activity__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+boolean \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a288dc770b6c610732839043961870030}{on\+Create\+Options\+Menu} (Menu menu)
+\item 
+boolean \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_afc58ce75d02a97bc6e93085c1c23281a}{on\+Options\+Item\+Selected} (Menu\+Item item)
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_aa474b030c95c180e2ac43c778c5e0fc9}{get\+Poll} (String url)
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a651f26cfa36578fbf92012881d6a435b}{on\+Back\+Pressed} ()
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a6c59d6b3beb1d5fea9899b0b0cb51e1f}{refresh} ()
+\end{DoxyCompactItemize}
+\subsection*{Metody chronione}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a9982a68e4862d0e8793e0a2e88373589}{on\+Create} (Bundle saved\+Instance\+State)
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty pakietu}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter}{Expandable\+List\+Adapter} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_aeedb4d35f1bb56db80b834a5c5da4f44}{list\+Adapter}
+\item 
+Expandable\+List\+View \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a45d9887fce62772f80726024d1775f7d}{exp\+List\+View}
+\item 
+List$<$ String $>$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a62dde3c117f038e463aa7174906f5f7b}{list\+Data\+Header}
+\item 
+Hash\+Map$<$ String, List$<$ String $>$ $>$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_ab607bec81e729232d72cee9db8ffdc73}{list\+Data\+Child}
+\end{DoxyCompactItemize}
+\subsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a1081f69211873eaf38c422ea12c769f0}{prepare\+List\+Data} ()
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ String $>$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_ae9caea6dcd77802d9edc7f86ace0fc5c}{questions}
+\item 
+Text\+View \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a7928323c2d0f40aa25420488718de309}{tv1}
+\item 
+Text\+View \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a48f7da0dc1da430cd5ac90a8376cad70}{tv2}
+\item 
+Text\+View \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a70708751ea7eb8a32569447a087471b8}{tv3}
+\item 
+Text\+View \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a32c7797e7d6cdf269f9449cfdb635438}{tv4}
+\item 
+Text\+View \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a4fbbfc95809c5aa0bf9916316730a992}{version}
+\item 
+int \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a0cb80128cd6ae3abb14437dbcf82f876}{back\+Button\+Count} =0
+\item 
+Rating\+Bar \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a3c2b3e0864209b0253263a7af2642a13}{rb}
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll}{Poll} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll} = null
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Glowne activity aplikacji, odpowiada za wyswietlanie informacji, pytan wraz z odpowiedziami i mozliwosci glosowania \begin{DoxyAuthor}{Autor}
+Piotrek, Sliwka 
+\end{DoxyAuthor}
+
+
+Definicja w linii 30 pliku Poll\+Activity.\+java.
+
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_aa474b030c95c180e2ac43c778c5e0fc9}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!get\+Poll@{get\+Poll}}
+\index{get\+Poll@{get\+Poll}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{get\+Poll}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Poll\+Activity.\+get\+Poll (
+\begin{DoxyParamCaption}
+\item[{String}]{url}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_aa474b030c95c180e2ac43c778c5e0fc9}
+tworzy nowa ankiete wg podanego url, ustawia odpowiednie informacje na komponentach 
+\begin{DoxyParams}{Parametry}
+{\em url} & -\/ adres do ankiety np\+: \href{http://loony-waters-2513.herokuapp.com/qrpolls/meeting/b9ffd9db1af0b14ed74e92e8d3273f3e/}{\tt http\+://loony-\/waters-\/2513.\+herokuapp.\+com/qrpolls/meeting/b9ffd9db1af0b14ed74e92e8d3273f3e/} \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 191 pliku Poll\+Activity.\+java.
+
+
+\begin{DoxyCode}
+191                                    \{
+192         \textcolor{keywordflow}{try} \{
+193             \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll} = \textcolor{keyword}{new} Poll(url,getApplicationContext());
+194         \} \textcolor{keywordflow}{catch} (JSONException e) \{
+195             Toast.makeText(getApplicationContext(),
+196                     \textcolor{stringliteral}{"Blad ankiety"}, Toast.LENGTH\_SHORT).show();
+197             e.printStackTrace();
+198             \textcolor{keywordflow}{return};
+199         \}
+200         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_ae9caea6dcd77802d9edc7f86ace0fc5c}{questions}=\textcolor{keyword}{new} ArrayList<String>();
+201         Map<String,Question> questionMap=this.poll.getQuestion\_map();
+202         \textcolor{keywordflow}{for}(String key:questionMap.keySet())\{
+203             Question q=questionMap.get(key);
+204             
+205             questions.add(q.getQuestion\_text() +\textcolor{stringliteral}{"   Max: "}+ q.getMax());
+206             
+207         \}
+208         tv1.setText(poll.getSubject());
+209         tv2.setText(poll.getHash\_id());
+210         tv3.setText(poll.getStart\_date());
+211         tv4.setText(poll.getRoom());
+212         version.setText(\textcolor{stringliteral}{"Version: "}+poll.getVersion());
+213         SqlHandler sql=\textcolor{keyword}{new} SqlHandler(getApplication());
+214         sql.open();
+215         sql.insertSpotkania(poll.getHash\_id(), \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll}.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_af744727f34328a8fec2cb1aba1bc5f66}{getSubject}(), poll.getRoom(), 
+      \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll}.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a51e13329a38c4ee0fc09ccac02ae5afe}{getStart\_date}());
+216         sql.close();
+217         \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a651f26cfa36578fbf92012881d6a435b}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!on\+Back\+Pressed@{on\+Back\+Pressed}}
+\index{on\+Back\+Pressed@{on\+Back\+Pressed}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{on\+Back\+Pressed}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Poll\+Activity.\+on\+Back\+Pressed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a651f26cfa36578fbf92012881d6a435b}
+metoda wywolywana przy nacisnieciu przycisku back 
+
+Definicja w linii 222 pliku Poll\+Activity.\+java.
+
+
+\begin{DoxyCode}
+222                                 \{
+223         
+224         \textcolor{keywordflow}{if}(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a0cb80128cd6ae3abb14437dbcf82f876}{backButtonCount}>=1)\{
+225             finish();
+226         \}\textcolor{keywordflow}{else}\{
+227             Toast.makeText(getApplicationContext(),
+228                     \textcolor{stringliteral}{"Nacisnij jeszcze raz back aby wyjsc z aplikacji"}, Toast.LENGTH\_SHORT).show();
+229             \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a0cb80128cd6ae3abb14437dbcf82f876}{backButtonCount}++;
+230         \}
+231         
+232             
+233     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a9982a68e4862d0e8793e0a2e88373589}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!on\+Create@{on\+Create}}
+\index{on\+Create@{on\+Create}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{on\+Create}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Poll\+Activity.\+on\+Create (
+\begin{DoxyParamCaption}
+\item[{Bundle}]{saved\+Instance\+State}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a9982a68e4862d0e8793e0a2e88373589}
+ustawienie layoutu 
+
+Definicja w linii 100 pliku Poll\+Activity.\+java.
+
+
+\begin{DoxyCode}
+100                                                        \{
+101         super.onCreate(savedInstanceState);
+102         this.requestWindowFeature(Window.FEATURE\_NO\_TITLE);
+103         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG\_FULLSCREEN, WindowManager.LayoutParams.
+      FLAG\_FULLSCREEN);
+104         setContentView(R.layout.activity\_poll);
+105         
+106         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a45d9887fce62772f80726024d1775f7d}{expListView} = (ExpandableListView) findViewById(R.id.lvExp);
+107         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a7928323c2d0f40aa25420488718de309}{tv1}=(TextView)findViewById(R.id.textView1);
+108         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a48f7da0dc1da430cd5ac90a8376cad70}{tv2}=(TextView)findViewById(R.id.textView2);
+109         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a70708751ea7eb8a32569447a087471b8}{tv3}=(TextView)findViewById(R.id.textView3);
+110         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a32c7797e7d6cdf269f9449cfdb635438}{tv4}=(TextView)findViewById(R.id.textView4);
+111         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a4fbbfc95809c5aa0bf9916316730a992}{version}=(TextView)findViewById(R.id.poll\_textViewVersionLabel);
+112         
+113         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a3c2b3e0864209b0253263a7af2642a13}{rb}=(RatingBar)findViewById(R.id.ratingBar1);
+114         
+115         rb.setOnRatingBarChangeListener(\textcolor{keyword}{new} OnRatingBarChangeListener() \{
+116             \textcolor{keyword}{public} \textcolor{keywordtype}{void} onRatingChanged(RatingBar ratingBar, \textcolor{keywordtype}{float} rating,
+117                     \textcolor{keywordtype}{boolean} fromUser) \{
+118                 \textcolor{keywordtype}{int} rate=(int)(2*rating);
+119                 SurveyResponse sr=\textcolor{keyword}{new} SurveyResponse(getApplicationContext());
+120             
+121                 \textcolor{keywordflow}{switch}(rate)\{
+122                 \textcolor{keywordflow}{case} 0:
+123                     poll.vote(sr.createIdToSend()+\textcolor{stringliteral}{"/"}+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll}.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a357dc2acb9f42f2bee8dd88556551637}{ratingquestions}.get(10));
+124                     
+125                     \textcolor{keywordflow}{break};
+126                 \textcolor{keywordflow}{case} 1:
+127                     poll.vote(sr.createIdToSend()+\textcolor{stringliteral}{"/"}+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll}.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a357dc2acb9f42f2bee8dd88556551637}{ratingquestions}.get(9));
+128                     \textcolor{keywordflow}{break};
+129                 \textcolor{keywordflow}{case} 2:
+130                     poll.vote(sr.createIdToSend()+\textcolor{stringliteral}{"/"}+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll}.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a357dc2acb9f42f2bee8dd88556551637}{ratingquestions}.get(8));
+131                     \textcolor{keywordflow}{break};
+132                 \textcolor{keywordflow}{case} 3:
+133                     poll.vote(sr.createIdToSend()+\textcolor{stringliteral}{"/"}+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll}.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a357dc2acb9f42f2bee8dd88556551637}{ratingquestions}.get(7));
+134                     \textcolor{keywordflow}{break};
+135                 \textcolor{keywordflow}{case} 4:
+136                     poll.vote(sr.createIdToSend()+\textcolor{stringliteral}{"/"}+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll}.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a357dc2acb9f42f2bee8dd88556551637}{ratingquestions}.get(6));
+137                     \textcolor{keywordflow}{break};
+138                 \textcolor{keywordflow}{case} 5:
+139                     poll.vote(sr.createIdToSend()+\textcolor{stringliteral}{"/"}+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll}.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a357dc2acb9f42f2bee8dd88556551637}{ratingquestions}.get(5));
+140                     \textcolor{keywordflow}{break};
+141                 \textcolor{keywordflow}{case} 6:
+142                     poll.vote(sr.createIdToSend()+\textcolor{stringliteral}{"/"}+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll}.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a357dc2acb9f42f2bee8dd88556551637}{ratingquestions}.get(4));
+143                     \textcolor{keywordflow}{break};
+144                 \textcolor{keywordflow}{case} 7:
+145                     poll.vote(sr.createIdToSend()+\textcolor{stringliteral}{"/"}+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll}.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a357dc2acb9f42f2bee8dd88556551637}{ratingquestions}.get(3));
+146                     \textcolor{keywordflow}{break};
+147                 \textcolor{keywordflow}{case} 8:
+148                     poll.vote(sr.createIdToSend()+\textcolor{stringliteral}{"/"}+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll}.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a357dc2acb9f42f2bee8dd88556551637}{ratingquestions}.get(2));
+149                     \textcolor{keywordflow}{break};
+150                 \textcolor{keywordflow}{case} 9:
+151                     poll.vote(sr.createIdToSend()+\textcolor{stringliteral}{"/"}+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll}.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a357dc2acb9f42f2bee8dd88556551637}{ratingquestions}.get(1));
+152                     \textcolor{keywordflow}{break};
+153                 \textcolor{keywordflow}{case} 10:
+154                     poll.vote(sr.createIdToSend()+\textcolor{stringliteral}{"/"}+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll}.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a357dc2acb9f42f2bee8dd88556551637}{ratingquestions}.get(0));
+155                     \textcolor{keywordflow}{break};
+156                 \}
+157             \}
+158         \});
+159         
+160         Intent intent = getIntent();
+161         String url = intent.getStringExtra(\textcolor{stringliteral}{"scanResult"});
+162         url = \textcolor{stringliteral}{"http://"}+url;
+163         
+164         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_aa474b030c95c180e2ac43c778c5e0fc9}{getPoll}(url);
+165         \textcolor{keywordflow}{try}\{
+166         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a1081f69211873eaf38c422ea12c769f0}{prepareListData}();
+167     
+168         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_aeedb4d35f1bb56db80b834a5c5da4f44}{listAdapter}=\textcolor{keyword}{new} ExpandableListAdapter(\textcolor{keyword}{this},\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a62dde3c117f038e463aa7174906f5f7b}{listDataHeader},
+      \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_ab607bec81e729232d72cee9db8ffdc73}{listDataChild},\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll});
+169         expListView.setAdapter(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_aeedb4d35f1bb56db80b834a5c5da4f44}{listAdapter});
+170         Refresh \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a6c59d6b3beb1d5fea9899b0b0cb51e1f}{refresh}=(Refresh) \textcolor{keyword}{new} Refresh(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll},\textcolor{keyword}{this}).execute();
+171         String message =intent.getStringExtra(\textcolor{stringliteral}{"message"});
+172         \textcolor{keywordflow}{if}(!message.equals(\textcolor{stringliteral}{"none"}))\{
+173             Toast.makeText(getApplicationContext(),
+174                     \textcolor{stringliteral}{"Zaktualizowano pytania. Aktualna wersja: "}+poll.getVersion(), Toast.LENGTH\_LONG).show(
+      );
+175         \}
+176         \}\textcolor{keywordflow}{catch}(Exception e)\{
+177             Intent it=\textcolor{keyword}{new} Intent(getApplication(),MainActivity.class);
+178             startActivity(it);
+179             finish();
+180         \}
+181     
+182         
+183         
+184     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a288dc770b6c610732839043961870030}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!on\+Create\+Options\+Menu@{on\+Create\+Options\+Menu}}
+\index{on\+Create\+Options\+Menu@{on\+Create\+Options\+Menu}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{on\+Create\+Options\+Menu}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\+example.\+qrpoll.\+Poll\+Activity.\+on\+Create\+Options\+Menu (
+\begin{DoxyParamCaption}
+\item[{Menu}]{menu}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a288dc770b6c610732839043961870030}
+tworzenie menu 
+
+Definicja w linii 68 pliku Poll\+Activity.\+java.
+
+
+\begin{DoxyCode}
+68                                                   \{
+69         MenuInflater menuInflater = getMenuInflater();
+70         menuInflater.inflate(R.layout.menu, menu);
+71         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+72     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_afc58ce75d02a97bc6e93085c1c23281a}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!on\+Options\+Item\+Selected@{on\+Options\+Item\+Selected}}
+\index{on\+Options\+Item\+Selected@{on\+Options\+Item\+Selected}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{on\+Options\+Item\+Selected}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\+example.\+qrpoll.\+Poll\+Activity.\+on\+Options\+Item\+Selected (
+\begin{DoxyParamCaption}
+\item[{Menu\+Item}]{item}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_afc58ce75d02a97bc6e93085c1c23281a}
+reagowanie na klikniecie na przyciski w menu 
+
+Definicja w linii 78 pliku Poll\+Activity.\+java.
+
+
+\begin{DoxyCode}
+78                                                         \{
+79         \textcolor{comment}{// Handle action bar item clicks here. The action bar will}
+80         \textcolor{comment}{// automatically handle clicks on the Home/Up button, so long}
+81         \textcolor{comment}{// as you specify a parent activity in AndroidManifest.xml.}
+82         \textcolor{keywordtype}{int} \textcolor{keywordtype}{id} = item.getItemId();
+83         \textcolor{comment}{//start historii}
+84         \textcolor{keywordflow}{if} (\textcolor{keywordtype}{id} == R.id.historia) \{
+85             Intent it=\textcolor{keyword}{new} Intent(getApplication(),HistoryLayout.class);
+86             startActivity(it);
+87             
+88             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+89         \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\textcolor{keywordtype}{id}==R.id.odswiez)\{
+90             
+91             \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a6c59d6b3beb1d5fea9899b0b0cb51e1f}{refresh}();
+92         \}
+93         \textcolor{keywordflow}{return} super.onOptionsItemSelected(item);
+94     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a1081f69211873eaf38c422ea12c769f0}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!prepare\+List\+Data@{prepare\+List\+Data}}
+\index{prepare\+List\+Data@{prepare\+List\+Data}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{prepare\+List\+Data}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Poll\+Activity.\+prepare\+List\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a1081f69211873eaf38c422ea12c769f0}
+Przygotowanie naglowkow do wyswietlenia 
+
+Definicja w linii 50 pliku Poll\+Activity.\+java.
+
+
+\begin{DoxyCode}
+50                                    \{
+51         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a62dde3c117f038e463aa7174906f5f7b}{listDataHeader} = \textcolor{keyword}{new} ArrayList<String>();
+52         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_ab607bec81e729232d72cee9db8ffdc73}{listDataChild} = \textcolor{keyword}{new} HashMap<String, List<String>>();
+53         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a62dde3c117f038e463aa7174906f5f7b}{listDataHeader}=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_ae9caea6dcd77802d9edc7f86ace0fc5c}{questions};
+54         
+55         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i =0;i<listDataHeader.size();i++)\{
+56             List<String> list = \textcolor{keyword}{new} ArrayList<String>();
+57             list.add(\textcolor{stringliteral}{""});
+58             listDataChild.put(listDataHeader.get(i),list);
+59         \}
+60 
+61     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a6c59d6b3beb1d5fea9899b0b0cb51e1f}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!refresh@{refresh}}
+\index{refresh@{refresh}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{refresh}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Poll\+Activity.\+refresh (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a6c59d6b3beb1d5fea9899b0b0cb51e1f}
+metoda wywolywana przez klikniecie \char`\"{}odswiez\char`\"{}, sprawdzajaca czy ankieta nie zostala zupdatowana 
+
+Definicja w linii 237 pliku Poll\+Activity.\+java.
+
+
+\begin{DoxyCode}
+237                          \{
+238         \textcolor{keywordflow}{try} \{
+239             Poll p=\textcolor{keyword}{new} Poll(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll}.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_ac84c3d1747b6eb8d4f43da448de8080f}{getAddress}(),getApplicationContext());
+240             \textcolor{keywordflow}{if}(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{poll}.\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a6ec1751ddf25a1b00173e1c4f3203458}{getVersion}()!=p.getVersion())\{
+241                 Intent it=\textcolor{keyword}{new} Intent(getApplication(),PollActivity.class);
+242                 it.putExtra(\textcolor{stringliteral}{"scanResult"}, poll.getAddress().substring(7));
+243                 it.putExtra(\textcolor{stringliteral}{"message"}, \textcolor{stringliteral}{"nowa wersja"});
+244                 startActivity(it);
+245                 finish();
+246             \}\textcolor{keywordflow}{else}\{
+247                 Toast.makeText(getApplicationContext(),
+248                        \textcolor{stringliteral}{"Nie ma nowszej wersji"}, Toast.LENGTH\_SHORT).show();
+249             \}
+250         \} \textcolor{keywordflow}{catch} (JSONException e) \{
+251             \textcolor{comment}{// TODO Auto-generated catch block}
+252             e.printStackTrace();
+253         \}\textcolor{keywordflow}{catch}(NullPointerException e)\{
+254             Toast.makeText(getApplicationContext(),
+255                        \textcolor{stringliteral}{"Brak polaczenia"}, Toast.LENGTH\_SHORT).show();
+256         \}
+257     \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a0cb80128cd6ae3abb14437dbcf82f876}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!back\+Button\+Count@{back\+Button\+Count}}
+\index{back\+Button\+Count@{back\+Button\+Count}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{back\+Button\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int com.\+example.\+qrpoll.\+Poll\+Activity.\+back\+Button\+Count =0\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a0cb80128cd6ae3abb14437dbcf82f876}
+
+
+Definicja w linii 42 pliku Poll\+Activity.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a45d9887fce62772f80726024d1775f7d}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!exp\+List\+View@{exp\+List\+View}}
+\index{exp\+List\+View@{exp\+List\+View}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{exp\+List\+View}]{\setlength{\rightskip}{0pt plus 5cm}Expandable\+List\+View com.\+example.\+qrpoll.\+Poll\+Activity.\+exp\+List\+View\hspace{0.3cm}{\ttfamily [package]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a45d9887fce62772f80726024d1775f7d}
+
+
+Definicja w linii 32 pliku Poll\+Activity.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_aeedb4d35f1bb56db80b834a5c5da4f44}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!list\+Adapter@{list\+Adapter}}
+\index{list\+Adapter@{list\+Adapter}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{list\+Adapter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expandable\+List\+Adapter} com.\+example.\+qrpoll.\+Poll\+Activity.\+list\+Adapter\hspace{0.3cm}{\ttfamily [package]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_aeedb4d35f1bb56db80b834a5c5da4f44}
+
+
+Definicja w linii 31 pliku Poll\+Activity.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_ab607bec81e729232d72cee9db8ffdc73}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!list\+Data\+Child@{list\+Data\+Child}}
+\index{list\+Data\+Child@{list\+Data\+Child}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{list\+Data\+Child}]{\setlength{\rightskip}{0pt plus 5cm}Hash\+Map$<$String, List$<$String$>$ $>$ com.\+example.\+qrpoll.\+Poll\+Activity.\+list\+Data\+Child\hspace{0.3cm}{\ttfamily [package]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_ab607bec81e729232d72cee9db8ffdc73}
+
+
+Definicja w linii 34 pliku Poll\+Activity.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a62dde3c117f038e463aa7174906f5f7b}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!list\+Data\+Header@{list\+Data\+Header}}
+\index{list\+Data\+Header@{list\+Data\+Header}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{list\+Data\+Header}]{\setlength{\rightskip}{0pt plus 5cm}List$<$String$>$ com.\+example.\+qrpoll.\+Poll\+Activity.\+list\+Data\+Header\hspace{0.3cm}{\ttfamily [package]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a62dde3c117f038e463aa7174906f5f7b}
+
+
+Definicja w linii 33 pliku Poll\+Activity.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!poll@{poll}}
+\index{poll@{poll}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{poll}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Poll} com.\+example.\+qrpoll.\+Poll\+Activity.\+poll = null\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_accbd807fe57852d64377c5a96401c376}
+
+
+Definicja w linii 46 pliku Poll\+Activity.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_ae9caea6dcd77802d9edc7f86ace0fc5c}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!questions@{questions}}
+\index{questions@{questions}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{questions}]{\setlength{\rightskip}{0pt plus 5cm}List$<$String$>$ com.\+example.\+qrpoll.\+Poll\+Activity.\+questions\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_ae9caea6dcd77802d9edc7f86ace0fc5c}
+
+
+Definicja w linii 36 pliku Poll\+Activity.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a3c2b3e0864209b0253263a7af2642a13}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!rb@{rb}}
+\index{rb@{rb}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{rb}]{\setlength{\rightskip}{0pt plus 5cm}Rating\+Bar com.\+example.\+qrpoll.\+Poll\+Activity.\+rb\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a3c2b3e0864209b0253263a7af2642a13}
+
+
+Definicja w linii 43 pliku Poll\+Activity.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a7928323c2d0f40aa25420488718de309}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!tv1@{tv1}}
+\index{tv1@{tv1}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{tv1}]{\setlength{\rightskip}{0pt plus 5cm}Text\+View com.\+example.\+qrpoll.\+Poll\+Activity.\+tv1\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a7928323c2d0f40aa25420488718de309}
+
+
+Definicja w linii 37 pliku Poll\+Activity.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a48f7da0dc1da430cd5ac90a8376cad70}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!tv2@{tv2}}
+\index{tv2@{tv2}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{tv2}]{\setlength{\rightskip}{0pt plus 5cm}Text\+View com.\+example.\+qrpoll.\+Poll\+Activity.\+tv2\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a48f7da0dc1da430cd5ac90a8376cad70}
+
+
+Definicja w linii 38 pliku Poll\+Activity.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a70708751ea7eb8a32569447a087471b8}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!tv3@{tv3}}
+\index{tv3@{tv3}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{tv3}]{\setlength{\rightskip}{0pt plus 5cm}Text\+View com.\+example.\+qrpoll.\+Poll\+Activity.\+tv3\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a70708751ea7eb8a32569447a087471b8}
+
+
+Definicja w linii 39 pliku Poll\+Activity.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a32c7797e7d6cdf269f9449cfdb635438}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!tv4@{tv4}}
+\index{tv4@{tv4}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{tv4}]{\setlength{\rightskip}{0pt plus 5cm}Text\+View com.\+example.\+qrpoll.\+Poll\+Activity.\+tv4\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a32c7797e7d6cdf269f9449cfdb635438}
+
+
+Definicja w linii 40 pliku Poll\+Activity.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a4fbbfc95809c5aa0bf9916316730a992}{\index{com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}!version@{version}}
+\index{version@{version}!com\+::example\+::qrpoll\+::\+Poll\+Activity@{com\+::example\+::qrpoll\+::\+Poll\+Activity}}
+\subsubsection[{version}]{\setlength{\rightskip}{0pt plus 5cm}Text\+View com.\+example.\+qrpoll.\+Poll\+Activity.\+version\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_activity_a4fbbfc95809c5aa0bf9916316730a992}
+
+
+Definicja w linii 41 pliku Poll\+Activity.\+java.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_poll_activity_8java}{Poll\+Activity.\+java}\end{DoxyCompactItemize}

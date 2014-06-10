@@ -120,38 +120,38 @@ public class PollActivity extends Activity {
 			
 				switch(rate){
 				case 0:
-					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(10));
+					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(0));
 					
 					break;
 				case 1:
-					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(9));
+					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(1));
 					break;
 				case 2:
-					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(8));
+					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(2));
 					break;
 				case 3:
-					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(7));
+					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(3));
 					break;
 				case 4:
-					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(6));
+					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(4));
 					break;
 				case 5:
 					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(5));
 					break;
 				case 6:
-					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(4));
+					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(6));
 					break;
 				case 7:
-					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(3));
+					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(7));
 					break;
 				case 8:
-					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(2));
+					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(8));
 					break;
 				case 9:
-					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(1));
+					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(9));
 					break;
 				case 10:
-					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(0));
+					poll.vote(sr.createIdToSend()+"/"+poll.ratingquestions.get(10));
 					break;
 				}
 			}

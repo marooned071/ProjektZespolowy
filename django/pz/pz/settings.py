@@ -25,7 +25,7 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 
 TEMPLATE_DIRS = (
-     'qrpolls\\templates\qrpolls',
+     'qrpolls/templates/qrpolls',
 )
 
 ALLOWED_HOSTS = []

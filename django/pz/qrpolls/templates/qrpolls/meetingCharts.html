@@ -1,0 +1,36 @@
+
+
+<div id="rating" class="stars"> </div>
+
+
+<script type="text/javascript">
+$('#rating').raty(
+	{	score: {{rating}},
+		number : 5,
+		readOnly : true,
+		half: true,
+		size   : 100,
+		starHalf   : 'gwiazdka2.png',
+		starOff    : 'gwiazdka3.png',
+		starOn     : 'gwiazdka1.png' 
+	});
+
+</script>
+
+
+{% with i=1  %}
+
+
+
+{% for question, dict in questionChoiceVotesDic.items %}
+<hr/>
+<div id="chart_div{{forloop.counter}}" style="width: 700px; height: 400px;"> 
+	<script type="text/javascript"> drawChart2("chart_div{{forloop.counter}}" ,"{{ question }}", "{{ dict }}");</script> 
+</div>
+
+{{ i|add:1 }}
+
+{% endfor %}
+{% endwith %}  
+
+

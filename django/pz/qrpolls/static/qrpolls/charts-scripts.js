@@ -25,7 +25,8 @@ function drawChart2(divID,question,choices) {
 			title: t,
 			pieHole: 0.4,
 			is3D : true,
-			colors: ['#d3d3d3']
+			colors: ['#ffffff'],
+			backgroundColor: '#CECECE'
 
 		};
 	}
@@ -33,6 +34,7 @@ function drawChart2(divID,question,choices) {
 		options = {
 			title: t,
 			pieHole: 0.4,
+			backgroundColor: '#CECECE',
 			is3D : true
 		};
 	}

@@ -1,0 +1,135 @@
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_history_adapter}{\section{Dokumentacja klasy com.\+example.\+qrpoll.\+History\+Adapter}
+\label{classcom_1_1example_1_1qrpoll_1_1_history_adapter}\index{com.\+example.\+qrpoll.\+History\+Adapter@{com.\+example.\+qrpoll.\+History\+Adapter}}
+}
+
+
+Diagram dziedziczenia dla com.\+example.\+qrpoll.\+History\+Adapter
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{classcom_1_1example_1_1qrpoll_1_1_history_adapter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla com.\+example.\+qrpoll.\+History\+Adapter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_history_adapter__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_history_adapter_a823c07f9fa09b58051bc1af5ada028b7}{History\+Adapter} (Context \hyperlink{classcom_1_1example_1_1qrpoll_1_1_history_adapter_a118ff9b19fe9e292e2a60fc5b42150f9}{context}, Array\+List$<$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item}{Item} $>$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_history_adapter_adc0f747e0409d63449e90738b935ce1d}{items})
+\item 
+View \hyperlink{classcom_1_1example_1_1qrpoll_1_1_history_adapter_a272e253c50d2c55359900516f1eab7e6}{get\+View} (int position, View convert\+View, View\+Group parent)
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+final Context \hyperlink{classcom_1_1example_1_1qrpoll_1_1_history_adapter_a118ff9b19fe9e292e2a60fc5b42150f9}{context}
+\item 
+final Array\+List$<$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item}{Item} $>$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_history_adapter_adc0f747e0409d63449e90738b935ce1d}{items}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Adapter do wyswietlania historii, \begin{DoxyAuthor}{Autor}
+Sliwka layout/row.\+xml 
+\end{DoxyAuthor}
+
+
+Definicja w linii 23 pliku History\+Adapter.\+java.
+
+
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_history_adapter_a823c07f9fa09b58051bc1af5ada028b7}{\index{com\+::example\+::qrpoll\+::\+History\+Adapter@{com\+::example\+::qrpoll\+::\+History\+Adapter}!History\+Adapter@{History\+Adapter}}
+\index{History\+Adapter@{History\+Adapter}!com\+::example\+::qrpoll\+::\+History\+Adapter@{com\+::example\+::qrpoll\+::\+History\+Adapter}}
+\subsubsection[{History\+Adapter}]{\setlength{\rightskip}{0pt plus 5cm}com.\+example.\+qrpoll.\+History\+Adapter.\+History\+Adapter (
+\begin{DoxyParamCaption}
+\item[{Context}]{context, }
+\item[{Array\+List$<$ {\bf Item} $>$}]{items}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_history_adapter_a823c07f9fa09b58051bc1af5ada028b7}
+
+
+Definicja w linii 26 pliku History\+Adapter.\+java.
+
+
+\begin{DoxyCode}
+26                                                                 \{
+27         super(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_history_adapter_a118ff9b19fe9e292e2a60fc5b42150f9}{context},R.layout.row,\hyperlink{classcom_1_1example_1_1qrpoll_1_1_history_adapter_adc0f747e0409d63449e90738b935ce1d}{items});
+28         this.context=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_history_adapter_a118ff9b19fe9e292e2a60fc5b42150f9}{context};
+29         this.items=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_history_adapter_adc0f747e0409d63449e90738b935ce1d}{items};
+30     \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_history_adapter_a272e253c50d2c55359900516f1eab7e6}{\index{com\+::example\+::qrpoll\+::\+History\+Adapter@{com\+::example\+::qrpoll\+::\+History\+Adapter}!get\+View@{get\+View}}
+\index{get\+View@{get\+View}!com\+::example\+::qrpoll\+::\+History\+Adapter@{com\+::example\+::qrpoll\+::\+History\+Adapter}}
+\subsubsection[{get\+View}]{\setlength{\rightskip}{0pt plus 5cm}View com.\+example.\+qrpoll.\+History\+Adapter.\+get\+View (
+\begin{DoxyParamCaption}
+\item[{int}]{position, }
+\item[{View}]{convert\+View, }
+\item[{View\+Group}]{parent}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_history_adapter_a272e253c50d2c55359900516f1eab7e6}
+wyswietlanie kolejnych rekordow z bazy danych 
+
+Definicja w linii 34 pliku History\+Adapter.\+java.
+
+
+\begin{DoxyCode}
+34                                                                        \{
+35         LayoutInflater inflater=(LayoutInflater)\hyperlink{classcom_1_1example_1_1qrpoll_1_1_history_adapter_a118ff9b19fe9e292e2a60fc5b42150f9}{context}.getSystemService(Context.
+      LAYOUT\_INFLATER\_SERVICE);
+36         View rowView = inflater.inflate(R.layout.row,parent,\textcolor{keyword}{false});
+37         TextView labelview=(TextView)rowView.findViewById(R.id.label);
+38         TextView valueview=(TextView)rowView.findViewById(R.id.value);
+39         TextView dateview=(TextView)rowView.findViewById(R.id.date);
+40         TextView roomView=(TextView)rowView.findViewById(R.id.room);
+41         labelview.setText(items.get(position).getName());
+42         valueview.setText(items.get(position).getValue());
+43         dateview.setText(items.get(position).getDate());
+44         roomView.setText(items.get(position).getRoom());
+45         labelview.setTextColor(Color.BLACK);
+46         valueview.setTextColor(Color.BLACK);
+47         dateview.setTextColor(Color.BLACK);
+48         roomView.setTextColor(Color.BLACK);
+49 
+50         labelview.setBackgroundColor(Color.rgb(170,170,170));
+51         valueview.setBackgroundColor(Color.rgb(175,175,175));
+52         dateview.setBackgroundColor(Color.rgb(180,180,180));
+53         roomView.setBackgroundColor(Color.rgb(187,187,187));
+54         \textcolor{keywordflow}{return} rowView;
+55         
+56     \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_history_adapter_a118ff9b19fe9e292e2a60fc5b42150f9}{\index{com\+::example\+::qrpoll\+::\+History\+Adapter@{com\+::example\+::qrpoll\+::\+History\+Adapter}!context@{context}}
+\index{context@{context}!com\+::example\+::qrpoll\+::\+History\+Adapter@{com\+::example\+::qrpoll\+::\+History\+Adapter}}
+\subsubsection[{context}]{\setlength{\rightskip}{0pt plus 5cm}final Context com.\+example.\+qrpoll.\+History\+Adapter.\+context\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_history_adapter_a118ff9b19fe9e292e2a60fc5b42150f9}
+
+
+Definicja w linii 24 pliku History\+Adapter.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_history_adapter_adc0f747e0409d63449e90738b935ce1d}{\index{com\+::example\+::qrpoll\+::\+History\+Adapter@{com\+::example\+::qrpoll\+::\+History\+Adapter}!items@{items}}
+\index{items@{items}!com\+::example\+::qrpoll\+::\+History\+Adapter@{com\+::example\+::qrpoll\+::\+History\+Adapter}}
+\subsubsection[{items}]{\setlength{\rightskip}{0pt plus 5cm}final Array\+List$<${\bf Item}$>$ com.\+example.\+qrpoll.\+History\+Adapter.\+items\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_history_adapter_adc0f747e0409d63449e90738b935ce1d}
+
+
+Definicja w linii 25 pliku History\+Adapter.\+java.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_history_adapter_8java}{History\+Adapter.\+java}\end{DoxyCompactItemize}

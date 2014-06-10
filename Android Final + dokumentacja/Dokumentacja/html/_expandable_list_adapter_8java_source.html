@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>Projekt Zespolowy: Ankieta: Plik źródłowy ExpandableListAdapter.java</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Projekt Zespolowy: Ankieta
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="namespaces.html"><span>Pakiety</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Szukaj" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Przestrzenie nazw</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pliki</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Zmienne</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ExpandableListAdapter.java</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_expandable_list_adapter_8java.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">package </span>com.example.qrpoll;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> java.util.ArrayList;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> java.util.HashMap;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> java.util.List;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> java.util.Map;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> java.util.zip.Inflater;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> android.content.Context;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> android.graphics.Typeface;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> android.support.v7.app.ActionBarActivity;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> android.view.LayoutInflater;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> android.view.View;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">import</span> android.view.View.OnClickListener;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> android.view.ViewGroup;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">import</span> android.widget.BaseExpandableListAdapter;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">import</span> android.widget.Button;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">import</span> android.widget.CheckBox;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">import</span> android.widget.CompoundButton;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">import</span> android.widget.CompoundButton.OnCheckedChangeListener;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">import</span> android.widget.LinearLayout;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">import</span> android.widget.RadioButton;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">import</span> android.widget.TextView;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">import</span> android.widget.Toast;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html">   28</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html">ExpandableListAdapter</a> <span class="keyword">extends</span> BaseExpandableListAdapter {</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a7a712744eebf94bc189b44e5d04ff7da">   29</a></span>&#160;    <span class="keyword">private</span> Context <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a7a712744eebf94bc189b44e5d04ff7da">_context</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a35f2a91149fc7265646cd916c54a02ef">   30</a></span>&#160;    <span class="keyword">private</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_poll.html">Poll</a> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a35f2a91149fc7265646cd916c54a02ef">poll</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a38af3904440bf552715d92f8c6e1375d">   31</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html">SurveyResponse</a> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a38af3904440bf552715d92f8c6e1375d">sr</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a5ec37e3c4af51739b2c0cd282b9bf208">   32</a></span>&#160;    <span class="keyword">private</span> Map&lt;String,Question&gt; <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a5ec37e3c4af51739b2c0cd282b9bf208">questionMap</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a8351d33fae079b02fb540090d49c6f2e">   33</a></span>&#160;    <span class="keyword">private</span> Map&lt;Integer,List&lt;String&gt;&gt; <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a8351d33fae079b02fb540090d49c6f2e">mapaButton</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a21519cda6be88f0b729afc1ac0cc06a5">   34</a></span>&#160;    <span class="keyword">private</span> List&lt;String&gt; <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a21519cda6be88f0b729afc1ac0cc06a5">questionList</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a7290d1e184f1a8ef03ad8ea5bd4f273d">   35</a></span>&#160;    <span class="keyword">private</span> List&lt;String&gt; <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a7290d1e184f1a8ef03ad8ea5bd4f273d">_listDataHeader</a>; <span class="comment">// header titles</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// child data in format of header title, child title</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a9e3d05b47021b43ad465a1f7fa3d0ca2">   37</a></span>&#160;    <span class="keyword">private</span> HashMap&lt;String, List&lt;String&gt;&gt; <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a9e3d05b47021b43ad465a1f7fa3d0ca2">_listDataChild</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a8124339d7fc7169df890068e07c76e41">   42</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a8124339d7fc7169df890068e07c76e41">setQuestions</a>(){</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a21519cda6be88f0b729afc1ac0cc06a5">questionList</a>=<span class="keyword">new</span> ArrayList&lt;String&gt;();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">for</span>(String key:<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a5ec37e3c4af51739b2c0cd282b9bf208">questionMap</a>.keySet()){</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            questionList.add(key);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a76c2b3720ad077a33ac32cb371aea902">   52</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a76c2b3720ad077a33ac32cb371aea902">setPoll</a>(<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_poll.html">Poll</a> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a35f2a91149fc7265646cd916c54a02ef">poll</a>){</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        this.poll=<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a35f2a91149fc7265646cd916c54a02ef">poll</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a5ec37e3c4af51739b2c0cd282b9bf208">questionMap</a>=this.poll.getQuestion_map();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#af5cff710db9f2515f997f24bb1b2d816">   58</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#af5cff710db9f2515f997f24bb1b2d816">ExpandableListAdapter</a>(Context context, List&lt;String&gt; listDataHeader,</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            HashMap&lt;String, List&lt;String&gt;&gt; listChildData,<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_poll.html">Poll</a> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a35f2a91149fc7265646cd916c54a02ef">poll</a>) {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        this._context = context;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        this._listDataHeader = listDataHeader;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        this._listDataChild = listChildData;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a38af3904440bf552715d92f8c6e1375d">sr</a>=<span class="keyword">new</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html">SurveyResponse</a>(context);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a8351d33fae079b02fb540090d49c6f2e">mapaButton</a>=<span class="keyword">new</span> HashMap&lt;Integer,List&lt;String&gt;&gt;();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a76c2b3720ad077a33ac32cb371aea902">setPoll</a>(poll);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a8124339d7fc7169df890068e07c76e41">setQuestions</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    @Override</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a85fb08a976c8961e0f3e9fed7eae064e">   70</a></span>&#160;    <span class="keyword">public</span> Object <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a85fb08a976c8961e0f3e9fed7eae064e">getChild</a>(<span class="keywordtype">int</span> groupPosition, <span class="keywordtype">int</span> childPosititon) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">return</span> this._listDataChild.get(this._listDataHeader.get(groupPosition))</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                .get(childPosititon);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    @Override</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a34e4958bd1ff0cc578cb8c65b26d4d4b">   76</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">long</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a34e4958bd1ff0cc578cb8c65b26d4d4b">getChildId</a>(<span class="keywordtype">int</span> groupPosition, <span class="keywordtype">int</span> childPosition) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">return</span> childPosition;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a4d933f905a39d145b9e400693dc90193">   89</a></span>&#160;    <span class="keyword">public</span> View <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a4d933f905a39d145b9e400693dc90193">getChildView</a>(<span class="keyword">final</span> <span class="keywordtype">int</span> groupPosition, <span class="keyword">final</span> <span class="keywordtype">int</span> childPosition,</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordtype">boolean</span> isLastChild, View convertView, ViewGroup parent) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        String headerTitle = (String) <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a3f311ecc161915f1d8a864677d36b752">getGroup</a>(groupPosition);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;     </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            String key=questionList.get(groupPosition);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_question.html">Question</a> q=questionMap.get(key);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            Map&lt;String, Choice&gt; choiceMap= q.getChoice_map();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            LayoutInflater infalInflater = (LayoutInflater) this.<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a7a712744eebf94bc189b44e5d04ff7da">_context</a></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            convertView = infalInflater.inflate(R.layout.list_item, null);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            LinearLayout linear = (LinearLayout) convertView</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                    .findViewById(R.id.explinear);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            LinearLayout l=<span class="keyword">new</span> LinearLayout(this.<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a7a712744eebf94bc189b44e5d04ff7da">_context</a>);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            l.setOrientation(LinearLayout.VERTICAL);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keyword">final</span> ArrayList&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordflow">for</span>(String choice: choiceMap.keySet()){</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_choice.html">Choice</a> c = choiceMap.get(choice);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                CheckBox rb = <span class="keyword">new</span> CheckBox(this.<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a7a712744eebf94bc189b44e5d04ff7da">_context</a>);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="keyword">final</span> <span class="keywordtype">int</span> rbID = Integer.parseInt(c.getPk());</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                rb.setText(c.getChoice_text());</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                rb.setOnCheckedChangeListener(<span class="keyword">new</span> OnCheckedChangeListener()</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                    @Override</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                    <span class="keyword">public</span> <span class="keywordtype">void</span> onCheckedChanged(CompoundButton arg0,</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                            <span class="keywordtype">boolean</span> arg1) {</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                        <span class="comment">//Toast.makeText(_context,groupPosition+&quot;&quot;, Toast.LENGTH_SHORT).show();</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                        <span class="keywordflow">if</span>(list.contains(<span class="stringliteral">&quot;id:&quot;</span>+rbID)){</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                            </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                            list.remove(<span class="stringliteral">&quot;id:&quot;</span>+rbID);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                        }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                            list.add(<span class="stringliteral">&quot;id:&quot;</span>+rbID);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                        }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                        </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                    }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                });</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                l.addView(rb);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            mapaButton.put(groupPosition, list);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            Button rb=<span class="keyword">new</span> Button(this.<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a7a712744eebf94bc189b44e5d04ff7da">_context</a>);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            rb.setText(<span class="stringliteral">&quot;Zaglosuj&quot;</span>);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            rb.setId(groupPosition);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            rb.setOnClickListener(<span class="keyword">new</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_1_1_button_listener.html">ButtonListener</a>());</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            l.addView(rb);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            linear.addView(l);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordflow">return</span> convertView;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    @Override</div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#abd5d4f934326b8ec5ea92580d81e5616">  144</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#abd5d4f934326b8ec5ea92580d81e5616">getChildrenCount</a>(<span class="keywordtype">int</span> groupPosition) {</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordflow">return</span> this._listDataChild.get(this._listDataHeader.get(groupPosition))</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                .size();</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    }</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    @Override</div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a3f311ecc161915f1d8a864677d36b752">  150</a></span>&#160;    <span class="keyword">public</span> Object <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a3f311ecc161915f1d8a864677d36b752">getGroup</a>(<span class="keywordtype">int</span> groupPosition) {</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keywordflow">return</span> this._listDataHeader.get(groupPosition);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    }</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    @Override</div>
+<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#ab9a9bd19ec9d4209100f8d08b56b2837">  155</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#ab9a9bd19ec9d4209100f8d08b56b2837">getGroupCount</a>() {</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordflow">return</span> this._listDataHeader.size();</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    }</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    @Override</div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a9e1426065947818273f73aca8a592239">  160</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">long</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a9e1426065947818273f73aca8a592239">getGroupId</a>(<span class="keywordtype">int</span> groupPosition) {</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordflow">return</span> groupPosition;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    }</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    @Override</div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a6b8e4143490f8afe57b71a6c8ab2b0a4">  165</a></span>&#160;    <span class="keyword">public</span> View <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a6b8e4143490f8afe57b71a6c8ab2b0a4">getGroupView</a>(<span class="keywordtype">int</span> groupPosition, <span class="keywordtype">boolean</span> isExpanded,</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            View convertView, ViewGroup parent) {</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        String headerTitle = (String) <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a3f311ecc161915f1d8a864677d36b752">getGroup</a>(groupPosition);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">if</span> (convertView == null) {</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            LayoutInflater infalInflater = (LayoutInflater) this.<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a7a712744eebf94bc189b44e5d04ff7da">_context</a></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            convertView = infalInflater.inflate(R.layout.list_group, null);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        }</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        TextView lblListHeader = (TextView) convertView</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                .findViewById(R.id.lblListHeader);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        lblListHeader.setTypeface(null, Typeface.BOLD);</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        lblListHeader.setText(headerTitle);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="keywordflow">return</span> convertView;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    }</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    @Override</div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a57e5cc39a98135f8082d543188b916ba">  183</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a57e5cc39a98135f8082d543188b916ba">hasStableIds</a>() {</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    @Override</div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#af45bff70a6085ba623e21e42116c5275">  188</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#af45bff70a6085ba623e21e42116c5275">isChildSelectable</a>(<span class="keywordtype">int</span> groupPosition, <span class="keywordtype">int</span> childPosition) {</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    }</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    </div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_1_1_button_listener.html">  193</a></span>&#160;    <span class="keyword">private</span> <span class="keyword">class </span><a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_1_1_button_listener.html">ButtonListener</a> <span class="keyword">implements</span> OnClickListener{</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        @Override</div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_1_1_button_listener.html#ad69b9ff638eb72e0c337f01955202dc6">  196</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_1_1_button_listener.html#ad69b9ff638eb72e0c337f01955202dc6">onClick</a>(View arg0) {</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            List&lt;String&gt;list=mapaButton.get(arg0.getId());</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            <span class="keywordflow">if</span>(list.size()!=0){</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                String vote=null;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;list.size();i++){</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                    String <span class="keywordtype">id</span>=list.get(i).substring(3);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                    vote+=<span class="keywordtype">id</span>+<span class="stringliteral">&quot;,&quot;</span>;           </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                vote=vote.substring(4,vote.length()-1);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html">SurveyResponse</a> rs=<span class="keyword">new</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html">SurveyResponse</a>(<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a7a712744eebf94bc189b44e5d04ff7da">_context</a>);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            poll.vote(sr.createIdToSend()+<span class="stringliteral">&quot;/&quot;</span>+vote);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                Toast.makeText(_context.getApplicationContext(),<span class="stringliteral">&quot;Nic nie wybrano&quot;</span>, Toast.LENGTH_SHORT).show();</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            }</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        }</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    }</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;}</div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_abd5d4f934326b8ec5ea92580d81e5616"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#abd5d4f934326b8ec5ea92580d81e5616">com.example.qrpoll.ExpandableListAdapter.getChildrenCount</a></div><div class="ttdeci">int getChildrenCount(int groupPosition)</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00144">ExpandableListAdapter.java:144</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_a8351d33fae079b02fb540090d49c6f2e"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a8351d33fae079b02fb540090d49c6f2e">com.example.qrpoll.ExpandableListAdapter.mapaButton</a></div><div class="ttdeci">Map&lt; Integer, List&lt; String &gt; &gt; mapaButton</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00033">ExpandableListAdapter.java:33</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_a8124339d7fc7169df890068e07c76e41"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a8124339d7fc7169df890068e07c76e41">com.example.qrpoll.ExpandableListAdapter.setQuestions</a></div><div class="ttdeci">void setQuestions()</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00042">ExpandableListAdapter.java:42</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_ab9a9bd19ec9d4209100f8d08b56b2837"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#ab9a9bd19ec9d4209100f8d08b56b2837">com.example.qrpoll.ExpandableListAdapter.getGroupCount</a></div><div class="ttdeci">int getGroupCount()</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00155">ExpandableListAdapter.java:155</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_a5ec37e3c4af51739b2c0cd282b9bf208"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a5ec37e3c4af51739b2c0cd282b9bf208">com.example.qrpoll.ExpandableListAdapter.questionMap</a></div><div class="ttdeci">Map&lt; String, Question &gt; questionMap</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00032">ExpandableListAdapter.java:32</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_a34e4958bd1ff0cc578cb8c65b26d4d4b"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a34e4958bd1ff0cc578cb8c65b26d4d4b">com.example.qrpoll.ExpandableListAdapter.getChildId</a></div><div class="ttdeci">long getChildId(int groupPosition, int childPosition)</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00076">ExpandableListAdapter.java:76</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_a6b8e4143490f8afe57b71a6c8ab2b0a4"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a6b8e4143490f8afe57b71a6c8ab2b0a4">com.example.qrpoll.ExpandableListAdapter.getGroupView</a></div><div class="ttdeci">View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent)</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00165">ExpandableListAdapter.java:165</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_a7290d1e184f1a8ef03ad8ea5bd4f273d"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a7290d1e184f1a8ef03ad8ea5bd4f273d">com.example.qrpoll.ExpandableListAdapter._listDataHeader</a></div><div class="ttdeci">List&lt; String &gt; _listDataHeader</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00035">ExpandableListAdapter.java:35</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_question_html"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_question.html">com.example.qrpoll.Question</a></div><div class="ttdef"><b>Definition:</b> <a href="_question_8java_source.html#l00011">Question.java:11</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_choice_html"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_choice.html">com.example.qrpoll.Choice</a></div><div class="ttdef"><b>Definition:</b> <a href="_choice_8java_source.html#l00007">Choice.java:7</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_a21519cda6be88f0b729afc1ac0cc06a5"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a21519cda6be88f0b729afc1ac0cc06a5">com.example.qrpoll.ExpandableListAdapter.questionList</a></div><div class="ttdeci">List&lt; String &gt; questionList</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00034">ExpandableListAdapter.java:34</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_a38af3904440bf552715d92f8c6e1375d"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a38af3904440bf552715d92f8c6e1375d">com.example.qrpoll.ExpandableListAdapter.sr</a></div><div class="ttdeci">SurveyResponse sr</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00031">ExpandableListAdapter.java:31</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_a85fb08a976c8961e0f3e9fed7eae064e"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a85fb08a976c8961e0f3e9fed7eae064e">com.example.qrpoll.ExpandableListAdapter.getChild</a></div><div class="ttdeci">Object getChild(int groupPosition, int childPosititon)</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00070">ExpandableListAdapter.java:70</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_a57e5cc39a98135f8082d543188b916ba"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a57e5cc39a98135f8082d543188b916ba">com.example.qrpoll.ExpandableListAdapter.hasStableIds</a></div><div class="ttdeci">boolean hasStableIds()</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00183">ExpandableListAdapter.java:183</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_a3f311ecc161915f1d8a864677d36b752"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a3f311ecc161915f1d8a864677d36b752">com.example.qrpoll.ExpandableListAdapter.getGroup</a></div><div class="ttdeci">Object getGroup(int groupPosition)</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00150">ExpandableListAdapter.java:150</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_af45bff70a6085ba623e21e42116c5275"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#af45bff70a6085ba623e21e42116c5275">com.example.qrpoll.ExpandableListAdapter.isChildSelectable</a></div><div class="ttdeci">boolean isChildSelectable(int groupPosition, int childPosition)</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00188">ExpandableListAdapter.java:188</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_1_1_button_listener_html_ad69b9ff638eb72e0c337f01955202dc6"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_1_1_button_listener.html#ad69b9ff638eb72e0c337f01955202dc6">com.example.qrpoll.ExpandableListAdapter.ButtonListener.onClick</a></div><div class="ttdeci">void onClick(View arg0)</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00196">ExpandableListAdapter.java:196</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_a35f2a91149fc7265646cd916c54a02ef"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a35f2a91149fc7265646cd916c54a02ef">com.example.qrpoll.ExpandableListAdapter.poll</a></div><div class="ttdeci">Poll poll</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00030">ExpandableListAdapter.java:30</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_poll_html"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_poll.html">com.example.qrpoll.Poll</a></div><div class="ttdef"><b>Definition:</b> <a href="_poll_8java_source.html#l00025">Poll.java:25</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_a7a712744eebf94bc189b44e5d04ff7da"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a7a712744eebf94bc189b44e5d04ff7da">com.example.qrpoll.ExpandableListAdapter._context</a></div><div class="ttdeci">Context _context</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00029">ExpandableListAdapter.java:29</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_1_1_button_listener_html"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_1_1_button_listener.html">com.example.qrpoll.ExpandableListAdapter.ButtonListener</a></div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00193">ExpandableListAdapter.java:193</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_a9e1426065947818273f73aca8a592239"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a9e1426065947818273f73aca8a592239">com.example.qrpoll.ExpandableListAdapter.getGroupId</a></div><div class="ttdeci">long getGroupId(int groupPosition)</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00160">ExpandableListAdapter.java:160</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_a76c2b3720ad077a33ac32cb371aea902"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a76c2b3720ad077a33ac32cb371aea902">com.example.qrpoll.ExpandableListAdapter.setPoll</a></div><div class="ttdeci">void setPoll(Poll poll)</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00052">ExpandableListAdapter.java:52</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_af5cff710db9f2515f997f24bb1b2d816"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#af5cff710db9f2515f997f24bb1b2d816">com.example.qrpoll.ExpandableListAdapter.ExpandableListAdapter</a></div><div class="ttdeci">ExpandableListAdapter(Context context, List&lt; String &gt; listDataHeader, HashMap&lt; String, List&lt; String &gt;&gt; listChildData, Poll poll)</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00058">ExpandableListAdapter.java:58</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_a4d933f905a39d145b9e400693dc90193"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a4d933f905a39d145b9e400693dc90193">com.example.qrpoll.ExpandableListAdapter.getChildView</a></div><div class="ttdeci">View getChildView(final int groupPosition, final int childPosition, boolean isLastChild, View convertView, ViewGroup parent)</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00089">ExpandableListAdapter.java:89</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html_a9e3d05b47021b43ad465a1f7fa3d0ca2"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html#a9e3d05b47021b43ad465a1f7fa3d0ca2">com.example.qrpoll.ExpandableListAdapter._listDataChild</a></div><div class="ttdeci">HashMap&lt; String, List&lt; String &gt; &gt; _listDataChild</div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00037">ExpandableListAdapter.java:37</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_html"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter.html">com.example.qrpoll.ExpandableListAdapter</a></div><div class="ttdef"><b>Definition:</b> <a href="_expandable_list_adapter_8java_source.html#l00028">ExpandableListAdapter.java:28</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_survey_response_html"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html">com.example.qrpoll.SurveyResponse</a></div><div class="ttdef"><b>Definition:</b> <a href="_survey_response_8java_source.html#l00022">SurveyResponse.java:22</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano Pn, 9 cze 2014 19:25:29 dla Projekt Zespolowy: Ankieta programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.7
+</small></address>
+</body>
+</html>

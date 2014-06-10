@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>Projekt Zespolowy: Ankieta: Plik źródłowy HistoryAdapter.java</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Projekt Zespolowy: Ankieta
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="namespaces.html"><span>Pakiety</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Szukaj" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Przestrzenie nazw</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pliki</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Zmienne</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">HistoryAdapter.java</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_history_adapter_8java.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">package </span>com.example.qrpoll;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> java.util.ArrayList;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> android.content.Context;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> android.graphics.Color;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> android.graphics.LinearGradient;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> android.graphics.Shader;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> android.graphics.drawable.Drawable;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> android.graphics.drawable.PaintDrawable;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> android.graphics.drawable.ShapeDrawable;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> android.graphics.drawable.shapes.RectShape;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> android.view.LayoutInflater;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">import</span> android.view.View;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> android.view.ViewGroup;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">import</span> android.widget.ArrayAdapter;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">import</span> android.widget.TextView;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html">   23</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html">HistoryAdapter</a> <span class="keyword">extends</span> ArrayAdapter&lt;Item&gt;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html#a118ff9b19fe9e292e2a60fc5b42150f9">   24</a></span>&#160;    <span class="keyword">private</span> <span class="keyword">final</span> Context <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html#a118ff9b19fe9e292e2a60fc5b42150f9">context</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html#adc0f747e0409d63449e90738b935ce1d">   25</a></span>&#160;    <span class="keyword">private</span> <span class="keyword">final</span> ArrayList&lt;Item&gt;<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html#adc0f747e0409d63449e90738b935ce1d">items</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html#a823c07f9fa09b58051bc1af5ada028b7">   26</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html#a823c07f9fa09b58051bc1af5ada028b7">HistoryAdapter</a>(Context <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html#a118ff9b19fe9e292e2a60fc5b42150f9">context</a>,ArrayList&lt;Item&gt; <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html#adc0f747e0409d63449e90738b935ce1d">items</a>){</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        super(context,R.layout.row,items);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        this.context=<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html#a118ff9b19fe9e292e2a60fc5b42150f9">context</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        this.items=<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html#adc0f747e0409d63449e90738b935ce1d">items</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html#a272e253c50d2c55359900516f1eab7e6">   34</a></span>&#160;    <span class="keyword">public</span> View <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html#a272e253c50d2c55359900516f1eab7e6">getView</a>(<span class="keywordtype">int</span> position,View convertView,ViewGroup parent){</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        LayoutInflater inflater=(LayoutInflater)<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html#a118ff9b19fe9e292e2a60fc5b42150f9">context</a>.getSystemService(Context.LAYOUT_INFLATER_SERVICE);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        View rowView = inflater.inflate(R.layout.row,parent,<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        TextView labelview=(TextView)rowView.findViewById(R.id.label);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        TextView valueview=(TextView)rowView.findViewById(R.id.value);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        TextView dateview=(TextView)rowView.findViewById(R.id.date);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        TextView roomView=(TextView)rowView.findViewById(R.id.room);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        labelview.setText(items.get(position).getName());</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        valueview.setText(items.get(position).getValue());</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        dateview.setText(items.get(position).getDate());</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        roomView.setText(items.get(position).getRoom());</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        labelview.setTextColor(Color.BLACK);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        valueview.setTextColor(Color.BLACK);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        dateview.setTextColor(Color.BLACK);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        roomView.setTextColor(Color.BLACK);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        labelview.setBackgroundColor(Color.rgb(170,170,170));</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        valueview.setBackgroundColor(Color.rgb(175,175,175));</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        dateview.setBackgroundColor(Color.rgb(180,180,180));</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        roomView.setBackgroundColor(Color.rgb(187,187,187));</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> rowView;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_history_adapter_html"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html">com.example.qrpoll.HistoryAdapter</a></div><div class="ttdef"><b>Definition:</b> <a href="_history_adapter_8java_source.html#l00023">HistoryAdapter.java:23</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_history_adapter_html_adc0f747e0409d63449e90738b935ce1d"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html#adc0f747e0409d63449e90738b935ce1d">com.example.qrpoll.HistoryAdapter.items</a></div><div class="ttdeci">final ArrayList&lt; Item &gt; items</div><div class="ttdef"><b>Definition:</b> <a href="_history_adapter_8java_source.html#l00025">HistoryAdapter.java:25</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_history_adapter_html_a823c07f9fa09b58051bc1af5ada028b7"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html#a823c07f9fa09b58051bc1af5ada028b7">com.example.qrpoll.HistoryAdapter.HistoryAdapter</a></div><div class="ttdeci">HistoryAdapter(Context context, ArrayList&lt; Item &gt; items)</div><div class="ttdef"><b>Definition:</b> <a href="_history_adapter_8java_source.html#l00026">HistoryAdapter.java:26</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_history_adapter_html_a118ff9b19fe9e292e2a60fc5b42150f9"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html#a118ff9b19fe9e292e2a60fc5b42150f9">com.example.qrpoll.HistoryAdapter.context</a></div><div class="ttdeci">final Context context</div><div class="ttdef"><b>Definition:</b> <a href="_history_adapter_8java_source.html#l00024">HistoryAdapter.java:24</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_history_adapter_html_a272e253c50d2c55359900516f1eab7e6"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_history_adapter.html#a272e253c50d2c55359900516f1eab7e6">com.example.qrpoll.HistoryAdapter.getView</a></div><div class="ttdeci">View getView(int position, View convertView, ViewGroup parent)</div><div class="ttdef"><b>Definition:</b> <a href="_history_adapter_8java_source.html#l00034">HistoryAdapter.java:34</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano Pn, 9 cze 2014 19:25:29 dla Projekt Zespolowy: Ankieta programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.7
+</small></address>
+</body>
+</html>

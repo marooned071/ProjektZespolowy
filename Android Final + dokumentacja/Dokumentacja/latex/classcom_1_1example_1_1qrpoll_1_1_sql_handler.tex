@@ -1,0 +1,503 @@
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler}{\section{Dokumentacja klasy com.\+example.\+qrpoll.\+Sql\+Handler}
+\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler}\index{com.\+example.\+qrpoll.\+Sql\+Handler@{com.\+example.\+qrpoll.\+Sql\+Handler}}
+}
+
+
+Diagram współpracy dla com.\+example.\+qrpoll.\+Sql\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_sql_handler__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Komponenty}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_1_1_database_helper}{Database\+Helper}
+\end{DoxyCompactItemize}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a53ed47985d1fc8282e594bd646d10f10}{Sql\+Handler} (Context \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ab0071f750233a8b37790758a430d847c}{context})
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler}{Sql\+Handler} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a8ff4b44bac212ce1711edd40331c5f3a}{open} ()
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_afab084d101af94d630e4cad2e2d0aad6}{close} ()
+\item 
+long \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a277e4b5d26c99949e13a5a522662f579}{insert\+Spotkania} (String hash, String subject, String room, String date)
+\item 
+Cursor \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a36835546e39ab97bd1473650c86eebfb}{get\+Data\+From\+Spotkanie} ()
+\item 
+Cursor \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a75a37c2aaac5411dd77de0df7b07acc7}{get\+Data\+With\+Specific\+Id} (int id)
+\item 
+Cursor \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a2c5fa84b5eb6c9f28e1519c663501e60}{get\+Data\+With\+Specific\+Hash} (String hash)
+\item 
+Array\+List$<$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item}{Item} $>$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ab6085ad33e5f50aa8c3d84d35f62728c}{get\+All} ()
+\end{DoxyCompactItemize}
+\subsection*{Statyczne atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+static final String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ac68ddd9373f28e201126af152708a978}{K\+E\+Y\+\_\+\+I\+D} =\char`\"{}id\char`\"{}
+\item 
+static final String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_aa5a0c822d90c20141ddadf6a396c332f}{I\+D\+\_\+\+O\+P\+T\+I\+O\+N} =\char`\"{}I\+N\+T\+E\+G\+E\+R P\+R\+I\+M\+A\+R\+Y K\+E\+Y A\+U\+T\+O\+I\+N\+C\+R\+E\+M\+E\+N\+T\char`\"{}
+\item 
+static final int \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a2c504a59b0a9b6b99a26b181fa875460}{I\+D\+\_\+\+C\+O\+L\+U\+M\+N} =0
+\item 
+static final String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a300c5ab4aec2e6338f2ca3477c86821b}{K\+E\+Y\+\_\+\+H\+A\+S\+H} =\char`\"{}hash\char`\"{}
+\item 
+static final String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5e06705347d09bc8a2a42b18b7ae2a39}{H\+A\+S\+H\+\_\+\+O\+P\+T\+I\+O\+N} =\char`\"{}T\+E\+X\+T N\+O\+T N\+U\+L\+L\char`\"{}
+\item 
+static final int \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_abec6f5e9cb2ce511c936dc1ae80c83f0}{H\+A\+S\+H\+\_\+\+C\+O\+L\+U\+M\+N} =1
+\item 
+static final String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5f388a6da5567ff51d36f49536889787}{K\+E\+Y\+\_\+\+S\+U\+B\+J\+E\+C\+T} =\char`\"{}subject\char`\"{}
+\item 
+static final String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a285e762c9eafe65d7fd408a27909fe31}{S\+U\+B\+J\+E\+C\+T\+\_\+\+O\+P\+T\+I\+O\+N} =\char`\"{}T\+E\+X\+T N\+O\+T N\+U\+L\+L\char`\"{}
+\item 
+static final int \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a8aceb6280c8a2a0b343b7e20f29b6a21}{S\+U\+B\+J\+E\+C\+T\+\_\+\+C\+O\+L\+U\+M\+N} =2
+\item 
+static final String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a78fbe309193399fb67d76eadb67f4b33}{K\+E\+Y\+\_\+\+R\+O\+O\+M} =\char`\"{}room\char`\"{}
+\item 
+static final String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a7c6a68ef75025eb240b041ea3f005e46}{R\+O\+O\+M\+\_\+\+O\+P\+T\+I\+O\+N} =\char`\"{}T\+E\+X\+T N\+O\+T N\+U\+L\+L\char`\"{}
+\item 
+static final int \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_aca9368d9d6803238b65e853fcf32a5aa}{R\+O\+O\+M\+\_\+\+C\+O\+L\+U\+M\+N} =3
+\item 
+static final String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a93e50d5f5a35250e6655f1d8f3192975}{K\+E\+Y\+\_\+\+D\+A\+T\+E} =\char`\"{}date\char`\"{}
+\item 
+static final String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a1d7af0faf52a8e5ba92eac4595bbb94c}{D\+A\+T\+E\+\_\+\+O\+P\+T\+I\+O\+N} =\char`\"{}T\+E\+X\+T N\+O\+T N\+U\+L\+L\char`\"{}
+\item 
+static final int \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ad3e3a44b82059d37635eda84d51228e6}{D\+A\+T\+E\+\_\+\+C\+O\+L\+U\+M\+N} =4
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+S\+Q\+Lite\+Database \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5b422e7952698eb1df158709d4e18007}{db}
+\item 
+Context \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ab0071f750233a8b37790758a430d847c}{context}
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_1_1_database_helper}{Database\+Helper} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a70cd37adedee066fc05708b0990c4f6c}{db\+Helper}
+\end{DoxyCompactItemize}
+\subsection*{Statyczne atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a10db6c9a4c952c10c3e67c633797a244}{D\+B\+\_\+\+V\+E\+R\+S\+I\+O\+N} =1
+\item 
+static final String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a1e5b9131804451b9c7e6e9cd0eeb7187}{D\+B\+\_\+\+N\+A\+M\+E} =\char`\"{}database.\+db\char`\"{}
+\item 
+static final String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5858d638c1d649a755b4f18614481a48}{D\+B\+\_\+\+T\+A\+B\+L\+E\+\_\+1} =\char`\"{}spotkania\char`\"{}
+\item 
+static final String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a41cc7444128cfe954cd829ceb98d8df0}{Create\+\_\+table\+\_\+spotkania}
+\item 
+static final String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_afed000c5d08d75442fbb860297d5d8b1}{Drop\+\_\+table\+\_\+spotkania} =\char`\"{}D\+R\+O\+P T\+A\+B\+L\+E I\+F E\+X\+I\+S\+T\+S \char`\"{}+D\+B\+\_\+\+T\+A\+B\+L\+E\+\_\+1
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+klasa do obslugi lokalnej bazy danych, zawiera jedna tabele \+:Spotkanie \begin{DoxyAuthor}{Autor}
+sliwka 
+\end{DoxyAuthor}
+
+
+Definicja w linii 19 pliku Sql\+Handler.\+java.
+
+
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a53ed47985d1fc8282e594bd646d10f10}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!Sql\+Handler@{Sql\+Handler}}
+\index{Sql\+Handler@{Sql\+Handler}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{Sql\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}com.\+example.\+qrpoll.\+Sql\+Handler.\+Sql\+Handler (
+\begin{DoxyParamCaption}
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a53ed47985d1fc8282e594bd646d10f10}
+
+\begin{DoxyParams}{Parametry}
+{\em context} & \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 27 pliku Sql\+Handler.\+java.
+
+
+\begin{DoxyCode}
+27                                           \{
+28             this.context=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ab0071f750233a8b37790758a430d847c}{context};
+29         \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_afab084d101af94d630e4cad2e2d0aad6}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!close@{close}}
+\index{close@{close}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Sql\+Handler.\+close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_afab084d101af94d630e4cad2e2d0aad6}
+zamykanie polaczenia z baza 
+
+Definicja w linii 46 pliku Sql\+Handler.\+java.
+
+
+\begin{DoxyCode}
+46                            \{
+47             dbHelper.close();
+48         \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ab6085ad33e5f50aa8c3d84d35f62728c}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!get\+All@{get\+All}}
+\index{get\+All@{get\+All}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{get\+All}]{\setlength{\rightskip}{0pt plus 5cm}Array\+List$<${\bf Item}$>$ com.\+example.\+qrpoll.\+Sql\+Handler.\+get\+All (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ab6085ad33e5f50aa8c3d84d35f62728c}
+Metoda zwracajaca liste wszystkich krotek \begin{DoxyReturn}{Zwraca}
+
+\end{DoxyReturn}
+
+
+Definicja w linii 135 pliku Sql\+Handler.\+java.
+
+
+\begin{DoxyCode}
+135                                        \{
+136             ArrayList<Item>list=\textcolor{keyword}{new} ArrayList<Item>();
+137             String[]columns=\{\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ac68ddd9373f28e201126af152708a978}{KEY\_ID},\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a300c5ab4aec2e6338f2ca3477c86821b}{KEY\_HASH},\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5f388a6da5567ff51d36f49536889787}{KEY\_SUBJECT},
+      \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a78fbe309193399fb67d76eadb67f4b33}{KEY\_ROOM},\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a93e50d5f5a35250e6655f1d8f3192975}{KEY\_DATE}\};
+138             Cursor csr=db.query(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5858d638c1d649a755b4f18614481a48}{DB\_TABLE\_1}, columns, null, null, null, null, null);
+139             \textcolor{keywordflow}{while}(csr.moveToNext())\{
+140                 Item item=\textcolor{keyword}{new} Item(csr.getString(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a8aceb6280c8a2a0b343b7e20f29b6a21}{SUBJECT\_COLUMN}),csr.getString(
+      \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_abec6f5e9cb2ce511c936dc1ae80c83f0}{HASH\_COLUMN}),csr.getString(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ad3e3a44b82059d37635eda84d51228e6}{DATE\_COLUMN}),csr.getString(
+      \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_aca9368d9d6803238b65e853fcf32a5aa}{ROOM\_COLUMN}));
+141                 list.add(item);
+142             \}
+143             \textcolor{keywordflow}{return} list;
+144         \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a36835546e39ab97bd1473650c86eebfb}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!get\+Data\+From\+Spotkanie@{get\+Data\+From\+Spotkanie}}
+\index{get\+Data\+From\+Spotkanie@{get\+Data\+From\+Spotkanie}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{get\+Data\+From\+Spotkanie}]{\setlength{\rightskip}{0pt plus 5cm}Cursor com.\+example.\+qrpoll.\+Sql\+Handler.\+get\+Data\+From\+Spotkanie (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a36835546e39ab97bd1473650c86eebfb}
+Metoda wyciagajaca rekordy z bazy danych \begin{DoxyReturn}{Zwraca}
+Kursor zawierajacy wszystkie rekordy z bazy 
+\end{DoxyReturn}
+
+
+Definicja w linii 107 pliku Sql\+Handler.\+java.
+
+
+\begin{DoxyCode}
+107                                             \{
+108             String[]columns=\{\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ac68ddd9373f28e201126af152708a978}{KEY\_ID},\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a300c5ab4aec2e6338f2ca3477c86821b}{KEY\_HASH},\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5f388a6da5567ff51d36f49536889787}{KEY\_SUBJECT},
+      \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a78fbe309193399fb67d76eadb67f4b33}{KEY\_ROOM},\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a93e50d5f5a35250e6655f1d8f3192975}{KEY\_DATE}\};
+109             \textcolor{keywordflow}{return} db.query(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5858d638c1d649a755b4f18614481a48}{DB\_TABLE\_1}, columns, null, null, null, null, null);
+110         \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a2c5fa84b5eb6c9f28e1519c663501e60}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!get\+Data\+With\+Specific\+Hash@{get\+Data\+With\+Specific\+Hash}}
+\index{get\+Data\+With\+Specific\+Hash@{get\+Data\+With\+Specific\+Hash}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{get\+Data\+With\+Specific\+Hash}]{\setlength{\rightskip}{0pt plus 5cm}Cursor com.\+example.\+qrpoll.\+Sql\+Handler.\+get\+Data\+With\+Specific\+Hash (
+\begin{DoxyParamCaption}
+\item[{String}]{hash}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a2c5fa84b5eb6c9f28e1519c663501e60}
+Metoda wyciagajaca z bazy rekordy o podanym hashu 
+\begin{DoxyParams}{Parametry}
+{\em hash} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+
+\end{DoxyReturn}
+
+
+Definicja w linii 126 pliku Sql\+Handler.\+java.
+
+
+\begin{DoxyCode}
+126                                                           \{
+127             String[]columns=\{\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ac68ddd9373f28e201126af152708a978}{KEY\_ID}\};
+128             String where=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a300c5ab4aec2e6338f2ca3477c86821b}{KEY\_HASH}+\textcolor{stringliteral}{"='"}+hash+\textcolor{stringliteral}{"'"};
+129             \textcolor{keywordflow}{return} db.query(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5858d638c1d649a755b4f18614481a48}{DB\_TABLE\_1}, columns, where, null, null, null, null);
+130         \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a75a37c2aaac5411dd77de0df7b07acc7}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!get\+Data\+With\+Specific\+Id@{get\+Data\+With\+Specific\+Id}}
+\index{get\+Data\+With\+Specific\+Id@{get\+Data\+With\+Specific\+Id}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{get\+Data\+With\+Specific\+Id}]{\setlength{\rightskip}{0pt plus 5cm}Cursor com.\+example.\+qrpoll.\+Sql\+Handler.\+get\+Data\+With\+Specific\+Id (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a75a37c2aaac5411dd77de0df7b07acc7}
+Metoda wyciagajaca z bazy rekordy o podanym id 
+\begin{DoxyParams}{Parametry}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Kursor zawierajacy rekordy 
+\end{DoxyReturn}
+
+
+Definicja w linii 116 pliku Sql\+Handler.\+java.
+
+
+\begin{DoxyCode}
+116                                                    \{
+117             String[]columns=\{\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ac68ddd9373f28e201126af152708a978}{KEY\_ID},\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a300c5ab4aec2e6338f2ca3477c86821b}{KEY\_HASH},\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5f388a6da5567ff51d36f49536889787}{KEY\_SUBJECT},
+      \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a78fbe309193399fb67d76eadb67f4b33}{KEY\_ROOM},\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a93e50d5f5a35250e6655f1d8f3192975}{KEY\_DATE}\};
+118             String where=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ac68ddd9373f28e201126af152708a978}{KEY\_ID} + \textcolor{stringliteral}{"="} + id;
+119             \textcolor{keywordflow}{return} db.query(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5858d638c1d649a755b4f18614481a48}{DB\_TABLE\_1}, columns, where, null, null, null, null);
+120         \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a277e4b5d26c99949e13a5a522662f579}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!insert\+Spotkania@{insert\+Spotkania}}
+\index{insert\+Spotkania@{insert\+Spotkania}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{insert\+Spotkania}]{\setlength{\rightskip}{0pt plus 5cm}long com.\+example.\+qrpoll.\+Sql\+Handler.\+insert\+Spotkania (
+\begin{DoxyParamCaption}
+\item[{String}]{hash, }
+\item[{String}]{subject, }
+\item[{String}]{room, }
+\item[{String}]{date}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a277e4b5d26c99949e13a5a522662f579}
+Wstawianie danych do bazy 
+\begin{DoxyParams}{Parametry}
+{\em hash} & \\
+\hline
+{\em subject} & \\
+\hline
+{\em room} & \\
+\hline
+{\em date} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+id wstawianej krotki 
+\end{DoxyReturn}
+
+
+Definicja w linii 89 pliku Sql\+Handler.\+java.
+
+
+\begin{DoxyCode}
+89                                                                                         \{
+90             ContentValues newSpotkanieValues = \textcolor{keyword}{new} ContentValues();
+91             newSpotkanieValues.put(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a300c5ab4aec2e6338f2ca3477c86821b}{KEY\_HASH}, hash);
+92             newSpotkanieValues.put(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5f388a6da5567ff51d36f49536889787}{KEY\_SUBJECT}, subject);
+93             newSpotkanieValues.put(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a78fbe309193399fb67d76eadb67f4b33}{KEY\_ROOM}, room);
+94             newSpotkanieValues.put(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a93e50d5f5a35250e6655f1d8f3192975}{KEY\_DATE}, date);
+95             Cursor cursor=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a2c5fa84b5eb6c9f28e1519c663501e60}{getDataWithSpecificHash}(hash);
+96             \textcolor{keywordflow}{if}(cursor.getCount()==0)\{
+97                 Log.d(\textcolor{stringliteral}{"SqLiteTodoManager"}, \textcolor{stringliteral}{"not exists"});
+98                 \textcolor{keywordflow}{return} db.insert(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5858d638c1d649a755b4f18614481a48}{DB\_TABLE\_1}, null, newSpotkanieValues);
+99             \}
+100             
+101             \textcolor{keywordflow}{return} -1;
+102         \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a8ff4b44bac212ce1711edd40331c5f3a}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!open@{open}}
+\index{open@{open}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{open}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sql\+Handler} com.\+example.\+qrpoll.\+Sql\+Handler.\+open (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a8ff4b44bac212ce1711edd40331c5f3a}
+Nawiazywanie polaczenia z baza danych sqlite \begin{DoxyReturn}{Zwraca}
+
+\end{DoxyReturn}
+
+
+Definicja w linii 34 pliku Sql\+Handler.\+java.
+
+
+\begin{DoxyCode}
+34                                 \{
+35             \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a70cd37adedee066fc05708b0990c4f6c}{dbHelper}=\textcolor{keyword}{new} DatabaseHelper(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ab0071f750233a8b37790758a430d847c}{context},\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a1e5b9131804451b9c7e6e9cd0eeb7187}{DB\_NAME},null,
+      \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a10db6c9a4c952c10c3e67c633797a244}{DB\_VERSION});
+36             \textcolor{keywordflow}{try}\{
+37                 \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5b422e7952698eb1df158709d4e18007}{db}=dbHelper.getWritableDatabase();
+38             \}\textcolor{keywordflow}{catch}(SQLException e)\{
+39                 \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5b422e7952698eb1df158709d4e18007}{db}=dbHelper.getReadableDatabase();
+40             \}
+41             \textcolor{keywordflow}{return} \textcolor{keyword}{this};
+42         \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ab0071f750233a8b37790758a430d847c}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!context@{context}}
+\index{context@{context}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{context}]{\setlength{\rightskip}{0pt plus 5cm}Context com.\+example.\+qrpoll.\+Sql\+Handler.\+context\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ab0071f750233a8b37790758a430d847c}
+
+
+Definicja w linii 21 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a41cc7444128cfe954cd829ceb98d8df0}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!Create\+\_\+table\+\_\+spotkania@{Create\+\_\+table\+\_\+spotkania}}
+\index{Create\+\_\+table\+\_\+spotkania@{Create\+\_\+table\+\_\+spotkania}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{Create\+\_\+table\+\_\+spotkania}]{\setlength{\rightskip}{0pt plus 5cm}final String com.\+example.\+qrpoll.\+Sql\+Handler.\+Create\+\_\+table\+\_\+spotkania\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a41cc7444128cfe954cd829ceb98d8df0}
+{\bfseries Wartość początkowa\+:}
+\begin{DoxyCode}
+=\textcolor{stringliteral}{"CREATE TABLE IF NOT EXISTS "}+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5858d638c1d649a755b4f18614481a48}{DB\_TABLE\_1}+\textcolor{stringliteral}{"("}
+                +\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ac68ddd9373f28e201126af152708a978}{KEY\_ID}+ \textcolor{stringliteral}{" "}+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_aa5a0c822d90c20141ddadf6a396c332f}{ID\_OPTION}+\textcolor{stringliteral}{","}+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a300c5ab4aec2e6338f2ca3477c86821b}{KEY\_HASH}+ \textcolor{stringliteral}{" "}+
+      \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5e06705347d09bc8a2a42b18b7ae2a39}{HASH\_OPTION}+\textcolor{stringliteral}{","}+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5f388a6da5567ff51d36f49536889787}{KEY\_SUBJECT}+ \textcolor{stringliteral}{" "}+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a285e762c9eafe65d7fd408a27909fe31}{SUBJECT\_OPTION}+\textcolor{stringliteral}{","}
+                +\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a78fbe309193399fb67d76eadb67f4b33}{KEY\_ROOM}+ \textcolor{stringliteral}{" "}+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a7c6a68ef75025eb240b041ea3f005e46}{ROOM\_OPTION}+\textcolor{stringliteral}{","}+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a93e50d5f5a35250e6655f1d8f3192975}{KEY\_DATE}+ \textcolor{stringliteral}{" "}+
+      \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a1d7af0faf52a8e5ba92eac4595bbb94c}{DATE\_OPTION}+\textcolor{stringliteral}{")"}
+\end{DoxyCode}
+
+
+Definicja w linii 73 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ad3e3a44b82059d37635eda84d51228e6}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!D\+A\+T\+E\+\_\+\+C\+O\+L\+U\+M\+N@{D\+A\+T\+E\+\_\+\+C\+O\+L\+U\+M\+N}}
+\index{D\+A\+T\+E\+\_\+\+C\+O\+L\+U\+M\+N@{D\+A\+T\+E\+\_\+\+C\+O\+L\+U\+M\+N}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{D\+A\+T\+E\+\_\+\+C\+O\+L\+U\+M\+N}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\+example.\+qrpoll.\+Sql\+Handler.\+D\+A\+T\+E\+\_\+\+C\+O\+L\+U\+M\+N =4\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ad3e3a44b82059d37635eda84d51228e6}
+
+
+Definicja w linii 71 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a1d7af0faf52a8e5ba92eac4595bbb94c}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!D\+A\+T\+E\+\_\+\+O\+P\+T\+I\+O\+N@{D\+A\+T\+E\+\_\+\+O\+P\+T\+I\+O\+N}}
+\index{D\+A\+T\+E\+\_\+\+O\+P\+T\+I\+O\+N@{D\+A\+T\+E\+\_\+\+O\+P\+T\+I\+O\+N}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{D\+A\+T\+E\+\_\+\+O\+P\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}final String com.\+example.\+qrpoll.\+Sql\+Handler.\+D\+A\+T\+E\+\_\+\+O\+P\+T\+I\+O\+N =\char`\"{}T\+E\+X\+T N\+O\+T N\+U\+L\+L\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a1d7af0faf52a8e5ba92eac4595bbb94c}
+
+
+Definicja w linii 70 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5b422e7952698eb1df158709d4e18007}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!db@{db}}
+\index{db@{db}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{db}]{\setlength{\rightskip}{0pt plus 5cm}S\+Q\+Lite\+Database com.\+example.\+qrpoll.\+Sql\+Handler.\+db\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5b422e7952698eb1df158709d4e18007}
+
+
+Definicja w linii 20 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a1e5b9131804451b9c7e6e9cd0eeb7187}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!D\+B\+\_\+\+N\+A\+M\+E@{D\+B\+\_\+\+N\+A\+M\+E}}
+\index{D\+B\+\_\+\+N\+A\+M\+E@{D\+B\+\_\+\+N\+A\+M\+E}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{D\+B\+\_\+\+N\+A\+M\+E}]{\setlength{\rightskip}{0pt plus 5cm}final String com.\+example.\+qrpoll.\+Sql\+Handler.\+D\+B\+\_\+\+N\+A\+M\+E =\char`\"{}database.\+db\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a1e5b9131804451b9c7e6e9cd0eeb7187}
+
+
+Definicja w linii 50 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5858d638c1d649a755b4f18614481a48}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!D\+B\+\_\+\+T\+A\+B\+L\+E\+\_\+1@{D\+B\+\_\+\+T\+A\+B\+L\+E\+\_\+1}}
+\index{D\+B\+\_\+\+T\+A\+B\+L\+E\+\_\+1@{D\+B\+\_\+\+T\+A\+B\+L\+E\+\_\+1}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{D\+B\+\_\+\+T\+A\+B\+L\+E\+\_\+1}]{\setlength{\rightskip}{0pt plus 5cm}final String com.\+example.\+qrpoll.\+Sql\+Handler.\+D\+B\+\_\+\+T\+A\+B\+L\+E\+\_\+1 =\char`\"{}spotkania\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5858d638c1d649a755b4f18614481a48}
+
+
+Definicja w linii 51 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a10db6c9a4c952c10c3e67c633797a244}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!D\+B\+\_\+\+V\+E\+R\+S\+I\+O\+N@{D\+B\+\_\+\+V\+E\+R\+S\+I\+O\+N}}
+\index{D\+B\+\_\+\+V\+E\+R\+S\+I\+O\+N@{D\+B\+\_\+\+V\+E\+R\+S\+I\+O\+N}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{D\+B\+\_\+\+V\+E\+R\+S\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\+example.\+qrpoll.\+Sql\+Handler.\+D\+B\+\_\+\+V\+E\+R\+S\+I\+O\+N =1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a10db6c9a4c952c10c3e67c633797a244}
+
+
+Definicja w linii 49 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a70cd37adedee066fc05708b0990c4f6c}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!db\+Helper@{db\+Helper}}
+\index{db\+Helper@{db\+Helper}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{db\+Helper}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Database\+Helper} com.\+example.\+qrpoll.\+Sql\+Handler.\+db\+Helper\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a70cd37adedee066fc05708b0990c4f6c}
+
+
+Definicja w linii 22 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_afed000c5d08d75442fbb860297d5d8b1}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!Drop\+\_\+table\+\_\+spotkania@{Drop\+\_\+table\+\_\+spotkania}}
+\index{Drop\+\_\+table\+\_\+spotkania@{Drop\+\_\+table\+\_\+spotkania}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{Drop\+\_\+table\+\_\+spotkania}]{\setlength{\rightskip}{0pt plus 5cm}final String com.\+example.\+qrpoll.\+Sql\+Handler.\+Drop\+\_\+table\+\_\+spotkania =\char`\"{}D\+R\+O\+P T\+A\+B\+L\+E I\+F E\+X\+I\+S\+T\+S \char`\"{}+D\+B\+\_\+\+T\+A\+B\+L\+E\+\_\+1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_afed000c5d08d75442fbb860297d5d8b1}
+
+
+Definicja w linii 79 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_abec6f5e9cb2ce511c936dc1ae80c83f0}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!H\+A\+S\+H\+\_\+\+C\+O\+L\+U\+M\+N@{H\+A\+S\+H\+\_\+\+C\+O\+L\+U\+M\+N}}
+\index{H\+A\+S\+H\+\_\+\+C\+O\+L\+U\+M\+N@{H\+A\+S\+H\+\_\+\+C\+O\+L\+U\+M\+N}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{H\+A\+S\+H\+\_\+\+C\+O\+L\+U\+M\+N}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\+example.\+qrpoll.\+Sql\+Handler.\+H\+A\+S\+H\+\_\+\+C\+O\+L\+U\+M\+N =1\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_abec6f5e9cb2ce511c936dc1ae80c83f0}
+
+
+Definicja w linii 59 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5e06705347d09bc8a2a42b18b7ae2a39}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!H\+A\+S\+H\+\_\+\+O\+P\+T\+I\+O\+N@{H\+A\+S\+H\+\_\+\+O\+P\+T\+I\+O\+N}}
+\index{H\+A\+S\+H\+\_\+\+O\+P\+T\+I\+O\+N@{H\+A\+S\+H\+\_\+\+O\+P\+T\+I\+O\+N}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{H\+A\+S\+H\+\_\+\+O\+P\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}final String com.\+example.\+qrpoll.\+Sql\+Handler.\+H\+A\+S\+H\+\_\+\+O\+P\+T\+I\+O\+N =\char`\"{}T\+E\+X\+T N\+O\+T N\+U\+L\+L\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5e06705347d09bc8a2a42b18b7ae2a39}
+
+
+Definicja w linii 58 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a2c504a59b0a9b6b99a26b181fa875460}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!I\+D\+\_\+\+C\+O\+L\+U\+M\+N@{I\+D\+\_\+\+C\+O\+L\+U\+M\+N}}
+\index{I\+D\+\_\+\+C\+O\+L\+U\+M\+N@{I\+D\+\_\+\+C\+O\+L\+U\+M\+N}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{I\+D\+\_\+\+C\+O\+L\+U\+M\+N}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\+example.\+qrpoll.\+Sql\+Handler.\+I\+D\+\_\+\+C\+O\+L\+U\+M\+N =0\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a2c504a59b0a9b6b99a26b181fa875460}
+
+
+Definicja w linii 55 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_aa5a0c822d90c20141ddadf6a396c332f}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!I\+D\+\_\+\+O\+P\+T\+I\+O\+N@{I\+D\+\_\+\+O\+P\+T\+I\+O\+N}}
+\index{I\+D\+\_\+\+O\+P\+T\+I\+O\+N@{I\+D\+\_\+\+O\+P\+T\+I\+O\+N}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{I\+D\+\_\+\+O\+P\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}final String com.\+example.\+qrpoll.\+Sql\+Handler.\+I\+D\+\_\+\+O\+P\+T\+I\+O\+N =\char`\"{}I\+N\+T\+E\+G\+E\+R P\+R\+I\+M\+A\+R\+Y K\+E\+Y A\+U\+T\+O\+I\+N\+C\+R\+E\+M\+E\+N\+T\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_aa5a0c822d90c20141ddadf6a396c332f}
+
+
+Definicja w linii 54 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a93e50d5f5a35250e6655f1d8f3192975}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!K\+E\+Y\+\_\+\+D\+A\+T\+E@{K\+E\+Y\+\_\+\+D\+A\+T\+E}}
+\index{K\+E\+Y\+\_\+\+D\+A\+T\+E@{K\+E\+Y\+\_\+\+D\+A\+T\+E}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{K\+E\+Y\+\_\+\+D\+A\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}final String com.\+example.\+qrpoll.\+Sql\+Handler.\+K\+E\+Y\+\_\+\+D\+A\+T\+E =\char`\"{}date\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a93e50d5f5a35250e6655f1d8f3192975}
+
+
+Definicja w linii 69 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a300c5ab4aec2e6338f2ca3477c86821b}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!K\+E\+Y\+\_\+\+H\+A\+S\+H@{K\+E\+Y\+\_\+\+H\+A\+S\+H}}
+\index{K\+E\+Y\+\_\+\+H\+A\+S\+H@{K\+E\+Y\+\_\+\+H\+A\+S\+H}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{K\+E\+Y\+\_\+\+H\+A\+S\+H}]{\setlength{\rightskip}{0pt plus 5cm}final String com.\+example.\+qrpoll.\+Sql\+Handler.\+K\+E\+Y\+\_\+\+H\+A\+S\+H =\char`\"{}hash\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a300c5ab4aec2e6338f2ca3477c86821b}
+
+
+Definicja w linii 57 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ac68ddd9373f28e201126af152708a978}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!K\+E\+Y\+\_\+\+I\+D@{K\+E\+Y\+\_\+\+I\+D}}
+\index{K\+E\+Y\+\_\+\+I\+D@{K\+E\+Y\+\_\+\+I\+D}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{K\+E\+Y\+\_\+\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}final String com.\+example.\+qrpoll.\+Sql\+Handler.\+K\+E\+Y\+\_\+\+I\+D =\char`\"{}id\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ac68ddd9373f28e201126af152708a978}
+
+
+Definicja w linii 53 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a78fbe309193399fb67d76eadb67f4b33}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!K\+E\+Y\+\_\+\+R\+O\+O\+M@{K\+E\+Y\+\_\+\+R\+O\+O\+M}}
+\index{K\+E\+Y\+\_\+\+R\+O\+O\+M@{K\+E\+Y\+\_\+\+R\+O\+O\+M}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{K\+E\+Y\+\_\+\+R\+O\+O\+M}]{\setlength{\rightskip}{0pt plus 5cm}final String com.\+example.\+qrpoll.\+Sql\+Handler.\+K\+E\+Y\+\_\+\+R\+O\+O\+M =\char`\"{}room\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a78fbe309193399fb67d76eadb67f4b33}
+
+
+Definicja w linii 65 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5f388a6da5567ff51d36f49536889787}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!K\+E\+Y\+\_\+\+S\+U\+B\+J\+E\+C\+T@{K\+E\+Y\+\_\+\+S\+U\+B\+J\+E\+C\+T}}
+\index{K\+E\+Y\+\_\+\+S\+U\+B\+J\+E\+C\+T@{K\+E\+Y\+\_\+\+S\+U\+B\+J\+E\+C\+T}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{K\+E\+Y\+\_\+\+S\+U\+B\+J\+E\+C\+T}]{\setlength{\rightskip}{0pt plus 5cm}final String com.\+example.\+qrpoll.\+Sql\+Handler.\+K\+E\+Y\+\_\+\+S\+U\+B\+J\+E\+C\+T =\char`\"{}subject\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5f388a6da5567ff51d36f49536889787}
+
+
+Definicja w linii 61 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_aca9368d9d6803238b65e853fcf32a5aa}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!R\+O\+O\+M\+\_\+\+C\+O\+L\+U\+M\+N@{R\+O\+O\+M\+\_\+\+C\+O\+L\+U\+M\+N}}
+\index{R\+O\+O\+M\+\_\+\+C\+O\+L\+U\+M\+N@{R\+O\+O\+M\+\_\+\+C\+O\+L\+U\+M\+N}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{R\+O\+O\+M\+\_\+\+C\+O\+L\+U\+M\+N}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\+example.\+qrpoll.\+Sql\+Handler.\+R\+O\+O\+M\+\_\+\+C\+O\+L\+U\+M\+N =3\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_aca9368d9d6803238b65e853fcf32a5aa}
+
+
+Definicja w linii 67 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a7c6a68ef75025eb240b041ea3f005e46}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!R\+O\+O\+M\+\_\+\+O\+P\+T\+I\+O\+N@{R\+O\+O\+M\+\_\+\+O\+P\+T\+I\+O\+N}}
+\index{R\+O\+O\+M\+\_\+\+O\+P\+T\+I\+O\+N@{R\+O\+O\+M\+\_\+\+O\+P\+T\+I\+O\+N}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{R\+O\+O\+M\+\_\+\+O\+P\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}final String com.\+example.\+qrpoll.\+Sql\+Handler.\+R\+O\+O\+M\+\_\+\+O\+P\+T\+I\+O\+N =\char`\"{}T\+E\+X\+T N\+O\+T N\+U\+L\+L\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a7c6a68ef75025eb240b041ea3f005e46}
+
+
+Definicja w linii 66 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a8aceb6280c8a2a0b343b7e20f29b6a21}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!S\+U\+B\+J\+E\+C\+T\+\_\+\+C\+O\+L\+U\+M\+N@{S\+U\+B\+J\+E\+C\+T\+\_\+\+C\+O\+L\+U\+M\+N}}
+\index{S\+U\+B\+J\+E\+C\+T\+\_\+\+C\+O\+L\+U\+M\+N@{S\+U\+B\+J\+E\+C\+T\+\_\+\+C\+O\+L\+U\+M\+N}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{S\+U\+B\+J\+E\+C\+T\+\_\+\+C\+O\+L\+U\+M\+N}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\+example.\+qrpoll.\+Sql\+Handler.\+S\+U\+B\+J\+E\+C\+T\+\_\+\+C\+O\+L\+U\+M\+N =2\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a8aceb6280c8a2a0b343b7e20f29b6a21}
+
+
+Definicja w linii 63 pliku Sql\+Handler.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a285e762c9eafe65d7fd408a27909fe31}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}!S\+U\+B\+J\+E\+C\+T\+\_\+\+O\+P\+T\+I\+O\+N@{S\+U\+B\+J\+E\+C\+T\+\_\+\+O\+P\+T\+I\+O\+N}}
+\index{S\+U\+B\+J\+E\+C\+T\+\_\+\+O\+P\+T\+I\+O\+N@{S\+U\+B\+J\+E\+C\+T\+\_\+\+O\+P\+T\+I\+O\+N}!com\+::example\+::qrpoll\+::\+Sql\+Handler@{com\+::example\+::qrpoll\+::\+Sql\+Handler}}
+\subsubsection[{S\+U\+B\+J\+E\+C\+T\+\_\+\+O\+P\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}final String com.\+example.\+qrpoll.\+Sql\+Handler.\+S\+U\+B\+J\+E\+C\+T\+\_\+\+O\+P\+T\+I\+O\+N =\char`\"{}T\+E\+X\+T N\+O\+T N\+U\+L\+L\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a285e762c9eafe65d7fd408a27909fe31}
+
+
+Definicja w linii 62 pliku Sql\+Handler.\+java.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sql_handler_8java}{Sql\+Handler.\+java}\end{DoxyCompactItemize}

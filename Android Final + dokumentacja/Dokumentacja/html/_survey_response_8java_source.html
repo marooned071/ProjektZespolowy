@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>Projekt Zespolowy: Ankieta: Plik źródłowy SurveyResponse.java</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Projekt Zespolowy: Ankieta
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="namespaces.html"><span>Pakiety</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Szukaj" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Przestrzenie nazw</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pliki</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Zmienne</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">SurveyResponse.java</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_survey_response_8java.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">package </span>com.example.qrpoll;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> java.util.ArrayList;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> java.util.List;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> org.apache.http.HttpResponse;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> org.apache.http.NameValuePair;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> org.apache.http.client.HttpClient;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> org.apache.http.client.entity.UrlEncodedFormEntity;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> org.apache.http.client.methods.HttpPost;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> org.apache.http.impl.client.DefaultHttpClient;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> org.apache.http.message.BasicNameValuePair;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">import</span> android.content.Context;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> android.telephony.TelephonyManager;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html">   22</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html">SurveyResponse</a> {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#ad4ac570c04a756ac4eaa8622186d5933">   24</a></span>&#160;    <span class="keyword">private</span> TelephonyManager <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#ad4ac570c04a756ac4eaa8622186d5933">tm</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a9bfbee3bd0f78b7652a590063c6e7073">   25</a></span>&#160;    <span class="keyword">private</span> Context <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a9bfbee3bd0f78b7652a590063c6e7073">context</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a13d182139934cfb2f681515e76628786">   27</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a13d182139934cfb2f681515e76628786">SurveyResponse</a>(){    }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#af1338f35c7aa2f3b1f8b1d90b0c1fa41">   29</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#af1338f35c7aa2f3b1f8b1d90b0c1fa41">SurveyResponse</a>(Context <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a9bfbee3bd0f78b7652a590063c6e7073">context</a>){</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        this.context=<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a9bfbee3bd0f78b7652a590063c6e7073">context</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#ad4ac570c04a756ac4eaa8622186d5933">tm</a>=(TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a5f4e8e2b1847aca4f0ea56c2c7e6ae46">   34</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a5f4e8e2b1847aca4f0ea56c2c7e6ae46">SurveyResponse</a>(TelephonyManager <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#ad4ac570c04a756ac4eaa8622186d5933">tm</a>){</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        this.tm=<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#ad4ac570c04a756ac4eaa8622186d5933">tm</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a7c51f0ae34b99c47669f8ea210c9f214">   38</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a7c51f0ae34b99c47669f8ea210c9f214">setContext</a>(Context <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a9bfbee3bd0f78b7652a590063c6e7073">context</a>){</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        this.context=<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a9bfbee3bd0f78b7652a590063c6e7073">context</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a8513757cb70751abd35ecd4ca292362e">   44</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a8513757cb70751abd35ecd4ca292362e">setTm</a>(){</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#ad4ac570c04a756ac4eaa8622186d5933">tm</a>=(TelephonyManager)<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a9bfbee3bd0f78b7652a590063c6e7073">context</a>.getSystemService(Context.TELEPHONY_SERVICE);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#ab06ccbc70c50e72eb089134884f1e6ac">   51</a></span>&#160;    <span class="keyword">public</span> String <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#ab06ccbc70c50e72eb089134884f1e6ac">getImei</a>(){</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> tm.getDeviceId();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a5edce8d8944d575ec23b7f567419cd01">   59</a></span>&#160;    <span class="keyword">public</span> String <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a5edce8d8944d575ec23b7f567419cd01">getSimId</a>(){</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span> tm.getSimSerialNumber();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a9adfd3c055deca07bf913d65a85c7bad">   66</a></span>&#160;    <span class="keyword">public</span> String <a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a9adfd3c055deca07bf913d65a85c7bad">createIdToSend</a>(){</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        String imei=<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#ab06ccbc70c50e72eb089134884f1e6ac">getImei</a>().substring(0, 8);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        String sim=<a class="code" href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a5edce8d8944d575ec23b7f567419cd01">getSimId</a>().substring(0, 8);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">return</span> imei+sim;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_survey_response_html_a7c51f0ae34b99c47669f8ea210c9f214"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a7c51f0ae34b99c47669f8ea210c9f214">com.example.qrpoll.SurveyResponse.setContext</a></div><div class="ttdeci">void setContext(Context context)</div><div class="ttdef"><b>Definition:</b> <a href="_survey_response_8java_source.html#l00038">SurveyResponse.java:38</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_survey_response_html_af1338f35c7aa2f3b1f8b1d90b0c1fa41"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#af1338f35c7aa2f3b1f8b1d90b0c1fa41">com.example.qrpoll.SurveyResponse.SurveyResponse</a></div><div class="ttdeci">SurveyResponse(Context context)</div><div class="ttdef"><b>Definition:</b> <a href="_survey_response_8java_source.html#l00029">SurveyResponse.java:29</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_survey_response_html_ad4ac570c04a756ac4eaa8622186d5933"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#ad4ac570c04a756ac4eaa8622186d5933">com.example.qrpoll.SurveyResponse.tm</a></div><div class="ttdeci">TelephonyManager tm</div><div class="ttdef"><b>Definition:</b> <a href="_survey_response_8java_source.html#l00024">SurveyResponse.java:24</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_survey_response_html_a5f4e8e2b1847aca4f0ea56c2c7e6ae46"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a5f4e8e2b1847aca4f0ea56c2c7e6ae46">com.example.qrpoll.SurveyResponse.SurveyResponse</a></div><div class="ttdeci">SurveyResponse(TelephonyManager tm)</div><div class="ttdef"><b>Definition:</b> <a href="_survey_response_8java_source.html#l00034">SurveyResponse.java:34</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_survey_response_html_a5edce8d8944d575ec23b7f567419cd01"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a5edce8d8944d575ec23b7f567419cd01">com.example.qrpoll.SurveyResponse.getSimId</a></div><div class="ttdeci">String getSimId()</div><div class="ttdef"><b>Definition:</b> <a href="_survey_response_8java_source.html#l00059">SurveyResponse.java:59</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_survey_response_html_a9bfbee3bd0f78b7652a590063c6e7073"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a9bfbee3bd0f78b7652a590063c6e7073">com.example.qrpoll.SurveyResponse.context</a></div><div class="ttdeci">Context context</div><div class="ttdef"><b>Definition:</b> <a href="_survey_response_8java_source.html#l00025">SurveyResponse.java:25</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_survey_response_html_a9adfd3c055deca07bf913d65a85c7bad"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a9adfd3c055deca07bf913d65a85c7bad">com.example.qrpoll.SurveyResponse.createIdToSend</a></div><div class="ttdeci">String createIdToSend()</div><div class="ttdef"><b>Definition:</b> <a href="_survey_response_8java_source.html#l00066">SurveyResponse.java:66</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_survey_response_html_a8513757cb70751abd35ecd4ca292362e"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a8513757cb70751abd35ecd4ca292362e">com.example.qrpoll.SurveyResponse.setTm</a></div><div class="ttdeci">void setTm()</div><div class="ttdef"><b>Definition:</b> <a href="_survey_response_8java_source.html#l00044">SurveyResponse.java:44</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_survey_response_html_a13d182139934cfb2f681515e76628786"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#a13d182139934cfb2f681515e76628786">com.example.qrpoll.SurveyResponse.SurveyResponse</a></div><div class="ttdeci">SurveyResponse()</div><div class="ttdef"><b>Definition:</b> <a href="_survey_response_8java_source.html#l00027">SurveyResponse.java:27</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_survey_response_html_ab06ccbc70c50e72eb089134884f1e6ac"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html#ab06ccbc70c50e72eb089134884f1e6ac">com.example.qrpoll.SurveyResponse.getImei</a></div><div class="ttdeci">String getImei()</div><div class="ttdef"><b>Definition:</b> <a href="_survey_response_8java_source.html#l00051">SurveyResponse.java:51</a></div></div>
+<div class="ttc" id="classcom_1_1example_1_1qrpoll_1_1_survey_response_html"><div class="ttname"><a href="classcom_1_1example_1_1qrpoll_1_1_survey_response.html">com.example.qrpoll.SurveyResponse</a></div><div class="ttdef"><b>Definition:</b> <a href="_survey_response_8java_source.html#l00022">SurveyResponse.java:22</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano Pn, 9 cze 2014 19:25:29 dla Projekt Zespolowy: Ankieta programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.7
+</small></address>
+</body>
+</html>

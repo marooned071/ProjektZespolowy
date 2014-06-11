@@ -1,0 +1,4 @@
+W folderze DO_ODDANIA trzymamy piekny porzadek, aby mozna go bylo wrzucic na SVNa jako ostateczna wersje.
+Proponuje jeszcze wrzucic:
+-specyfikacje (gdzies mi zginela)
+-...

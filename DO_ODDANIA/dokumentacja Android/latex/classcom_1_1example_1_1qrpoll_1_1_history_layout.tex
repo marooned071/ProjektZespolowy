@@ -1,0 +1,97 @@
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_history_layout}{\section{Dokumentacja klasy com.\+example.\+qrpoll.\+History\+Layout}
+\label{classcom_1_1example_1_1qrpoll_1_1_history_layout}\index{com.\+example.\+qrpoll.\+History\+Layout@{com.\+example.\+qrpoll.\+History\+Layout}}
+}
+
+
+Diagram dziedziczenia dla com.\+example.\+qrpoll.\+History\+Layout\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classcom_1_1example_1_1qrpoll_1_1_history_layout__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla com.\+example.\+qrpoll.\+History\+Layout\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{classcom_1_1example_1_1qrpoll_1_1_history_layout__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Metody chronione}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_history_layout_a693cf48cd1e688ab4bacfd5ce04f26c4}{on\+Create} (Bundle saved\+Instance\+State)
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+List\+View \hyperlink{classcom_1_1example_1_1qrpoll_1_1_history_layout_a12bfa0960dd543b087dd53fb94854a33}{lv}
+\item 
+Text\+View \hyperlink{classcom_1_1example_1_1qrpoll_1_1_history_layout_afd92cf853727afa975b8763614983bbd}{title}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Pelnoekranowe activity sluzace do wyswietlania danych z bazy na liscie 
+
+Definicja w linii 38 pliku History\+Layout.\+java.
+
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_history_layout_a693cf48cd1e688ab4bacfd5ce04f26c4}{\index{com\+::example\+::qrpoll\+::\+History\+Layout@{com\+::example\+::qrpoll\+::\+History\+Layout}!on\+Create@{on\+Create}}
+\index{on\+Create@{on\+Create}!com\+::example\+::qrpoll\+::\+History\+Layout@{com\+::example\+::qrpoll\+::\+History\+Layout}}
+\subsubsection[{on\+Create}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+History\+Layout.\+on\+Create (
+\begin{DoxyParamCaption}
+\item[{Bundle}]{saved\+Instance\+State}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classcom_1_1example_1_1qrpoll_1_1_history_layout_a693cf48cd1e688ab4bacfd5ce04f26c4}
+tworzenie widoku,ustawienie adaptera do listy 
+
+Definicja w linii 45 pliku History\+Layout.\+java.
+
+
+\begin{DoxyCode}
+45                                                        \{
+46         super.onCreate(savedInstanceState);
+47         requestWindowFeature(Window.FEATURE\_CUSTOM\_TITLE);
+48         getWindow().setFlags(WindowManager.LayoutParams.FLAG\_FULLSCREEN,
+49                 WindowManager.LayoutParams.FLAG\_FULLSCREEN);
+50         setContentView(R.layout.activity\_history\_layout);
+51         getWindow().setFeatureInt(Window.FEATURE\_CUSTOM\_TITLE, R.layout.window\_title);
+52         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_history_layout_afd92cf853727afa975b8763614983bbd}{title}=(TextView)findViewById(R.id.title);
+53         title.setText(\textcolor{stringliteral}{"Meetings History"});
+54         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_history_layout_a12bfa0960dd543b087dd53fb94854a33}{lv}=(ListView)findViewById(R.id.listView1);
+55         lv.setBackgroundColor(Color.parseColor(\textcolor{stringliteral}{"#334455"}));
+56         SqlHandler sql=\textcolor{keyword}{new} SqlHandler(getApplication());
+57         sql.open();
+58         ArrayList<Item>list=sql.getAll();
+59         HistoryAdapter adapter=\textcolor{keyword}{new} HistoryAdapter(\textcolor{keyword}{this},list);
+60         
+61         lv.setAdapter(adapter);
+62     \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_history_layout_a12bfa0960dd543b087dd53fb94854a33}{\index{com\+::example\+::qrpoll\+::\+History\+Layout@{com\+::example\+::qrpoll\+::\+History\+Layout}!lv@{lv}}
+\index{lv@{lv}!com\+::example\+::qrpoll\+::\+History\+Layout@{com\+::example\+::qrpoll\+::\+History\+Layout}}
+\subsubsection[{lv}]{\setlength{\rightskip}{0pt plus 5cm}List\+View com.\+example.\+qrpoll.\+History\+Layout.\+lv\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_history_layout_a12bfa0960dd543b087dd53fb94854a33}
+
+
+Definicja w linii 39 pliku History\+Layout.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_history_layout_afd92cf853727afa975b8763614983bbd}{\index{com\+::example\+::qrpoll\+::\+History\+Layout@{com\+::example\+::qrpoll\+::\+History\+Layout}!title@{title}}
+\index{title@{title}!com\+::example\+::qrpoll\+::\+History\+Layout@{com\+::example\+::qrpoll\+::\+History\+Layout}}
+\subsubsection[{title}]{\setlength{\rightskip}{0pt plus 5cm}Text\+View com.\+example.\+qrpoll.\+History\+Layout.\+title\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_history_layout_afd92cf853727afa975b8763614983bbd}
+
+
+Definicja w linii 40 pliku History\+Layout.\+java.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Wodzu/\+Documents/\+Git\+Hub/\+Projekt\+Zespolowy/\+Android Final + dokumentacja/android/qrpoll/src/com/example/qrpoll/\hyperlink{_history_layout_8java}{History\+Layout.\+java}\end{DoxyCompactItemize}

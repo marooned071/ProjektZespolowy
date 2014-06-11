@@ -1,0 +1,5 @@
+<map id="com.example.qrpoll.PollActivity.getPoll" name="com.example.qrpoll.PollActivity.getPoll">
+<area shape="rect" id="node2" href="$classcom_1_1example_1_1qrpoll_1_1_question.html#a06182185a203fccb72e4421a10a8a511" title="com.example.qrpoll.Question.getMax" alt="" coords="300,5,539,32"/>
+<area shape="rect" id="node3" href="$classcom_1_1example_1_1qrpoll_1_1_poll.html#af744727f34328a8fec2cb1aba1bc5f66" title="com.example.qrpoll.Poll.get\lSubject" alt="" coords="328,57,511,98"/>
+<area shape="rect" id="node4" href="$classcom_1_1example_1_1qrpoll_1_1_poll.html#a51e13329a38c4ee0fc09ccac02ae5afe" title="com.example.qrpoll.Poll.get\lStart_date" alt="" coords="328,122,511,163"/>
+</map>

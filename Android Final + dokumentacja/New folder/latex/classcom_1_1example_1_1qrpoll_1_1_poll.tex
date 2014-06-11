@@ -1,0 +1,526 @@
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll}{\section{Dokumentacja klasy com.\+example.\+qrpoll.\+Poll}
+\label{classcom_1_1example_1_1qrpoll_1_1_poll}\index{com.\+example.\+qrpoll.\+Poll@{com.\+example.\+qrpoll.\+Poll}}
+}
+
+
+Diagram współpracy dla com.\+example.\+qrpoll.\+Poll\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_poll__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a67b9e49c516a9c614e1e9964f151ed5e}{Poll} (String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a284d664b1db022d0fe8f089c4cad5ead}{address}, Context \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a22159bb6ccaf5330c7691c47fcb0ea00}{context})  throws J\+S\+O\+N\+Exception
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a18e558fa9d47671bff6fd21eaf7d4a10}{vote} (String pk)
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_ac84c3d1747b6eb8d4f43da448de8080f}{get\+Address} ()
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_ab6bbc4a6d847d1f6b64543007c3a551c}{get\+Hash\+\_\+id} ()
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_af744727f34328a8fec2cb1aba1bc5f66}{get\+Subject} ()
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a4622b5c93daf183b787ecad660a207ad}{get\+Room} ()
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a51e13329a38c4ee0fc09ccac02ae5afe}{get\+Start\+\_\+date} ()
+\item 
+int \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a6ec1751ddf25a1b00173e1c4f3203458}{get\+Version} ()
+\item 
+Map$<$ String, \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question}{Question} $>$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a505fc3d6479ef24c04adb022acc366c8}{get\+Question\+\_\+map} ()
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a41aee71def14cf65836f768222a32ba3}{rating\+I\+D} =0
+\item 
+List$<$ String $>$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a357dc2acb9f42f2bee8dd88556551637}{ratingquestions} =new Array\+List$<$String$>$()
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a284d664b1db022d0fe8f089c4cad5ead}{address}
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_acbb2a9859e39f1b1ce48e75c95eb3866}{hash\+\_\+id}
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_ac710a3059ee7152dd6aa5e7bea399726}{subject}
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a73035d1fde89a6b4d69cd4e5ee610b8b}{room}
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a43059ae0d84924af4a6f876f31ee26d4}{start\+\_\+date}
+\item 
+int \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_af8617455744b1f5935c9c4042345782c}{version}
+\item 
+Map$<$ String, \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question}{Question} $>$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_ac4019650bac8ecbf279808dc4d4dae9b}{question\+\_\+map}
+\item 
+Context \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a22159bb6ccaf5330c7691c47fcb0ea00}{context}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa odpowiedzialna za obsluge ankiety\+:wywoluje pobranie ze strony, przypisuje odpowiedzi do pytan, wysyla glosy na serwer
+
+\begin{DoxyAuthor}{Autor}
+Piotrek 
+
+Sliwka (poprawki) 
+\end{DoxyAuthor}
+
+
+Definicja w linii 35 pliku Poll.\+java.
+
+
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_a67b9e49c516a9c614e1e9964f151ed5e}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!Poll@{Poll}}
+\index{Poll@{Poll}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{Poll}]{\setlength{\rightskip}{0pt plus 5cm}com.\+example.\+qrpoll.\+Poll.\+Poll (
+\begin{DoxyParamCaption}
+\item[{String}]{address, }
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+) throws J\+S\+O\+N\+Exception}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_a67b9e49c516a9c614e1e9964f151ed5e}
+Konstruktor,Przetwarzanie danych zawartych w formacie J\+S\+O\+N, laczenie pytan z odpowiedziami 
+\begin{DoxyParams}{Parametry}
+{\em address} & adres strony z ktorej chcemy pobrac dane \\
+\hline
+{\em context} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Wyjątki}
+{\em J\+S\+O\+N\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definicja w linii 55 pliku Poll.\+java.
+
+
+\begin{DoxyCode}
+55                                                                     \{
+56         
+57         
+58         StrictMode.ThreadPolicy policy = \textcolor{keyword}{new} StrictMode.ThreadPolicy.Builder().permitAll().build(); 
+59         StrictMode.setThreadPolicy(policy);
+60         
+61         this.address = \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a284d664b1db022d0fe8f089c4cad5ead}{address};
+62         this.context = \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a22159bb6ccaf5330c7691c47fcb0ea00}{context};
+63         
+64         String full\_address = \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a284d664b1db022d0fe8f089c4cad5ead}{address} + \textcolor{stringliteral}{"api/info"};
+65         String s = \textcolor{stringliteral}{""};
+66         \textcolor{keywordflow}{try} \{
+67             s = MyHttpURLConnection.get(full\_address);
+68         \} \textcolor{keywordflow}{catch} (Exception404 e) \{
+69             System.out.println(\textcolor{stringliteral}{"404!"});
+70         \} \textcolor{keywordflow}{catch} (Exception e) \{
+71             \textcolor{comment}{// TODO Auto-generated catch block}
+72             e.printStackTrace();
+73         \}
+74         JSONArray array;
+75         JSONObject jo;
+76         JSONObject jo\_inside;
+77         
+78         \textcolor{keywordflow}{try}\{
+79             array = \textcolor{keyword}{new} JSONArray(s);
+80             jo = array.getJSONObject(0);
+81             jo\_inside = jo.getJSONObject(\textcolor{stringliteral}{"info"}); 
+82             this.hash\_id = jo\_inside.get(\textcolor{stringliteral}{"hash\_id"}).toString();
+83             this.subject = jo\_inside.get(\textcolor{stringliteral}{"subject"}).toString();
+84             this.room = jo\_inside.get(\textcolor{stringliteral}{"room"}).toString();
+85             this.start\_date =  jo\_inside.get(\textcolor{stringliteral}{"time"}).toString();
+86         \}\textcolor{keywordflow}{catch}(JSONException e)\{
+87             e.printStackTrace();
+88         \}
+89         
+90         
+91         full\_address = \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a284d664b1db022d0fe8f089c4cad5ead}{address} + \textcolor{stringliteral}{"api/version"};
+92         
+93         \textcolor{keywordflow}{try} \{
+94             s = MyHttpURLConnection.get(full\_address);
+95         \} \textcolor{keywordflow}{catch} (Exception404 e) \{
+96             e.printStackTrace();
+97         \} \textcolor{keywordflow}{catch} (Exception e) \{
+98             e.printStackTrace();
+99         \}
+100         
+101         Log.d(\textcolor{stringliteral}{"moje"}, s);
+102             
+103 
+104         array = \textcolor{keyword}{new} JSONArray(s);
+105         jo = array.getJSONObject(0);
+106         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_af8617455744b1f5935c9c4042345782c}{version} = Integer.parseInt(jo.get(\textcolor{stringliteral}{"version"}).toString());
+107         
+108         full\_address = \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a284d664b1db022d0fe8f089c4cad5ead}{address} + \textcolor{stringliteral}{"api/questions"};
+109         
+110         \textcolor{keywordflow}{try} \{
+111             s = MyHttpURLConnection.get(full\_address);
+112         \} \textcolor{keywordflow}{catch} (Exception404 e) \{
+113             e.printStackTrace();
+114         \} \textcolor{keywordflow}{catch} (Exception e) \{
+115             e.printStackTrace();
+116         \}
+117                     
+118         array = \textcolor{keyword}{new} JSONArray(s);
+119         
+120         String pk, question\_text;
+121         
+122         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_ac4019650bac8ecbf279808dc4d4dae9b}{question\_map} = \textcolor{keyword}{new} HashMap<String,Question>(); 
+123         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i =0;i<array.length();i++)\{
+124             jo = array.getJSONObject(i);
+125             pk = jo.get(\textcolor{stringliteral}{"pk"}).toString(); 
+126             jo\_inside = jo.getJSONObject(\textcolor{stringliteral}{"fields"});
+127             question\_text = jo\_inside.get(\textcolor{stringliteral}{"question\_text"}).toString();
+128             String rating=jo\_inside.get(\textcolor{stringliteral}{"isRating"}).toString();
+129             String max=jo\_inside.get(\textcolor{stringliteral}{"question\_choices\_max"}).toString();
+130             \textcolor{keywordflow}{if}(rating.equals(\textcolor{stringliteral}{"false"}))\{
+131                 question\_map.put(pk,\textcolor{keyword}{new} Question(pk, question\_text,rating,max));
+132             \}\textcolor{keywordflow}{else}\{
+133                 \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a41aee71def14cf65836f768222a32ba3}{ratingID}=Integer.parseInt(pk);
+134             \}
+135             
+136             
+137         \}
+138         
+139         
+140         full\_address = \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a284d664b1db022d0fe8f089c4cad5ead}{address} + \textcolor{stringliteral}{"api/choices"};
+141         
+142         \textcolor{keywordflow}{try} \{
+143             s = MyHttpURLConnection.get(full\_address);
+144         \} \textcolor{keywordflow}{catch} (Exception404 e) \{
+145             e.printStackTrace();
+146         \} \textcolor{keywordflow}{catch} (Exception e) \{
+147             e.printStackTrace();
+148         \}
+149         
+150         array = \textcolor{keyword}{new} JSONArray(s);
+151         
+152         String question\_pk, choice\_text;
+153         \textcolor{keywordtype}{int} votes;
+154         
+155         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i =0;i<array.length();i++)\{
+156             jo = array.getJSONObject(i);
+157             pk = jo.get(\textcolor{stringliteral}{"pk"}).toString();
+158             jo\_inside = jo.getJSONObject(\textcolor{stringliteral}{"fields"});
+159             question\_pk = jo\_inside.get(\textcolor{stringliteral}{"question"}).toString();
+160             choice\_text = jo\_inside.get(\textcolor{stringliteral}{"choice\_text"}).toString();
+161             \textcolor{keywordflow}{if}(!question\_pk.equals(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a41aee71def14cf65836f768222a32ba3}{ratingID}+\textcolor{stringliteral}{""}))\{           
+162             question\_map.get(question\_pk).addChoice(pk, choice\_text);
+163             \}\textcolor{keywordflow}{else}\{
+164                 ratingquestions.add(pk);
+165             \}
+166         \}
+167                     
+168         
+169     \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_ac84c3d1747b6eb8d4f43da448de8080f}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!get\+Address@{get\+Address}}
+\index{get\+Address@{get\+Address}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{get\+Address}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Poll.\+get\+Address (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_ac84c3d1747b6eb8d4f43da448de8080f}
+Dostep do zmiennych prywatnych \begin{DoxyReturn}{Zwraca}
+url spotkania 
+\end{DoxyReturn}
+
+
+Definicja w linii 197 pliku Poll.\+java.
+
+
+\begin{DoxyCode}
+197                                \{
+198         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a284d664b1db022d0fe8f089c4cad5ead}{address};
+199     \}
+\end{DoxyCode}
+
+
+Oto graf wywoływań tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_poll_ac84c3d1747b6eb8d4f43da448de8080f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_ab6bbc4a6d847d1f6b64543007c3a551c}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!get\+Hash\+\_\+id@{get\+Hash\+\_\+id}}
+\index{get\+Hash\+\_\+id@{get\+Hash\+\_\+id}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{get\+Hash\+\_\+id}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Poll.\+get\+Hash\+\_\+id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_ab6bbc4a6d847d1f6b64543007c3a551c}
+Dostep do zmiennych prywatnych \begin{DoxyReturn}{Zwraca}
+kod hash spotkania 
+\end{DoxyReturn}
+
+
+Definicja w linii 204 pliku Poll.\+java.
+
+
+\begin{DoxyCode}
+204                                \{
+205         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_acbb2a9859e39f1b1ce48e75c95eb3866}{hash\_id};
+206     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_a505fc3d6479ef24c04adb022acc366c8}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!get\+Question\+\_\+map@{get\+Question\+\_\+map}}
+\index{get\+Question\+\_\+map@{get\+Question\+\_\+map}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{get\+Question\+\_\+map}]{\setlength{\rightskip}{0pt plus 5cm}Map$<$String, {\bf Question}$>$ com.\+example.\+qrpoll.\+Poll.\+get\+Question\+\_\+map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_a505fc3d6479ef24c04adb022acc366c8}
+Dostep do zmiennych prywatnych, \begin{DoxyReturn}{Zwraca}
+mapa zawierajaca pytania z pytania 
+\end{DoxyReturn}
+
+
+Definicja w linii 239 pliku Poll.\+java.
+
+
+\begin{DoxyCode}
+239                                                    \{
+240         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_ac4019650bac8ecbf279808dc4d4dae9b}{question\_map};
+241     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_a4622b5c93daf183b787ecad660a207ad}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!get\+Room@{get\+Room}}
+\index{get\+Room@{get\+Room}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{get\+Room}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Poll.\+get\+Room (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_a4622b5c93daf183b787ecad660a207ad}
+Dostep do zmiennych prywatnych \begin{DoxyReturn}{Zwraca}
+pokoj, w ktorym odbywa sie spotkanie 
+\end{DoxyReturn}
+
+
+Definicja w linii 218 pliku Poll.\+java.
+
+
+\begin{DoxyCode}
+218                             \{
+219         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a73035d1fde89a6b4d69cd4e5ee610b8b}{room};
+220     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_a51e13329a38c4ee0fc09ccac02ae5afe}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!get\+Start\+\_\+date@{get\+Start\+\_\+date}}
+\index{get\+Start\+\_\+date@{get\+Start\+\_\+date}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{get\+Start\+\_\+date}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Poll.\+get\+Start\+\_\+date (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_a51e13329a38c4ee0fc09ccac02ae5afe}
+Dostep do zmiennych prywatnych \begin{DoxyReturn}{Zwraca}
+poczatek spotkania 
+\end{DoxyReturn}
+
+
+Definicja w linii 225 pliku Poll.\+java.
+
+
+\begin{DoxyCode}
+225                                   \{
+226         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a43059ae0d84924af4a6f876f31ee26d4}{start\_date};
+227     \}
+\end{DoxyCode}
+
+
+Oto graf wywoływań tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_poll_a51e13329a38c4ee0fc09ccac02ae5afe_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_af744727f34328a8fec2cb1aba1bc5f66}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!get\+Subject@{get\+Subject}}
+\index{get\+Subject@{get\+Subject}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{get\+Subject}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Poll.\+get\+Subject (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_af744727f34328a8fec2cb1aba1bc5f66}
+Dostep do zmiennych prywatnych \begin{DoxyReturn}{Zwraca}
+temat spotkania 
+\end{DoxyReturn}
+
+
+Definicja w linii 211 pliku Poll.\+java.
+
+
+\begin{DoxyCode}
+211                                \{
+212         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_ac710a3059ee7152dd6aa5e7bea399726}{subject};
+213     \}
+\end{DoxyCode}
+
+
+Oto graf wywoływań tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_poll_af744727f34328a8fec2cb1aba1bc5f66_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_a6ec1751ddf25a1b00173e1c4f3203458}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!get\+Version@{get\+Version}}
+\index{get\+Version@{get\+Version}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{get\+Version}]{\setlength{\rightskip}{0pt plus 5cm}int com.\+example.\+qrpoll.\+Poll.\+get\+Version (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_a6ec1751ddf25a1b00173e1c4f3203458}
+Dostep do zmiennych prywatnych \begin{DoxyReturn}{Zwraca}
+wersja ankiety 
+\end{DoxyReturn}
+
+
+Definicja w linii 232 pliku Poll.\+java.
+
+
+\begin{DoxyCode}
+232                             \{
+233         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_af8617455744b1f5935c9c4042345782c}{version};
+234     \}
+\end{DoxyCode}
+
+
+Oto graf wywoływań tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_poll_a6ec1751ddf25a1b00173e1c4f3203458_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_a18e558fa9d47671bff6fd21eaf7d4a10}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!vote@{vote}}
+\index{vote@{vote}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{vote}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Poll.\+vote (
+\begin{DoxyParamCaption}
+\item[{String}]{pk}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_a18e558fa9d47671bff6fd21eaf7d4a10}
+Metoda odpowiadajaca za glosowanie 
+\begin{DoxyParams}{Parametry}
+{\em pk} & numer odpowiedzi na ktora chcemy zaglosowac \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 175 pliku Poll.\+java.
+
+
+\begin{DoxyCode}
+175                                \{
+176         String full\_address = \hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_a284d664b1db022d0fe8f089c4cad5ead}{address}+\textcolor{stringliteral}{"api/vote/"}+pk+\textcolor{stringliteral}{"/"};        
+177         Log.d(\textcolor{stringliteral}{"moje"},full\_address);
+178         \textcolor{keywordflow}{try} \{
+179             String response=MyHttpURLConnection.get(full\_address);
+180             \textcolor{keywordflow}{if}(response.contains(\textcolor{stringliteral}{"error\(\backslash\)": \(\backslash\)"false\(\backslash\)""}))\{
+181                 Toast.makeText(context.getApplicationContext(),\textcolor{stringliteral}{"Zaglosowano"}, Toast.LENGTH\_SHORT).show();
+182             \}\textcolor{keywordflow}{else}\{
+183                 Toast.makeText(context.getApplicationContext(),\textcolor{stringliteral}{"Blad, wybrano zbyt wiele odpowiedzi"}, Toast
+      .LENGTH\_SHORT).show();
+184             \}
+185         \} \textcolor{keywordflow}{catch} (Exception404 e) \{
+186             Toast.makeText(context.getApplicationContext(),\textcolor{stringliteral}{"Nie znaleziono strony"}, Toast.LENGTH\_SHORT)
+      .show();
+187 
+188         \} \textcolor{keywordflow}{catch} (Exception e) \{
+189             e.printStackTrace();
+190             Toast.makeText(context.getApplicationContext(),\textcolor{stringliteral}{"Blad Polaczenia"}, Toast.LENGTH\_SHORT).show();
+191         \}
+192     \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_a284d664b1db022d0fe8f089c4cad5ead}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!address@{address}}
+\index{address@{address}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{address}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Poll.\+address\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_a284d664b1db022d0fe8f089c4cad5ead}
+
+
+Definicja w linii 38 pliku Poll.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_a22159bb6ccaf5330c7691c47fcb0ea00}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!context@{context}}
+\index{context@{context}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{context}]{\setlength{\rightskip}{0pt plus 5cm}Context com.\+example.\+qrpoll.\+Poll.\+context\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_a22159bb6ccaf5330c7691c47fcb0ea00}
+
+
+Definicja w linii 45 pliku Poll.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_acbb2a9859e39f1b1ce48e75c95eb3866}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!hash\+\_\+id@{hash\+\_\+id}}
+\index{hash\+\_\+id@{hash\+\_\+id}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{hash\+\_\+id}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Poll.\+hash\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_acbb2a9859e39f1b1ce48e75c95eb3866}
+
+
+Definicja w linii 39 pliku Poll.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_ac4019650bac8ecbf279808dc4d4dae9b}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!question\+\_\+map@{question\+\_\+map}}
+\index{question\+\_\+map@{question\+\_\+map}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{question\+\_\+map}]{\setlength{\rightskip}{0pt plus 5cm}Map$<$String,{\bf Question}$>$ com.\+example.\+qrpoll.\+Poll.\+question\+\_\+map\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_ac4019650bac8ecbf279808dc4d4dae9b}
+
+
+Definicja w linii 44 pliku Poll.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_a41aee71def14cf65836f768222a32ba3}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!rating\+I\+D@{rating\+I\+D}}
+\index{rating\+I\+D@{rating\+I\+D}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{rating\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}int com.\+example.\+qrpoll.\+Poll.\+rating\+I\+D =0}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_a41aee71def14cf65836f768222a32ba3}
+
+
+Definicja w linii 47 pliku Poll.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_a357dc2acb9f42f2bee8dd88556551637}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!ratingquestions@{ratingquestions}}
+\index{ratingquestions@{ratingquestions}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{ratingquestions}]{\setlength{\rightskip}{0pt plus 5cm}List$<$String$>$ com.\+example.\+qrpoll.\+Poll.\+ratingquestions =new Array\+List$<$String$>$()}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_a357dc2acb9f42f2bee8dd88556551637}
+
+
+Definicja w linii 48 pliku Poll.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_a73035d1fde89a6b4d69cd4e5ee610b8b}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!room@{room}}
+\index{room@{room}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{room}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Poll.\+room\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_a73035d1fde89a6b4d69cd4e5ee610b8b}
+
+
+Definicja w linii 41 pliku Poll.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_a43059ae0d84924af4a6f876f31ee26d4}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!start\+\_\+date@{start\+\_\+date}}
+\index{start\+\_\+date@{start\+\_\+date}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{start\+\_\+date}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Poll.\+start\+\_\+date\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_a43059ae0d84924af4a6f876f31ee26d4}
+
+
+Definicja w linii 42 pliku Poll.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_ac710a3059ee7152dd6aa5e7bea399726}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!subject@{subject}}
+\index{subject@{subject}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{subject}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Poll.\+subject\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_ac710a3059ee7152dd6aa5e7bea399726}
+
+
+Definicja w linii 40 pliku Poll.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_poll_af8617455744b1f5935c9c4042345782c}{\index{com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}!version@{version}}
+\index{version@{version}!com\+::example\+::qrpoll\+::\+Poll@{com\+::example\+::qrpoll\+::\+Poll}}
+\subsubsection[{version}]{\setlength{\rightskip}{0pt plus 5cm}int com.\+example.\+qrpoll.\+Poll.\+version\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_poll_af8617455744b1f5935c9c4042345782c}
+
+
+Definicja w linii 43 pliku Poll.\+java.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Wodzu/\+Documents/\+Git\+Hub/\+Projekt\+Zespolowy/\+Android Final + dokumentacja/android/qrpoll/src/com/example/qrpoll/\hyperlink{_poll_8java}{Poll.\+java}\end{DoxyCompactItemize}

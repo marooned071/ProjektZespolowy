@@ -1,0 +1,398 @@
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_question}{\section{Dokumentacja klasy com.\+example.\+qrpoll.\+Question}
+\label{classcom_1_1example_1_1qrpoll_1_1_question}\index{com.\+example.\+qrpoll.\+Question@{com.\+example.\+qrpoll.\+Question}}
+}
+
+
+Diagram współpracy dla com.\+example.\+qrpoll.\+Question\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classcom_1_1example_1_1qrpoll_1_1_question__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_ab9e20bf997816ae32b9e3312f48d124f}{add\+Choice} (String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_ab94e31e243d24239faf4ae4c68c28f0b}{pk}, String choice\+\_\+text)
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_a7b4c664c6c4ebec154ea7132c75bc88d}{get\+Pk} ()
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_a06182185a203fccb72e4421a10a8a511}{get\+Max} ()
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_ac79778f9afb3c040d0c6f4ada39fb34a}{get\+Question\+\_\+text} ()
+\item 
+Map$<$ String, \hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice}{Choice} $>$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_a7ec19ad963a2fcaa76c29feb59129702}{get\+Choice\+\_\+map} ()
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_aa5e300a74cf22554ee7221da00aff666}{is\+Rating} ()
+\item 
+int \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_a3608f9d26af608c85ac88ee48e68f624}{hash\+Code} ()
+\item 
+boolean \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_a9aa72d6cf0140674837bd6f2399631ed}{equals} (Object obj)
+\end{DoxyCompactItemize}
+\subsection*{Funkcje pakietu}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_aeeae84aca53cbbce8820daf91436564c}{Question} (String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_ab94e31e243d24239faf4ae4c68c28f0b}{pk}, String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_ab90d61211a23303be8fe8139aed31754}{question\+\_\+text}, String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_a7b9016a004baf976a3d700ce332c0e1b}{is\+Rating}, String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_a07bd283882253cc7c9ab69718a692a64}{max})
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_ab94e31e243d24239faf4ae4c68c28f0b}{pk}
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_ab90d61211a23303be8fe8139aed31754}{question\+\_\+text}
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_a7b9016a004baf976a3d700ce332c0e1b}{is\+Rating}
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_a07bd283882253cc7c9ab69718a692a64}{max}
+\item 
+Map$<$ String, \hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice}{Choice} $>$ \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_aa382153815db46e065ab637ef86f9265}{choice\+\_\+map}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+\begin{DoxyAuthor}{Autor}
+Piotrek 
+
+Sliwka klasa reprezentujaca pojedyńcze pytanie wchodzace w sklad ankiety, posiada mape odpowiedzi 
+\end{DoxyAuthor}
+
+
+Definicja w linii 21 pliku Question.\+java.
+
+
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_question_aeeae84aca53cbbce8820daf91436564c}{\index{com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}!Question@{Question}}
+\index{Question@{Question}!com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}}
+\subsubsection[{Question}]{\setlength{\rightskip}{0pt plus 5cm}com.\+example.\+qrpoll.\+Question.\+Question (
+\begin{DoxyParamCaption}
+\item[{String}]{pk, }
+\item[{String}]{question\+\_\+text, }
+\item[{String}]{is\+Rating, }
+\item[{String}]{max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [package]}}}\label{classcom_1_1example_1_1qrpoll_1_1_question_aeeae84aca53cbbce8820daf91436564c}
+glowny konstruktor 
+\begin{DoxyParams}{Parametry}
+{\em pk} & id pytania \\
+\hline
+{\em question\+\_\+text} & \\
+\hline
+{\em is\+Rating} & zmienna, ktora okresla czy pytanie ma byc wyswietlone czy nie \\
+\hline
+{\em max} & maksymalna ilosc odpowiedzi na dane pytanie \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 35 pliku Question.\+java.
+
+
+\begin{DoxyCode}
+35                                                                         \{
+36         this.pk = \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_ab94e31e243d24239faf4ae4c68c28f0b}{pk};
+37         this.question\_text = \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_ab90d61211a23303be8fe8139aed31754}{question\_text};
+38         this.isRating=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_aa5e300a74cf22554ee7221da00aff666}{isRating};
+39         this.max=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_a07bd283882253cc7c9ab69718a692a64}{max};
+40         this.choice\_map = \textcolor{keyword}{new} HashMap<String,Choice>(); \textcolor{comment}{//Map<PK,Choice>}
+41     \}
+\end{DoxyCode}
+
+
+Oto graf wywołań dla tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_question_aeeae84aca53cbbce8820daf91436564c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Oto graf wywoływań tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_question_aeeae84aca53cbbce8820daf91436564c_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_question_ab9e20bf997816ae32b9e3312f48d124f}{\index{com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}!add\+Choice@{add\+Choice}}
+\index{add\+Choice@{add\+Choice}!com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}}
+\subsubsection[{add\+Choice}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Question.\+add\+Choice (
+\begin{DoxyParamCaption}
+\item[{String}]{pk, }
+\item[{String}]{choice\+\_\+text}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_question_ab9e20bf997816ae32b9e3312f48d124f}
+dodaje odpowiedz o danej tresci i id do pytania 
+\begin{DoxyParams}{Parametry}
+{\em pk} & id pytania \\
+\hline
+{\em choice\+\_\+text} & tresc odpowiedzi \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 48 pliku Question.\+java.
+
+
+\begin{DoxyCode}
+48                                                         \{
+49         choice\_map.put(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_ab94e31e243d24239faf4ae4c68c28f0b}{pk},(\textcolor{keyword}{new} Choice(pk, choice\_text)));
+50     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_question_a9aa72d6cf0140674837bd6f2399631ed}{\index{com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}!equals@{equals}}
+\index{equals@{equals}!com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}}
+\subsubsection[{equals}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\+example.\+qrpoll.\+Question.\+equals (
+\begin{DoxyParamCaption}
+\item[{Object}]{obj}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_question_a9aa72d6cf0140674837bd6f2399631ed}
+porownuje dwa obiekty klasy \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question}{Question} 
+\begin{DoxyParams}{Parametry}
+{\em obj} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+
+\end{DoxyReturn}
+
+
+Definicja w linii 107 pliku Question.\+java.
+
+
+\begin{DoxyCode}
+107                                       \{
+108         \textcolor{keywordflow}{if} (\textcolor{keyword}{this} == obj)
+109             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+110         \textcolor{keywordflow}{if} (obj == null)
+111             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+112         \textcolor{keywordflow}{if} (getClass() != obj.getClass())
+113             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+114         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_aeeae84aca53cbbce8820daf91436564c}{Question} other = (\hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_aeeae84aca53cbbce8820daf91436564c}{Question}) obj;
+115         \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_aa382153815db46e065ab637ef86f9265}{choice\_map} == null) \{
+116             \textcolor{keywordflow}{if} (other.choice\_map != null)
+117                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+118         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!\hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_aa382153815db46e065ab637ef86f9265}{choice\_map}.equals(other.choice\_map))
+119             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+120         \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_ab94e31e243d24239faf4ae4c68c28f0b}{pk} == null) \{
+121             \textcolor{keywordflow}{if} (other.pk != null)
+122                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+123         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!\hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_ab94e31e243d24239faf4ae4c68c28f0b}{pk}.equals(other.pk))
+124             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+125         \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_ab90d61211a23303be8fe8139aed31754}{question\_text} == null) \{
+126             \textcolor{keywordflow}{if} (other.question\_text != null)
+127                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+128         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!\hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_ab90d61211a23303be8fe8139aed31754}{question\_text}.equals(other.question\_text))
+129             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+130         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+131     \}
+\end{DoxyCode}
+
+
+Oto graf wywołań dla tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_question_a9aa72d6cf0140674837bd6f2399631ed_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_question_a7ec19ad963a2fcaa76c29feb59129702}{\index{com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}!get\+Choice\+\_\+map@{get\+Choice\+\_\+map}}
+\index{get\+Choice\+\_\+map@{get\+Choice\+\_\+map}!com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}}
+\subsubsection[{get\+Choice\+\_\+map}]{\setlength{\rightskip}{0pt plus 5cm}Map$<$String, {\bf Choice}$>$ com.\+example.\+qrpoll.\+Question.\+get\+Choice\+\_\+map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_question_a7ec19ad963a2fcaa76c29feb59129702}
+Metoda ktora zwraca mape zawierajaca odpowiedzi polaczone z danym pytaniem \begin{DoxyReturn}{Zwraca}
+zwraca mape pytan 
+\end{DoxyReturn}
+
+
+Definicja w linii 76 pliku Question.\+java.
+
+
+\begin{DoxyCode}
+76                                                \{
+77         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_aa382153815db46e065ab637ef86f9265}{choice\_map};
+78     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_question_a06182185a203fccb72e4421a10a8a511}{\index{com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}!get\+Max@{get\+Max}}
+\index{get\+Max@{get\+Max}!com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}}
+\subsubsection[{get\+Max}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Question.\+get\+Max (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_question_a06182185a203fccb72e4421a10a8a511}
+Maks to maksymalna ilosc odpowiedzi, ktore moga byc zaznaczone przez uzytkownika 
+
+Definicja w linii 61 pliku Question.\+java.
+
+
+\begin{DoxyCode}
+61                           \{
+62         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_a07bd283882253cc7c9ab69718a692a64}{max};
+63     \}
+\end{DoxyCode}
+
+
+Oto graf wywoływań tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_question_a06182185a203fccb72e4421a10a8a511_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_question_a7b4c664c6c4ebec154ea7132c75bc88d}{\index{com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}!get\+Pk@{get\+Pk}}
+\index{get\+Pk@{get\+Pk}!com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}}
+\subsubsection[{get\+Pk}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Question.\+get\+Pk (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_question_a7b4c664c6c4ebec154ea7132c75bc88d}
+\begin{DoxyReturn}{Zwraca}
+pk -\/ id pytania 
+\end{DoxyReturn}
+
+
+Definicja w linii 55 pliku Question.\+java.
+
+
+\begin{DoxyCode}
+55                           \{
+56         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_ab94e31e243d24239faf4ae4c68c28f0b}{pk};
+57     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_question_ac79778f9afb3c040d0c6f4ada39fb34a}{\index{com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}!get\+Question\+\_\+text@{get\+Question\+\_\+text}}
+\index{get\+Question\+\_\+text@{get\+Question\+\_\+text}!com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}}
+\subsubsection[{get\+Question\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Question.\+get\+Question\+\_\+text (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_question_ac79778f9afb3c040d0c6f4ada39fb34a}
+\begin{DoxyReturn}{Zwraca}
+
+\end{DoxyReturn}
+
+
+Definicja w linii 68 pliku Question.\+java.
+
+
+\begin{DoxyCode}
+68                                      \{
+69         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_ab90d61211a23303be8fe8139aed31754}{question\_text};
+70     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_question_a3608f9d26af608c85ac88ee48e68f624}{\index{com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}!hash\+Code@{hash\+Code}}
+\index{hash\+Code@{hash\+Code}!com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}}
+\subsubsection[{hash\+Code}]{\setlength{\rightskip}{0pt plus 5cm}int com.\+example.\+qrpoll.\+Question.\+hash\+Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_question_a3608f9d26af608c85ac88ee48e68f624}
+\begin{DoxyReturn}{Zwraca}
+kod hash pytania 
+\end{DoxyReturn}
+
+
+Definicja w linii 90 pliku Question.\+java.
+
+
+\begin{DoxyCode}
+90                           \{
+91         \textcolor{keyword}{final} \textcolor{keywordtype}{int} prime = 31;
+92         \textcolor{keywordtype}{int} result = 1;
+93         result = prime * result
+94                 + ((\hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_aa382153815db46e065ab637ef86f9265}{choice\_map} == null) ? 0 : choice\_map.hashCode());
+95         result = prime * result + ((\hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_ab94e31e243d24239faf4ae4c68c28f0b}{pk} == null) ? 0 : pk.hashCode());
+96         result = prime * result
+97                 + ((\hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_ab90d61211a23303be8fe8139aed31754}{question\_text} == null) ? 0 : question\_text.hashCode());
+98         \textcolor{keywordflow}{return} result;
+99     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_question_aa5e300a74cf22554ee7221da00aff666}{\index{com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}!is\+Rating@{is\+Rating}}
+\index{is\+Rating@{is\+Rating}!com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}}
+\subsubsection[{is\+Rating}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Question.\+is\+Rating (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_question_aa5e300a74cf22554ee7221da00aff666}
+zwraca informacje, czy dane pytanie odpowiedzialne jest za ocene spotkania i nie bedzie wyswietlane w glownym layoucie 
+
+Definicja w linii 82 pliku Question.\+java.
+
+
+\begin{DoxyCode}
+82                             \{
+83         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_question_aa5e300a74cf22554ee7221da00aff666}{isRating};
+84     \}
+\end{DoxyCode}
+
+
+Oto graf wywoływań tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_question_aa5e300a74cf22554ee7221da00aff666_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_question_aa382153815db46e065ab637ef86f9265}{\index{com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}!choice\+\_\+map@{choice\+\_\+map}}
+\index{choice\+\_\+map@{choice\+\_\+map}!com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}}
+\subsubsection[{choice\+\_\+map}]{\setlength{\rightskip}{0pt plus 5cm}Map$<$String,{\bf Choice}$>$ com.\+example.\+qrpoll.\+Question.\+choice\+\_\+map\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_question_aa382153815db46e065ab637ef86f9265}
+
+
+Definicja w linii 27 pliku Question.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_question_a7b9016a004baf976a3d700ce332c0e1b}{\index{com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}!is\+Rating@{is\+Rating}}
+\index{is\+Rating@{is\+Rating}!com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}}
+\subsubsection[{is\+Rating}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Question.\+is\+Rating\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_question_a7b9016a004baf976a3d700ce332c0e1b}
+
+
+Definicja w linii 25 pliku Question.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_question_a07bd283882253cc7c9ab69718a692a64}{\index{com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}!max@{max}}
+\index{max@{max}!com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Question.\+max\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_question_a07bd283882253cc7c9ab69718a692a64}
+
+
+Definicja w linii 26 pliku Question.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_question_ab94e31e243d24239faf4ae4c68c28f0b}{\index{com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}!pk@{pk}}
+\index{pk@{pk}!com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}}
+\subsubsection[{pk}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Question.\+pk\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_question_ab94e31e243d24239faf4ae4c68c28f0b}
+
+
+Definicja w linii 23 pliku Question.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_question_ab90d61211a23303be8fe8139aed31754}{\index{com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}!question\+\_\+text@{question\+\_\+text}}
+\index{question\+\_\+text@{question\+\_\+text}!com\+::example\+::qrpoll\+::\+Question@{com\+::example\+::qrpoll\+::\+Question}}
+\subsubsection[{question\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Question.\+question\+\_\+text\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_question_ab90d61211a23303be8fe8139aed31754}
+
+
+Definicja w linii 24 pliku Question.\+java.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Wodzu/\+Documents/\+Git\+Hub/\+Projekt\+Zespolowy/\+Android Final + dokumentacja/android/qrpoll/src/com/example/qrpoll/\hyperlink{_question_8java}{Question.\+java}\end{DoxyCompactItemize}

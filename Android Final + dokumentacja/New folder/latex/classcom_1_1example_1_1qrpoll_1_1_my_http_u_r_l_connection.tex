@@ -1,0 +1,78 @@
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_my_http_u_r_l_connection}{\section{Dokumentacja klasy com.\+example.\+qrpoll.\+My\+Http\+U\+R\+L\+Connection}
+\label{classcom_1_1example_1_1qrpoll_1_1_my_http_u_r_l_connection}\index{com.\+example.\+qrpoll.\+My\+Http\+U\+R\+L\+Connection@{com.\+example.\+qrpoll.\+My\+Http\+U\+R\+L\+Connection}}
+}
+\subsection*{Statyczne metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+static String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_my_http_u_r_l_connection_a2da0c692c90b6a847356d6573c288acc}{get} (String url)  throws Client\+Protocol\+Exception, I\+O\+Exception, Exception404
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+klasa odpowiadajaca za polaczenie sie z serwerem i pobranie zawartosci strony na serwerze strony zwracaja dane przy uzyciu J\+S\+O\+N \begin{DoxyAuthor}{Autor}
+Piotrek 
+\end{DoxyAuthor}
+
+
+Definicja w linii 32 pliku My\+Http\+U\+R\+L\+Connection.\+java.
+
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_my_http_u_r_l_connection_a2da0c692c90b6a847356d6573c288acc}{\index{com\+::example\+::qrpoll\+::\+My\+Http\+U\+R\+L\+Connection@{com\+::example\+::qrpoll\+::\+My\+Http\+U\+R\+L\+Connection}!get@{get}}
+\index{get@{get}!com\+::example\+::qrpoll\+::\+My\+Http\+U\+R\+L\+Connection@{com\+::example\+::qrpoll\+::\+My\+Http\+U\+R\+L\+Connection}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}static String com.\+example.\+qrpoll.\+My\+Http\+U\+R\+L\+Connection.\+get (
+\begin{DoxyParamCaption}
+\item[{String}]{url}
+\end{DoxyParamCaption}
+) throws Client\+Protocol\+Exception, I\+O\+Exception, {\bf Exception404}\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1example_1_1qrpoll_1_1_my_http_u_r_l_connection_a2da0c692c90b6a847356d6573c288acc}
+pobieranie zawartosci strony z serwera 
+\begin{DoxyParams}{Parametry}
+{\em url} & adres url strony z ktora chcemy sie polaczyc \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+zawartosc strony 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Wyjątki}
+{\em Client\+Protocol\+Exception} & \\
+\hline
+{\em I\+O\+Exception} & \\
+\hline
+{\em \hyperlink{classcom_1_1example_1_1qrpoll_1_1_exception404}{Exception404}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definicja w linii 41 pliku My\+Http\+U\+R\+L\+Connection.\+java.
+
+
+\begin{DoxyCode}
+41                                                                                                   \{
+42         HttpClient httpclient = \textcolor{keyword}{new} DefaultHttpClient(); 
+43         HttpGet httpget = \textcolor{keyword}{new} HttpGet(url); 
+44         HttpResponse response = httpclient.execute(httpget); 
+45         HttpEntity entity = response.getEntity(); 
+46         
+47         \textcolor{keywordtype}{int} code = response.getStatusLine().getStatusCode();
+48         \textcolor{keywordflow}{if}(code==404) \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception404(); 
+49     
+50         InputStream is = entity.getContent(); 
+51         BufferedReader reader = \textcolor{keyword}{new} BufferedReader(\textcolor{keyword}{new} InputStreamReader(is, \textcolor{stringliteral}{"iso-8859-1"}), 8);
+52         StringBuilder sb = \textcolor{keyword}{new} StringBuilder();
+53         String line = null;
+54         \textcolor{keywordflow}{while} ((line = reader.readLine()) != null) 
+55             sb.append(line + \textcolor{stringliteral}{"\(\backslash\)n"});
+56         
+57         is.close(); 
+58         String resString = sb.toString(); 
+59         
+60         \textcolor{keywordflow}{return} resString;   
+61     \}
+\end{DoxyCode}
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Wodzu/\+Documents/\+Git\+Hub/\+Projekt\+Zespolowy/\+Android Final + dokumentacja/android/qrpoll/src/com/example/qrpoll/\hyperlink{_my_http_u_r_l_connection_8java}{My\+Http\+U\+R\+L\+Connection.\+java}\end{DoxyCompactItemize}

@@ -1,0 +1,217 @@
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_choice}{\section{Dokumentacja klasy com.\+example.\+qrpoll.\+Choice}
+\label{classcom_1_1example_1_1qrpoll_1_1_choice}\index{com.\+example.\+qrpoll.\+Choice@{com.\+example.\+qrpoll.\+Choice}}
+}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_a2baa8eb7cc3e3704f754f7617f37acb8}{get\+Pk} ()
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_a8484f80a3cf1b34172b435eb4bc64df7}{get\+Choice\+\_\+text} ()
+\item 
+int \hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_a748824dd96616a7dde38645bd80c8faa}{hash\+Code} ()
+\item 
+boolean \hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_ad4e5a0f7bb62a19e63fc4600e6d16c67}{equals} (Object obj)
+\end{DoxyCompactItemize}
+\subsection*{Funkcje pakietu}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_a66024b291117e1d6986ee90f836fd208}{Choice} (String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_a6213ee79d3a08c00ca588b9813b7e912}{pk}, String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_ab336c2005a764a1d28450c206eeb4ed0}{choice\+\_\+text})
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_a6213ee79d3a08c00ca588b9813b7e912}{pk}
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_ab336c2005a764a1d28450c206eeb4ed0}{choice\+\_\+text}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa do reprezentowania pojedynczej odpowiedzi. Kazde pytanie sklada sie z listy odpowiadajacych mu odpowiedz (czyli obiektow ponizszej klasy) \begin{DoxyAuthor}{Autor}
+Piotrek 
+\end{DoxyAuthor}
+
+
+Definicja w linii 17 pliku Choice.\+java.
+
+
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_choice_a66024b291117e1d6986ee90f836fd208}{\index{com\+::example\+::qrpoll\+::\+Choice@{com\+::example\+::qrpoll\+::\+Choice}!Choice@{Choice}}
+\index{Choice@{Choice}!com\+::example\+::qrpoll\+::\+Choice@{com\+::example\+::qrpoll\+::\+Choice}}
+\subsubsection[{Choice}]{\setlength{\rightskip}{0pt plus 5cm}com.\+example.\+qrpoll.\+Choice.\+Choice (
+\begin{DoxyParamCaption}
+\item[{String}]{pk, }
+\item[{String}]{choice\+\_\+text}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [package]}}}\label{classcom_1_1example_1_1qrpoll_1_1_choice_a66024b291117e1d6986ee90f836fd208}
+Konstuktor, ustawia id i tresc odpowiedzi 
+\begin{DoxyParams}{Parametry}
+{\em pk} & Id \\
+\hline
+{\em choice\+\_\+text} & tresc odpowiedzi \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 26 pliku Choice.\+java.
+
+
+\begin{DoxyCode}
+26                                          \{
+27         this.pk=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_a6213ee79d3a08c00ca588b9813b7e912}{pk};
+28         this.choice\_text = \hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_ab336c2005a764a1d28450c206eeb4ed0}{choice\_text};
+29     \}
+\end{DoxyCode}
+
+
+Oto graf wywoływań tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_choice_a66024b291117e1d6986ee90f836fd208_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_choice_ad4e5a0f7bb62a19e63fc4600e6d16c67}{\index{com\+::example\+::qrpoll\+::\+Choice@{com\+::example\+::qrpoll\+::\+Choice}!equals@{equals}}
+\index{equals@{equals}!com\+::example\+::qrpoll\+::\+Choice@{com\+::example\+::qrpoll\+::\+Choice}}
+\subsubsection[{equals}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\+example.\+qrpoll.\+Choice.\+equals (
+\begin{DoxyParamCaption}
+\item[{Object}]{obj}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_choice_ad4e5a0f7bb62a19e63fc4600e6d16c67}
+Metoda porownujaca 2 obiekty typu \hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice}{Choice} 
+\begin{DoxyParams}{Parametry}
+{\em obj} & obiekt z ktorym bedziemy porownywac \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 63 pliku Choice.\+java.
+
+
+\begin{DoxyCode}
+63                                       \{
+64         \textcolor{keywordflow}{if} (\textcolor{keyword}{this} == obj)
+65             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+66         \textcolor{keywordflow}{if} (obj == null)
+67             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+68         \textcolor{keywordflow}{if} (getClass() != obj.getClass())
+69             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+70         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_a66024b291117e1d6986ee90f836fd208}{Choice} other = (\hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_a66024b291117e1d6986ee90f836fd208}{Choice}) obj;
+71         \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_ab336c2005a764a1d28450c206eeb4ed0}{choice\_text} == null) \{
+72             \textcolor{keywordflow}{if} (other.choice\_text != null)
+73                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+74         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!\hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_ab336c2005a764a1d28450c206eeb4ed0}{choice\_text}.equals(other.choice\_text))
+75             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+76         \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_a6213ee79d3a08c00ca588b9813b7e912}{pk} == null) \{
+77             \textcolor{keywordflow}{if} (other.pk != null)
+78                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+79         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!\hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_a6213ee79d3a08c00ca588b9813b7e912}{pk}.equals(other.pk))
+80             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+81         
+82         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+83     \}
+\end{DoxyCode}
+
+
+Oto graf wywołań dla tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_choice_ad4e5a0f7bb62a19e63fc4600e6d16c67_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_choice_a8484f80a3cf1b34172b435eb4bc64df7}{\index{com\+::example\+::qrpoll\+::\+Choice@{com\+::example\+::qrpoll\+::\+Choice}!get\+Choice\+\_\+text@{get\+Choice\+\_\+text}}
+\index{get\+Choice\+\_\+text@{get\+Choice\+\_\+text}!com\+::example\+::qrpoll\+::\+Choice@{com\+::example\+::qrpoll\+::\+Choice}}
+\subsubsection[{get\+Choice\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Choice.\+get\+Choice\+\_\+text (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_choice_a8484f80a3cf1b34172b435eb4bc64df7}
+\begin{DoxyReturn}{Zwraca}
+tresc odpowiedzi 
+\end{DoxyReturn}
+
+
+Definicja w linii 40 pliku Choice.\+java.
+
+
+\begin{DoxyCode}
+40                                    \{
+41         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_ab336c2005a764a1d28450c206eeb4ed0}{choice\_text};
+42     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_choice_a2baa8eb7cc3e3704f754f7617f37acb8}{\index{com\+::example\+::qrpoll\+::\+Choice@{com\+::example\+::qrpoll\+::\+Choice}!get\+Pk@{get\+Pk}}
+\index{get\+Pk@{get\+Pk}!com\+::example\+::qrpoll\+::\+Choice@{com\+::example\+::qrpoll\+::\+Choice}}
+\subsubsection[{get\+Pk}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Choice.\+get\+Pk (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_choice_a2baa8eb7cc3e3704f754f7617f37acb8}
+\begin{DoxyReturn}{Zwraca}
+id odpowiedzi 
+\end{DoxyReturn}
+
+
+Definicja w linii 33 pliku Choice.\+java.
+
+
+\begin{DoxyCode}
+33                           \{
+34         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_a6213ee79d3a08c00ca588b9813b7e912}{pk};
+35     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_choice_a748824dd96616a7dde38645bd80c8faa}{\index{com\+::example\+::qrpoll\+::\+Choice@{com\+::example\+::qrpoll\+::\+Choice}!hash\+Code@{hash\+Code}}
+\index{hash\+Code@{hash\+Code}!com\+::example\+::qrpoll\+::\+Choice@{com\+::example\+::qrpoll\+::\+Choice}}
+\subsubsection[{hash\+Code}]{\setlength{\rightskip}{0pt plus 5cm}int com.\+example.\+qrpoll.\+Choice.\+hash\+Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_choice_a748824dd96616a7dde38645bd80c8faa}
+metoda obliczajace kod hash 
+
+Definicja w linii 48 pliku Choice.\+java.
+
+
+\begin{DoxyCode}
+48                           \{
+49         \textcolor{keyword}{final} \textcolor{keywordtype}{int} prime = 31;
+50         \textcolor{keywordtype}{int} result = 1;
+51         result = prime * result
+52                 + ((\hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_ab336c2005a764a1d28450c206eeb4ed0}{choice\_text} == null) ? 0 : choice\_text.hashCode());
+53         result = prime * result + ((\hyperlink{classcom_1_1example_1_1qrpoll_1_1_choice_a6213ee79d3a08c00ca588b9813b7e912}{pk} == null) ? 0 : pk.hashCode());
+54         result = prime * result ;
+55         \textcolor{keywordflow}{return} result;
+56     \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_choice_ab336c2005a764a1d28450c206eeb4ed0}{\index{com\+::example\+::qrpoll\+::\+Choice@{com\+::example\+::qrpoll\+::\+Choice}!choice\+\_\+text@{choice\+\_\+text}}
+\index{choice\+\_\+text@{choice\+\_\+text}!com\+::example\+::qrpoll\+::\+Choice@{com\+::example\+::qrpoll\+::\+Choice}}
+\subsubsection[{choice\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Choice.\+choice\+\_\+text\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_choice_ab336c2005a764a1d28450c206eeb4ed0}
+
+
+Definicja w linii 20 pliku Choice.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_choice_a6213ee79d3a08c00ca588b9813b7e912}{\index{com\+::example\+::qrpoll\+::\+Choice@{com\+::example\+::qrpoll\+::\+Choice}!pk@{pk}}
+\index{pk@{pk}!com\+::example\+::qrpoll\+::\+Choice@{com\+::example\+::qrpoll\+::\+Choice}}
+\subsubsection[{pk}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Choice.\+pk\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_choice_a6213ee79d3a08c00ca588b9813b7e912}
+
+
+Definicja w linii 19 pliku Choice.\+java.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Wodzu/\+Documents/\+Git\+Hub/\+Projekt\+Zespolowy/\+Android Final + dokumentacja/android/qrpoll/src/com/example/qrpoll/\hyperlink{_choice_8java}{Choice.\+java}\end{DoxyCompactItemize}

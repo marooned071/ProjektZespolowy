@@ -1,0 +1,71 @@
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_1_1_button_listener}{\section{Dokumentacja klasy com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+Button\+Listener}
+\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_1_1_button_listener}\index{com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+Button\+Listener@{com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+Button\+Listener}}
+}
+
+
+Diagram dziedziczenia dla com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+Button\+Listener\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_1_1_button_listener__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+Button\+Listener\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_1_1_button_listener__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_1_1_button_listener_ad69b9ff638eb72e0c337f01955202dc6}{on\+Click} (View arg0)
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa implementujaca on\+Click\+Listner, sluzy do przypisanie akcji pod przyciski do wysylania odpowiedzi 
+
+Definicja w linii 203 pliku Expandable\+List\+Adapter.\+java.
+
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_1_1_button_listener_ad69b9ff638eb72e0c337f01955202dc6}{\index{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter\+::\+Button\+Listener@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter\+::\+Button\+Listener}!on\+Click@{on\+Click}}
+\index{on\+Click@{on\+Click}!com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter\+::\+Button\+Listener@{com\+::example\+::qrpoll\+::\+Expandable\+List\+Adapter\+::\+Button\+Listener}}
+\subsubsection[{on\+Click}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Expandable\+List\+Adapter.\+Button\+Listener.\+on\+Click (
+\begin{DoxyParamCaption}
+\item[{View}]{arg0}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_1_1_button_listener_ad69b9ff638eb72e0c337f01955202dc6}
+Metoda, ktora reaguje na klikniecie na dany przycisk 
+
+Definicja w linii 208 pliku Expandable\+List\+Adapter.\+java.
+
+
+\begin{DoxyCode}
+208                                        \{
+209             List<String>list=mapaButton.get(arg0.getId());
+210             \textcolor{keywordflow}{if}(list.size()!=0)\{
+211                 String vote=null;
+212                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<list.size();i++)\{
+213                     String \textcolor{keywordtype}{id}=list.get(i).substring(3);
+214                     vote+=\textcolor{keywordtype}{id}+\textcolor{stringliteral}{","};           
+215                 \}
+216                 vote=vote.substring(4,vote.length()-1);
+217             AboutDevice rs=\textcolor{keyword}{new} AboutDevice(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_expandable_list_adapter_a7a712744eebf94bc189b44e5d04ff7da}{\_context});
+218             poll.vote(sr.createIdToSend()+\textcolor{stringliteral}{"/"}+vote);
+219             \}\textcolor{keywordflow}{else}\{
+220                 Toast.makeText(\_context.getApplicationContext(),\textcolor{stringliteral}{"Nic nie wybrano"}, Toast.LENGTH\_SHORT).show
+      ();
+221             \}
+222         \}
+\end{DoxyCode}
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Wodzu/\+Documents/\+Git\+Hub/\+Projekt\+Zespolowy/\+Android Final + dokumentacja/android/qrpoll/src/com/example/qrpoll/\hyperlink{_expandable_list_adapter_8java}{Expandable\+List\+Adapter.\+java}\end{DoxyCompactItemize}

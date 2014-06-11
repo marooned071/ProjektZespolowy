@@ -1,0 +1,129 @@
+package com.example.Projekt;
+
+import java.io.IOException;
+import java.net.*;
+import java.io.*;
+
+import com.example.Projekt.R;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+
+	public static final int SCANNER_RESULT = 111;
+	private TextView ed;
+	private Button button;
+	private Button button2;
+	private TextView tv;
+	private TextView tv2;
+	final Context context=this;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ed= (TextView)findViewById(R.id.editText1);
+        ed.setText("");
+        tv=(TextView)findViewById(R.id.textView1);
+        tv2=(TextView)findViewById(R.id.textView2);
+        button2=(Button)findViewById(R.id.button2);
+        button=(Button)findViewById(R.id.button1);
+        button.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent("eu.michalu.SCAN");
+				intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
+				
+				startActivityForResult(intent, SCANNER_RESULT);
+				
+			}
+        	
+        });
+        button2.setOnClickListener(new OnClickListener(){
+        	public void onClick(View arg0) {
+				String result="!";
+				try{
+					result=getInfoFromSite();
+				}catch(IOException e){
+					
+				}
+				tv.setText(result);
+				/*if(!result.equals("")){
+			        Intent it=new Intent(getBaseContext(),SimpleView.class);
+			        it.putExtra("url", result);
+			        MainActivity.this.startActivity(it);
+				}*/
+			}
+        });
+    }
+    public String getInfoFromSite() throws IOException{
+    	String result="";
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+    	String u=(String) ed.getText();
+    	if(u.equals("")){
+    		alertDialogBuilder.setTitle("Blad");
+    		alertDialogBuilder.setMessage("nie zeskanowano url").setCancelable(false).setPositiveButton("OK",new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface arg0, int arg1) {
+					arg0.cancel();
+					
+				}});
+    		AlertDialog alertDialog = alertDialogBuilder.create();
+    		alertDialog.show();
+    	}else{
+    		alertDialogBuilder.setTitle("Url");
+    		alertDialogBuilder.setMessage(u).setCancelable(false).setPositiveButton("OK",new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface arg0, int arg1) {
+					arg0.cancel();
+					
+				}});
+    		AlertDialog alertDialog = alertDialogBuilder.create();
+    		alertDialog.show();
+    	URL url =new URL(u+"/api/info");
+    	HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+    	 try {
+    	     InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+    	     BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"), 8);
+    	     String line="";
+    	     while((line=reader.readLine())!=null){
+    	    	 result+=line;
+    	     }
+    	 }catch(Exception e){}
+    	}
+    	return result;
+    }
+    @Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		if (requestCode == SCANNER_RESULT) {
+			if (resultCode == RESULT_OK) {
+				String contents = intent.getStringExtra("SCAN_RESULT");
+				ed.setText(contents); 
+
+			} else if (resultCode == RESULT_CANCELED) {
+				// Handle cancel
+				Log.i(MainActivity.class.getSimpleName(), "Handle cancel");
+			}
+		}
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+    
+}

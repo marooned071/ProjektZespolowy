@@ -1,0 +1,444 @@
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_main_activity}{\section{Dokumentacja klasy com.\+example.\+qrpoll.\+Main\+Activity}
+\label{classcom_1_1example_1_1qrpoll_1_1_main_activity}\index{com.\+example.\+qrpoll.\+Main\+Activity@{com.\+example.\+qrpoll.\+Main\+Activity}}
+}
+
+
+Diagram dziedziczenia dla com.\+example.\+qrpoll.\+Main\+Activity\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{classcom_1_1example_1_1qrpoll_1_1_main_activity__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla com.\+example.\+qrpoll.\+Main\+Activity\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_main_activity__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Komponenty}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_1_1_placeholder_fragment}{Placeholder\+Fragment}
+\end{DoxyCompactItemize}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_a400e30efc907d9726298482730d4243d}{on\+Click} (View v)
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_ab7dc0b400a4156ce07ec51712c638b5b}{on\+Activity\+Result} (int request\+Code, int result\+Code, Intent intent)
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_ac108fe2528d7657f970d61d49639e6ac}{to\+Poll\+Activity} (String scan\+Result)
+\item 
+boolean \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_a0433b5df97dcca7db8593f32d8d033b9}{check\+Wifi} ()
+\item 
+boolean \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_af92255e3a196405eeb55e06bb625d435}{check\+Network} ()
+\item 
+boolean \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_adbf1a4ac0f7940113677f58a1d85f295}{on\+Create\+Options\+Menu} (Menu menu)
+\item 
+boolean \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_acb1d82fc0d1505cc54762cb028826c3c}{on\+Options\+Item\+Selected} (Menu\+Item item)
+\end{DoxyCompactItemize}
+\subsection*{Metody chronione}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_a6870a3a43acb7f6024f45467a0a786fd}{on\+Create} (Bundle saved\+Instance\+State)
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty pakietu}
+\begin{DoxyCompactItemize}
+\item 
+Text\+View \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_aee6c7adea75224ec647353db3ca58124}{content\+Txt}
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+Button \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_a24aa61710d9b421c0d23ab545b4f8b99}{scan\+Btn}
+\item 
+Button \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_a3c62b040921525ab5c9944e97e08f639}{button1}
+\item 
+Text\+View \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_ac2f96df8bbad653bdd8630d749a23ddc}{format\+Txt}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Activity, ktore laduje sie przy starcie aplikacji, umozliwia przejscie do skanowania oraz wyswietlenie historii \begin{DoxyAuthor}{Autor}
+Sliwka,Piotrek 
+\end{DoxyAuthor}
+
+
+Definicja w linii 41 pliku Main\+Activity.\+java.
+
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_main_activity_af92255e3a196405eeb55e06bb625d435}{\index{com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}!check\+Network@{check\+Network}}
+\index{check\+Network@{check\+Network}!com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}}
+\subsubsection[{check\+Network}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\+example.\+qrpoll.\+Main\+Activity.\+check\+Network (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_main_activity_af92255e3a196405eeb55e06bb625d435}
+sprawdzenie danych pakietowych \begin{DoxyReturn}{Zwraca}
+
+\end{DoxyReturn}
+
+
+Definicja w linii 169 pliku Main\+Activity.\+java.
+
+
+\begin{DoxyCode}
+169                                  \{
+170         ConnectivityManager cm=(ConnectivityManager)getSystemService(Context.CONNECTIVITY\_SERVICE);
+171         NetworkInfo ni=cm.getNetworkInfo(ConnectivityManager.TYPE\_MOBILE);
+172         \textcolor{keywordflow}{return} ni.isConnected();
+173     \}
+\end{DoxyCode}
+
+
+Oto graf wywoływań tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_main_activity_af92255e3a196405eeb55e06bb625d435_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_main_activity_a0433b5df97dcca7db8593f32d8d033b9}{\index{com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}!check\+Wifi@{check\+Wifi}}
+\index{check\+Wifi@{check\+Wifi}!com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}}
+\subsubsection[{check\+Wifi}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\+example.\+qrpoll.\+Main\+Activity.\+check\+Wifi (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_main_activity_a0433b5df97dcca7db8593f32d8d033b9}
+sprawdzenie stanu wifi \begin{DoxyReturn}{Zwraca}
+
+\end{DoxyReturn}
+
+
+Definicja w linii 161 pliku Main\+Activity.\+java.
+
+
+\begin{DoxyCode}
+161                               \{
+162         WifiManager wifi=(WifiManager)getSystemService(Context.WIFI\_SERVICE);
+163         \textcolor{keywordflow}{return} wifi.isWifiEnabled();
+164     \}
+\end{DoxyCode}
+
+
+Oto graf wywoływań tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_main_activity_a0433b5df97dcca7db8593f32d8d033b9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_main_activity_ab7dc0b400a4156ce07ec51712c638b5b}{\index{com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}!on\+Activity\+Result@{on\+Activity\+Result}}
+\index{on\+Activity\+Result@{on\+Activity\+Result}!com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}}
+\subsubsection[{on\+Activity\+Result}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Main\+Activity.\+on\+Activity\+Result (
+\begin{DoxyParamCaption}
+\item[{int}]{request\+Code, }
+\item[{int}]{result\+Code, }
+\item[{Intent}]{intent}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_main_activity_ab7dc0b400a4156ce07ec51712c638b5b}
+metoda przetwarzajaca wynik skanowania 
+
+Definicja w linii 97 pliku Main\+Activity.\+java.
+
+
+\begin{DoxyCode}
+97                                                                                  \{
+98         \textcolor{keywordflow}{try}\{
+99         \textcolor{keywordflow}{if}(requestCode == IntentIntegrator.REQUEST\_CODE)\{
+100             \textcolor{comment}{//retrieve scan result}
+101             IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, 
+      intent);
+102             
+103             \textcolor{keywordflow}{if} (scanningResult != null) \{
+104                 \textcolor{comment}{//we have a result}
+105                 String scanContent = scanningResult.getContents();
+106                 \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_ac108fe2528d7657f970d61d49639e6ac}{toPollActivity}(scanContent);
+107                 
+108                 
+109             \}
+110             \textcolor{keywordflow}{else}\{
+111                 Toast toast = Toast.makeText(getApplicationContext(),
+112                     \textcolor{stringliteral}{"No scan data received!"}, Toast.LENGTH\_SHORT);
+113                 toast.show();
+114             \}
+115             
+116             
+117                         
+118         \}
+119         \}\textcolor{keywordflow}{catch}(NullPointerException e)\{
+120             Toast toast = Toast.makeText(getApplicationContext(),
+121                     \textcolor{stringliteral}{"Przerwano skanowanie"}, Toast.LENGTH\_SHORT);
+122                 toast.show();
+123         \}
+124     \}
+\end{DoxyCode}
+
+
+Oto graf wywołań dla tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_main_activity_ab7dc0b400a4156ce07ec51712c638b5b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_main_activity_a400e30efc907d9726298482730d4243d}{\index{com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}!on\+Click@{on\+Click}}
+\index{on\+Click@{on\+Click}!com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}}
+\subsubsection[{on\+Click}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Main\+Activity.\+on\+Click (
+\begin{DoxyParamCaption}
+\item[{View}]{v}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_main_activity_a400e30efc907d9726298482730d4243d}
+przypisanie akcji do przycisku skanowania, uruchomienie zewnetrznego programu do zeskanowania qrcode 
+
+Definicja w linii 86 pliku Main\+Activity.\+java.
+
+
+\begin{DoxyCode}
+86                                 \{
+87         \textcolor{keywordflow}{if}(v.getId()==R.id.scan\_button)\{
+88             \textcolor{comment}{//scan}
+89             IntentIntegrator scanIntegrator = \textcolor{keyword}{new} IntentIntegrator(\textcolor{keyword}{this});
+90             scanIntegrator.initiateScan();
+91         \}
+92         
+93     \}
+\end{DoxyCode}
+
+
+Oto graf wywoływań tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_main_activity_a400e30efc907d9726298482730d4243d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_main_activity_a6870a3a43acb7f6024f45467a0a786fd}{\index{com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}!on\+Create@{on\+Create}}
+\index{on\+Create@{on\+Create}!com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}}
+\subsubsection[{on\+Create}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Main\+Activity.\+on\+Create (
+\begin{DoxyParamCaption}
+\item[{Bundle}]{saved\+Instance\+State}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classcom_1_1example_1_1qrpoll_1_1_main_activity_a6870a3a43acb7f6024f45467a0a786fd}
+tworzenie startowego widoku aplikacji 
+
+Definicja w linii 52 pliku Main\+Activity.\+java.
+
+
+\begin{DoxyCode}
+52                                                        \{
+53         super.onCreate(savedInstanceState);
+54         setContentView(R.layout.activity\_main);
+55         
+56         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_a24aa61710d9b421c0d23ab545b4f8b99}{scanBtn} = (Button)findViewById(R.id.scan\_button);
+57         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_a3c62b040921525ab5c9944e97e08f639}{button1}=(Button)findViewById(R.id.button1);
+58         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_ac2f96df8bbad653bdd8630d749a23ddc}{formatTxt} = (TextView)findViewById(R.id.scan\_format);
+59         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_aee6c7adea75224ec647353db3ca58124}{contentTxt} = (TextView)findViewById(R.id.scan\_content);
+60         
+61         scanBtn.setOnClickListener(\textcolor{keyword}{this});
+62         SqlHandler sql=\textcolor{keyword}{new} SqlHandler(getApplication());
+63         sql.open();
+64         sql.close();
+65         \textcolor{keywordflow}{if}(!\hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_af92255e3a196405eeb55e06bb625d435}{checkNetwork}())\{
+66             \textcolor{keywordflow}{if}(!\hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_a0433b5df97dcca7db8593f32d8d033b9}{checkWifi}())\{
+67                 AlertDialog.Builder adb=\textcolor{keyword}{new} AlertDialog.Builder(\textcolor{keyword}{this});
+68                 adb.setTitle(\textcolor{stringliteral}{"Brak polaczenia"});
+69                 adb.setMessage(\textcolor{stringliteral}{"Nacisnij ok aby wlaczyc WIFI"}).setCancelable(\textcolor{keyword}{false}).setNeutralButton(\textcolor{stringliteral}{"OK"}, \textcolor{keyword}{
+      new} DialogInterface.OnClickListener() \{
+70                     
+71                     @Override
+72                     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_a400e30efc907d9726298482730d4243d}{onClick}(DialogInterface dialog, \textcolor{keywordtype}{int} which) \{
+73                         WifiManager wifi=(WifiManager)getSystemService(Context.WIFI\_SERVICE);
+74                         wifi.setWifiEnabled(\textcolor{keyword}{true});
+75                     \}
+76                 \});
+77                 AlertDialog ad=adb.create();
+78                 ad.show();
+79             \}
+80         \}
+81     \}
+\end{DoxyCode}
+
+
+Oto graf wywołań dla tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_main_activity_a6870a3a43acb7f6024f45467a0a786fd_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_main_activity_adbf1a4ac0f7940113677f58a1d85f295}{\index{com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}!on\+Create\+Options\+Menu@{on\+Create\+Options\+Menu}}
+\index{on\+Create\+Options\+Menu@{on\+Create\+Options\+Menu}!com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}}
+\subsubsection[{on\+Create\+Options\+Menu}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\+example.\+qrpoll.\+Main\+Activity.\+on\+Create\+Options\+Menu (
+\begin{DoxyParamCaption}
+\item[{Menu}]{menu}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_main_activity_adbf1a4ac0f7940113677f58a1d85f295}
+tworzenie menu 
+
+Definicja w linii 179 pliku Main\+Activity.\+java.
+
+
+\begin{DoxyCode}
+179                                                   \{
+180         
+181         \textcolor{comment}{// Inflate the menu; this adds items to the action bar if it is present.}
+182         getMenuInflater().inflate(R.menu.main, menu);
+183         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+184     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_main_activity_acb1d82fc0d1505cc54762cb028826c3c}{\index{com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}!on\+Options\+Item\+Selected@{on\+Options\+Item\+Selected}}
+\index{on\+Options\+Item\+Selected@{on\+Options\+Item\+Selected}!com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}}
+\subsubsection[{on\+Options\+Item\+Selected}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\+example.\+qrpoll.\+Main\+Activity.\+on\+Options\+Item\+Selected (
+\begin{DoxyParamCaption}
+\item[{Menu\+Item}]{item}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_main_activity_acb1d82fc0d1505cc54762cb028826c3c}
+przypisanie akcji do przyciskow menu 
+
+Definicja w linii 190 pliku Main\+Activity.\+java.
+
+
+\begin{DoxyCode}
+190                                                         \{
+191         \textcolor{comment}{// Handle action bar item clicks here. The action bar will}
+192         \textcolor{comment}{// automatically handle clicks on the Home/Up button, so long}
+193         \textcolor{comment}{// as you specify a parent activity in AndroidManifest.xml.}
+194         \textcolor{keywordtype}{int} \textcolor{keywordtype}{id} = item.getItemId();
+195         \textcolor{comment}{//start historii}
+196         \textcolor{keywordflow}{if} (\textcolor{keywordtype}{id} == R.id.action\_settings) \{
+197             Intent it=\textcolor{keyword}{new} Intent(getApplication(),HistoryLayout.class);
+198             startActivity(it);
+199             
+200             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+201         \}
+202         \textcolor{keywordflow}{return} super.onOptionsItemSelected(item);
+203     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_main_activity_ac108fe2528d7657f970d61d49639e6ac}{\index{com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}!to\+Poll\+Activity@{to\+Poll\+Activity}}
+\index{to\+Poll\+Activity@{to\+Poll\+Activity}!com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}}
+\subsubsection[{to\+Poll\+Activity}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Main\+Activity.\+to\+Poll\+Activity (
+\begin{DoxyParamCaption}
+\item[{String}]{scan\+Result}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_main_activity_ac108fe2528d7657f970d61d49639e6ac}
+zamyka aktualne okno i przechodzi do wyswietlenia glownego ekranu 
+\begin{DoxyParams}{Parametry}
+{\em scan\+Result} & zeskanowany adres url \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 130 pliku Main\+Activity.\+java.
+
+
+\begin{DoxyCode}
+130                                                  \{
+131         \textcolor{keywordflow}{if}(!scanResult.isEmpty())\{
+132             Intent intent = \textcolor{keyword}{new} Intent(\textcolor{keyword}{this}, PollActivity.class);
+133             intent.putExtra(\textcolor{stringliteral}{"scanResult"}, scanResult);
+134             intent.putExtra(\textcolor{stringliteral}{"message"}, \textcolor{stringliteral}{"none"});
+135             \textcolor{keywordflow}{if}(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_a0433b5df97dcca7db8593f32d8d033b9}{checkWifi}()||\hyperlink{classcom_1_1example_1_1qrpoll_1_1_main_activity_af92255e3a196405eeb55e06bb625d435}{checkNetwork}())\{
+136                 \textcolor{keywordflow}{try}\{
+137                 startActivity(intent);
+138                 finish();
+139                 \}\textcolor{keywordflow}{catch}(RuntimeException e)\{
+140                     Toast toast = Toast.makeText(getApplicationContext(),
+141                             \textcolor{stringliteral}{"Nie znaleziono strony o danym adresie!"}, Toast.LENGTH\_SHORT);
+142                         toast.show();
+143                 \}
+144                 
+145             \}\textcolor{keywordflow}{else}\{
+146                 Toast toast = Toast.makeText(getApplicationContext(),
+147                         \textcolor{stringliteral}{"Brak polaczenia,nie mozna kontynuowac!"}, Toast.LENGTH\_SHORT);
+148                     toast.show();
+149             \}
+150         
+151         \}\textcolor{keywordflow}{else}\{
+152             Toast toast = Toast.makeText(getApplicationContext(),
+153                     \textcolor{stringliteral}{"No scan data received!"}, Toast.LENGTH\_SHORT);
+154                 toast.show();
+155         \}
+156     \}
+\end{DoxyCode}
+
+
+Oto graf wywołań dla tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_main_activity_ac108fe2528d7657f970d61d49639e6ac_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Oto graf wywoływań tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_main_activity_ac108fe2528d7657f970d61d49639e6ac_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_main_activity_a3c62b040921525ab5c9944e97e08f639}{\index{com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}!button1@{button1}}
+\index{button1@{button1}!com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}}
+\subsubsection[{button1}]{\setlength{\rightskip}{0pt plus 5cm}Button com.\+example.\+qrpoll.\+Main\+Activity.\+button1\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_main_activity_a3c62b040921525ab5c9944e97e08f639}
+
+
+Definicja w linii 45 pliku Main\+Activity.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_main_activity_aee6c7adea75224ec647353db3ca58124}{\index{com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}!content\+Txt@{content\+Txt}}
+\index{content\+Txt@{content\+Txt}!com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}}
+\subsubsection[{content\+Txt}]{\setlength{\rightskip}{0pt plus 5cm}Text\+View com.\+example.\+qrpoll.\+Main\+Activity.\+content\+Txt\hspace{0.3cm}{\ttfamily [package]}}}\label{classcom_1_1example_1_1qrpoll_1_1_main_activity_aee6c7adea75224ec647353db3ca58124}
+
+
+Definicja w linii 46 pliku Main\+Activity.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_main_activity_ac2f96df8bbad653bdd8630d749a23ddc}{\index{com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}!format\+Txt@{format\+Txt}}
+\index{format\+Txt@{format\+Txt}!com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}}
+\subsubsection[{format\+Txt}]{\setlength{\rightskip}{0pt plus 5cm}Text\+View com.\+example.\+qrpoll.\+Main\+Activity.\+format\+Txt\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_main_activity_ac2f96df8bbad653bdd8630d749a23ddc}
+
+
+Definicja w linii 46 pliku Main\+Activity.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_main_activity_a24aa61710d9b421c0d23ab545b4f8b99}{\index{com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}!scan\+Btn@{scan\+Btn}}
+\index{scan\+Btn@{scan\+Btn}!com\+::example\+::qrpoll\+::\+Main\+Activity@{com\+::example\+::qrpoll\+::\+Main\+Activity}}
+\subsubsection[{scan\+Btn}]{\setlength{\rightskip}{0pt plus 5cm}Button com.\+example.\+qrpoll.\+Main\+Activity.\+scan\+Btn\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_main_activity_a24aa61710d9b421c0d23ab545b4f8b99}
+
+
+Definicja w linii 44 pliku Main\+Activity.\+java.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Wodzu/\+Documents/\+Git\+Hub/\+Projekt\+Zespolowy/\+Android Final + dokumentacja/android/qrpoll/src/com/example/qrpoll/\hyperlink{_main_activity_8java}{Main\+Activity.\+java}\end{DoxyCompactItemize}

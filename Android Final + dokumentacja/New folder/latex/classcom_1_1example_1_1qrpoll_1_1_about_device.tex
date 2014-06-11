@@ -1,0 +1,190 @@
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_about_device}{\section{Dokumentacja klasy com.\+example.\+qrpoll.\+About\+Device}
+\label{classcom_1_1example_1_1qrpoll_1_1_about_device}\index{com.\+example.\+qrpoll.\+About\+Device@{com.\+example.\+qrpoll.\+About\+Device}}
+}
+
+
+Diagram współpracy dla com.\+example.\+qrpoll.\+About\+Device\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{classcom_1_1example_1_1qrpoll_1_1_about_device__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_about_device_a45606e33a90b2bb3e1824f1d742e2825}{About\+Device} (Context \hyperlink{classcom_1_1example_1_1qrpoll_1_1_about_device_a11363ff16b18fc93f7a1f019e116b416}{context})
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_about_device_a1f98f79c75c43e7151af8d414fcae88f}{get\+Imei} ()
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_about_device_a4b4098442ec3ea6028f1a8f9dc0f79b2}{get\+Sim\+Id} ()
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_about_device_a16cce5d65f255d5af26358b683dff453}{create\+Id\+To\+Send} ()
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+Telephony\+Manager \hyperlink{classcom_1_1example_1_1qrpoll_1_1_about_device_a75cbf05bb659a888a3e6cfec68881775}{tm}
+\item 
+Context \hyperlink{classcom_1_1example_1_1qrpoll_1_1_about_device_a11363ff16b18fc93f7a1f019e116b416}{context}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa do pobierania I\+M\+E\+I/nr karty sim \begin{DoxyAuthor}{Autor}
+Sliwka 
+\end{DoxyAuthor}
+
+
+Definicja w linii 31 pliku About\+Device.\+java.
+
+
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_about_device_a45606e33a90b2bb3e1824f1d742e2825}{\index{com\+::example\+::qrpoll\+::\+About\+Device@{com\+::example\+::qrpoll\+::\+About\+Device}!About\+Device@{About\+Device}}
+\index{About\+Device@{About\+Device}!com\+::example\+::qrpoll\+::\+About\+Device@{com\+::example\+::qrpoll\+::\+About\+Device}}
+\subsubsection[{About\+Device}]{\setlength{\rightskip}{0pt plus 5cm}com.\+example.\+qrpoll.\+About\+Device.\+About\+Device (
+\begin{DoxyParamCaption}
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_about_device_a45606e33a90b2bb3e1824f1d742e2825}
+Konstruktor, ustawia kontekst oraz wyciaga z niego Managera do pobierania informacji 
+\begin{DoxyParams}{Parametry}
+{\em context} & \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 40 pliku About\+Device.\+java.
+
+
+\begin{DoxyCode}
+40                                        \{
+41         this.context=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_about_device_a11363ff16b18fc93f7a1f019e116b416}{context};
+42         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_about_device_a75cbf05bb659a888a3e6cfec68881775}{tm}=(TelephonyManager)\hyperlink{classcom_1_1example_1_1qrpoll_1_1_about_device_a11363ff16b18fc93f7a1f019e116b416}{context}.getSystemService(Context.TELEPHONY\_SERVICE);
+43     \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_about_device_a16cce5d65f255d5af26358b683dff453}{\index{com\+::example\+::qrpoll\+::\+About\+Device@{com\+::example\+::qrpoll\+::\+About\+Device}!create\+Id\+To\+Send@{create\+Id\+To\+Send}}
+\index{create\+Id\+To\+Send@{create\+Id\+To\+Send}!com\+::example\+::qrpoll\+::\+About\+Device@{com\+::example\+::qrpoll\+::\+About\+Device}}
+\subsubsection[{create\+Id\+To\+Send}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+About\+Device.\+create\+Id\+To\+Send (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_about_device_a16cce5d65f255d5af26358b683dff453}
+Tworzy id zlozone z 8 znakow imei i 8 znakow nr karty sim \begin{DoxyReturn}{Zwraca}
+identyfikator uzytkownika, ktory zostawiany bedzie przy glosowaniu 
+\end{DoxyReturn}
+
+
+Definicja w linii 64 pliku About\+Device.\+java.
+
+
+\begin{DoxyCode}
+64                                   \{
+65         String imei=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_about_device_a1f98f79c75c43e7151af8d414fcae88f}{getImei}().substring(0, 8);
+66         String sim=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_about_device_a4b4098442ec3ea6028f1a8f9dc0f79b2}{getSimId}().substring(0, 8);
+67         \textcolor{keywordflow}{return} imei+sim;
+68     \}
+\end{DoxyCode}
+
+
+Oto graf wywołań dla tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_about_device_a16cce5d65f255d5af26358b683dff453_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_about_device_a1f98f79c75c43e7151af8d414fcae88f}{\index{com\+::example\+::qrpoll\+::\+About\+Device@{com\+::example\+::qrpoll\+::\+About\+Device}!get\+Imei@{get\+Imei}}
+\index{get\+Imei@{get\+Imei}!com\+::example\+::qrpoll\+::\+About\+Device@{com\+::example\+::qrpoll\+::\+About\+Device}}
+\subsubsection[{get\+Imei}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+About\+Device.\+get\+Imei (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_about_device_a1f98f79c75c43e7151af8d414fcae88f}
+zwraca nr imei telefonu \begin{DoxyReturn}{Zwraca}
+
+\end{DoxyReturn}
+
+
+Definicja w linii 49 pliku About\+Device.\+java.
+
+
+\begin{DoxyCode}
+49                            \{
+50         \textcolor{keywordflow}{return} tm.getDeviceId();
+51     \}
+\end{DoxyCode}
+
+
+Oto graf wywoływań tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_about_device_a1f98f79c75c43e7151af8d414fcae88f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_about_device_a4b4098442ec3ea6028f1a8f9dc0f79b2}{\index{com\+::example\+::qrpoll\+::\+About\+Device@{com\+::example\+::qrpoll\+::\+About\+Device}!get\+Sim\+Id@{get\+Sim\+Id}}
+\index{get\+Sim\+Id@{get\+Sim\+Id}!com\+::example\+::qrpoll\+::\+About\+Device@{com\+::example\+::qrpoll\+::\+About\+Device}}
+\subsubsection[{get\+Sim\+Id}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+About\+Device.\+get\+Sim\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_about_device_a4b4098442ec3ea6028f1a8f9dc0f79b2}
+zwraca numer seryjny karty sim \begin{DoxyReturn}{Zwraca}
+
+\end{DoxyReturn}
+
+
+Definicja w linii 57 pliku About\+Device.\+java.
+
+
+\begin{DoxyCode}
+57                             \{
+58         \textcolor{keywordflow}{return} tm.getSimSerialNumber();
+59     \}
+\end{DoxyCode}
+
+
+Oto graf wywoływań tej funkcji\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_about_device_a4b4098442ec3ea6028f1a8f9dc0f79b2_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_about_device_a11363ff16b18fc93f7a1f019e116b416}{\index{com\+::example\+::qrpoll\+::\+About\+Device@{com\+::example\+::qrpoll\+::\+About\+Device}!context@{context}}
+\index{context@{context}!com\+::example\+::qrpoll\+::\+About\+Device@{com\+::example\+::qrpoll\+::\+About\+Device}}
+\subsubsection[{context}]{\setlength{\rightskip}{0pt plus 5cm}Context com.\+example.\+qrpoll.\+About\+Device.\+context\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_about_device_a11363ff16b18fc93f7a1f019e116b416}
+
+
+Definicja w linii 34 pliku About\+Device.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_about_device_a75cbf05bb659a888a3e6cfec68881775}{\index{com\+::example\+::qrpoll\+::\+About\+Device@{com\+::example\+::qrpoll\+::\+About\+Device}!tm@{tm}}
+\index{tm@{tm}!com\+::example\+::qrpoll\+::\+About\+Device@{com\+::example\+::qrpoll\+::\+About\+Device}}
+\subsubsection[{tm}]{\setlength{\rightskip}{0pt plus 5cm}Telephony\+Manager com.\+example.\+qrpoll.\+About\+Device.\+tm\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_about_device_a75cbf05bb659a888a3e6cfec68881775}
+
+
+Definicja w linii 33 pliku About\+Device.\+java.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Wodzu/\+Documents/\+Git\+Hub/\+Projekt\+Zespolowy/\+Android Final + dokumentacja/android/qrpoll/src/com/example/qrpoll/\hyperlink{_about_device_8java}{About\+Device.\+java}\end{DoxyCompactItemize}

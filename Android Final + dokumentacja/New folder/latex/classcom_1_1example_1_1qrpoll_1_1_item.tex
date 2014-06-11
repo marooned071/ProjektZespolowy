@@ -1,0 +1,193 @@
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_item}{\section{Dokumentacja klasy com.\+example.\+qrpoll.\+Item}
+\label{classcom_1_1example_1_1qrpoll_1_1_item}\index{com.\+example.\+qrpoll.\+Item@{com.\+example.\+qrpoll.\+Item}}
+}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_aa6d7270dec34174ec5a97a8e078a7b73}{Item} (String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_a70600dc1190682886f0976b418f13a76}{name}, String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_abc0a6b74f1923ca042b9b9d3b48f014c}{value}, String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_a47b12c3c00c7a7a9deddb47f139af3cc}{date}, String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_ad54518f2889a23bb19316b92711a655c}{room})
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_aeb31d724eaef2d0ceb0b9869febc6d90}{get\+Name} ()
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_a278aaa91e51246a75710ecbf25c4ea40}{get\+Value} ()
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_a184b73561804e998971d7fea88a1d7e0}{get\+Room} ()
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_a3019ed300c8ffeb23ec841c7fab213c7}{get\+Date} ()
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_a70600dc1190682886f0976b418f13a76}{name}
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_abc0a6b74f1923ca042b9b9d3b48f014c}{value}
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_a47b12c3c00c7a7a9deddb47f139af3cc}{date}
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_ad54518f2889a23bb19316b92711a655c}{room}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa reprezentujaca obiekt, ktory bedzie zapisywany w bazie sql, posiadajacy 4 pola\+: temat, hash,data i pokoj \begin{DoxyAuthor}{Autor}
+Sliwka 
+\end{DoxyAuthor}
+
+
+Definicja w linii 17 pliku Item.\+java.
+
+
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_item_aa6d7270dec34174ec5a97a8e078a7b73}{\index{com\+::example\+::qrpoll\+::\+Item@{com\+::example\+::qrpoll\+::\+Item}!Item@{Item}}
+\index{Item@{Item}!com\+::example\+::qrpoll\+::\+Item@{com\+::example\+::qrpoll\+::\+Item}}
+\subsubsection[{Item}]{\setlength{\rightskip}{0pt plus 5cm}com.\+example.\+qrpoll.\+Item.\+Item (
+\begin{DoxyParamCaption}
+\item[{String}]{name, }
+\item[{String}]{value, }
+\item[{String}]{date, }
+\item[{String}]{room}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_item_aa6d7270dec34174ec5a97a8e078a7b73}
+konstruktor, ustawia wszyskie wartosci wszystkich pol na podane przez aplikacje 
+\begin{DoxyParams}{Parametry}
+{\em temat} & spotkania \\
+\hline
+{\em hash} & spotkania \\
+\hline
+{\em data} & spotkania \\
+\hline
+{\em pomieszczenie,gdzie} & odbywa sie spotkanie \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 29 pliku Item.\+java.
+
+
+\begin{DoxyCode}
+29                                                                  \{
+30         this.name=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_a70600dc1190682886f0976b418f13a76}{name};
+31         this.value=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_abc0a6b74f1923ca042b9b9d3b48f014c}{value};
+32         this.date=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_a47b12c3c00c7a7a9deddb47f139af3cc}{date};
+33         this.room=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_ad54518f2889a23bb19316b92711a655c}{room};
+34     \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_item_a3019ed300c8ffeb23ec841c7fab213c7}{\index{com\+::example\+::qrpoll\+::\+Item@{com\+::example\+::qrpoll\+::\+Item}!get\+Date@{get\+Date}}
+\index{get\+Date@{get\+Date}!com\+::example\+::qrpoll\+::\+Item@{com\+::example\+::qrpoll\+::\+Item}}
+\subsubsection[{get\+Date}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Item.\+get\+Date (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_item_a3019ed300c8ffeb23ec841c7fab213c7}
+dostep do zmiennych prywatnych \begin{DoxyReturn}{Zwraca}
+data spotkania 
+\end{DoxyReturn}
+
+
+Definicja w linii 60 pliku Item.\+java.
+
+
+\begin{DoxyCode}
+60                            \{
+61         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_a47b12c3c00c7a7a9deddb47f139af3cc}{date};
+62     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_item_aeb31d724eaef2d0ceb0b9869febc6d90}{\index{com\+::example\+::qrpoll\+::\+Item@{com\+::example\+::qrpoll\+::\+Item}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!com\+::example\+::qrpoll\+::\+Item@{com\+::example\+::qrpoll\+::\+Item}}
+\subsubsection[{get\+Name}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Item.\+get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_item_aeb31d724eaef2d0ceb0b9869febc6d90}
+dostep do zmiennych prywatnych \begin{DoxyReturn}{Zwraca}
+nazwa spotkania 
+\end{DoxyReturn}
+
+
+Definicja w linii 39 pliku Item.\+java.
+
+
+\begin{DoxyCode}
+39                            \{
+40         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_a70600dc1190682886f0976b418f13a76}{name};
+41     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_item_a184b73561804e998971d7fea88a1d7e0}{\index{com\+::example\+::qrpoll\+::\+Item@{com\+::example\+::qrpoll\+::\+Item}!get\+Room@{get\+Room}}
+\index{get\+Room@{get\+Room}!com\+::example\+::qrpoll\+::\+Item@{com\+::example\+::qrpoll\+::\+Item}}
+\subsubsection[{get\+Room}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Item.\+get\+Room (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_item_a184b73561804e998971d7fea88a1d7e0}
+dostep do zmiennych prywatnych \begin{DoxyReturn}{Zwraca}
+adres gdzie odbywa sie spotkanie 
+\end{DoxyReturn}
+
+
+Definicja w linii 53 pliku Item.\+java.
+
+
+\begin{DoxyCode}
+53                            \{
+54         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_ad54518f2889a23bb19316b92711a655c}{room};
+55     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_item_a278aaa91e51246a75710ecbf25c4ea40}{\index{com\+::example\+::qrpoll\+::\+Item@{com\+::example\+::qrpoll\+::\+Item}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!com\+::example\+::qrpoll\+::\+Item@{com\+::example\+::qrpoll\+::\+Item}}
+\subsubsection[{get\+Value}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Item.\+get\+Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_item_a278aaa91e51246a75710ecbf25c4ea40}
+dostep do zmiennych prywatnych \begin{DoxyReturn}{Zwraca}
+hash spotkania 
+\end{DoxyReturn}
+
+
+Definicja w linii 46 pliku Item.\+java.
+
+
+\begin{DoxyCode}
+46                             \{
+47         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_item_abc0a6b74f1923ca042b9b9d3b48f014c}{value};
+48     \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_item_a47b12c3c00c7a7a9deddb47f139af3cc}{\index{com\+::example\+::qrpoll\+::\+Item@{com\+::example\+::qrpoll\+::\+Item}!date@{date}}
+\index{date@{date}!com\+::example\+::qrpoll\+::\+Item@{com\+::example\+::qrpoll\+::\+Item}}
+\subsubsection[{date}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Item.\+date\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_item_a47b12c3c00c7a7a9deddb47f139af3cc}
+
+
+Definicja w linii 20 pliku Item.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_item_a70600dc1190682886f0976b418f13a76}{\index{com\+::example\+::qrpoll\+::\+Item@{com\+::example\+::qrpoll\+::\+Item}!name@{name}}
+\index{name@{name}!com\+::example\+::qrpoll\+::\+Item@{com\+::example\+::qrpoll\+::\+Item}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Item.\+name\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_item_a70600dc1190682886f0976b418f13a76}
+
+
+Definicja w linii 18 pliku Item.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_item_ad54518f2889a23bb19316b92711a655c}{\index{com\+::example\+::qrpoll\+::\+Item@{com\+::example\+::qrpoll\+::\+Item}!room@{room}}
+\index{room@{room}!com\+::example\+::qrpoll\+::\+Item@{com\+::example\+::qrpoll\+::\+Item}}
+\subsubsection[{room}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Item.\+room\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_item_ad54518f2889a23bb19316b92711a655c}
+
+
+Definicja w linii 21 pliku Item.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_item_abc0a6b74f1923ca042b9b9d3b48f014c}{\index{com\+::example\+::qrpoll\+::\+Item@{com\+::example\+::qrpoll\+::\+Item}!value@{value}}
+\index{value@{value}!com\+::example\+::qrpoll\+::\+Item@{com\+::example\+::qrpoll\+::\+Item}}
+\subsubsection[{value}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Item.\+value\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_item_abc0a6b74f1923ca042b9b9d3b48f014c}
+
+
+Definicja w linii 19 pliku Item.\+java.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Wodzu/\+Documents/\+Git\+Hub/\+Projekt\+Zespolowy/\+Android Final + dokumentacja/android/qrpoll/src/com/example/qrpoll/\hyperlink{_item_8java}{Item.\+java}\end{DoxyCompactItemize}

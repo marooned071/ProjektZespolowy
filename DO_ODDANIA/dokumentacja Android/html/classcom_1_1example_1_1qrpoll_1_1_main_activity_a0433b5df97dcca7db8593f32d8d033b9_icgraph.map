@@ -1,0 +1,5 @@
+<map id="com.example.qrpoll.MainActivity.checkWifi" name="com.example.qrpoll.MainActivity.checkWifi">
+<area shape="rect" id="node2" href="$classcom_1_1example_1_1qrpoll_1_1_main_activity.html#a6870a3a43acb7f6024f45467a0a786fd" title="com.example.qrpoll.MainActivity.on\lCreate" alt="" coords="324,5,551,47"/>
+<area shape="rect" id="node3" href="$classcom_1_1example_1_1qrpoll_1_1_main_activity.html#ac108fe2528d7657f970d61d49639e6ac" title="com.example.qrpoll.MainActivity.to\lPollActivity" alt="" coords="325,71,549,112"/>
+<area shape="rect" id="node4" href="$classcom_1_1example_1_1qrpoll_1_1_main_activity.html#ab7dc0b400a4156ce07ec51712c638b5b" title="com.example.qrpoll.MainActivity.on\lActivityResult" alt="" coords="599,71,825,112"/>
+</map>

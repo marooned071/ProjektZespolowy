@@ -1,0 +1,61 @@
+package com.example.qrpoll;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+
+import android.content.Context;
+import android.telephony.TelephonyManager;
+/**
+ * Klasa do pobierania IMEI/nr karty sim 
+ * @author Sliwka
+ *
+ */
+public class SurveyResponse {
+	
+	private TelephonyManager tm;
+	private Context context;
+	
+	/**
+	 * Konstruktor, ustawia kontekst oraz wyciaga z niego Managera do pobierania informacji
+	 *@param context
+	 */
+	public SurveyResponse(Context context){
+		this.context=context;
+		tm=(TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+	}
+	
+	/**
+	 * zwraca nr imei telefonu
+	 * @return
+	 */
+	public String getImei(){
+		return tm.getDeviceId();
+	}
+	
+	/**
+	 * zwraca numer seryjny karty sim
+	 * @return
+	 */
+	public String getSimId(){
+		return tm.getSimSerialNumber();
+	}
+	/**
+	 * Tworzy id zlozone z 8 znakow imei i 8 znakow nr karty sim
+	 * @return identyfikator uzytkownika, ktory zostawiany bedzie przy glosowaniu
+	 */
+	public String createIdToSend(){
+		String imei=getImei().substring(0, 8);
+		String sim=getSimId().substring(0, 8);
+		return imei+sim;
+	}
+
+	
+}

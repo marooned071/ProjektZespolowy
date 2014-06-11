@@ -72,7 +72,7 @@ public class Poll {
 			this.hash_id = jo_inside.get("hash_id").toString();
 			this.subject = jo_inside.get("subject").toString();
 			this.room = jo_inside.get("room").toString();
-			this.start_date =  jo_inside.get("start_date").toString();
+			this.start_date =  jo_inside.get("time").toString();
 		}catch(JSONException e){
 			e.printStackTrace();
 		}

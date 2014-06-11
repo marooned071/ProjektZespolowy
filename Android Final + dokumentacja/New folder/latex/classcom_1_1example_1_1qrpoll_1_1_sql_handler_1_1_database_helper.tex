@@ -1,0 +1,120 @@
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_1_1_database_helper}{\section{Dokumentacja klasy com.\+example.\+qrpoll.\+Sql\+Handler.\+Database\+Helper}
+\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_1_1_database_helper}\index{com.\+example.\+qrpoll.\+Sql\+Handler.\+Database\+Helper@{com.\+example.\+qrpoll.\+Sql\+Handler.\+Database\+Helper}}
+}
+
+
+Diagram dziedziczenia dla com.\+example.\+qrpoll.\+Sql\+Handler.\+Database\+Helper\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{classcom_1_1example_1_1qrpoll_1_1_sql_handler_1_1_database_helper__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla com.\+example.\+qrpoll.\+Sql\+Handler.\+Database\+Helper\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{classcom_1_1example_1_1qrpoll_1_1_sql_handler_1_1_database_helper__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_1_1_database_helper_a7ed7b7a35028af5444c25739c1883f6b}{Database\+Helper} (Context \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ab0071f750233a8b37790758a430d847c}{context}, String name, Cursor\+Factory factory, int version)
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_1_1_database_helper_a8165a214907379c8e6c7548aa51f3e01}{on\+Create} (S\+Q\+Lite\+Database \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a5b422e7952698eb1df158709d4e18007}{db})
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_1_1_database_helper_a66f602b9f661c21a224d97c2bbfc257a}{on\+Upgrade} (S\+Q\+Lite\+Database arg0, int arg1, int arg2)
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+pomocnicza klasa do tworzenia bazy danych \begin{DoxyAuthor}{Autor}
+wodzu 
+\end{DoxyAuthor}
+
+
+Definicja w linii 150 pliku Sql\+Handler.\+java.
+
+
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_1_1_database_helper_a7ed7b7a35028af5444c25739c1883f6b}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler\+::\+Database\+Helper@{com\+::example\+::qrpoll\+::\+Sql\+Handler\+::\+Database\+Helper}!Database\+Helper@{Database\+Helper}}
+\index{Database\+Helper@{Database\+Helper}!com\+::example\+::qrpoll\+::\+Sql\+Handler\+::\+Database\+Helper@{com\+::example\+::qrpoll\+::\+Sql\+Handler\+::\+Database\+Helper}}
+\subsubsection[{Database\+Helper}]{\setlength{\rightskip}{0pt plus 5cm}com.\+example.\+qrpoll.\+Sql\+Handler.\+Database\+Helper.\+Database\+Helper (
+\begin{DoxyParamCaption}
+\item[{Context}]{context, }
+\item[{String}]{name, }
+\item[{Cursor\+Factory}]{factory, }
+\item[{int}]{version}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_1_1_database_helper_a7ed7b7a35028af5444c25739c1883f6b}
+
+\begin{DoxyParams}{Parametry}
+{\em context} & \\
+\hline
+{\em name} & \\
+\hline
+{\em factory} & \\
+\hline
+{\em version} & \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 158 pliku Sql\+Handler.\+java.
+
+
+\begin{DoxyCode}
+158                                                                                                 \{
+159                 super(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_ab0071f750233a8b37790758a430d847c}{context},name,factory,version);
+160             \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_1_1_database_helper_a8165a214907379c8e6c7548aa51f3e01}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler\+::\+Database\+Helper@{com\+::example\+::qrpoll\+::\+Sql\+Handler\+::\+Database\+Helper}!on\+Create@{on\+Create}}
+\index{on\+Create@{on\+Create}!com\+::example\+::qrpoll\+::\+Sql\+Handler\+::\+Database\+Helper@{com\+::example\+::qrpoll\+::\+Sql\+Handler\+::\+Database\+Helper}}
+\subsubsection[{on\+Create}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Sql\+Handler.\+Database\+Helper.\+on\+Create (
+\begin{DoxyParamCaption}
+\item[{S\+Q\+Lite\+Database}]{db}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_1_1_database_helper_a8165a214907379c8e6c7548aa51f3e01}
+tworzenie bazy danych 
+
+Definicja w linii 165 pliku Sql\+Handler.\+java.
+
+
+\begin{DoxyCode}
+165                                                     \{
+166                 db.execSQL(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_sql_handler_a41cc7444128cfe954cd829ceb98d8df0}{Create\_table\_spotkania});
+167                 Log.d(\textcolor{stringliteral}{"SqLiteTodoManager"}, \textcolor{stringliteral}{"Database creating..."});
+168             \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_sql_handler_1_1_database_helper_a66f602b9f661c21a224d97c2bbfc257a}{\index{com\+::example\+::qrpoll\+::\+Sql\+Handler\+::\+Database\+Helper@{com\+::example\+::qrpoll\+::\+Sql\+Handler\+::\+Database\+Helper}!on\+Upgrade@{on\+Upgrade}}
+\index{on\+Upgrade@{on\+Upgrade}!com\+::example\+::qrpoll\+::\+Sql\+Handler\+::\+Database\+Helper@{com\+::example\+::qrpoll\+::\+Sql\+Handler\+::\+Database\+Helper}}
+\subsubsection[{on\+Upgrade}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Sql\+Handler.\+Database\+Helper.\+on\+Upgrade (
+\begin{DoxyParamCaption}
+\item[{S\+Q\+Lite\+Database}]{arg0, }
+\item[{int}]{arg1, }
+\item[{int}]{arg2}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_sql_handler_1_1_database_helper_a66f602b9f661c21a224d97c2bbfc257a}
+update krotek (nie zaimplementowano) 
+
+Definicja w linii 173 pliku Sql\+Handler.\+java.
+
+
+\begin{DoxyCode}
+173                                                                            \{
+174                 \textcolor{comment}{// TODO Auto-generated method stub}
+175                 
+176             \}
+\end{DoxyCode}
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Wodzu/\+Documents/\+Git\+Hub/\+Projekt\+Zespolowy/\+Android Final + dokumentacja/android/qrpoll/src/com/example/qrpoll/\hyperlink{_sql_handler_8java}{Sql\+Handler.\+java}\end{DoxyCompactItemize}

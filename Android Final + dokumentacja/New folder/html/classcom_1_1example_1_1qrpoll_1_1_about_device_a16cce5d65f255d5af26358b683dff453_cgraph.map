@@ -1,0 +1,4 @@
+<map id="com.example.qrpoll.AboutDevice.createIdToSend" name="com.example.qrpoll.AboutDevice.createIdToSend">
+<area shape="rect" id="node2" href="$classcom_1_1example_1_1qrpoll_1_1_about_device.html#a1f98f79c75c43e7151af8d414fcae88f" title="com.example.qrpoll.About\lDevice.getImei" alt="" coords="227,5,400,47"/>
+<area shape="rect" id="node3" href="$classcom_1_1example_1_1qrpoll_1_1_about_device.html#a4b4098442ec3ea6028f1a8f9dc0f79b2" title="com.example.qrpoll.About\lDevice.getSimId" alt="" coords="227,71,400,112"/>
+</map>

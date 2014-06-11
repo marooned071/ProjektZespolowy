@@ -48,7 +48,7 @@ refresh();
 <div align="center" class="main">
 <header><img src="{% static 'qrpolls/img/logo.png' %}" alt="Logo"/></header>
 <div class= "title">Subject: {{poll.subject}}</div>
-<div class= "titleDetails">Place: {{poll.room}}</div>
+<div class= "titleDetails">Room: {{poll.room}}</div>
 <div class= "titleDetails">Time: {{poll.time}}</div>
 <div align="center" id="qrCode">{% qr_from_text url "l" %}</div>
 

@@ -1,60 +1,68 @@
+<!--
+ Copyright 2014 Byliniak, Sliwka, Gambus, Celmer
+
+ Licensed under the Surveys License, (the "License");
+ you may not use this file except in compliance with the License.
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-->
+
 <!DOCTYPE html>
  <!---->
 <head>
 <meta charset="UTF-8">
 <title>Surveys</title>
-	{% load staticfiles %}
-	<link rel="stylesheet" href="{% static 'qrpolls/style.css' %}" type="text/css" />
-	<script type="text/javascript" src="{% static 'qrpolls/newQuestion-scripts.js' %}" ></script>
-	<script type="text/javascript" src="{% static 'qrpolls/jquery-1.11.1.min.js' %}" ></script>
-	<script type="text/javascript" src="{% static 'qrpolls/raty-2.5.2/jquery.raty.min.js' %}" ></script>
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<script type="text/javascript" src="{% static 'qrpolls/charts-scripts.js' %}" ></script>
-		<script type="text/javascript">
-			$.fn.raty.defaults.path = '{{ STATIC_URL }}qrpolls/raty-2.5.2/img';
-	</script>
-	<script type="text/javascript">
-	function refresh() {
-			var currUrl = document.URL;newUrl  
-			var newUrl = currUrl.replace("meeting", "meetingCharts"); //zamina adresu url strony z meeting na meetingTest (po to aby django zlapal inny view)
-	$.ajax({
-		url: newUrl,
-		success: function(data) {
-			 $('#charts').html(data);
-			}
-		});
-		setTimeout("refresh()", 5000);	//uruchom refresh() za 5 sec
-	}
-	$(function(){
-			refresh();
-	});
-	</script>
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'qrpolls/style.css' %}" type="text/css" />
+<script type="text/javascript" src="{% static 'qrpolls/newQuestion-scripts.js' %}" ></script>
+<script type="text/javascript" src="{% static 'qrpolls/jquery-1.11.1.min.js' %}" ></script>
+<script type="text/javascript" src="{% static 'qrpolls/raty-2.5.2/jquery.raty.min.js' %}" ></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="{% static 'qrpolls/charts-scripts.js' %}" ></script>
+<script type="text/javascript">
+$.fn.raty.defaults.path = '{{ STATIC_URL }}qrpolls/raty-2.5.2/img';
+</script>
+<script type="text/javascript">
+function refresh() {
+var currUrl = document.URL;newUrl
+var newUrl = currUrl.replace("meeting", "meetingCharts"); //zamina adresu url strony z meeting na meetingTest (po to aby django zlapal inny view)
+$.ajax({
+url: newUrl,
+success: function(data) {
+$('#charts').html(data);
+}
+});
+setTimeout("refresh()", 5000);	//uruchom refresh() za 5 sec
+}
+$(function(){
+refresh();
+});
+</script>
 </head>
 <body>
 {% csrf_token %}
 {% load qr_tags %}
 
 <div align="center" class="main">
-		<header><img src="{% static 'qrpolls/img/logo.png' %}" alt="Logo"/></header> 
-		<div class= "title">Subject: {{poll.subject}}</div>
-		<div class= "titleDetails">Place: {{poll.room}}</div>
-		<div class= "titleDetails">Time: {{poll.time}}</div>
-		<div align="center" id="qrCode">{% qr_from_text url "l" %}</div>
+<header><img src="{% static 'qrpolls/img/logo.png' %}" alt="Logo"/></header>
+<div class= "title">Subject: {{poll.subject}}</div>
+<div class= "titleDetails">Place: {{poll.room}}</div>
+<div class= "titleDetails">Time: {{poll.time}}</div>
+<div align="center" id="qrCode">{% qr_from_text url "l" %}</div>
 
 <div class="newQuestion">
-	<button id = "buttonCreateForm" onclick="createForm()">New Question</button>
-</div> 
+<button id = "buttonCreateForm" onclick="createForm()">New Question</button>
+</div>
 <input id="csrf_token" type = "hidden" value="{{ csrf_token }}"/> <!-- token potrzebny aby przeslac POST do django - musi byc, nie ma rady -->
 <div id = "newQuestionButtons"></div> <!-- miejsce w ktorym pojawia sie przyciski panelu tworzenia nowego pytania -->
-<div id = "newQuestionDiv"> </div> <!-- miejsce na inne rzeczy (tresc pytania itp) --> 
+<div id = "newQuestionDiv"> </div> <!-- miejsce na inne rzeczy (tresc pytania itp) -->
 
 <div id = "charts">
-	{% include "meetingCharts.html" %}
+{% include "meetingCharts.html" %}
 </div>
 </body>
-
-
-
 
 
 

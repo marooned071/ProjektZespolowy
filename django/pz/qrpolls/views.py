@@ -14,9 +14,8 @@ from qrpolls.forms import NewMeetingForm
 
 # Metoda wyswietlajaca strone glowna
 def index(request):
-    n = NewMeetingForm
-    poll_list = QRPoll.objects.all()
-    return render(request, 'qrpolls/index.html',{'form': n, 'poll_list': poll_list})
+    n = NewMeetingForm #formularz tworzacy nowe spotkanie
+    return render(request, 'qrpolls/index.html',{'form': n})
 
 # Metoda wyswietlajaca strone spotkania o id : hash_id
 def meeting(request, hash_id):
@@ -26,9 +25,7 @@ def meeting(request, hash_id):
     except QRPoll.DoesNotExist:
         raise Http404
 
-
     question_list = Question.objects.filter(poll=poll)
-    #rating_list_anwers=Question.objects.filter(poll=poll,isRating=True)
     ratingQuestion = Question.objects.get(poll=poll, isRating=True) #pytanie o ocene spotkania (jest tylko jedno dlatego mozemy zrobic get)
     rating_list_choices = Choice.objects.filter(question=ratingQuestion) #lista odpowiedzi na pytanie ratingowe
     rating=0 #rating spotkania
@@ -53,22 +50,19 @@ def meeting(request, hash_id):
             continue
         choices_list = Choice.objects.filter(question=question)
         newDic = []
-        newDic.append(["Siema", "Nara"]);
+        newDic.append(["One", "Two"]); #wartosci maronetkowe, musza byc
         votesCounter=0
         for choice in choices_list:
-           # newDic[choice.choice_text] = choice.vote_set.count()
             votesCounter+=Vote.objects.filter(choice=choice).count()
             newDic.append([choice.choice_text, choice.vote_set.count()])
-        if votesCounter == 0:
+        if votesCounter == 0: # jesli suma glosujacych jest rowna 0, wyswietl pusty wykres (na bialo)
             newDic.append(["No Votes", 1]);
 
-
     path = request.META['SERVER_NAME']+request.path
-
-    data = {'poll': poll, 'url' : path, 'question_list' : question_list, 'rating':rating, 'allVotersCount':allVotersCount, 'questionChoiceVotesDic':questionChoiceVotesDic};
+    data = {'poll': poll, 'url' : path, 'rating':rating, 'allVotersCount':allVotersCount, 'questionChoiceVotesDic':questionChoiceVotesDic};
     return render(request, 'qrpolls/meeting.html', data)
 
-def meetingTest(request, hash_id):
+def meetingCharts(request, hash_id):
     try:
         poll = QRPoll.objects.get(hash_id=hash_id) # pobieramy hash z bazy, jesli go nie ma w bazie bedzie 404
     except QRPoll.DoesNotExist:
@@ -99,7 +93,7 @@ def meetingTest(request, hash_id):
             continue
         choices_list = Choice.objects.filter(question=question)
         newDic = []
-        newDic.append(["Siema", "Nara"]);
+        newDic.append(["One", "Two"]); #wartosci maronetkowe, musza byc
         votesCounter=0
         for choice in choices_list:
            # newDic[choice.choice_text] = choice.vote_set.count()
@@ -109,16 +103,12 @@ def meetingTest(request, hash_id):
             newDic.append(["No Votes", 1]);
 
         print(votesCounter)
-
-
-
         questionChoiceVotesDic[question.question_text] =json.dumps(newDic)
 
     
     path = request.META['SERVER_NAME']+request.path
 
-    data = {'poll': poll, 'url' : path, 'question_list' : question_list, 'rating':rating, 'allVotersCount':allVotersCount, 'questionChoiceVotesDic':questionChoiceVotesDic};
-    # data = {'rating':rating, 'allVotersCount':allVotersCount, 'questionChoiceVotesDic' : questionChoiceVotesDic};
+    data = {'poll': poll, 'url' : path, 'rating':rating, 'allVotersCount':allVotersCount, 'questionChoiceVotesDic':questionChoiceVotesDic};
     return render(request, 'qrpolls/meetingCharts.html', data)
 
 
@@ -128,16 +118,20 @@ def create(request):
 
     subject = request.POST['subject']
     room = request.POST['room'] 
-    start_date = request.POST['start_date']
+    timeMeeting = request.POST['time']
 
 
     millis = int(round(time.time() * 1000)) # czas ktory mamy teraz w miliseundach (sol do hasha)
-    s = str(subject)+str(room)+str(start_date)+str(millis)
+    s = str(subject)+str(room)+str(timeMeeting)+str(millis)
     hash_id = hashlib.md5(s.encode()).hexdigest()
 
-    poll = QRPoll(hash_id=hash_id, start_date = start_date, room = room, subject = subject, version = 1);
+    poll = QRPoll(hash_id=hash_id, time = timeMeeting, room = room, subject = subject, version = 1);
     poll.save()
 
+<<<<<<< HEAD
+=======
+    # dla kazdego spotkania, nalezy stworzyc specjalne pytanie ratingowe
+>>>>>>> fa493e1851b55fda21eb6592c5d760e25aa34b16
     question = Question(poll=poll, question_text = "Raiting", question_choices_max=1, isRating=True) # przykladowa ankieta
     question.save()
 
@@ -192,7 +186,7 @@ def newQuestion(request,hash_id):
     question = Question(poll=poll, question_text = questionText, question_choices_max= question_choices_max)
     question.save()
 
-    for c in choices:
+    for c in choices: 
         choice = Choice(question=question, choice_text = c)
         choice.save()
 
@@ -213,15 +207,12 @@ def api(request, hash_id, question):
     if question == "info":  #informacja o spotkaniu
         data = [ {'info': {
                 'hash_id' : poll.hash_id,
-                'start_date' : poll.start_date,
+                'time' : poll.time,
                 'room' : poll.room,
                 'subject' : poll.subject,
         }}]
         data_string = json.dumps(data)
         return HttpResponse(data_string)
-
-        # [{"info": {"room": "11", "subject": "777", "hash_id": "62c694079277679c1e7859de489a5e3c", "start_date": "44"}}]
-        #'[{"info": {"start_date": "44", "subject": "777", "room": "11", "hash_id": "62c694079277679c1e7859de489a5e3c"}}]'
 
 
 
@@ -269,17 +260,11 @@ def api_vote_voter(request, hash_id, voter_id, choice_ids):
     # usuwanie poprzednich odpowiedzi glosujacego o id voter_id do danego pytania
     Vote.objects.filter(voter_id=voter_id,choice__question=question).delete() # __ w choice__question oznacza podazanie za foregin key
 
-
-
-    if question_choices_max == 0: # pytanie otwarte
-        return HttpResponse("qcm == 0 jeszcze nie zaimplementowano")
-
-
-    elif question_choices_max == 1:
+    if question_choices_max == 1:
         if len(id_list) != 1:
             data = [ {'voteInfo': {
                     'error' : "true",
-                    'description' : "Pytanie jednkrotnego wyboru, a liczba odpowiedzi >1",
+                    'description' : "Its one choice question. Wrong answers number. ",
             }}]
             data_string = json.dumps(data)
             return HttpResponse(data_string)
@@ -287,13 +272,11 @@ def api_vote_voter(request, hash_id, voter_id, choice_ids):
         vote = Vote(choice=first_choice,voter_id=voter_id)
         vote.save()   
 
-
-
     elif question_choices_max >= 2:
         if len(id_list) > question_choices_max:
             data = [ {'voteInfo': {
                     'error' : "true",
-                    'description' : "Pytanie wielonrotnego wyboru, lista odpowiedzi > mozliwe odpowiedzi",
+                    'description' : "Answers numberare greater than max choices allowed.",
             }}]
             data_string = json.dumps(data)
             return HttpResponse(data_string)
@@ -309,9 +292,3 @@ def api_vote_voter(request, hash_id, voter_id, choice_ids):
          }}]
     data_string = json.dumps(data)
     return HttpResponse(data_string)
-
-
-
-
-
-

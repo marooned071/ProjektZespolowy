@@ -8,11 +8,8 @@
 <script type="text/javascript" src="{% static 'qrpolls/newQuestion-scripts.js' %}" ></script>
 <script type="text/javascript" src="{% static 'qrpolls/jquery-1.11.1.min.js' %}" ></script>
 <script type="text/javascript" src="{% static 'qrpolls/raty-2.5.2/jquery.raty.min.js' %}" ></script>
-
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
 <script type="text/javascript" src="{% static 'qrpolls/charts-scripts.js' %}" ></script>
-
 <script type="text/javascript">
     $.fn.raty.defaults.path = '{{ STATIC_URL }}qrpolls/raty-2.5.2/img';
 </script>
@@ -58,8 +55,6 @@ $(function(){
     
     <div align="center" id="qrCode">{% qr_from_text url "l" %}</div>
 
-
-
 <br>
 <div class="newQuestion">
   <button id = "buttonCreateForm" onclick="createForm()">Stworz pytanie</button>
@@ -72,13 +67,3 @@ $(function(){
 <div id = "questionList">
 	{% include "meetingCharts.html" %}
 </div>
-
-
-
-
-
-
-
-
-
-

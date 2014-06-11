@@ -138,18 +138,6 @@ def create(request):
     poll = QRPoll(hash_id=hash_id, start_date = start_date, room = room, subject = subject, version = 1);
     poll.save()
 
-
-    question = Question(poll=poll, question_text = "Jak sie podoba?") # przykladowa ankieta
-    question.save()
-
-    choice = Choice(question=question, choice_text = "Fajnie")
-    choice.save()
-    choice = Choice(question=question, choice_text = "Srednio")
-    choice.save()
-    choice = Choice(question=question, choice_text = "Nudy")
-    choice.save()
-
-
     question = Question(poll=poll, question_text = "Raiting", question_choices_max=1, isRating=True) # przykladowa ankieta
     question.save()
 

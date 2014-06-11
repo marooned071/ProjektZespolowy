@@ -1,115 +1,55 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-  <!---->
-  <head>
-    <meta charset="UTF-8">
-    <title>Surveys</title>
-
+ <!---->
+<head>
+<meta charset="UTF-8">
+<title>Surveys</title>
 {% load staticfiles %}
+<link rel="stylesheet" href="{% static 'qrpolls/style.css' %}" type="text/css" />
 <script type="text/javascript" src="{% static 'qrpolls/newQuestion-scripts.js' %}" ></script>
 <script type="text/javascript" src="{% static 'qrpolls/jquery-1.11.1.min.js' %}" ></script>
 <script type="text/javascript" src="{% static 'qrpolls/raty-2.5.2/jquery.raty.min.js' %}" ></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript" src="{% static 'qrpolls/charts-scripts.js' %}" ></script>
 <script type="text/javascript">
-    $.fn.raty.defaults.path = '{{ STATIC_URL }}qrpolls/raty-2.5.2/img';
+$.fn.raty.defaults.path = '{{ STATIC_URL }}qrpolls/raty-2.5.2/img';
 </script>
-
-
 <script type="text/javascript">
 function refresh() {
-    var u = document.URL;
-    var u2 = u.replace("meeting", "meetingTest"); 
+var currUrl = document.URL;newUrl
+var newUrl = currUrl.replace("meeting", "meetingCharts"); //zamina adresu url strony z meeting na meetingTest (po to aby django zlapal inny view)
 $.ajax({
-
-  url: u2,
-
-  success: function(data) {
-     $('#questionList').html(data);
-  
-        }
-  });
-  setTimeout("refresh()", 10000);
+url: newUrl,
+success: function(data) {
+$('#charts').html(data);
 }
-
+});
+setTimeout("refresh()", 5000);	//uruchom refresh() za 5 sec
+}
 $(function(){
-    refresh();
+refresh();
 });
 </script>
-<link rel="stylesheet" href="{% static 'qrpolls/style.css' %}" type="text/css" />
-<script type="text/javascript">
-    $.fn.raty.defaults.path = '{{ STATIC_URL }}qrpolls/raty-2.5.2/img';
-</script>
-
-
-  </head>
-=======
- <!---->
-<head>
-<meta charset="UTF-8">
-<title>Surveys</title>
-	{% load staticfiles %}
-	<link rel="stylesheet" href="{% static 'qrpolls/style.css' %}" type="text/css" />
-	<script type="text/javascript" src="{% static 'qrpolls/newQuestion-scripts.js' %}" ></script>
-	<script type="text/javascript" src="{% static 'qrpolls/jquery-1.11.1.min.js' %}" ></script>
-	<script type="text/javascript" src="{% static 'qrpolls/raty-2.5.2/jquery.raty.min.js' %}" ></script>
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<script type="text/javascript" src="{% static 'qrpolls/charts-scripts.js' %}" ></script>
-		<script type="text/javascript">
-			$.fn.raty.defaults.path = '{{ STATIC_URL }}qrpolls/raty-2.5.2/img';
-	</script>
-	<script type="text/javascript">
-	function refresh() {
-			var currUrl = document.URL;newUrl  
-			var newUrl = currUrl.replace("meeting", "meetingCharts"); //zamina adresu url strony z meeting na meetingTest (po to aby django zlapal inny view)
-	$.ajax({
-		url: newUrl,
-		success: function(data) {
-			 $('#charts').html(data);
-			}
-		});
-		setTimeout("refresh()", 5000);	//uruchom refresh() za 5 sec
-	}
-	$(function(){
-			refresh();
-	});
-	</script>
 </head>
->>>>>>> fa493e1851b55fda21eb6592c5d760e25aa34b16
 <body>
 {% csrf_token %}
 {% load qr_tags %}
 
 <div align="center" class="main">
-<<<<<<< HEAD
-    <header><img src="{% static 'qrpolls/img/logo.png' %}" alt="Logo"/></header> 
-    <div class= "title">Nazwa: {{poll.subject}}</div>
-    <div class= "titleDetails">Miejsce: {{poll.room}}</div>
-    <div class= "titleDetails">Czas: {{poll.start_date}}</div>
-    
-    <div align="center" id="qrCode">{% qr_from_text url "l" %}</div>
+<header><img src="{% static 'qrpolls/img/logo.png' %}" alt="Logo"/></header>
+<div class= "title">Subject: {{poll.subject}}</div>
+<div class= "titleDetails">Place: {{poll.room}}</div>
+<div class= "titleDetails">Time: {{poll.time}}</div>
+<div align="center" id="qrCode">{% qr_from_text url "l" %}</div>
 
-<br>
-=======
-		<header><img src="{% static 'qrpolls/img/logo.png' %}" alt="Logo"/></header> 
-		<div class= "title">Subject: {{poll.subject}}</div>
-		<div class= "titleDetails">Place: {{poll.room}}</div>
-		<div class= "titleDetails">Time: {{poll.time}}</div>
-		<div align="center" id="qrCode">{% qr_from_text url "l" %}</div>
-
->>>>>>> fa493e1851b55fda21eb6592c5d760e25aa34b16
 <div class="newQuestion">
-	<button id = "buttonCreateForm" onclick="createForm()">New Question</button>
-</div> 
+<button id = "buttonCreateForm" onclick="createForm()">New Question</button>
+</div>
 <input id="csrf_token" type = "hidden" value="{{ csrf_token }}"/> <!-- token potrzebny aby przeslac POST do django - musi byc, nie ma rady -->
 <div id = "newQuestionButtons"></div> <!-- miejsce w ktorym pojawia sie przyciski panelu tworzenia nowego pytania -->
-<div id = "newQuestionDiv"> </div> <!-- miejsce na inne rzeczy (tresc pytania itp) --> 
+<div id = "newQuestionDiv"> </div> <!-- miejsce na inne rzeczy (tresc pytania itp) -->
 
 <div id = "charts">
-	{% include "meetingCharts.html" %}
-<<<<<<< HEAD
-</div>
-=======
+{% include "meetingCharts.html" %}
 </div>
 </body>
 
@@ -117,7 +57,3 @@ $(function(){
 
 
 
-
-
-
->>>>>>> fa493e1851b55fda21eb6592c5d760e25aa34b16

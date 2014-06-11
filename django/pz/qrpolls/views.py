@@ -128,10 +128,7 @@ def create(request):
     poll = QRPoll(hash_id=hash_id, time = timeMeeting, room = room, subject = subject, version = 1);
     poll.save()
 
-<<<<<<< HEAD
-=======
     # dla kazdego spotkania, nalezy stworzyc specjalne pytanie ratingowe
->>>>>>> fa493e1851b55fda21eb6592c5d760e25aa34b16
     question = Question(poll=poll, question_text = "Raiting", question_choices_max=1, isRating=True) # przykladowa ankieta
     question.save()
 

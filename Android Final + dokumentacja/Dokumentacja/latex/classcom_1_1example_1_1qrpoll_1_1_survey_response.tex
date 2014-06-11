@@ -1,0 +1,223 @@
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_survey_response}{\section{Dokumentacja klasy com.\+example.\+qrpoll.\+Survey\+Response}
+\label{classcom_1_1example_1_1qrpoll_1_1_survey_response}\index{com.\+example.\+qrpoll.\+Survey\+Response@{com.\+example.\+qrpoll.\+Survey\+Response}}
+}
+
+
+Diagram współpracy dla com.\+example.\+qrpoll.\+Survey\+Response\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{classcom_1_1example_1_1qrpoll_1_1_survey_response__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_a13d182139934cfb2f681515e76628786}{Survey\+Response} ()
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_af1338f35c7aa2f3b1f8b1d90b0c1fa41}{Survey\+Response} (Context \hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_a9bfbee3bd0f78b7652a590063c6e7073}{context})
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_a5f4e8e2b1847aca4f0ea56c2c7e6ae46}{Survey\+Response} (Telephony\+Manager \hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_ad4ac570c04a756ac4eaa8622186d5933}{tm})
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_a7c51f0ae34b99c47669f8ea210c9f214}{set\+Context} (Context \hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_a9bfbee3bd0f78b7652a590063c6e7073}{context})
+\item 
+void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_a8513757cb70751abd35ecd4ca292362e}{set\+Tm} ()
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_ab06ccbc70c50e72eb089134884f1e6ac}{get\+Imei} ()
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_a5edce8d8944d575ec23b7f567419cd01}{get\+Sim\+Id} ()
+\item 
+String \hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_a9adfd3c055deca07bf913d65a85c7bad}{create\+Id\+To\+Send} ()
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+Telephony\+Manager \hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_ad4ac570c04a756ac4eaa8622186d5933}{tm}
+\item 
+Context \hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_a9bfbee3bd0f78b7652a590063c6e7073}{context}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa do pobierania I\+M\+E\+I i wysylania go na serwer (do przetestowania, moj tel z androidem sie zepsul wiec nie mam jak dobrze przetestowac tego \begin{DoxyAuthor}{Autor}
+Sliwka 
+\end{DoxyAuthor}
+
+
+Definicja w linii 22 pliku Survey\+Response.\+java.
+
+
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_survey_response_a13d182139934cfb2f681515e76628786}{\index{com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}!Survey\+Response@{Survey\+Response}}
+\index{Survey\+Response@{Survey\+Response}!com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}}
+\subsubsection[{Survey\+Response}]{\setlength{\rightskip}{0pt plus 5cm}com.\+example.\+qrpoll.\+Survey\+Response.\+Survey\+Response (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_survey_response_a13d182139934cfb2f681515e76628786}
+
+
+Definicja w linii 27 pliku Survey\+Response.\+java.
+
+
+\begin{DoxyCode}
+27 \{   \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_survey_response_af1338f35c7aa2f3b1f8b1d90b0c1fa41}{\index{com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}!Survey\+Response@{Survey\+Response}}
+\index{Survey\+Response@{Survey\+Response}!com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}}
+\subsubsection[{Survey\+Response}]{\setlength{\rightskip}{0pt plus 5cm}com.\+example.\+qrpoll.\+Survey\+Response.\+Survey\+Response (
+\begin{DoxyParamCaption}
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_survey_response_af1338f35c7aa2f3b1f8b1d90b0c1fa41}
+
+
+Definicja w linii 29 pliku Survey\+Response.\+java.
+
+
+\begin{DoxyCode}
+29                                           \{
+30         this.context=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_a9bfbee3bd0f78b7652a590063c6e7073}{context};
+31         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_ad4ac570c04a756ac4eaa8622186d5933}{tm}=(TelephonyManager)\hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_a9bfbee3bd0f78b7652a590063c6e7073}{context}.getSystemService(Context.TELEPHONY\_SERVICE);
+32     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_survey_response_a5f4e8e2b1847aca4f0ea56c2c7e6ae46}{\index{com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}!Survey\+Response@{Survey\+Response}}
+\index{Survey\+Response@{Survey\+Response}!com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}}
+\subsubsection[{Survey\+Response}]{\setlength{\rightskip}{0pt plus 5cm}com.\+example.\+qrpoll.\+Survey\+Response.\+Survey\+Response (
+\begin{DoxyParamCaption}
+\item[{Telephony\+Manager}]{tm}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_survey_response_a5f4e8e2b1847aca4f0ea56c2c7e6ae46}
+
+
+Definicja w linii 34 pliku Survey\+Response.\+java.
+
+
+\begin{DoxyCode}
+34                                               \{
+35         this.tm=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_ad4ac570c04a756ac4eaa8622186d5933}{tm};
+36     \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_survey_response_a9adfd3c055deca07bf913d65a85c7bad}{\index{com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}!create\+Id\+To\+Send@{create\+Id\+To\+Send}}
+\index{create\+Id\+To\+Send@{create\+Id\+To\+Send}!com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}}
+\subsubsection[{create\+Id\+To\+Send}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Survey\+Response.\+create\+Id\+To\+Send (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_survey_response_a9adfd3c055deca07bf913d65a85c7bad}
+Tworzy id zlozone z 8 znakow imei i 8 znakow nr karty sim \begin{DoxyReturn}{Zwraca}
+
+\end{DoxyReturn}
+
+
+Definicja w linii 66 pliku Survey\+Response.\+java.
+
+
+\begin{DoxyCode}
+66                                   \{
+67         String imei=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_ab06ccbc70c50e72eb089134884f1e6ac}{getImei}().substring(0, 8);
+68         String sim=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_a5edce8d8944d575ec23b7f567419cd01}{getSimId}().substring(0, 8);
+69         \textcolor{keywordflow}{return} imei+sim;
+70     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_survey_response_ab06ccbc70c50e72eb089134884f1e6ac}{\index{com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}!get\+Imei@{get\+Imei}}
+\index{get\+Imei@{get\+Imei}!com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}}
+\subsubsection[{get\+Imei}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Survey\+Response.\+get\+Imei (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_survey_response_ab06ccbc70c50e72eb089134884f1e6ac}
+zwraca nr imei telefonu \begin{DoxyReturn}{Zwraca}
+
+\end{DoxyReturn}
+
+
+Definicja w linii 51 pliku Survey\+Response.\+java.
+
+
+\begin{DoxyCode}
+51                            \{
+52         \textcolor{keywordflow}{return} tm.getDeviceId();
+53     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_survey_response_a5edce8d8944d575ec23b7f567419cd01}{\index{com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}!get\+Sim\+Id@{get\+Sim\+Id}}
+\index{get\+Sim\+Id@{get\+Sim\+Id}!com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}}
+\subsubsection[{get\+Sim\+Id}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+qrpoll.\+Survey\+Response.\+get\+Sim\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_survey_response_a5edce8d8944d575ec23b7f567419cd01}
+zwraca identyfikator karty sim \begin{DoxyReturn}{Zwraca}
+
+\end{DoxyReturn}
+
+
+Definicja w linii 59 pliku Survey\+Response.\+java.
+
+
+\begin{DoxyCode}
+59                             \{
+60         \textcolor{keywordflow}{return} tm.getSimSerialNumber();
+61     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_survey_response_a7c51f0ae34b99c47669f8ea210c9f214}{\index{com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}!set\+Context@{set\+Context}}
+\index{set\+Context@{set\+Context}!com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}}
+\subsubsection[{set\+Context}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Survey\+Response.\+set\+Context (
+\begin{DoxyParamCaption}
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_survey_response_a7c51f0ae34b99c47669f8ea210c9f214}
+
+
+Definicja w linii 38 pliku Survey\+Response.\+java.
+
+
+\begin{DoxyCode}
+38                                            \{
+39         this.context=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_a9bfbee3bd0f78b7652a590063c6e7073}{context};
+40     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_survey_response_a8513757cb70751abd35ecd4ca292362e}{\index{com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}!set\+Tm@{set\+Tm}}
+\index{set\+Tm@{set\+Tm}!com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}}
+\subsubsection[{set\+Tm}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+qrpoll.\+Survey\+Response.\+set\+Tm (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_survey_response_a8513757cb70751abd35ecd4ca292362e}
+ustawia telephony manager 
+
+Definicja w linii 44 pliku Survey\+Response.\+java.
+
+
+\begin{DoxyCode}
+44                        \{
+45         \hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_ad4ac570c04a756ac4eaa8622186d5933}{tm}=(TelephonyManager)\hyperlink{classcom_1_1example_1_1qrpoll_1_1_survey_response_a9bfbee3bd0f78b7652a590063c6e7073}{context}.getSystemService(Context.TELEPHONY\_SERVICE);
+46     \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_survey_response_a9bfbee3bd0f78b7652a590063c6e7073}{\index{com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}!context@{context}}
+\index{context@{context}!com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}}
+\subsubsection[{context}]{\setlength{\rightskip}{0pt plus 5cm}Context com.\+example.\+qrpoll.\+Survey\+Response.\+context\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_survey_response_a9bfbee3bd0f78b7652a590063c6e7073}
+
+
+Definicja w linii 25 pliku Survey\+Response.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_survey_response_ad4ac570c04a756ac4eaa8622186d5933}{\index{com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}!tm@{tm}}
+\index{tm@{tm}!com\+::example\+::qrpoll\+::\+Survey\+Response@{com\+::example\+::qrpoll\+::\+Survey\+Response}}
+\subsubsection[{tm}]{\setlength{\rightskip}{0pt plus 5cm}Telephony\+Manager com.\+example.\+qrpoll.\+Survey\+Response.\+tm\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_survey_response_ad4ac570c04a756ac4eaa8622186d5933}
+
+
+Definicja w linii 24 pliku Survey\+Response.\+java.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_survey_response_8java}{Survey\+Response.\+java}\end{DoxyCompactItemize}

@@ -119,7 +119,7 @@ def meetingTest(request, hash_id):
 
     data = {'poll': poll, 'url' : path, 'question_list' : question_list, 'rating':rating, 'allVotersCount':allVotersCount, 'questionChoiceVotesDic':questionChoiceVotesDic};
     # data = {'rating':rating, 'allVotersCount':allVotersCount, 'questionChoiceVotesDic' : questionChoiceVotesDic};
-    return render(request, 'qrpolls/meeting_charts.html', data)
+    return render(request, 'qrpolls/meetingCharts.html', data)
 
 
 # Metoda tworzaca nowe spotkanie

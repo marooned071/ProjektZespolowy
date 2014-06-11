@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">qrpoll</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Historia</string>
+    <string name="scan">Nacisnij aby rozpoczac skanowanie</string>
+    <string name="title_activity_poll">PollActivity</string>
+    <string name="textView_versionLabel">Version</string>
+    <string name="poll_textViewVersionLabelStirng">Version</string>
+    <string name="title_activity_history_layout">HistoryLayout</string>
+    <string name="history">History</string>
+    <string name="title_activity_layout">LayoutActivity</string>
+	<string name="mv_subject">Annual Summary 2015</string>
+	<string name="mv_organisator">George Boogie</string>
+	<string name="mv_location_details">Annual Summary 2015</string>
+	<string name="mv_length">Length: 95 min</string>
+</resources>

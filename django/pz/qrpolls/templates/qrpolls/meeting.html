@@ -1,28 +1,8 @@
 <!DOCTYPE html>
-<html>
-<body>
-
-{% csrf_token %}
-{% load qr_tags %}
-{% qr_from_text url "l" %}
-<br>
-{{poll.hash_id}}
-<br>
-Subject: {{poll.subject}}
-<br>
-Room: {{poll.room}}
-<br>
-Start date: {{poll.start_date}}
-<br>
-Url: {{url}}
-<br>
-Version {{poll.version}}
-<br>
-
-VotersCount: {{allVotersCount}}
-
-
-
+  <!---->
+  <head>
+    <meta charset="UTF-8">
+    <title>Surveys</title>
 
 {% load staticfiles %}
 <script type="text/javascript" src="{% static 'qrpolls/newQuestion-scripts.js' %}" ></script>
@@ -40,14 +20,14 @@ VotersCount: {{allVotersCount}}
 
 <script type="text/javascript">
 function refresh() {
-		var u = document.URL;
-		var u2 = u.replace("meeting", "meetingTest"); 
+    var u = document.URL;
+    var u2 = u.replace("meeting", "meetingTest"); 
 $.ajax({
 
- 	url: u2,
+  url: u2,
 
   success: function(data) {
-  	 $('#questionList').html(data);
+     $('#questionList').html(data);
   
         }
   });
@@ -58,19 +38,39 @@ $(function(){
     refresh();
 });
 </script>
+<link rel="stylesheet" href="{% static 'qrpolls/style.css' %}" type="text/css" />
+<script type="text/javascript">
+    $.fn.raty.defaults.path = '{{ STATIC_URL }}qrpolls/raty-2.5.2/img';
+</script>
+
+
+  </head>
+<body>
+{% csrf_token %}
+{% load qr_tags %}
+
+
+<div align="center" class="main">
+    <header><img src="{% static 'qrpolls/img/logo.png' %}" alt="Logo"/></header> 
+    <div class= "title">Nazwa: {{poll.subject}}</div>
+    <div class= "titleDetails">Miejsce: {{poll.room}}</div>
+    <div class= "titleDetails">Czas: {{poll.start_date}}</div>
+    
+    <div align="center" id="qrCode">{% qr_from_text url "l" %}</div>
+
 
 
 <br>
-<button id = "buttonCreateForm" onclick="createForm()">Stworz pytanie</button> 
+<div class="newQuestion">
+  <button id = "buttonCreateForm" onclick="createForm()">Stworz pytanie</button>
+</div> 
 <input id="csrf_token" type = "hidden" value="{{ csrf_token }}"/> <!-- token potrzebny aby przeslac POST do django - musi byc, nie ma rady -->
 <div id = "newQuestionButtons"></div>
 <div id = "newQuestionDiv"> </div>
 
 
-
-
 <div id = "questionList">
-	{% include 'meeting_charts.html' %}
+	{% include "meetingCharts.html" %}
 </div>
 
 

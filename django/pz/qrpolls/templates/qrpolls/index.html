@@ -1,5 +1,12 @@
-{% load staticfiles %}
 
+<!DOCTYPE html>
+  <!---->
+  <head>
+    <meta charset="UTF-8">
+    <title>Surveys</title>
+
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'qrpolls/style.css' %}" type="text/css" />
 <link rel="stylesheet" href="{% static 'qrpolls/timepicker/include/ui-1.10.0/ui-lightness/jquery-ui-1.10.0.custom.min.css' %}" type="text/css" />
 
 <script type="text/javascript" src="{% static 'qrpolls/jquery-1.11.1.min.js' %}"></script>
@@ -9,14 +16,18 @@
 <script type="text/javascript" src="{% static 'qrpolls/timepicker/include/ui-1.10.0/jquery.ui.position.min.js' %}" ></script>
 <script type="text/javascript" src="{% static 'qrpolls/timepicker/jquery.ui.timepicker.js' %}" ></script>
 
+</head>
+<body>
 
+<div align="center" class="main">
+    <header><img src="{% static 'qrpolls/img/logo.png' %}" alt="Logo"/></header>
 
-
-<form action="create" method="post">{% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="Submit" />
-</form>
-
+<div id="123">
+    <form action="create" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" />
+    </form>
+</div>
 
 <style>
 div.ui-datepicker{
@@ -44,6 +55,15 @@ div.ui-datepicker{
 
 
 
+<<<<<<< HEAD
+=======
+
+
+</body>
+
+
+<!--
+>>>>>>> 064773781d3a54587811f33f635c898d91a2ce3f
 {% if poll_list %}
     <ul>
     {% for poll in poll_list %}
@@ -55,3 +75,4 @@ div.ui-datepicker{
 {% endif %}
 
 
+-->

@@ -1,0 +1,222 @@
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_refresh}{\section{Dokumentacja klasy com.\+example.\+qrpoll.\+Refresh}
+\label{classcom_1_1example_1_1qrpoll_1_1_refresh}\index{com.\+example.\+qrpoll.\+Refresh@{com.\+example.\+qrpoll.\+Refresh}}
+}
+
+
+Diagram dziedziczenia dla com.\+example.\+qrpoll.\+Refresh
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classcom_1_1example_1_1qrpoll_1_1_refresh__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla com.\+example.\+qrpoll.\+Refresh\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcom_1_1example_1_1qrpoll_1_1_refresh__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_a8109c006dde5e3fc97150ac96dde844e}{Refresh} (\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll}{Poll} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_a72a1aeb64069e0a0579733c97bb211b3}{poll}, Activity \hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_aa3e22cc50197adde6465dd4cb0ce8db5}{activity})
+\item 
+boolean \hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_ab9c3c9d5f96d115b064440c26e4d1260}{check\+Wifi} ()
+\item 
+boolean \hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_ade5487ac2f52c4d306d6c0308c7eae86}{check\+Network} ()
+\end{DoxyCompactItemize}
+\subsection*{Metody chronione}
+\begin{DoxyCompactItemize}
+\item 
+Void \hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_a2f33f8eb0e87c2ed2ff6358486d99424}{do\+In\+Background} (Void...\+arg0)
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll}{Poll} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_a72a1aeb64069e0a0579733c97bb211b3}{poll}
+\item 
+Activity \hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_aa3e22cc50197adde6465dd4cb0ce8db5}{activity}
+\item 
+\hyperlink{classcom_1_1example_1_1qrpoll_1_1_poll_activity}{Poll\+Activity} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_aa893ac7b613b4da5a7a29dfc3a1bea87}{poll\+Act}
+\item 
+int \hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_ac9c9ddb92776f76a283dd629bf6acbf1}{version}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+\begin{DoxyAuthor}{Autor}
+Sliwka klasa obslugujaca sprawdzanie wersji ankiety 
+\end{DoxyAuthor}
+
+
+Definicja w linii 18 pliku Refresh.\+java.
+
+
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_refresh_a8109c006dde5e3fc97150ac96dde844e}{\index{com\+::example\+::qrpoll\+::\+Refresh@{com\+::example\+::qrpoll\+::\+Refresh}!Refresh@{Refresh}}
+\index{Refresh@{Refresh}!com\+::example\+::qrpoll\+::\+Refresh@{com\+::example\+::qrpoll\+::\+Refresh}}
+\subsubsection[{Refresh}]{\setlength{\rightskip}{0pt plus 5cm}com.\+example.\+qrpoll.\+Refresh.\+Refresh (
+\begin{DoxyParamCaption}
+\item[{{\bf Poll}}]{poll, }
+\item[{Activity}]{activity}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_refresh_a8109c006dde5e3fc97150ac96dde844e}
+glowny konstruktor 
+\begin{DoxyParams}{Parametry}
+{\em poll} & Aktualna ankieta \\
+\hline
+{\em activity} & activity ktore wywoluje asynctaska \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii 28 pliku Refresh.\+java.
+
+
+\begin{DoxyCode}
+28                                                \{
+29         this.activity=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_aa3e22cc50197adde6465dd4cb0ce8db5}{activity};
+30         this.poll=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_a72a1aeb64069e0a0579733c97bb211b3}{poll};
+31         this.pollAct=(PollActivity)\hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_aa3e22cc50197adde6465dd4cb0ce8db5}{activity};
+32     \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_refresh_ade5487ac2f52c4d306d6c0308c7eae86}{\index{com\+::example\+::qrpoll\+::\+Refresh@{com\+::example\+::qrpoll\+::\+Refresh}!check\+Network@{check\+Network}}
+\index{check\+Network@{check\+Network}!com\+::example\+::qrpoll\+::\+Refresh@{com\+::example\+::qrpoll\+::\+Refresh}}
+\subsubsection[{check\+Network}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\+example.\+qrpoll.\+Refresh.\+check\+Network (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_refresh_ade5487ac2f52c4d306d6c0308c7eae86}
+sprawdzenie danych pakietowych \begin{DoxyReturn}{Zwraca}
+
+\end{DoxyReturn}
+
+
+Definicja w linii 84 pliku Refresh.\+java.
+
+
+\begin{DoxyCode}
+84                                  \{
+85         ConnectivityManager cm=(ConnectivityManager)\hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_aa3e22cc50197adde6465dd4cb0ce8db5}{activity}.getApplicationContext()
+      .getSystemService(Context.CONNECTIVITY\_SERVICE);
+86         NetworkInfo ni=cm.getNetworkInfo(ConnectivityManager.TYPE\_MOBILE);
+87         \textcolor{keywordflow}{return} ni.isConnected();
+88     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_refresh_ab9c3c9d5f96d115b064440c26e4d1260}{\index{com\+::example\+::qrpoll\+::\+Refresh@{com\+::example\+::qrpoll\+::\+Refresh}!check\+Wifi@{check\+Wifi}}
+\index{check\+Wifi@{check\+Wifi}!com\+::example\+::qrpoll\+::\+Refresh@{com\+::example\+::qrpoll\+::\+Refresh}}
+\subsubsection[{check\+Wifi}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\+example.\+qrpoll.\+Refresh.\+check\+Wifi (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1example_1_1qrpoll_1_1_refresh_ab9c3c9d5f96d115b064440c26e4d1260}
+sprawdzenie stanu wifi \begin{DoxyReturn}{Zwraca}
+
+\end{DoxyReturn}
+
+
+Definicja w linii 76 pliku Refresh.\+java.
+
+
+\begin{DoxyCode}
+76                               \{
+77         WifiManager wifi=(WifiManager)\hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_aa3e22cc50197adde6465dd4cb0ce8db5}{activity}.getApplicationContext().getSystemService(
+      Context.WIFI\_SERVICE);
+78         \textcolor{keywordflow}{return} wifi.isWifiEnabled();
+79     \}
+\end{DoxyCode}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_refresh_a2f33f8eb0e87c2ed2ff6358486d99424}{\index{com\+::example\+::qrpoll\+::\+Refresh@{com\+::example\+::qrpoll\+::\+Refresh}!do\+In\+Background@{do\+In\+Background}}
+\index{do\+In\+Background@{do\+In\+Background}!com\+::example\+::qrpoll\+::\+Refresh@{com\+::example\+::qrpoll\+::\+Refresh}}
+\subsubsection[{do\+In\+Background}]{\setlength{\rightskip}{0pt plus 5cm}Void com.\+example.\+qrpoll.\+Refresh.\+do\+In\+Background (
+\begin{DoxyParamCaption}
+\item[{Void...}]{arg0}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classcom_1_1example_1_1qrpoll_1_1_refresh_a2f33f8eb0e87c2ed2ff6358486d99424}
+sprawdzanie czy nie zmienila sie wersja ankiety 
+
+Definicja w linii 37 pliku Refresh.\+java.
+
+
+\begin{DoxyCode}
+37                                                 \{
+38         \textcolor{keywordflow}{while} (!this.isCancelled())\{
+39             \textcolor{keywordflow}{try} \{
+40                 Thread.sleep(30000);
+41                 
+42                 \textcolor{comment}{//Toast.makeText(activity.getApplicationContext()," watek dziala",
+       Toast.LENGTH\_SHORT).show();}
+43                 Log.d(\textcolor{stringliteral}{""}, \textcolor{stringliteral}{"wypisz do logu"});
+44             \} \textcolor{keywordflow}{catch} (InterruptedException e) \{
+45                 \textcolor{comment}{// TODO Auto-generated catch block}
+46                 e.printStackTrace();
+47             \}
+48             String adress=poll.getAddress();
+49             \textcolor{keywordtype}{int} \hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_ac9c9ddb92776f76a283dd629bf6acbf1}{version}=poll.getVersion();
+50             Poll p=null;
+51             \textcolor{keywordflow}{if}(\hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_ab9c3c9d5f96d115b064440c26e4d1260}{checkWifi}()||\hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_ade5487ac2f52c4d306d6c0308c7eae86}{checkNetwork}())\{
+52             \textcolor{keywordflow}{try} \{
+53                 p=\textcolor{keyword}{new} Poll(adress,\hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_aa3e22cc50197adde6465dd4cb0ce8db5}{activity}.getApplicationContext());
+54             \} \textcolor{keywordflow}{catch} (JSONException e) \{
+55                 \textcolor{comment}{// TODO Auto-generated catch block}
+56                 e.printStackTrace();
+57             \}
+58             \textcolor{keywordflow}{if}(version!=p.getVersion())\{
+59                 this.version=\hyperlink{classcom_1_1example_1_1qrpoll_1_1_refresh_ac9c9ddb92776f76a283dd629bf6acbf1}{version};
+60                 pollAct.refresh();
+61                 this.cancel(\textcolor{keyword}{true});
+62             \}
+63             \}\textcolor{keywordflow}{else}\{
+64                 \textcolor{comment}{//Toast.makeText(activity.getApplicationContext(),}
+65                   \textcolor{comment}{//      "Blad Polaczenia", Toast.LENGTH\_SHORT).show();}
+66                 
+67                     
+68             \}
+69         \}
+70         \textcolor{keywordflow}{return} null;
+71     \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_refresh_aa3e22cc50197adde6465dd4cb0ce8db5}{\index{com\+::example\+::qrpoll\+::\+Refresh@{com\+::example\+::qrpoll\+::\+Refresh}!activity@{activity}}
+\index{activity@{activity}!com\+::example\+::qrpoll\+::\+Refresh@{com\+::example\+::qrpoll\+::\+Refresh}}
+\subsubsection[{activity}]{\setlength{\rightskip}{0pt plus 5cm}Activity com.\+example.\+qrpoll.\+Refresh.\+activity\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_refresh_aa3e22cc50197adde6465dd4cb0ce8db5}
+
+
+Definicja w linii 20 pliku Refresh.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_refresh_a72a1aeb64069e0a0579733c97bb211b3}{\index{com\+::example\+::qrpoll\+::\+Refresh@{com\+::example\+::qrpoll\+::\+Refresh}!poll@{poll}}
+\index{poll@{poll}!com\+::example\+::qrpoll\+::\+Refresh@{com\+::example\+::qrpoll\+::\+Refresh}}
+\subsubsection[{poll}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Poll} com.\+example.\+qrpoll.\+Refresh.\+poll\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_refresh_a72a1aeb64069e0a0579733c97bb211b3}
+
+
+Definicja w linii 19 pliku Refresh.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_refresh_aa893ac7b613b4da5a7a29dfc3a1bea87}{\index{com\+::example\+::qrpoll\+::\+Refresh@{com\+::example\+::qrpoll\+::\+Refresh}!poll\+Act@{poll\+Act}}
+\index{poll\+Act@{poll\+Act}!com\+::example\+::qrpoll\+::\+Refresh@{com\+::example\+::qrpoll\+::\+Refresh}}
+\subsubsection[{poll\+Act}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Poll\+Activity} com.\+example.\+qrpoll.\+Refresh.\+poll\+Act\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_refresh_aa893ac7b613b4da5a7a29dfc3a1bea87}
+
+
+Definicja w linii 21 pliku Refresh.\+java.
+
+\hypertarget{classcom_1_1example_1_1qrpoll_1_1_refresh_ac9c9ddb92776f76a283dd629bf6acbf1}{\index{com\+::example\+::qrpoll\+::\+Refresh@{com\+::example\+::qrpoll\+::\+Refresh}!version@{version}}
+\index{version@{version}!com\+::example\+::qrpoll\+::\+Refresh@{com\+::example\+::qrpoll\+::\+Refresh}}
+\subsubsection[{version}]{\setlength{\rightskip}{0pt plus 5cm}int com.\+example.\+qrpoll.\+Refresh.\+version\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1example_1_1qrpoll_1_1_refresh_ac9c9ddb92776f76a283dd629bf6acbf1}
+
+
+Definicja w linii 22 pliku Refresh.\+java.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_refresh_8java}{Refresh.\+java}\end{DoxyCompactItemize}

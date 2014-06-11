@@ -3,17 +3,7 @@ from qrpolls.models import QRPoll, Question, Choice, Vote
 
 
 class QRPollAdmin(admin.ModelAdmin):
-    fields = ['hash_id', 'start_date', 'room', 'subject']
-
-# class QuestionAdmin(admin.ModelAdmin):
-#     fields = ['question_text']
-
-# class ChoiceAdmin(admin.ModelAdmin):
-#     fields = ['choice_text', 'votes']
-
-
-
-
+    fields = ['hash_id', 'time', 'room', 'subject']
 
 
 admin.site.register(QRPoll, QRPollAdmin)

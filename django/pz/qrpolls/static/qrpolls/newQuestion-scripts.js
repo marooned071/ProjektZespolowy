@@ -1,8 +1,4 @@
 
-
-
-
-
 var choiceCounter = 0; //licznik odpowiedzi, zwieksza sie o jeden za kazdym razem gdy zostaje dodana odpowiedz do formularza 
 // sluzy do inkrementowania id (id kazdej odpowiedzi musi byc inne aby bezproblemowa przeslac je POSTem)
 
@@ -16,7 +12,7 @@ function createForm(){
 	form.setAttribute("id", "form");
 
 	form.onsubmit = function() {
-    	return false;
+    	return false; //przeslaniem zajmujemy sie my (przed wyslaniem jest walidacja pol)
 	}
 
 
@@ -44,7 +40,7 @@ function createForm(){
 	tr.appendChild(tdInput);
 	
 	tdInput.appendChild(questionText);
-	tdLabel.appendChild(document.createTextNode("Tresc pytania: "));
+	tdLabel.appendChild(document.createTextNode("Question: "));
 
 	form.appendChild(tr);
 
@@ -62,7 +58,7 @@ function createForm(){
 	choicesMax.setAttribute("name", "choicesMax"); 
 
 	tdInput2.appendChild(choicesMax);
-	tdLabel2.appendChild(document.createTextNode("Maks odp: "));
+	tdLabel2.appendChild(document.createTextNode("Max Choices: "));
 
 	form.appendChild(tr2);
 
@@ -70,7 +66,7 @@ function createForm(){
 	//przycisk dodajacy miejsce na odpowiedz
 	var buttonAddChoice = document.createElement("button");
 	buttonAddChoice.setAttribute("onClick","addChoice()");
-	var t=document.createTextNode("+ odpowiedz");
+	var t=document.createTextNode("Choice++");
 	buttonAddChoice.appendChild(t); 
 	document.getElementById("newQuestionButtons").appendChild(buttonAddChoice);
 
@@ -90,7 +86,7 @@ function createForm(){
 	//przycisk wywylajacy do abzy
 	var buttonAddQuestion = document.createElement("button");
 	buttonAddQuestion.setAttribute("onClick","submitForm()");
-	var t2=document.createTextNode("Dodaj Pytanie");
+	var t2=document.createTextNode("Submit");
 	buttonAddQuestion.appendChild(t2); 
 	buttonAddQuestionDiv.appendChild(buttonAddQuestion);
 
@@ -108,9 +104,8 @@ function createForm(){
 	choiceCounter = 0;
 
 	//usuwamy przycisk tworzenia formularza, jesli stworzymy nowe pytanie robi sie syf z odpowiedziami trzeba to jakos ogarnac
+	// dla tego mozna tworzyc jedno pytanie na raz
 	var buttonCreateForm = document.getElementById("buttonCreateForm").style.visibility="hidden";
-	//document.body.removeChild(buttonCreateForm);
-	//document.getElementById("newQuestionDiv").removeChild(buttonCreateForm);
 
 
 }
@@ -123,7 +118,6 @@ function addChoice(){
 
 	var choice = document.createElement("input");
 
-
 	var tr = document.createElement("tr");
 	var tdLabel = document.createElement("td");
 	var tdInput = document.createElement("td");
@@ -132,52 +126,33 @@ function addChoice(){
 	tr.appendChild(tdInput);
 	
 	tdInput.appendChild(choice);
-	tdLabel.appendChild(document.createTextNode("odp ".concat(choiceCounter)));
+	tdLabel.appendChild(document.createTextNode("Choice  ".concat(choiceCounter+1))); //Choice 1, Choice 2 itp
 
 	choice.setAttribute("id", newId); 
 	choice.setAttribute("type", "text"); 
 	choice.setAttribute("name", newName); 
 
-	//document.getElementById("form").appendChild(choice);
 	document.getElementById("choiceTable").appendChild(tr);
 	choiceCounter = choiceCounter +1;
 
-	var option = document.createElement("option");
+	var option = document.createElement("option"); //dodanie pola wyboru do comboboxa z wyborem iloscy pytan
 	option.text = choiceCounter;
 	document.getElementById("choicesMax").add(option);
 
 
 }
 
+//walidacja pol
 function isValidate(){
 	var questionValue = document.getElementById("question").value;
 	if (questionValue == ""){
-		alert("brak pytania");
+		alert("No question.");
 		return false;
 	}
-	var choicesMaxValue = document.getElementById("choicesMax").value;
-	if (isNaN(choicesMaxValue)){
-		alert("max liczba odpowiedzi nie jest liczba");
-		return false;
-	}
-
-	var choicesMaxValueInt = parseInt(choicesMaxValue);
-
-	if(choicesMaxValueInt==0){
-		alert("liczba odpowiedzi do zaznaczenia musi byc >0");
-		return false;
-	}
-
-	if(choicesMaxValueInt>choiceCounter){
-		alert("liczba odpowiedzi do zaznaczenia jest wieksza od liczby odpowiedzi");
-		return false;
-	}
-
-
 	return true;
 }
 
-
+//funkcja wylowywana po nacisnieciu przycisku Sumbit, odpowiada za przeslanie danych
 function submitForm(){
 	if(isValidate()){
 		var form = document.getElementById("form");
@@ -186,16 +161,15 @@ function submitForm(){
 	return false;
 }
 
+//funkcja wylosywana po nacisnieciu przycisku "X" chowa caly formularz
 function hideForm(){
 	var newQuestionDiv = document.getElementById("newQuestionDiv");
 	while (newQuestionDiv.firstChild) {
     	newQuestionDiv.removeChild(newQuestionDiv.firstChild);
 	}
-
 	var newQuestionButtons = document.getElementById("newQuestionButtons");
 	while (newQuestionButtons.firstChild) {
     	newQuestionButtons.removeChild(newQuestionButtons.firstChild);
 	}
-
 	var buttonCreateForm = document.getElementById("buttonCreateForm").style.visibility="visible";
 }

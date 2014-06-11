@@ -4,6 +4,7 @@ google.setOnLoadCallback(drawChart2);
 
 function drawChart2(divID,question,choices) {
 
+	//zamiana &quot na ''
 	choices = choices.replace(/&(l|g|quo)t;/g, function(a,b){
 		return {
 			l   : '<',
@@ -20,12 +21,12 @@ function drawChart2(divID,question,choices) {
 
 	var options={};
 
-	if(c[c.length-1][0]=='No Votes'){
+	if(c[c.length-1][0]=='No Votes'){ //ustawienia gdy brak glosujacych
 		options = {
 			title: t,
 			pieHole: 0.4,
 			is3D : true,
-			colors: ['#ffffff'],
+			colors: ['#ffffff'], //kolor bialy
 			backgroundColor: '#CECECE'
 
 		};
@@ -38,8 +39,6 @@ function drawChart2(divID,question,choices) {
 			is3D : true
 		};
 	}
-
-
 	var chart = new google.visualization.PieChart(document.getElementById(divID));
 	chart.draw(data, options);
 }

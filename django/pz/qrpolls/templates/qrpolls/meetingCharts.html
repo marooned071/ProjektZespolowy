@@ -19,17 +19,15 @@ $('#rating').raty(
 
 
 {% with i=1  %}
-
-
-
 {% for question, dict in questionChoiceVotesDic.items %}
 <hr/>
 <div id="chart_div{{forloop.counter}}" style="width: 700px; height: 400px;"> 
-	<script type="text/javascript"> drawChart2("chart_div{{forloop.counter}}" ,"{{ question }}", "{{ dict }}");</script> 
+	<script type="text/javascript"> drawChart2("chart_div{{forloop.counter}}" ,"{{ question }}", "{{ dict }}");</script>
 </div>
-
+<!-- usuniecie problemu dziwnej "2"  -->
+<div id = "xD" style="display: none;">
 {{ i|add:1 }}
-
+</div>
 {% endfor %}
 {% endwith %}  
 
